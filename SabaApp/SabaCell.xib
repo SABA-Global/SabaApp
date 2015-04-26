@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SabaCell">
+            <rect key="frame" x="0.0" y="0.0" width="169" height="169"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="169" height="169"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Schedule" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHM-ab-8V3">
+                        <rect key="frame" x="18" y="87" width="131.5" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="h6Q-Xl-2Yr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="highlightedColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ptG-3K-KFx">
+                        <rect key="frame" x="64" y="47" width="40" height="41"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dHM-ab-8V3" firstAttribute="top" secondItem="ptG-3K-KFx" secondAttribute="bottom" constant="14" id="5g9-Tn-rgH"/>
+                <constraint firstItem="dHM-ab-8V3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ffd-12-CTK"/>
+                <constraint firstItem="ptG-3K-KFx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="47" id="OFC-PM-SVN"/>
+                <constraint firstItem="dHM-ab-8V3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ptG-3K-KFx" secondAttribute="bottom" constant="-1" id="Z05-k7-fAn"/>
+                <constraint firstAttribute="trailing" secondItem="dHM-ab-8V3" secondAttribute="trailing" constant="19.5" id="cpH-CK-cti"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dHM-ab-8V3" secondAttribute="trailing" id="doA-LL-DXM"/>
+                <constraint firstItem="dHM-ab-8V3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="18" id="iCc-Qi-boI"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dHM-ab-8V3" secondAttribute="bottom" constant="32" id="rLB-3K-Nc7"/>
+                <constraint firstAttribute="trailing" secondItem="ptG-3K-KFx" secondAttribute="trailing" constant="65" id="vD1-ex-hLS"/>
+                <constraint firstItem="ptG-3K-KFx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="64" id="yZQ-0y-fB5"/>
+            </constraints>
+            <size key="customSize" width="168" height="192"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="5g9-Tn-rgH"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="imageView" destination="ptG-3K-KFx" id="e3D-5S-VfA"/>
+                <outlet property="title" destination="dHM-ab-8V3" id="cmw-LV-I5B"/>
+            </connections>
+            <point key="canvasLocation" x="175.5" y="161.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="calendar.png" width="256" height="256"/>
+    </resources>
+</document>

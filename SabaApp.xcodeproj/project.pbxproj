@@ -1,0 +1,619 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6472047E3D71CC4F4B5DC5F4 /* libPods.a */; };
+		FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */; };
+		FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */; };
+		FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92C81AEC139E00F439B7 /* SabaClient.m */; };
+		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
+		FADD45651AE8DE180022FE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD45641AE8DE180022FE96 /* main.m */; };
+		FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD45671AE8DE180022FE96 /* AppDelegate.m */; };
+		FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD456F1AE8DE190022FE96 /* Images.xcassets */; };
+		FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADD45711AE8DE190022FE96 /* LaunchScreen.xib */; };
+		FADD457F1AE8DE190022FE96 /* SabaAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD457E1AE8DE190022FE96 /* SabaAppTests.m */; };
+		FADD458C1AE8DED60022FE96 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD458A1AE8DED60022FE96 /* MainViewController.m */; };
+		FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FADD458B1AE8DED60022FE96 /* MainViewController.xib */; };
+		FADD459C1AE8E1160022FE96 /* afternoon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD458F1AE8E1160022FE96 /* afternoon.jpg */; };
+		FADD459D1AE8E1160022FE96 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FADD45901AE8E1160022FE96 /* calendar.png */; };
+		FADD459E1AE8E1160022FE96 /* dollar.png in Resources */ = {isa = PBXBuildFile; fileRef = FADD45911AE8E1160022FE96 /* dollar.png */; };
+		FADD459F1AE8E1160022FE96 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = FADD45921AE8E1160022FE96 /* location.png */; };
+		FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */ = {isa = PBXBuildFile; fileRef = FADD45931AE8E1160022FE96 /* megaphone.png */; };
+		FADD45A11AE8E1160022FE96 /* night.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD45941AE8E1160022FE96 /* night.jpg */; };
+		FADD45A21AE8E1160022FE96 /* pray.png in Resources */ = {isa = PBXBuildFile; fileRef = FADD45951AE8E1160022FE96 /* pray.png */; };
+		FADD45A31AE8E1160022FE96 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = FADD45961AE8E1160022FE96 /* settings.png */; };
+		FADD45A41AE8E1160022FE96 /* sunrise.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD45971AE8E1160022FE96 /* sunrise.jpg */; };
+		FADD45A51AE8E1160022FE96 /* sunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD45981AE8E1160022FE96 /* sunset.jpg */; };
+		FADD45A61AE8E1160022FE96 /* wallpaper-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD45991AE8E1160022FE96 /* wallpaper-1.jpg */; };
+		FADD45A71AE8E1160022FE96 /* wallpaper-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD459A1AE8E1160022FE96 /* wallpaper-2.jpg */; };
+		FADD45A81AE8E1160022FE96 /* wallpaper-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD459B1AE8E1160022FE96 /* wallpaper-3.jpg */; };
+		FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD45A91AE8E4770022FE96 /* masjid-al-haram_00103900.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FADD45791AE8DE190022FE96 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADD45571AE8DE180022FE96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FADD455E1AE8DE180022FE96;
+			remoteInfo = SabaApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		063D403729EB442D45B488BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6472047E3D71CC4F4B5DC5F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FA4C92BC1AE9AD6700F439B7 /* SabaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SabaCell.h; sourceTree = "<group>"; };
+		FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaCell.m; sourceTree = "<group>"; };
+		FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SabaCell.xib; sourceTree = "<group>"; };
+		FA4C92C41AEC0FBB00F439B7 /* Saba.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Saba.db; sourceTree = "<group>"; };
+		FA4C92C71AEC139E00F439B7 /* SabaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SabaClient.h; sourceTree = "<group>"; };
+		FA4C92C81AEC139E00F439B7 /* SabaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaClient.m; sourceTree = "<group>"; };
+		FA4C92CA1AEC459E00F439B7 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
+		FA4C92CB1AEC459E00F439B7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		FADD455F1AE8DE180022FE96 /* SabaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADD45631AE8DE180022FE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADD45641AE8DE180022FE96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FADD45661AE8DE180022FE96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FADD45671AE8DE180022FE96 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FADD456F1AE8DE190022FE96 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FADD45721AE8DE190022FE96 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FADD45781AE8DE190022FE96 /* SabaAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SabaAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADD457D1AE8DE190022FE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADD457E1AE8DE190022FE96 /* SabaAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SabaAppTests.m; sourceTree = "<group>"; };
+		FADD45891AE8DED60022FE96 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FADD458A1AE8DED60022FE96 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FADD458B1AE8DED60022FE96 /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		FADD458F1AE8E1160022FE96 /* afternoon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = afternoon.jpg; sourceTree = "<group>"; };
+		FADD45901AE8E1160022FE96 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		FADD45911AE8E1160022FE96 /* dollar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dollar.png; sourceTree = "<group>"; };
+		FADD45921AE8E1160022FE96 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		FADD45931AE8E1160022FE96 /* megaphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = megaphone.png; sourceTree = "<group>"; };
+		FADD45941AE8E1160022FE96 /* night.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = night.jpg; sourceTree = "<group>"; };
+		FADD45951AE8E1160022FE96 /* pray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pray.png; sourceTree = "<group>"; };
+		FADD45961AE8E1160022FE96 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		FADD45971AE8E1160022FE96 /* sunrise.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunrise.jpg; sourceTree = "<group>"; };
+		FADD45981AE8E1160022FE96 /* sunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sunset.jpg; sourceTree = "<group>"; };
+		FADD45991AE8E1160022FE96 /* wallpaper-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wallpaper-1.jpg"; sourceTree = "<group>"; };
+		FADD459A1AE8E1160022FE96 /* wallpaper-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wallpaper-2.jpg"; sourceTree = "<group>"; };
+		FADD459B1AE8E1160022FE96 /* wallpaper-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wallpaper-3.jpg"; sourceTree = "<group>"; };
+		FADD45A91AE8E4770022FE96 /* masjid-al-haram_00103900.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "masjid-al-haram_00103900.jpg"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FADD455C1AE8DE180022FE96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADD45751AE8DE190022FE96 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		12A780B06161277FE9F4F949 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */,
+				063D403729EB442D45B488BD /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		62606E792295D5246B69CECD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6472047E3D71CC4F4B5DC5F4 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA4C92BB1AE9AD0A00F439B7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C92BC1AE9AD6700F439B7 /* SabaCell.h */,
+				FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */,
+				FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		FA4C92C11AEC0E5400F439B7 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C92C71AEC139E00F439B7 /* SabaClient.h */,
+				FA4C92C81AEC139E00F439B7 /* SabaClient.m */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		FA4C92C21AEC0E6700F439B7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C92CA1AEC459E00F439B7 /* Program.h */,
+				FA4C92CB1AEC459E00F439B7 /* Program.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		FA4C92C31AEC0F6500F439B7 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C92C41AEC0FBB00F439B7 /* Saba.db */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		FADD45561AE8DE180022FE96 = {
+			isa = PBXGroup;
+			children = (
+				FADD45611AE8DE180022FE96 /* SabaApp */,
+				FADD457B1AE8DE190022FE96 /* SabaAppTests */,
+				FADD45601AE8DE180022FE96 /* Products */,
+				12A780B06161277FE9F4F949 /* Pods */,
+				62606E792295D5246B69CECD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FADD45601AE8DE180022FE96 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FADD455F1AE8DE180022FE96 /* SabaApp.app */,
+				FADD45781AE8DE190022FE96 /* SabaAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FADD45611AE8DE180022FE96 /* SabaApp */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9DD91AEC9F3C004059B8 /* Views */,
+				FA4C92C21AEC0E6700F439B7 /* Models */,
+				FA4C92C11AEC0E5400F439B7 /* Client */,
+				FA4C92BB1AE9AD0A00F439B7 /* Cells */,
+				FADD45881AE8DE8F0022FE96 /* ViewControllers */,
+				FADD45661AE8DE180022FE96 /* AppDelegate.h */,
+				FADD45671AE8DE180022FE96 /* AppDelegate.m */,
+				FADD456F1AE8DE190022FE96 /* Images.xcassets */,
+				FADD45711AE8DE190022FE96 /* LaunchScreen.xib */,
+				FADD45621AE8DE180022FE96 /* Supporting Files */,
+			);
+			path = SabaApp;
+			sourceTree = "<group>";
+		};
+		FADD45621AE8DE180022FE96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA4C92C31AEC0F6500F439B7 /* Database */,
+				FADD458E1AE8E1040022FE96 /* Images */,
+				FADD45631AE8DE180022FE96 /* Info.plist */,
+				FADD45641AE8DE180022FE96 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FADD457B1AE8DE190022FE96 /* SabaAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				FADD457E1AE8DE190022FE96 /* SabaAppTests.m */,
+				FADD457C1AE8DE190022FE96 /* Supporting Files */,
+			);
+			path = SabaAppTests;
+			sourceTree = "<group>";
+		};
+		FADD457C1AE8DE190022FE96 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FADD457D1AE8DE190022FE96 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FADD45881AE8DE8F0022FE96 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FADD45891AE8DED60022FE96 /* MainViewController.h */,
+				FADD458A1AE8DED60022FE96 /* MainViewController.m */,
+				FADD458B1AE8DED60022FE96 /* MainViewController.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FADD458E1AE8E1040022FE96 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FADD45A91AE8E4770022FE96 /* masjid-al-haram_00103900.jpg */,
+				FADD458F1AE8E1160022FE96 /* afternoon.jpg */,
+				FADD45901AE8E1160022FE96 /* calendar.png */,
+				FADD45911AE8E1160022FE96 /* dollar.png */,
+				FADD45921AE8E1160022FE96 /* location.png */,
+				FADD45931AE8E1160022FE96 /* megaphone.png */,
+				FADD45941AE8E1160022FE96 /* night.jpg */,
+				FADD45951AE8E1160022FE96 /* pray.png */,
+				FADD45961AE8E1160022FE96 /* settings.png */,
+				FADD45971AE8E1160022FE96 /* sunrise.jpg */,
+				FADD45981AE8E1160022FE96 /* sunset.jpg */,
+				FADD45991AE8E1160022FE96 /* wallpaper-1.jpg */,
+				FADD459A1AE8E1160022FE96 /* wallpaper-2.jpg */,
+				FADD459B1AE8E1160022FE96 /* wallpaper-3.jpg */,
+			);
+			name = Images;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FAEE9DD91AEC9F3C004059B8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FADD455E1AE8DE180022FE96 /* SabaApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "SabaApp" */;
+			buildPhases = (
+				71235F08B106F7D28FD4DAE4 /* Check Pods Manifest.lock */,
+				FADD455B1AE8DE180022FE96 /* Sources */,
+				FADD455C1AE8DE180022FE96 /* Frameworks */,
+				FADD455D1AE8DE180022FE96 /* Resources */,
+				C091D0D8B9FE26B0DB0F9C87 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SabaApp;
+			productName = SabaApp;
+			productReference = FADD455F1AE8DE180022FE96 /* SabaApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FADD45771AE8DE190022FE96 /* SabaAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FADD45851AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "SabaAppTests" */;
+			buildPhases = (
+				FADD45741AE8DE190022FE96 /* Sources */,
+				FADD45751AE8DE190022FE96 /* Frameworks */,
+				FADD45761AE8DE190022FE96 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FADD457A1AE8DE190022FE96 /* PBXTargetDependency */,
+			);
+			name = SabaAppTests;
+			productName = SabaAppTests;
+			productReference = FADD45781AE8DE190022FE96 /* SabaAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FADD45571AE8DE180022FE96 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Naqvi;
+				TargetAttributes = {
+					FADD455E1AE8DE180022FE96 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					FADD45771AE8DE190022FE96 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = FADD455E1AE8DE180022FE96;
+					};
+				};
+			};
+			buildConfigurationList = FADD455A1AE8DE180022FE96 /* Build configuration list for PBXProject "SabaApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FADD45561AE8DE180022FE96;
+			productRefGroup = FADD45601AE8DE180022FE96 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FADD455E1AE8DE180022FE96 /* SabaApp */,
+				FADD45771AE8DE190022FE96 /* SabaAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FADD455D1AE8DE180022FE96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADD45A51AE8E1160022FE96 /* sunset.jpg in Resources */,
+				FADD45A71AE8E1160022FE96 /* wallpaper-2.jpg in Resources */,
+				FADD45A11AE8E1160022FE96 /* night.jpg in Resources */,
+				FADD45A21AE8E1160022FE96 /* pray.png in Resources */,
+				FADD459C1AE8E1160022FE96 /* afternoon.jpg in Resources */,
+				FADD45A31AE8E1160022FE96 /* settings.png in Resources */,
+				FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */,
+				FADD45A81AE8E1160022FE96 /* wallpaper-3.jpg in Resources */,
+				FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */,
+				FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */,
+				FADD459D1AE8E1160022FE96 /* calendar.png in Resources */,
+				FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */,
+				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
+				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
+				FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */,
+				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
+				FADD45A61AE8E1160022FE96 /* wallpaper-1.jpg in Resources */,
+				FADD45A41AE8E1160022FE96 /* sunrise.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADD45761AE8DE190022FE96 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		71235F08B106F7D28FD4DAE4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C091D0D8B9FE26B0DB0F9C87 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FADD455B1AE8DE180022FE96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */,
+				FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */,
+				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
+				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
+				FADD458C1AE8DED60022FE96 /* MainViewController.m in Sources */,
+				FADD45651AE8DE180022FE96 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FADD45741AE8DE190022FE96 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FADD457F1AE8DE190022FE96 /* SabaAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FADD457A1AE8DE190022FE96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FADD455E1AE8DE180022FE96 /* SabaApp */;
+			targetProxy = FADD45791AE8DE190022FE96 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FADD45711AE8DE190022FE96 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FADD45721AE8DE190022FE96 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FADD45801AE8DE190022FE96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FADD45811AE8DE190022FE96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FADD45831AE8DE190022FE96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SabaApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FADD45841AE8DE190022FE96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 063D403729EB442D45B488BD /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SabaApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FADD45861AE8DE190022FE96 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SabaAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SabaApp.app/SabaApp";
+			};
+			name = Debug;
+		};
+		FADD45871AE8DE190022FE96 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SabaAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SabaApp.app/SabaApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FADD455A1AE8DE180022FE96 /* Build configuration list for PBXProject "SabaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FADD45801AE8DE190022FE96 /* Debug */,
+				FADD45811AE8DE190022FE96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "SabaApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FADD45831AE8DE190022FE96 /* Debug */,
+				FADD45841AE8DE190022FE96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FADD45851AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "SabaAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FADD45861AE8DE190022FE96 /* Debug */,
+				FADD45871AE8DE190022FE96 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FADD45571AE8DE180022FE96 /* Project object */;
+}

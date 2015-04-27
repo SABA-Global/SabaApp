@@ -33,6 +33,14 @@
 		FADD45A71AE8E1160022FE96 /* wallpaper-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD459A1AE8E1160022FE96 /* wallpaper-2.jpg */; };
 		FADD45A81AE8E1160022FE96 /* wallpaper-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD459B1AE8E1160022FE96 /* wallpaper-3.jpg */; };
 		FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FADD45A91AE8E4770022FE96 /* masjid-al-haram_00103900.jpg */; };
+		FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */; };
+		FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */; };
+		FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */; };
+		FAEE9DE81AEDEDDE004059B8 /* EventsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */; };
+		FAEE9DEC1AEDEE15004059B8 /* PrayerTimesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */; };
+		FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */; };
+		FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */; };
+		FAEE9DF71AEDF0BE004059B8 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +92,18 @@
 		FADD459A1AE8E1160022FE96 /* wallpaper-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wallpaper-2.jpg"; sourceTree = "<group>"; };
 		FADD459B1AE8E1160022FE96 /* wallpaper-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "wallpaper-3.jpg"; sourceTree = "<group>"; };
 		FADD45A91AE8E4770022FE96 /* masjid-al-haram_00103900.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "masjid-al-haram_00103900.jpg"; sourceTree = "<group>"; };
+		FAEE9DDF1AEDEDC5004059B8 /* WeeklyScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyScheduleViewController.h; sourceTree = "<group>"; };
+		FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyScheduleViewController.m; sourceTree = "<group>"; };
+		FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyScheduleViewController.xib; sourceTree = "<group>"; };
+		FAEE9DE41AEDEDDE004059B8 /* EventsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsViewController.h; sourceTree = "<group>"; };
+		FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
+		FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
+		FAEE9DE91AEDEE15004059B8 /* PrayerTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerTimesViewController.h; sourceTree = "<group>"; };
+		FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerTimesViewController.m; sourceTree = "<group>"; };
+		FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerTimesViewController.xib; sourceTree = "<group>"; };
+		FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,6 +249,18 @@
 				FADD45891AE8DED60022FE96 /* MainViewController.h */,
 				FADD458A1AE8DED60022FE96 /* MainViewController.m */,
 				FADD458B1AE8DED60022FE96 /* MainViewController.xib */,
+				FAEE9DDF1AEDEDC5004059B8 /* WeeklyScheduleViewController.h */,
+				FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */,
+				FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */,
+				FAEE9DE41AEDEDDE004059B8 /* EventsViewController.h */,
+				FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */,
+				FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */,
+				FAEE9DE91AEDEE15004059B8 /* PrayerTimesViewController.h */,
+				FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */,
+				FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */,
+				FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */,
+				FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */,
+				FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -345,16 +377,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FADD45A51AE8E1160022FE96 /* sunset.jpg in Resources */,
+				FAEE9DE81AEDEDDE004059B8 /* EventsViewController.xib in Resources */,
 				FADD45A71AE8E1160022FE96 /* wallpaper-2.jpg in Resources */,
 				FADD45A11AE8E1160022FE96 /* night.jpg in Resources */,
 				FADD45A21AE8E1160022FE96 /* pray.png in Resources */,
 				FADD459C1AE8E1160022FE96 /* afternoon.jpg in Resources */,
 				FADD45A31AE8E1160022FE96 /* settings.png in Resources */,
 				FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */,
+				FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */,
 				FADD45A81AE8E1160022FE96 /* wallpaper-3.jpg in Resources */,
 				FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */,
 				FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */,
 				FADD459D1AE8E1160022FE96 /* calendar.png in Resources */,
+				FAEE9DF71AEDF0BE004059B8 /* ContactViewController.xib in Resources */,
 				FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */,
 				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
@@ -362,6 +397,7 @@
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
 				FADD45A61AE8E1160022FE96 /* wallpaper-1.jpg in Resources */,
 				FADD45A41AE8E1160022FE96 /* sunrise.jpg in Resources */,
+				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +452,10 @@
 				FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
+				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
+				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
+				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,
+				FAEE9DEC1AEDEE15004059B8 /* PrayerTimesViewController.m in Sources */,
 				FADD458C1AE8DED60022FE96 /* MainViewController.m in Sources */,
 				FADD45651AE8DE180022FE96 /* main.m in Sources */,
 			);

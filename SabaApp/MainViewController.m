@@ -7,21 +7,30 @@
 //
 
 #import "MainViewController.h"
-#import "SabaCell.h"
 
+// Third party imports
 #import "UIImageView+AFNetworking.h"
 #import "AFNetworking.h"
+
+// Client
 #import "SabaClient.h"
 
+// CollectionView Cell
+#import "SabaCell.h"
+
+// ViewControllers
+#import "WeeklyScheduleViewController.h"
+#import "EventsViewController.h"
+#import "PrayerTimesViewController.h"
+#import "ContactViewController.h"
 
 static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=4";
 //static NSString *SABA_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-480";
 
 @interface MainViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-
-@property (nonatomic, strong) NSMutableArray *cellArray;
 @end
 
 @implementation MainViewController
@@ -32,15 +41,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
-	
-	self.cellArray = [[NSMutableArray alloc] init];
-	
-	[self.cellArray addObject:[SABA_BASE_URL stringByAppendingString:@"2"]]; // Upcoming programs
-	[self.cellArray addObject:[SABA_BASE_URL stringByAppendingString:@"4"]]; // Weekly Programs
-	[self.cellArray addObject:[SABA_BASE_URL stringByAppendingString:@"5"]]; // Community Announcements
-	[self.cellArray addObject:[SABA_BASE_URL stringByAppendingString:@"6"]]; // General Announcements
-	
-	NSLog(@"count: %lu", (unsigned long)self.cellArray.count);
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
 }
@@ -54,8 +54,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 // number of items in section
 -(NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-	NSLog(@"count: %lu", (unsigned long)self.cellArray.count);
-	return self.cellArray.count;
+	return 4;
 }
 
 // sets the size of cell dynamically as per phone size.
@@ -79,7 +78,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 											 green:255.0f/255.0f
 											  blue:255.0f/255.0f
 											 alpha:1.0f].CGColor; // white
-	
 	switch(indexPath.row){
 		case 0:
 			cell.title.text			= @"Weekly \nSchedule";
@@ -97,9 +95,11 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 			cell.title.text			= @"Contact &\nDirections";
 			cell.imageView.image	= [UIImage imageNamed:@"location.png"];
 			break;
-			default:
+			
+		default:
 			break;
 	}
+	
 	return cell;
 }
 
@@ -107,15 +107,30 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 {
 	[self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 	
-	NSLog(@"%ld", (long)indexPath.row);
-	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-		
-		if (error) {
-			NSLog(@"Error getting more tweets: %@", error);
-		} else {
-			//NSLog(@"programs: %@", programs);
-		}
-	}];
+	UIViewController *controller = nil;
+	switch(indexPath.row){
+		case 0:
+			controller = [[WeeklyScheduleViewController alloc]init];
+			break;
+		case 1:
+			controller = [[EventsViewController alloc]init];
+			break;
+		case 2:
+			controller = [[PrayerTimesViewController alloc]init];
+			break;
+		case 3:
+			controller = [[ContactViewController alloc]init];
+			break;
+			
+		default:
+			break;
+	}
+	
+	// very important to set the NavigationController correctly.
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	
+	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
@@ -125,12 +140,25 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 }
 
-#pragma mark Launch selected ViewController
--(void) launchSelectedViewController:(int) index{
-	
-}
-
 //-(void) launchSelectedViewController:(int) index{
 //	
+//	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
+//		
+//		if (error) {
+//			NSLog(@"Error getting more tweets: %@", error);
+//		} else {
+//			//NSLog(@"programs: %@", programs);
+//		}
+//	}];
+//
 //}
+
+#pragma mark Button clicked handlers
+- (IBAction)donationBtnClicked:(id)sender {
+
+}
+
+- (IBAction)settingBtnClicked:(id)sender {
+
+}
 @end

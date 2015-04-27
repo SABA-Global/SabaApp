@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "WeeklyScheduleViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,8 +22,13 @@
 	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	self.window.rootViewController = [[MainViewController alloc] init];
+	MainViewController *mvc = [[MainViewController alloc] init];
 	
+//	// very important to set the NavigationController correctly. Later on we can push another controller on it.
+//	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+//	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	
+	self.window.rootViewController = mvc;
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
 	

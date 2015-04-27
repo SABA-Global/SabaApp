@@ -246,21 +246,13 @@
 		FADD45881AE8DE8F0022FE96 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE9DFB1AEE1FA2004059B8 /* Contact and Directions */,
+				FAEE9DF91AEE1F74004059B8 /* Events and Announcements */,
+				FAEE9DF81AEE1F53004059B8 /* WeeklySchedule */,
+				FAEE9DFA1AEE1F91004059B8 /* PrayerTimes */,
 				FADD45891AE8DED60022FE96 /* MainViewController.h */,
 				FADD458A1AE8DED60022FE96 /* MainViewController.m */,
 				FADD458B1AE8DED60022FE96 /* MainViewController.xib */,
-				FAEE9DDF1AEDEDC5004059B8 /* WeeklyScheduleViewController.h */,
-				FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */,
-				FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */,
-				FAEE9DE41AEDEDDE004059B8 /* EventsViewController.h */,
-				FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */,
-				FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */,
-				FAEE9DE91AEDEE15004059B8 /* PrayerTimesViewController.h */,
-				FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */,
-				FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */,
-				FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */,
-				FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */,
-				FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +284,46 @@
 			children = (
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		FAEE9DF81AEE1F53004059B8 /* WeeklySchedule */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9DDF1AEDEDC5004059B8 /* WeeklyScheduleViewController.h */,
+				FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */,
+				FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */,
+			);
+			name = WeeklySchedule;
+			sourceTree = "<group>";
+		};
+		FAEE9DF91AEE1F74004059B8 /* Events and Announcements */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9DE41AEDEDDE004059B8 /* EventsViewController.h */,
+				FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */,
+				FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */,
+			);
+			name = "Events and Announcements";
+			sourceTree = "<group>";
+		};
+		FAEE9DFA1AEE1F91004059B8 /* PrayerTimes */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9DE91AEDEE15004059B8 /* PrayerTimesViewController.h */,
+				FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */,
+				FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */,
+			);
+			name = PrayerTimes;
+			sourceTree = "<group>";
+		};
+		FAEE9DFB1AEE1FA2004059B8 /* Contact and Directions */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */,
+				FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */,
+				FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */,
+			);
+			name = "Contact and Directions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

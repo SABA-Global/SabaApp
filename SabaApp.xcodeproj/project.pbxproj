@@ -41,6 +41,10 @@
 		FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */; };
 		FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */; };
 		FAEE9DF71AEDF0BE004059B8 /* ContactViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */; };
+		FAEE9E011AEE20C1004059B8 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DFF1AEE20C1004059B8 /* SettingsViewController.m */; };
+		FAEE9E021AEE20C1004059B8 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E001AEE20C1004059B8 /* SettingsViewController.xib */; };
+		FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E041AEE20DB004059B8 /* DonationViewController.m */; };
+		FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +108,12 @@
 		FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
 		FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactViewController.xib; sourceTree = "<group>"; };
+		FAEE9DFE1AEE20C1004059B8 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		FAEE9DFF1AEE20C1004059B8 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		FAEE9E001AEE20C1004059B8 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		FAEE9E031AEE20DB004059B8 /* DonationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonationViewController.h; sourceTree = "<group>"; };
+		FAEE9E041AEE20DB004059B8 /* DonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonationViewController.m; sourceTree = "<group>"; };
+		FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +256,8 @@
 		FADD45881AE8DE8F0022FE96 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE9DFD1AEE20A5004059B8 /* Donations */,
+				FAEE9DFC1AEE2090004059B8 /* Settings */,
 				FAEE9DFB1AEE1FA2004059B8 /* Contact and Directions */,
 				FAEE9DF91AEE1F74004059B8 /* Events and Announcements */,
 				FAEE9DF81AEE1F53004059B8 /* WeeklySchedule */,
@@ -324,6 +336,26 @@
 				FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */,
 			);
 			name = "Contact and Directions";
+			sourceTree = "<group>";
+		};
+		FAEE9DFC1AEE2090004059B8 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9DFE1AEE20C1004059B8 /* SettingsViewController.h */,
+				FAEE9DFF1AEE20C1004059B8 /* SettingsViewController.m */,
+				FAEE9E001AEE20C1004059B8 /* SettingsViewController.xib */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		FAEE9DFD1AEE20A5004059B8 /* Donations */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9E031AEE20DB004059B8 /* DonationViewController.h */,
+				FAEE9E041AEE20DB004059B8 /* DonationViewController.m */,
+				FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */,
+			);
+			name = Donations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -421,6 +453,7 @@
 				FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */,
 				FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */,
 				FADD459D1AE8E1160022FE96 /* calendar.png in Resources */,
+				FAEE9E021AEE20C1004059B8 /* SettingsViewController.xib in Resources */,
 				FAEE9DF71AEDF0BE004059B8 /* ContactViewController.xib in Resources */,
 				FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */,
 				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
@@ -429,6 +462,7 @@
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
 				FADD45A61AE8E1160022FE96 /* wallpaper-1.jpg in Resources */,
 				FADD45A41AE8E1160022FE96 /* sunrise.jpg in Resources */,
+				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,12 +516,14 @@
 			files = (
 				FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */,
 				FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */,
+				FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
 				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,
 				FAEE9DEC1AEDEE15004059B8 /* PrayerTimesViewController.m in Sources */,
+				FAEE9E011AEE20C1004059B8 /* SettingsViewController.m in Sources */,
 				FADD458C1AE8DED60022FE96 /* MainViewController.m in Sources */,
 				FADD45651AE8DE180022FE96 /* main.m in Sources */,
 			);

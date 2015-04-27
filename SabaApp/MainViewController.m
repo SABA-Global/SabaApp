@@ -9,20 +9,22 @@
 #import "MainViewController.h"
 
 // Third party imports
-#import "UIImageView+AFNetworking.h"
 #import "AFNetworking.h"
-
-// Client
-#import "SabaClient.h"
+#import "UIImageView+AFNetworking.h"
 
 // CollectionView Cell
 #import "SabaCell.h"
 
+// Client
+#import "SabaClient.h"
+
 // ViewControllers
-#import "WeeklyScheduleViewController.h"
 #import "EventsViewController.h"
-#import "PrayerTimesViewController.h"
 #import "ContactViewController.h"
+#import "DonationViewController.h"
+#import "SettingsViewController.h"
+#import "PrayerTimesViewController.h"
+#import "WeeklyScheduleViewController.h"
 
 static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=4";
 //static NSString *SABA_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-480";
@@ -155,10 +157,20 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 #pragma mark Button clicked handlers
 - (IBAction)donationBtnClicked:(id)sender {
-
+	
+	DonationViewController *dvc = [[DonationViewController alloc]init];
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dvc];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	
+	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (IBAction)settingBtnClicked:(id)sender {
-
+	
+	SettingsViewController *dvc = [[SettingsViewController alloc]init];
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dvc];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	
+	[self presentViewController:nvc animated:YES completion:nil];
 }
 @end

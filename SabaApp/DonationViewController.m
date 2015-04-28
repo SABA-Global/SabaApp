@@ -141,9 +141,6 @@
 	[self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to server for verification and fulfillment
 	[[[UIAlertView alloc] initWithTitle:@"Transaction complete" message:@"Complete" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
 	[self dismissViewControllerAnimated:YES completion:nil];
-	
-	//self.webViewController.didCompleteCallback = YES;
-	//[self createFeedActivity:@"registered"];
 }
 
 - (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
@@ -151,8 +148,6 @@
 	self.resultText = nil;
 	self.successView.hidden = YES;
 	[self dismissViewControllerAnimated:YES completion:nil];
-	
-	//self.webViewController.didCompleteCallback = NO;
 }
 
 #pragma mark Proof of payment validation

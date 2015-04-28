@@ -45,6 +45,7 @@
 		FAEE9E021AEE20C1004059B8 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E001AEE20C1004059B8 /* SettingsViewController.xib */; };
 		FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E041AEE20DB004059B8 /* DonationViewController.m */; };
 		FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */; };
+		FAEE9E091AEF4F25004059B8 /* backArrowIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E081AEF4F25004059B8 /* backArrowIcon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		FAEE9E031AEE20DB004059B8 /* DonationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DonationViewController.h; sourceTree = "<group>"; };
 		FAEE9E041AEE20DB004059B8 /* DonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonationViewController.m; sourceTree = "<group>"; };
 		FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationViewController.xib; sourceTree = "<group>"; };
+		FAEE9E081AEF4F25004059B8 /* backArrowIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrowIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -272,6 +274,7 @@
 		FADD458E1AE8E1040022FE96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE9E081AEF4F25004059B8 /* backArrowIcon.png */,
 				FADD45A91AE8E4770022FE96 /* masjid-al-haram_00103900.jpg */,
 				FADD458F1AE8E1160022FE96 /* afternoon.jpg */,
 				FADD45901AE8E1160022FE96 /* calendar.png */,
@@ -451,6 +454,7 @@
 				FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */,
 				FADD45A81AE8E1160022FE96 /* wallpaper-3.jpg in Resources */,
 				FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */,
+				FAEE9E091AEF4F25004059B8 /* backArrowIcon.png in Resources */,
 				FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */,
 				FADD459D1AE8E1160022FE96 /* calendar.png in Resources */,
 				FAEE9E021AEE20C1004059B8 /* SettingsViewController.xib in Resources */,

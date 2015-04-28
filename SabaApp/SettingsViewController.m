@@ -18,8 +18,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"< === Back" style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
-	self.navigationItem.leftBarButtonItem = leftButton;
+	 self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+	
+	
+//	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"< === Back" style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+//	self.navigationItem.leftBarButtonItem = leftButton;
 }
 
 - (void)didReceiveMemoryWarning {

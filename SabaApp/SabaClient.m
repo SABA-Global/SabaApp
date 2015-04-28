@@ -72,9 +72,9 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 		if(responseObject == nil){
 			return;
 		}
-		NSLog(@"%@", responseObject);
+		//NSLog(@"%@", responseObject);
 		NSArray* programs = [Program fromArray:responseObject];
-		NSLog(@"%@", programs);
+		//NSLog(@"%@", programs);
 		completion(@"name", programs, nil);
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		completion(@"name", nil, error);

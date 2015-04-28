@@ -33,9 +33,18 @@
 		self.imageUrl			= dictionary[@"imageurl"];
 		self.imageHeight		= [dictionary[@"imageheight"] intValue];
 		self.imageWidth			= [dictionary[@"imagewidth"] intValue];
+		//[self display];
 	}
 	
 	return self;
+}
+
+-(void) display{
+	NSLog(@"title: %@", self.title);
+	NSLog(@"programDescription: %@", self.programDescription);
+	NSLog(@"imageUrl: %@", self.imageUrl);
+	NSLog(@"imageHeight: %ld", self.imageHeight);
+	NSLog(@"imageWidth: %ld", self.imageWidth);
 }
 
 +(Program*) fromDictionary:(NSDictionary * )dictionary{
@@ -44,10 +53,11 @@
 }
 
 +(NSArray*) fromArray:(NSArray * )array{
-	NSMutableArray *programs = [NSMutableArray array];
+	NSMutableArray *programs = [[NSMutableArray alloc]init];
 	for (NSDictionary* value in array) {
 		Program *program = [[Program alloc] initWithDictionary:value];
 		[programs addObject:program];
+		//NSLog(@"title: %@", program.title);
 	}
 	
 	return programs;

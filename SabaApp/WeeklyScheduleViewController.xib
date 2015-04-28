@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeeklyScheduleViewController">
             <connections>
-                <outlet property="testViewLabel" destination="eUt-wf-Bog" id="C53-ZR-U9h"/>
+                <outlet property="tableView" destination="01E-2M-AV4" id="Naw-YH-tgy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,14 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Weekly Schedule" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUt-wf-Bog">
-                    <rect key="frame" x="94" y="273" width="132" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="01E-2M-AV4">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="01E-2M-AV4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9R0-f9-kxy"/>
+                <constraint firstAttribute="bottom" secondItem="01E-2M-AV4" secondAttribute="bottom" id="GAL-sH-ULE"/>
+                <constraint firstItem="01E-2M-AV4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M6n-4h-93w"/>
+                <constraint firstAttribute="trailing" secondItem="01E-2M-AV4" secondAttribute="trailing" id="eRr-ug-NvT"/>
+            </constraints>
             <point key="canvasLocation" x="330" y="229"/>
         </view>
     </objects>

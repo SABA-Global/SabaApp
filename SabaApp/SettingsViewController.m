@@ -18,8 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	 self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
-	
+	[self setupNavigationBar];
 	
 //	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"< === Back" style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 //	self.navigationItem.leftBarButtonItem = leftButton;
@@ -28,6 +27,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) setupNavigationBar{
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+	
+	self.navigationItem.title = @"Settings";
 }
 
 -(void) onBack{

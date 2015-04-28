@@ -10,6 +10,13 @@
 #import "MainViewController.h"
 #import "WeeklyScheduleViewController.h"
 
+// Third party includes..
+#import <PayPalMobile.h>
+
+//PayPal Keys
+NSString *kPayPalClientId = @"AYIrAAhanrQ2f5I5oE1ks213YFi4Y5YVxXLZE8VwBN94idvUZ3NfIQeRv2z75ilRdLiRFXCK6V39z9XC";
+NSString *kPayPalSecretId = @"EL5ZgD8cf34aiM3rQX4EH0g_xpAR-HaBr7B5W9nVl73zfMLVRJDT1wiX_RWzjJRxgjcUXLU4qEhiMslG";
+NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id3tkoFoF2XzUwqUsZ7gIRv4OQHFYjdYicSiiMt__B";
 @interface AppDelegate ()
 
 @end
@@ -19,6 +26,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
+	
+	[PayPalMobile initializeWithClientIdsForEnvironments:@{
+														   PayPalEnvironmentSandbox : kPayPalClientId,
+														   PayPalEnvironmentProduction : kPayPalProductionClientId}];
+	
 	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	

@@ -9,7 +9,8 @@
 #import "WeeklyScheduleViewController.h"
 
 #import "SabaClient.h"
-#import "Program.h"
+#import "DailyProgram.h"
+#import "WeeklyPrograms.h"
 
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -28,20 +29,7 @@
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	
-	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-		
-		if (error) {
-			NSLog(@"Error getting more tweets: %@", error);
-		} else {
-			//NSLog(@"programs: %@", programs);
-			//for (Program* program in programs) {
-			//	NSLog(@"Program: %@", program.title);
-			self.programs = programs;
-			[self.tableView reloadData];
-		}
-	}];
-
-	
+	[self getWeeklyPrograms];
 	[self setupNavigationBar];
 }
 
@@ -61,6 +49,20 @@
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark get Events
+
+-(void) getWeeklyPrograms{
+	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
+		
+		if (error) {
+			NSLog(@"Error getting more tweets: %@", error);
+		} else {
+			self.programs = [WeeklyPrograms fromArray: programs];
+			[self.tableView reloadData];
+		}
+	}];
+}
+
 #pragma mark TableView
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -71,7 +73,10 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
 		
 	}
-	cell.textLabel.text = [self.programs[indexPath.row] title];
+	
+	NSArray* dailyPrograms = self.programs[indexPath.row];
+	DailyProgram* dailyProgram = [dailyPrograms objectAtIndex:1];
+	cell.textLabel.text = [dailyProgram day];
 	return cell;
 }
 

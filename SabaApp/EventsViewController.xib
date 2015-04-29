@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EventsViewController">
             <connections>
+                <outlet property="tableView" destination="Oi7-vp-XIK" id="gdK-YT-xbl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,14 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Events and Announcments" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pI0-P7-7d3">
-                    <rect key="frame" x="64" y="273" width="206" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oi7-vp-XIK">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Oi7-vp-XIK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ke-Tz-i3Q"/>
+                <constraint firstAttribute="bottom" secondItem="Oi7-vp-XIK" secondAttribute="bottom" id="8Da-MN-gfv"/>
+                <constraint firstAttribute="trailing" secondItem="Oi7-vp-XIK" secondAttribute="trailing" id="KQq-LX-5Mq"/>
+                <constraint firstItem="Oi7-vp-XIK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ylh-Gj-JrL"/>
+            </constraints>
             <point key="canvasLocation" x="330" y="229"/>
         </view>
     </objects>

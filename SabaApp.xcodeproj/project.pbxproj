@@ -46,6 +46,8 @@
 		FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E041AEE20DB004059B8 /* DonationViewController.m */; };
 		FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */; };
 		FAEE9E091AEF4F25004059B8 /* backArrowIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E081AEF4F25004059B8 /* backArrowIcon.png */; };
+		FAEE9E0C1AEFE888004059B8 /* DailyProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E0B1AEFE888004059B8 /* DailyProgram.m */; };
+		FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E0E1AEFE926004059B8 /* WeeklyPrograms.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +118,10 @@
 		FAEE9E041AEE20DB004059B8 /* DonationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DonationViewController.m; sourceTree = "<group>"; };
 		FAEE9E051AEE20DB004059B8 /* DonationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationViewController.xib; sourceTree = "<group>"; };
 		FAEE9E081AEF4F25004059B8 /* backArrowIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backArrowIcon.png; sourceTree = "<group>"; };
+		FAEE9E0A1AEFE888004059B8 /* DailyProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyProgram.h; sourceTree = "<group>"; };
+		FAEE9E0B1AEFE888004059B8 /* DailyProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyProgram.m; sourceTree = "<group>"; };
+		FAEE9E0D1AEFE926004059B8 /* WeeklyPrograms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyPrograms.h; sourceTree = "<group>"; };
+		FAEE9E0E1AEFE926004059B8 /* WeeklyPrograms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyPrograms.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,8 +182,11 @@
 		FA4C92C21AEC0E6700F439B7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAEE9E101AEFEC4B004059B8 /* Helper */,
 				FA4C92CA1AEC459E00F439B7 /* Program.h */,
 				FA4C92CB1AEC459E00F439B7 /* Program.m */,
+				FAEE9E0A1AEFE888004059B8 /* DailyProgram.h */,
+				FAEE9E0B1AEFE888004059B8 /* DailyProgram.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -361,6 +370,15 @@
 			name = Donations;
 			sourceTree = "<group>";
 		};
+		FAEE9E101AEFEC4B004059B8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				FAEE9E0D1AEFE926004059B8 /* WeeklyPrograms.h */,
+				FAEE9E0E1AEFE926004059B8 /* WeeklyPrograms.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -521,12 +539,14 @@
 				FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */,
 				FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */,
 				FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */,
+				FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
 				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,
 				FAEE9DEC1AEDEE15004059B8 /* PrayerTimesViewController.m in Sources */,
+				FAEE9E0C1AEFE888004059B8 /* DailyProgram.m in Sources */,
 				FAEE9E011AEE20C1004059B8 /* SettingsViewController.m in Sources */,
 				FADD458C1AE8DED60022FE96 /* MainViewController.m in Sources */,
 				FADD45651AE8DE180022FE96 /* main.m in Sources */,

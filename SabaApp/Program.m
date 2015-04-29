@@ -39,6 +39,7 @@
 	return self;
 }
 
+// debug function...
 -(void) display{
 	NSLog(@"title: %@", self.title);
 	NSLog(@"programDescription: %@", self.programDescription);

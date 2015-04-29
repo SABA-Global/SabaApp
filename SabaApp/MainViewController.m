@@ -142,20 +142,8 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 }
 
-//-(void) launchSelectedViewController:(int) index{
-//	
-//	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-//		
-//		if (error) {
-//			NSLog(@"Error getting more tweets: %@", error);
-//		} else {
-//			//NSLog(@"programs: %@", programs);
-//		}
-//	}];
-//
-//}
-
 #pragma mark Button clicked handlers
+
 - (IBAction)donationBtnClicked:(id)sender {
 	
 	DonationViewController *dvc = [[DonationViewController alloc]init];

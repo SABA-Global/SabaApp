@@ -824,7 +824,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         _backgroundRingLayer = [self createRingLayerWithCenter:center
                                                         radius:SVProgressHUDRingRadius
                                                      lineWidth:SVProgressHUDRingThickness
-                                                         color:[SVProgressHUDForegroundColor colorWithAlphaComponent:0.1f]];
+                                                         color:[SVProgressHUDForegroundColor colorWithAlphaComponent:1.0f]];
         _backgroundRingLayer.strokeEnd = 1;
         [self.hudView.layer addSublayer:_backgroundRingLayer];
     }

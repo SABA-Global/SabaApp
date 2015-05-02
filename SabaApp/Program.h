@@ -26,4 +26,5 @@
 // retruns an array of Programs
 +(NSArray*) fromArray:(NSArray * )array;
 
++(NSArray*) fromWeeklyPrograms:(NSArray*)weeklyPrograms;
 @end

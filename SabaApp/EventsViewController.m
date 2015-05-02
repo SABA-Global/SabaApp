@@ -10,6 +10,10 @@
 
 #import "Program.h"
 #import "SabaClient.h"
+#import "ProgramCell.h"
+
+// Third party libraries
+#import <SVProgressHUD.h>
 
 @interface EventsViewController ()<UITableViewDelegate,
 								   UITableViewDataSource>
@@ -29,6 +33,14 @@
 	
 	[self getUpcomingEvents];
 	[self setupNavigationBar];
+	
+	//self.tableView.estimatedRowHeight = 160.0;
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
+	
+	// register cell for TableView
+	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
+	
+	[self showSpinner:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,12 +64,11 @@
 -(void) getUpcomingEvents{
 	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		
+		[self showSpinner:NO];
+		
 		if (error) {
-			NSLog(@"Error getting more tweets: %@", error);
+			NSLog(@"Error getting WeeklyPrograms: %@", error);
 		} else {
-			//for (Program* program in programs) {
-			//	NSLog(@"Program: %@", program.title);
-			
 			self.programs = [Program fromArray: programs];
 			[self.tableView reloadData];
 		}
@@ -67,15 +78,9 @@
 #pragma mark TableView
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell* cell = nil;//[self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	// NOTE: Add some code like this to create a new cell if there are none to reuse
-	if(cell == nil)
-	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-		
-	}
-	
-	cell.textLabel.text = [self.programs[indexPath.row] title];
+	ProgramCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
+	[cell setProgram:self.programs[indexPath.row]];
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	return cell;
 }
 
@@ -87,4 +92,17 @@
 	return self.programs.count;
 }
 
+#pragma mark spinner
+
+-(void) showSpinner:(bool)show{
+	if(show == YES){
+		[SVProgressHUD setRingThickness:1.0];
+		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
+		layer.opacity = 0;
+		layer.allowsGroupOpacity = YES;
+		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+	}
+	else
+		[SVProgressHUD dismiss];
+}
 @end

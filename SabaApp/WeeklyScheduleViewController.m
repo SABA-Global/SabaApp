@@ -8,9 +8,13 @@
 
 #import "WeeklyScheduleViewController.h"
 
+// Third party imports
+#import <SVProgressHUD.h>
+
 #import "SabaClient.h"
 #import "DailyProgram.h"
 #import "WeeklyPrograms.h"
+#import "ProgramCell.h"
 
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -31,6 +35,13 @@
 	
 	[self getWeeklyPrograms];
 	[self setupNavigationBar];
+	
+	
+	// register cell for TableView
+	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
+	
+	[self showSpinner:YES];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,11 +64,11 @@
 
 -(void) getWeeklyPrograms{
 	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-		
+		[self showSpinner:NO];
 		if (error) {
-			NSLog(@"Error getting more tweets: %@", error);
+			NSLog(@"Error getting WeeklyPrograms: %@", error);
 		} else {
-			self.programs = [WeeklyPrograms fromArray: programs];
+			self.programs = [Program fromWeeklyPrograms:[WeeklyPrograms fromArray: programs]];
 			[self.tableView reloadData];
 		}
 	}];
@@ -66,17 +77,10 @@
 #pragma mark TableView
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	UITableViewCell* cell = nil;//[self.tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	// NOTE: Add some code like this to create a new cell if there are none to reuse
-	if(cell == nil)
-	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
-		
-	}
 	
-	NSArray* dailyPrograms = self.programs[indexPath.row];
-	DailyProgram* dailyProgram = [dailyPrograms objectAtIndex:1];
-	cell.textLabel.text = [dailyProgram day];
+	ProgramCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
+	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	[cell setProgram:self.programs[indexPath.row]];	
 	return cell;
 }
 
@@ -86,5 +90,17 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.programs.count;
+}
+
+-(void) showSpinner:(bool)show{
+	if(show == YES){
+		[SVProgressHUD setRingThickness:1.0];
+		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
+		layer.opacity = 0;
+		layer.allowsGroupOpacity = YES;
+		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+	}
+	else
+		[SVProgressHUD dismiss];
 }
 @end

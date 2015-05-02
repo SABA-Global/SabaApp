@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6472047E3D71CC4F4B5DC5F4 /* libPods.a */; };
+		FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */; };
+		FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */; };
 		FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */; };
 		FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */; };
 		FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92C81AEC139E00F439B7 /* SabaClient.m */; };
@@ -64,6 +66,9 @@
 		063D403729EB442D45B488BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6472047E3D71CC4F4B5DC5F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FA192D491AF1AF7B00D6EE85 /* ProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCell.h; sourceTree = "<group>"; };
+		FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
+		FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramCell.xib; sourceTree = "<group>"; };
 		FA4C92BC1AE9AD6700F439B7 /* SabaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SabaCell.h; sourceTree = "<group>"; };
 		FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaCell.m; sourceTree = "<group>"; };
 		FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SabaCell.xib; sourceTree = "<group>"; };
@@ -166,6 +171,9 @@
 				FA4C92BC1AE9AD6700F439B7 /* SabaCell.h */,
 				FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */,
 				FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */,
+				FA192D491AF1AF7B00D6EE85 /* ProgramCell.h */,
+				FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */,
+				FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -485,6 +493,7 @@
 				FADD45A61AE8E1160022FE96 /* wallpaper-1.jpg in Resources */,
 				FADD45A41AE8E1160022FE96 /* sunrise.jpg in Resources */,
 				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
+				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +553,7 @@
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
+				FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */,
 				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,
 				FAEE9DEC1AEDEE15004059B8 /* PrayerTimesViewController.m in Sources */,
 				FAEE9E0C1AEFE888004059B8 /* DailyProgram.m in Sources */,

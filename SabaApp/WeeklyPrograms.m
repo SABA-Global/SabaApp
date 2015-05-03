@@ -30,6 +30,11 @@
 			continue;
 		}
 		
+		if(dailyProgram.time.length != 0 && [dailyProgram.time characterAtIndex:0] == '\'' ){
+			dailyProgram.time = [dailyProgram.time substringFromIndex:1];
+		}
+		
+		NSLog(@"time :%@", dailyProgram.time);
 		if([dailyProgram.day compare:@""] == YES){
 			dailyPrograms = [[NSMutableArray alloc]init];
 			[weeklyPrograms addObject:dailyPrograms];
@@ -49,8 +54,6 @@
 		} else {
 			dailyProgram.englishDate = lastEnglishDate;
 		}
-		
-		NSLog(@"dailyProgram: %@", dailyProgram.englishDate);
 		
 		if([dailyProgram.hijriDate length] != 0){
 			lastHijriDate = dailyProgram.hijriDate;

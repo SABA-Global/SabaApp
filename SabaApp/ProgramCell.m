@@ -10,10 +10,6 @@
 
 // Third party libraries
 #import "UIImageView+AFNetworking.h"
-#import "RTLabel.h"
-#import "TTTAttributedLabel.h"
-
-
 
 @interface ProgramCell()
 

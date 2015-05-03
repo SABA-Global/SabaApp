@@ -16,11 +16,16 @@
 #import "WeeklyPrograms.h"
 #import "ProgramCell.h"
 
+
+#import "DailyScheduleViewController.h"
+
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *programs;
+@property (strong, nonatomic) NSArray *dailyPrograms;
+
 @end
 
 @implementation WeeklyScheduleViewController
@@ -36,6 +41,7 @@
 	[self getWeeklyPrograms];
 	[self setupNavigationBar];
 	
+	self.tableView.estimatedRowHeight = 160.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	
 	// register cell for TableView
@@ -61,6 +67,11 @@
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+	//[self.tableView reloadData];
+	[self.view layoutIfNeeded];
+}
+
 #pragma mark get Events
 
 -(void) getWeeklyPrograms{
@@ -71,6 +82,7 @@
 		} else {
 			self.programs = [Program fromWeeklyPrograms:[WeeklyPrograms fromArray: programs]];
 			[self.tableView reloadData];
+			self.dailyPrograms = [WeeklyPrograms fromArray:programs];
 		}
 	}];
 }
@@ -87,6 +99,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	DailyScheduleViewController* dsvc = [[DailyScheduleViewController alloc]init];
+	dsvc.programs = self.dailyPrograms[indexPath.row];
+	//[self.navigationController pushViewController:dsvc animated:YES]; its not working properly
+	
+	// very important to set the NavigationController correctly.
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dsvc];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	
+	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

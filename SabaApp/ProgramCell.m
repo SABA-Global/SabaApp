@@ -21,7 +21,15 @@
 @implementation ProgramCell
 
 - (void)awakeFromNib {
+	
+	// round image
+	self.programImageview.layer.cornerRadius = 8.0;
+	self.programImageview.clipsToBounds = YES;
 
+	// You can even add a border
+	self.programImageview.layer.borderWidth = 1.0;
+	self.programImageview.layer.borderColor = [[UIColor yellowColor] CGColor];
+	
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -32,19 +40,18 @@
 
 -(void) setProgram:(Program *)program{
 	
-	// rounded corners for profile images
-	CALayer *layer = [self.programImageview layer];
-	[layer setMasksToBounds:YES];
-	[layer setCornerRadius:8.0];
-	
-	// You can even add a border
-	[layer setBorderWidth:1.0];
-	[layer setBorderColor:[[UIColor yellowColor] CGColor]];
+//	// rounded corners for profile images
+//	CALayer *layer = [self.programImageview layer];
+//	[layer setMasksToBounds:YES];
+//	[layer setCornerRadius:8.0];
+//	
+//	// You can even add a border
+//	[layer setBorderWidth:1.0];
+//	[layer setBorderColor:[[UIColor yellowColor] CGColor]];
 	
 	
 	_program = program;
 	NSString *imageUrl = [program imageUrl];
-	
 	[self.programImageview setImageWithURLRequest:
 	 [NSURLRequest requestWithURL:[NSURL URLWithString: imageUrl]] placeholderImage:nil
 			  success:^(NSURLRequest *request , NSHTTPURLResponse *response , UIImage *image ){
@@ -53,8 +60,8 @@
 			  failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error){
 				  NSLog(@"failed loading: %@", error);
 			  }
+	 
 	 ];
-	
 	self.title.attributedText = [self getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:12];
 
 	self.programDescription.attributedText = [self getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:12];

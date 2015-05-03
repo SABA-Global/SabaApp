@@ -45,6 +45,10 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	self.collectionView.dataSource = self;
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
+	
+	
+	
+	[self.navigationController setNavigationBarHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,7 +135,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	// very important to set the NavigationController correctly.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
 	nvc.navigationBar.translucent = NO; // so it does not hide details views
-	
+//
 	[self presentViewController:nvc animated:YES completion:nil];
 }
 

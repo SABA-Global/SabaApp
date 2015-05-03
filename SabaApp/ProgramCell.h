@@ -15,5 +15,7 @@
 
 @property (nonatomic, strong) Program *program;
 
+
+// DELETE IT
 -(void) setWeeklyProgram:(DailyProgram*) dailyProgram;
 @end

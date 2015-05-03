@@ -12,6 +12,9 @@
 #import "SabaClient.h"
 #import "ProgramCell.h"
 
+
+#import "DailyScheduleViewController.h"
+
 // Third party libraries
 #import <SVProgressHUD.h>
 
@@ -34,8 +37,9 @@
 	[self getUpcomingEvents];
 	[self setupNavigationBar];
 	
-	//self.tableView.estimatedRowHeight = 160.0;
+	self.tableView.estimatedRowHeight = 160.0; // very important...
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
+	//self.tableView.rowHeight = 200;
 	
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
@@ -86,6 +90,12 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	DailyScheduleViewController* dsvc = [[DailyScheduleViewController alloc]init];
+	// very important to set the NavigationController correctly.
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dsvc];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

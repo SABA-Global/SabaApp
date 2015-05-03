@@ -36,11 +36,11 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 	
 	MainViewController *mvc = [[MainViewController alloc] init];
 	
-//	// very important to set the NavigationController correctly. Later on we can push another controller on it.
-//	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
-//	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	// very important to set the NavigationController correctly. Later on we can push another controller on it.
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
 	
-	self.window.rootViewController = mvc;
+	self.window.rootViewController = nvc;
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
 	

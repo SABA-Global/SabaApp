@@ -36,6 +36,7 @@
 	[self getWeeklyPrograms];
 	[self setupNavigationBar];
 	
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];

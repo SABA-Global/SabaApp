@@ -17,8 +17,8 @@
 	NSMutableArray *dailyPrograms = nil;
 	
 	NSString *lastDay = [[NSString alloc] init];
-	NSString *lastEnglishDate = [[NSString alloc] init];;
-	NSString *lastHijriDate = [[NSString alloc] init];;
+	NSString *lastEnglishDate = [[NSString alloc] init];
+	NSString *lastHijriDate = [[NSString alloc] init];
 	
 	
 	for(NSDictionary* data in array){
@@ -38,13 +38,21 @@
 			dailyProgram.day = lastDay;
 		}
 		
-		if([dailyProgram.englishDate length] == 0){
+		if([dailyProgram.englishDate length] != 0){
+			// english date is coming in this format,we need to remove all "'" :(
+			// "englishdate": "'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''December 9"
+			// Date comes after 178th character.
+			NSRange rangeToSearch = NSMakeRange(0, [dailyProgram.englishDate length] - 1);
+			NSRange rangeOfSingleQuote = [dailyProgram.englishDate rangeOfString:@"'" options:NSBackwardsSearch range:rangeToSearch];
+			dailyProgram.englishDate = [dailyProgram.englishDate substringFromIndex:rangeOfSingleQuote.location+1];
 			lastEnglishDate = dailyProgram.englishDate;
 		} else {
 			dailyProgram.englishDate = lastEnglishDate;
 		}
-			
-		if([dailyProgram.hijriDate length] == 0){
+		
+		NSLog(@"dailyProgram: %@", dailyProgram.englishDate);
+		
+		if([dailyProgram.hijriDate length] != 0){
 			lastHijriDate = dailyProgram.hijriDate;
 		} else {
 			dailyProgram.hijriDate = lastHijriDate;

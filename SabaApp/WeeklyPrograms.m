@@ -34,7 +34,6 @@
 			dailyProgram.time = [dailyProgram.time substringFromIndex:1];
 		}
 		
-		NSLog(@"time :%@", dailyProgram.time);
 		if([dailyProgram.day compare:@""] == YES){
 			dailyPrograms = [[NSMutableArray alloc]init];
 			[weeklyPrograms addObject:dailyPrograms];

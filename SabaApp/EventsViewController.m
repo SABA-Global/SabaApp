@@ -8,6 +8,9 @@
 
 #import "EventsViewController.h"
 
+#import "ProgramDetailViewController.h"
+
+
 #import "Program.h"
 #import "SabaClient.h"
 #import "ProgramCell.h"
@@ -44,7 +47,7 @@
 	
 	[self showSpinner:YES];
 	
-	self.tableView.tableFooterView = [[UIView alloc] init];
+		self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -91,11 +94,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-//	ProgramDetailViewController* pdvc = [[ProgramDetailViewController alloc]init];
-//	// very important to set the NavigationController correctly.
-//	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
-//	nvc.navigationBar.translucent = NO; // so it does not hide details views
-//	[self presentViewController:nvc animated:YES completion:nil];
+	ProgramDetailViewController* pdvc = [[ProgramDetailViewController alloc]init];
+	pdvc.program = self.programs[indexPath.row];
+	
+	// very important to set the NavigationController correctly.
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
+	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

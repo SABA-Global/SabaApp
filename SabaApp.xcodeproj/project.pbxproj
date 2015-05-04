@@ -54,6 +54,8 @@
 		FAF9A4481AF6267F002ECA29 /* DailyProgramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A4461AF6267F002ECA29 /* DailyProgramViewController.xib */; };
 		FAF9A44C1AF627DE002ECA29 /* DailyProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */; };
 		FAF9A44D1AF627DE002ECA29 /* DailyProgramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A44B1AF627DE002ECA29 /* DailyProgramCell.xib */; };
+		FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A4551AF73C9E002ECA29 /* ProgramDetailViewController.m */; };
+		FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A4561AF73C9E002ECA29 /* ProgramDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,9 @@
 		FAF9A4491AF627DE002ECA29 /* DailyProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyProgramCell.h; sourceTree = "<group>"; };
 		FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyProgramCell.m; sourceTree = "<group>"; };
 		FAF9A44B1AF627DE002ECA29 /* DailyProgramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyProgramCell.xib; sourceTree = "<group>"; };
+		FAF9A4541AF73C9E002ECA29 /* ProgramDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramDetailViewController.h; sourceTree = "<group>"; };
+		FAF9A4551AF73C9E002ECA29 /* ProgramDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramDetailViewController.m; sourceTree = "<group>"; };
+		FAF9A4561AF73C9E002ECA29 /* ProgramDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramDetailViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +293,7 @@
 		FADD45881AE8DE8F0022FE96 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FAF9A4531AF73C69002ECA29 /* ProgramDetail */,
 				FAF9A4431AF62649002ECA29 /* DailySchedule */,
 				FAEE9DFD1AEE20A5004059B8 /* Donations */,
 				FAEE9DFC1AEE2090004059B8 /* Settings */,
@@ -411,6 +417,16 @@
 			name = DailySchedule;
 			sourceTree = "<group>";
 		};
+		FAF9A4531AF73C69002ECA29 /* ProgramDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FAF9A4541AF73C9E002ECA29 /* ProgramDetailViewController.h */,
+				FAF9A4551AF73C9E002ECA29 /* ProgramDetailViewController.m */,
+				FAF9A4561AF73C9E002ECA29 /* ProgramDetailViewController.xib */,
+			);
+			name = ProgramDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -514,6 +530,7 @@
 				FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */,
 				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
+				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
 				FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */,
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
 				FADD45A61AE8E1160022FE96 /* wallpaper-1.jpg in Resources */,
@@ -579,6 +596,7 @@
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
+				FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */,
 				FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
 				FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */,

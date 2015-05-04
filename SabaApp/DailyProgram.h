@@ -18,15 +18,11 @@
 @property (nonatomic, strong) NSString *englishDate;
 
 
-//-(id)initWithArray:(NSArray * )array;
-
 -(id)initWithDictionary:(NSDictionary * )dictionary;
 
 // returns DailyProgram from dictionary (JSON)
 +(DailyProgram*) fromDictionary:(NSDictionary * )dictionary;
 
-// retruns an array of DailyPrograms
+// retruns an array of DailyProgram - 
 +(NSArray*) fromArray:(NSArray * )array;
-
-
 @end

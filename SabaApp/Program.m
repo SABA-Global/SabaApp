@@ -81,7 +81,7 @@
 	for (NSArray* dailyPrograms in weeklyPrograms) {
 		if(dailyPrograms != nil && [dailyPrograms objectAtIndex:0] != nil){
 			DailyProgram *dailyProgram = [dailyPrograms objectAtIndex:0];
-			Program *program1 = [[Program alloc] init];
+			Program *program = [[Program alloc] init];
 			NSMutableString* title = [NSMutableString string];
 			[title appendString:[dailyProgram day]];
 			[title appendString:@" "];
@@ -89,7 +89,7 @@
 			[title appendString:@" / "];
 			[title appendString:[dailyProgram hijriDate]];
 			
-			program1.title = title;
+			program.title = title;
 			
 			NSMutableString* description = [NSMutableString string];
 			for(DailyProgram* program in dailyPrograms){
@@ -113,12 +113,12 @@
 				}
 			}
 			
-			program1.programDescription = description;
-			program1.lastUpated = [NSDateFormatter localizedStringFromDate:[NSDate date]
+			program.programDescription = description;
+			program.lastUpated = [NSDateFormatter localizedStringFromDate:[NSDate date]
 															  dateStyle:NSDateFormatterShortStyle
 															  timeStyle:NSDateFormatterFullStyle];
 
-			[programs addObject:program1];//(sabaProgram);
+			[programs addObject:program];
 
 		}
 	}

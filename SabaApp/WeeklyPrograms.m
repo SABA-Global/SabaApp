@@ -12,16 +12,17 @@
 
 @implementation WeeklyPrograms
 
-+(NSArray*) fromArray:(NSArray*)array{
-	NSMutableArray *weeklyPrograms = [[NSMutableArray alloc]init];
-	NSMutableArray *dailyPrograms = nil;
++(NSArray*) fromArray:(NSArray*)programsArray{
+	NSMutableArray *weeklyPrograms = [NSMutableArray array]; // array of array of DailyProgram
+	NSMutableArray *dailyPrograms = nil; // array of DalyProgram
 	
 	NSString *lastDay = [[NSString alloc] init];
 	NSString *lastEnglishDate = [[NSString alloc] init];
 	NSString *lastHijriDate = [[NSString alloc] init];
 	
 	
-	for(NSDictionary* data in array){
+	for(NSDictionary* data in programsArray){
+		// program in a slot of a day. Array of these program will become dailyPrograms
 		DailyProgram *dailyProgram = [DailyProgram fromDictionary:data];
 
 		// we don't want to show empty rows.
@@ -30,7 +31,8 @@
 			continue;
 		}
 		
-		if(dailyProgram.time.length != 0 && [dailyProgram.time characterAtIndex:0] == '\'' ){
+		if(dailyProgram.time.length != 0
+		   && [dailyProgram.time characterAtIndex:0] == '\'' ){
 			dailyProgram.time = [dailyProgram.time substringFromIndex:1];
 		}
 		
@@ -60,7 +62,7 @@
 			dailyProgram.hijriDate = lastHijriDate;
 		}
 		
-		[dailyPrograms addObject:dailyProgram];
+		[dailyPrograms addObject:dailyProgram]; // we are adding a dailyProgram in dailyPrograms array.
 	}
 	
 	return weeklyPrograms;

@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 Naqvi. All rights reserved.
 //
 
+//Note: We might need to consider renaming this "Program" class to
+// Event and then change the suitable name of the DailyProgram class. It might be
+// a Daily - Bottom line, we need to rename these model classes which make sense like
+// what they are doing exactly.
 #import <Foundation/Foundation.h>
 
 @interface Program : NSObject
@@ -25,6 +29,10 @@
 
 // retruns an array of Programs
 +(NSArray*) fromArray:(NSArray * )array;
+
+// caller passes Programs in weekly format which is two dimesional array of DailyProgram.
+// NSArray of NSArray of DailyProgram.
+// NSArray of DailyProgram represents all programs in a day.
 
 +(NSArray*) fromWeeklyPrograms:(NSArray*)weeklyPrograms;
 @end

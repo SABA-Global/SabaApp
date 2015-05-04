@@ -10,6 +10,6 @@
 
 @interface WeeklyPrograms : NSObject
 
-+(NSArray*) fromArray:(NSArray*)array;
++(NSArray*) fromArray:(NSArray*)programsArray;
 
 @end

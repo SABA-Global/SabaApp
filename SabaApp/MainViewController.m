@@ -66,8 +66,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 // sets the size of cell dynamically as per phone size.
 - (CGSize)collectionView:(UICollectionView *)collectionView
 				  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 	CGSize size;
 	
 	size.height = self.collectionView.frame.size.height/2-2;
@@ -109,8 +108,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 	[self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 	
 	UIViewController *controller = nil;
@@ -135,15 +133,13 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	// very important to set the NavigationController correctly.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
 	nvc.navigationBar.translucent = NO; // so it does not hide details views
-//
+
 	[self presentViewController:nvc animated:YES completion:nil];
 }
 
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
-{
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
 	[self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 	[cell setSelected:YES];
-
 }
 
 #pragma mark Button clicked handlers
@@ -158,7 +154,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 }
 
 - (IBAction)settingBtnClicked:(id)sender {
-	
 	SettingsViewController *dvc = [[SettingsViewController alloc]init];
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dvc];
 	nvc.navigationBar.translucent = NO; // so it does not hide details views

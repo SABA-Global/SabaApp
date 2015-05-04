@@ -38,6 +38,8 @@
 	
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramDetailCell" bundle:nil] forCellReuseIdentifier:@"ProgramDetailCell"];
+	
+	self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 -(void)setPrograms:(NSArray *)programs{

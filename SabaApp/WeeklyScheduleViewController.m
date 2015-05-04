@@ -48,6 +48,8 @@
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
 	
 	[self showSpinner:YES];
+	
+	self.tableView.tableFooterView = [[UIView alloc] init];
 
 }
 

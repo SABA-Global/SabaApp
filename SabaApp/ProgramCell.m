@@ -11,6 +11,8 @@
 // Third party libraries
 #import "UIImageView+AFNetworking.h"
 
+#import "SabaClient.h"
+
 @interface ProgramCell()
 
 @property (weak, nonatomic) IBOutlet UITextView *title;
@@ -50,18 +52,8 @@
 			  }
 	 
 	 ];
-	self.title.attributedText = [self getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:12];
+	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:12];
 
-	self.programDescription.attributedText = [self getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:12];
-}
-
--(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size{
-	string = [string stringByAppendingString:[NSString stringWithFormat:@"<style>body{font-family: '%@'; font-size:%fpx;}</style>", name, size]];
-	
-	return [[NSAttributedString alloc]
-			initWithData:[string dataUsingEncoding:NSUnicodeStringEncoding]
-			options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
-			documentAttributes:nil error:nil];
-	
+	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:12];
 }
 @end

@@ -65,13 +65,12 @@
 }
 
 -(void) onBack{
-	NSLog(@"Back button clicked...");
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	//[self.tableView reloadData];
-	[self.view layoutIfNeeded];
+//	//[self.tableView reloadData];
+//	[self.view layoutIfNeeded];
 }
 
 #pragma mark get Events

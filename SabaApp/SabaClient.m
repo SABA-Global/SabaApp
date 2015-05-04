@@ -85,4 +85,17 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	// Start Operation
 	[operation start];
 }
+
+
+/// helper fuction - being used at many places. may find a good home for his function in future.
+
+-(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size{
+	string = [string stringByAppendingString:[NSString stringWithFormat:@"<style>body{font-family: '%@'; font-size:%fpx;}</style>", name, size]];
+	
+	return [[NSAttributedString alloc]
+			initWithData:[string dataUsingEncoding:NSUnicodeStringEncoding]
+			options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType }
+			documentAttributes:nil error:nil];
+	
+}
 @end

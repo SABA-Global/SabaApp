@@ -34,11 +34,15 @@
     // Do any additional setup after loading the view from its nib.
 	
 	[self setupNavigationBar];
+	
+		[self pay];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+	
+
 }
 
 -(void) setupNavigationBar{
@@ -76,7 +80,7 @@
 	// Start out working with the test environment! When you are ready, switch to PayPalEnvironmentProduction.
 	//[PayPalMobile preconnectWithEnvironment:PayPalEnvironmentProduction];
 	[PayPalMobile preconnectWithEnvironment:PayPalEnvironmentSandbox];
-	[self pay];
+
 }
 
 - (void)pay {

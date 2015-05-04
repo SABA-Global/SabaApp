@@ -52,8 +52,8 @@
 		FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E0E1AEFE926004059B8 /* WeeklyPrograms.m */; };
 		FAF9A4471AF6267F002ECA29 /* ProgramDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A4451AF6267F002ECA29 /* ProgramDetailViewController.m */; };
 		FAF9A4481AF6267F002ECA29 /* ProgramDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A4461AF6267F002ECA29 /* ProgramDetailViewController.xib */; };
-		FAF9A44C1AF627DE002ECA29 /* DailyProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */; };
-		FAF9A44D1AF627DE002ECA29 /* DailyProgramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A44B1AF627DE002ECA29 /* DailyProgramCell.xib */; };
+		FAF9A44C1AF627DE002ECA29 /* ProgramDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A44A1AF627DE002ECA29 /* ProgramDetailCell.m */; };
+		FAF9A44D1AF627DE002ECA29 /* ProgramDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A44B1AF627DE002ECA29 /* ProgramDetailCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,9 +134,9 @@
 		FAF9A4441AF6267F002ECA29 /* ProgramDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramDetailViewController.h; sourceTree = "<group>"; };
 		FAF9A4451AF6267F002ECA29 /* ProgramDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramDetailViewController.m; sourceTree = "<group>"; };
 		FAF9A4461AF6267F002ECA29 /* ProgramDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramDetailViewController.xib; sourceTree = "<group>"; };
-		FAF9A4491AF627DE002ECA29 /* DailyProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyProgramCell.h; sourceTree = "<group>"; };
-		FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyProgramCell.m; sourceTree = "<group>"; };
-		FAF9A44B1AF627DE002ECA29 /* DailyProgramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyProgramCell.xib; sourceTree = "<group>"; };
+		FAF9A4491AF627DE002ECA29 /* ProgramDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramDetailCell.h; sourceTree = "<group>"; };
+		FAF9A44A1AF627DE002ECA29 /* ProgramDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramDetailCell.m; sourceTree = "<group>"; };
+		FAF9A44B1AF627DE002ECA29 /* ProgramDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramDetailCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,9 +184,9 @@
 				FA192D491AF1AF7B00D6EE85 /* ProgramCell.h */,
 				FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */,
 				FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */,
-				FAF9A4491AF627DE002ECA29 /* DailyProgramCell.h */,
-				FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */,
-				FAF9A44B1AF627DE002ECA29 /* DailyProgramCell.xib */,
+				FAF9A4491AF627DE002ECA29 /* ProgramDetailCell.h */,
+				FAF9A44A1AF627DE002ECA29 /* ProgramDetailCell.m */,
+				FAF9A44B1AF627DE002ECA29 /* ProgramDetailCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -505,7 +505,7 @@
 				FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */,
 				FADD45A81AE8E1160022FE96 /* wallpaper-3.jpg in Resources */,
 				FADD45AA1AE8E4770022FE96 /* masjid-al-haram_00103900.jpg in Resources */,
-				FAF9A44D1AF627DE002ECA29 /* DailyProgramCell.xib in Resources */,
+				FAF9A44D1AF627DE002ECA29 /* ProgramDetailCell.xib in Resources */,
 				FAEE9E091AEF4F25004059B8 /* backArrowIcon.png in Resources */,
 				FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */,
 				FADD459D1AE8E1160022FE96 /* calendar.png in Resources */,
@@ -574,7 +574,7 @@
 				FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */,
 				FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */,
 				FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */,
-				FAF9A44C1AF627DE002ECA29 /* DailyProgramCell.m in Sources */,
+				FAF9A44C1AF627DE002ECA29 /* ProgramDetailCell.m in Sources */,
 				FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,

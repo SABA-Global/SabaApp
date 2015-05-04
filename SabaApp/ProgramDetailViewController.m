@@ -12,7 +12,7 @@
 #import <SVProgressHUD.h>
 
 #import "DailyProgram.h"
-#import "DailyProgramCell.h"
+#import "ProgramDetailCell.h"
 
 @interface ProgramDetailViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -33,10 +33,11 @@
 	
 	[self setupNavigationBar];
 	
+	self.tableView.estimatedRowHeight = 160.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	
 	// register cell for TableView
-	[self.tableView registerNib:[UINib nibWithNibName:@"DailyProgramCell" bundle:nil] forCellReuseIdentifier:@"DailyProgramCell"];
+	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramDetailCell" bundle:nil] forCellReuseIdentifier:@"ProgramDetailCell"];
 }
 
 -(void)setPrograms:(NSArray *)programs{
@@ -62,8 +63,7 @@
 #pragma mark TableView
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	
-	DailyProgramCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"DailyProgramCell" forIndexPath:indexPath];
+	ProgramDetailCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProgramDetailCell" forIndexPath:indexPath];
 	[cell setProgram:self.programs[indexPath.row]];
 	return cell;
 }

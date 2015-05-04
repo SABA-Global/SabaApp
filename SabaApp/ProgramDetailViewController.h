@@ -1,5 +1,5 @@
 //
-//  DailyScheduleViewController.h
+//  ProgramDetailViewController.h
 //  SabaApp
 //
 //  Created by Syed Naqvi on 5/3/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DailyScheduleViewController : UIViewController
+@interface ProgramDetailViewController : UIViewController
 @property (strong, nonatomic) NSArray *programs;
 @end

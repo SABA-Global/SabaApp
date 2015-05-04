@@ -1,12 +1,12 @@
 //
-//  DailyScheduleViewController.m
+//  ProgramDetailViewController.m
 //  SabaApp
 //
 //  Created by Syed Naqvi on 5/3/15.
 //  Copyright (c) 2015 Naqvi. All rights reserved.
 //
 
-#import "DailyScheduleViewController.h"
+#import "ProgramDetailViewController.h"
 
 // Third party imports
 #import <SVProgressHUD.h>
@@ -14,14 +14,14 @@
 #import "DailyProgram.h"
 #import "DailyProgramCell.h"
 
-@interface DailyScheduleViewController ()<UITableViewDelegate,
+@interface ProgramDetailViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation DailyScheduleViewController
+@implementation ProgramDetailViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -51,7 +51,7 @@
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	
-	self.navigationItem.title = @"Daily Schedule";
+	self.navigationItem.title = @"Program Details";
 }
 
 -(void) onBack{

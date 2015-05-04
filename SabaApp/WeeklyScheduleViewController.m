@@ -17,7 +17,7 @@
 #import "ProgramCell.h"
 
 
-#import "DailyScheduleViewController.h"
+#import "ProgramDetailViewController.h"
 
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -100,12 +100,12 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	DailyScheduleViewController* dsvc = [[DailyScheduleViewController alloc]init];
-	dsvc.programs = self.dailyPrograms[indexPath.row];
+	ProgramDetailViewController* pdvc = [[ProgramDetailViewController alloc]init];
+	pdvc.programs = self.dailyPrograms[indexPath.row];
 	//[self.navigationController pushViewController:dsvc animated:YES]; its not working properly
 	
 	// very important to set the NavigationController correctly.
-	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dsvc];
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
 	nvc.navigationBar.translucent = NO; // so it does not hide details views
 	
 	[self presentViewController:nvc animated:YES completion:nil];

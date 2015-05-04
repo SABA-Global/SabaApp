@@ -21,7 +21,6 @@
 @implementation ProgramCell
 
 - (void)awakeFromNib {
-	
 	// round image
 	self.programImageview.layer.cornerRadius = 8.0;
 	self.programImageview.clipsToBounds = YES;
@@ -39,17 +38,6 @@
 }
 
 -(void) setProgram:(Program *)program{
-	
-//	// rounded corners for profile images
-//	CALayer *layer = [self.programImageview layer];
-//	[layer setMasksToBounds:YES];
-//	[layer setCornerRadius:8.0];
-//	
-//	// You can even add a border
-//	[layer setBorderWidth:1.0];
-//	[layer setBorderColor:[[UIColor yellowColor] CGColor]];
-	
-	
 	_program = program;
 	NSString *imageUrl = [program imageUrl];
 	[self.programImageview setImageWithURLRequest:
@@ -76,9 +64,4 @@
 			documentAttributes:nil error:nil];
 	
 }
-
--(void) setWeeklyProgram:(DailyProgram*) dailyProgram{
-	//[Program fromWeeklyPrograms:
-}
-
 @end

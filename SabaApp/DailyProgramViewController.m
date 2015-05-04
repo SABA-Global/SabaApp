@@ -6,22 +6,22 @@
 //  Copyright (c) 2015 Naqvi. All rights reserved.
 //
 
-#import "ProgramDetailViewController.h"
+#import "DailyProgramViewController.h"
 
 // Third party imports
 #import <SVProgressHUD.h>
 
 #import "DailyProgram.h"
-#import "ProgramDetailCell.h"
+#import "DailyProgramCell.h"
 
-@interface ProgramDetailViewController ()<UITableViewDelegate,
+@interface DailyProgramViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
-@implementation ProgramDetailViewController
+@implementation DailyProgramViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -37,7 +37,7 @@
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	
 	// register cell for TableView
-	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramDetailCell" bundle:nil] forCellReuseIdentifier:@"ProgramDetailCell"];
+	[self.tableView registerNib:[UINib nibWithNibName:@"DailyProgramCell" bundle:nil] forCellReuseIdentifier:@"DailyProgramCell"];
 	
 	self.tableView.tableFooterView = [[UIView alloc] init];
 }
@@ -65,7 +65,7 @@
 #pragma mark TableView
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-	ProgramDetailCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProgramDetailCell" forIndexPath:indexPath];
+	DailyProgramCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"DailyProgramCell" forIndexPath:indexPath];
 	[cell setProgram:self.programs[indexPath.row]];
 	return cell;
 }

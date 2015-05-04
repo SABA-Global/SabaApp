@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DailyProgram.h"
 
-@interface ProgramDetailCell : UITableViewCell
+@interface DailyProgramCell : UITableViewCell
 @property (nonatomic, strong) DailyProgram *program;
 @end

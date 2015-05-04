@@ -1,21 +1,21 @@
 //
-//  ProgramDetailCell.m
+//  DailyProgramCell.m
 //  SabaApp
 //
 //  Created by Syed Naqvi on 5/3/15.
 //  Copyright (c) 2015 Naqvi. All rights reserved.
 //
 
-#import "ProgramDetailCell.h"
+#import "DailyProgramCell.h"
 
 
-@interface ProgramDetailCell()
+@interface DailyProgramCell()
 @property (weak, nonatomic) IBOutlet UILabel *programLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end
 
-@implementation ProgramDetailCell
+@implementation DailyProgramCell
 
 - (void)awakeFromNib {
     // Initialization code

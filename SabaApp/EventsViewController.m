@@ -13,8 +13,6 @@
 #import "ProgramCell.h"
 
 
-#import "ProgramDetailViewController.h"
-
 // Third party libraries
 #import <SVProgressHUD.h>
 
@@ -93,11 +91,11 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
-	ProgramDetailViewController* pdvc = [[ProgramDetailViewController alloc]init];
-	// very important to set the NavigationController correctly.
-	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
-	nvc.navigationBar.translucent = NO; // so it does not hide details views
-	[self presentViewController:nvc animated:YES completion:nil];
+//	ProgramDetailViewController* pdvc = [[ProgramDetailViewController alloc]init];
+//	// very important to set the NavigationController correctly.
+//	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
+//	nvc.navigationBar.translucent = NO; // so it does not hide details views
+//	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{

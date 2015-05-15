@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Prayertimes" representedClassName="Prayertimes" syncable="YES">
+        <attribute name="imsaak" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="midnight" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="prayertimesPrimaryId" optional="YES" attributeType="Integer 64" syncable="YES"></attribute>
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="sunset" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="fajar" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="date" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="maghrib" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="sunrise" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="zohar" optional="YES" attributeType="String" syncable="YES"></attribute>
+    </entity>
+    <entity name="SqliteSequence" representedClassName="SqliteSequence" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="Undefined" syncable="YES"></attribute>
+        <attribute name="seq" optional="YES" attributeType="Undefined" syncable="YES"></attribute>
+    </entity>
+    <entity name="Dailyprogram" representedClassName="Dailyprogram" syncable="YES">
+        <attribute name="lastupdated" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="time" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="dailyprogramPrimaryId" optional="YES" attributeType="Integer 64" syncable="YES"></attribute>
+        <attribute name="day" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="hijridate" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="program" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="englishdate" optional="YES" attributeType="String" syncable="YES"></attribute>
+    </entity>
+    <entity name="AndroidMetadata" representedClassName="AndroidMetadata" syncable="YES">
+        <attribute name="locale" optional="YES" attributeType="String" syncable="YES"></attribute>
+    </entity>
+    <entity name="Sabaprogram" representedClassName="Sabaprogram" syncable="YES">
+        <attribute name="lastupdated" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="sabaprogramPrimaryId" optional="YES" attributeType="Integer 64" syncable="YES"></attribute>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="imageurl" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="imagewidth" optional="YES" attributeType="Integer 64" syncable="YES"></attribute>
+        <attribute name="imageheight" optional="YES" attributeType="Integer 64" syncable="YES"></attribute>
+        <attribute name="description" optional="YES" attributeType="String" syncable="YES"></attribute>
+        <attribute name="programname" optional="YES" attributeType="String" syncable="YES"></attribute>
+    </entity>
+</model>

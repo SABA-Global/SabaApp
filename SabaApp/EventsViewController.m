@@ -15,6 +15,7 @@
 #import "SabaClient.h"
 #import "ProgramCell.h"
 
+#import "DBManager.h"
 
 // Third party libraries
 #import <SVProgressHUD.h>
@@ -35,6 +36,8 @@
 	self.tableView.delegate		= self;
 	self.tableView.dataSource	= self;
 	
+	[self showSpinner:YES];
+	
 	[self getUpcomingEvents];
 	[self setupNavigationBar];
 	
@@ -45,9 +48,7 @@
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
 	
-	[self showSpinner:YES];
-	
-		self.tableView.tableFooterView = [[UIView alloc] init];
+	self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,8 +70,17 @@
 #pragma mark get Events
 
 -(void) getUpcomingEvents{
+	// get the program from the local database. If records are there then no need to make a network call.
+	NSArray* programs = [[DBManager sharedInstance ] getSabaPrograms];
+	if(programs != nil && programs.count > 0){
+		self.programs = programs;
+		[self.tableView reloadData];
+		[self showSpinner:NO];
+		return;
+	}
+	
+	// go ahead and fetch the programs via network call.
 	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-		
 		[self showSpinner:NO];
 		
 		if (error) {
@@ -78,6 +88,8 @@
 		} else {
 			self.programs = [Program fromArray: programs];
 			[self.tableView reloadData];
+			
+			[[DBManager sharedInstance] saveSabaPrograms:self.programs];
 		}
 	}];
 }

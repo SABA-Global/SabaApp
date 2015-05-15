@@ -9,7 +9,15 @@
 #import "PrayerTimesViewController.h"
 
 @interface PrayerTimesViewController ()
-
+@property (weak, nonatomic) IBOutlet UILabel *englishDate;
+@property (weak, nonatomic) IBOutlet UILabel *hijriDate;
+@property (weak, nonatomic) IBOutlet UILabel *imsaakTime;
+@property (weak, nonatomic) IBOutlet UILabel *fajrTime;
+@property (weak, nonatomic) IBOutlet UILabel *sunriseTime;
+@property (weak, nonatomic) IBOutlet UILabel *zuhrTime;
+@property (weak, nonatomic) IBOutlet UILabel *sunsetTime;
+@property (weak, nonatomic) IBOutlet UILabel *maghribTime;
+@property (weak, nonatomic) IBOutlet UILabel *midNightTime;
 @end
 
 @implementation PrayerTimesViewController

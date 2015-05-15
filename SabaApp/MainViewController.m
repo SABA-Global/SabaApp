@@ -59,9 +59,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	self.collectionView.dataSource = self;
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
-	
-	
-	
 	[self.navigationController setNavigationBarHidden:YES];
 }
 

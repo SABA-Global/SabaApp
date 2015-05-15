@@ -56,6 +56,12 @@
 
 +(NSArray*) fromArray:(NSArray * )array{
 	NSMutableArray *programs = [[NSMutableArray alloc]init];
+	
+//	for(Program *program in array){
+//		NSLog(@"%@, %@, %@, %@, %@,", program.name, program.lastUpated, program.programDescription, program.title, program.imageUrl);
+//	}
+	
+	
 	for (NSDictionary* value in array) {
 		Program *program = [[Program alloc] initWithDictionary:value];
 		

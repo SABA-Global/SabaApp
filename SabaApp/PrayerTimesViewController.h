@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface PrayerTimesViewController : UIViewController
-
+@property (nonatomic, strong) NSArray *prayerData;
 @end

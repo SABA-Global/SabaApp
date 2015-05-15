@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+
+#import "DBManager.h"
 #import "MainViewController.h"
 #import "WeeklyScheduleViewController.h"
 
@@ -44,6 +46,9 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
 	
+	// Initialize databaseManager
+	DBManager *databaseManager = [[DBManager sharedInstance] init];
+	[databaseManager prepareDatabase];
 	return YES;
 }
 

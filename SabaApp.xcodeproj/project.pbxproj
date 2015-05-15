@@ -10,10 +10,12 @@
 		40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6472047E3D71CC4F4B5DC5F4 /* libPods.a */; };
 		FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */; };
 		FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */; };
+		FA1EB65F1B0515E300617B1B /* Saba.db in Resources */ = {isa = PBXBuildFile; fileRef = FA1EB65E1B0515E300617B1B /* Saba.db */; };
 		FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */; };
 		FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */; };
 		FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92C81AEC139E00F439B7 /* SabaClient.m */; };
 		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
+		FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD19DAD1AFC784900308F4F /* DBManager.m */; };
 		FADD45651AE8DE180022FE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD45641AE8DE180022FE96 /* main.m */; };
 		FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD45671AE8DE180022FE96 /* AppDelegate.m */; };
 		FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD456F1AE8DE190022FE96 /* Images.xcassets */; };
@@ -75,14 +77,16 @@
 		FA192D491AF1AF7B00D6EE85 /* ProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCell.h; sourceTree = "<group>"; };
 		FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
 		FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramCell.xib; sourceTree = "<group>"; };
+		FA1EB65E1B0515E300617B1B /* Saba.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = Saba.db; path = SabaApp/Saba.db; sourceTree = "<group>"; };
 		FA4C92BC1AE9AD6700F439B7 /* SabaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SabaCell.h; sourceTree = "<group>"; };
 		FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaCell.m; sourceTree = "<group>"; };
 		FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SabaCell.xib; sourceTree = "<group>"; };
-		FA4C92C41AEC0FBB00F439B7 /* Saba.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = Saba.db; sourceTree = "<group>"; };
 		FA4C92C71AEC139E00F439B7 /* SabaClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SabaClient.h; sourceTree = "<group>"; };
 		FA4C92C81AEC139E00F439B7 /* SabaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaClient.m; sourceTree = "<group>"; };
 		FA4C92CA1AEC459E00F439B7 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		FA4C92CB1AEC459E00F439B7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		FAD19DAC1AFC784900308F4F /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		FAD19DAD1AFC784900308F4F /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		FADD455F1AE8DE180022FE96 /* SabaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD45631AE8DE180022FE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD45641AE8DE180022FE96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -220,7 +224,15 @@
 		FA4C92C31AEC0F6500F439B7 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				FA4C92C41AEC0FBB00F439B7 /* Saba.db */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		FAD19DAB1AFC781700308F4F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FAD19DAC1AFC784900308F4F /* DBManager.h */,
+				FAD19DAD1AFC784900308F4F /* DBManager.m */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -228,6 +240,7 @@
 		FADD45561AE8DE180022FE96 = {
 			isa = PBXGroup;
 			children = (
+				FA1EB65E1B0515E300617B1B /* Saba.db */,
 				FADD45611AE8DE180022FE96 /* SabaApp */,
 				FADD457B1AE8DE190022FE96 /* SabaAppTests */,
 				FADD45601AE8DE180022FE96 /* Products */,
@@ -248,6 +261,7 @@
 		FADD45611AE8DE180022FE96 /* SabaApp */ = {
 			isa = PBXGroup;
 			children = (
+				FAD19DAB1AFC781700308F4F /* Database */,
 				FAEE9DD91AEC9F3C004059B8 /* Views */,
 				FA4C92C21AEC0E6700F439B7 /* Models */,
 				FA4C92C11AEC0E5400F439B7 /* Client */,
@@ -478,6 +492,7 @@
 				TargetAttributes = {
 					FADD455E1AE8DE180022FE96 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 5384HRFCUE;
 					};
 					FADD45771AE8DE190022FE96 = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -527,6 +542,7 @@
 				FADD459D1AE8E1160022FE96 /* calendar.png in Resources */,
 				FAEE9E021AEE20C1004059B8 /* SettingsViewController.xib in Resources */,
 				FAEE9DF71AEDF0BE004059B8 /* ContactViewController.xib in Resources */,
+				FA1EB65F1B0515E300617B1B /* Saba.db in Resources */,
 				FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */,
 				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
@@ -596,6 +612,7 @@
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
+				FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */,
 				FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */,
 				FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
@@ -720,9 +737,12 @@
 			baseConfigurationReference = AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -731,9 +751,12 @@
 			baseConfigurationReference = 063D403729EB442D45B488BD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabaApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

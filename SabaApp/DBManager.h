@@ -36,4 +36,6 @@
 // returns daily programs for a given day.
 - (NSArray*) getDailyProgramsByDay:(NSString*) day;
 
+// returns prayerTimes for given city and date
+-(NSArray*) getPrayerTimes:(NSString*) city :(NSString*) date;
 @end

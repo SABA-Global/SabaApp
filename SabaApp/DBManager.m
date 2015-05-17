@@ -318,9 +318,17 @@ static BOOL databaseReady = NO;
 -(void) displayProgram:(Program*)program{
 	NSLog(@"Program: %@, \n%@, \n%@, \n%@, \n%@. ", program.name, program.lastUpated, program.programDescription, program.title, program.imageUrl);
 }
+
 -(void) displayPrograms:(NSArray*)programs{
 	for(Program *program in programs){
 		[self displayProgram:program];
 	}
+}
+
+#pragma mark "Prayer Times" table access
+// Get todays time. date format should be MM-DD only. we don't care about year here..
+-(NSArray*) getPrayerTimes:(NSString*) city :(NSString*) date{
+	
+	return nil;
 }
 @end

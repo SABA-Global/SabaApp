@@ -15,9 +15,9 @@
 #import "DailyProgram.h"
 #import "WeeklyPrograms.h"
 #import "ProgramCell.h"
+#import "DBManager.h"
 
-
-#import "DailyProgramViewController.H"
+#import "DailyProgramViewController.h"
 
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *programs;
 @property (strong, nonatomic) NSArray *dailyPrograms;
-
 @end
 
 @implementation WeeklyScheduleViewController
@@ -38,6 +37,7 @@
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	
+	[self showSpinner:YES];
 	[self getWeeklyPrograms];
 	[self setupNavigationBar];
 	
@@ -47,10 +47,7 @@
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
 	
-	[self showSpinner:YES];
-	
 	self.tableView.tableFooterView = [[UIView alloc] init];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,14 +73,46 @@
 #pragma mark get Events
 
 -(void) getWeeklyPrograms{
+	
+	// get the program from the local database. If records are there then no need to make a network call.
+	NSArray* programs = [[DBManager sharedInstance ] getSabaPrograms:@"Weekly Programs"];
+	if(programs != nil && programs.count > 0){
+//		Program *program = [programs objectAtIndex:0];
+//		NSLog(@"%@", [program title]);
+		self.programs = programs;
+		[self.tableView reloadData];
+		[self showSpinner:NO];
+		return;
+	}
+	
 	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[self showSpinner:NO];
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);
 		} else {
 			self.programs = [Program fromWeeklyPrograms:[WeeklyPrograms fromArray: programs]];
+//			for(Program* dp in self.programs){
+//				//for(Program *dp in dpArray){
+//					NSLog(@"%@", [dp programDescription]);
+//					NSLog(@"%@", [dp title]);
+//					NSLog(@"%@", [dp imageUrl]);
+//				//}
+//			}
+			NSLog(@"program size: %lu", (unsigned long)self.programs.count);
 			[self.tableView reloadData];
 			self.dailyPrograms = [WeeklyPrograms fromArray:programs];
+//			NSLog(@"program size: %lu", (unsigned long)self.dailyPrograms.count);
+//			for(NSArray* dpArray in self.dailyPrograms){
+//				for(DailyProgram *dp in dpArray){
+//					NSLog(@"%@", [dp day]);
+//					NSLog(@"%@", [dp time]);
+//					NSLog(@"%@", [dp englishDate]);
+//					NSLog(@"%@", [dp hijriDate]);
+//				}
+//			}
+			
+			[[DBManager sharedInstance] saveSabaPrograms:self.programs :@"Weekly Programs"];
+			[[DBManager sharedInstance] saveWeeklyPrograms:self.dailyPrograms];
 		}
 	}];
 }
@@ -102,7 +131,9 @@
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	DailyProgramViewController* dpvc = [[DailyProgramViewController alloc]init];
-	dpvc.programs = self.dailyPrograms[indexPath.row];
+
+	// extracting day from title and passing to DailyProgramViewController - Try to use delegate pattern here.
+	dpvc.day = [[[self.programs[indexPath.row] title] componentsSeparatedByString:@" "] objectAtIndex:0];
 	//[self.navigationController pushViewController:dsvc animated:YES]; its not working properly
 	
 	// very important to set the NavigationController correctly.

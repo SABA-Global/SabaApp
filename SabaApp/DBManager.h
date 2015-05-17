@@ -17,10 +17,23 @@
 }
 
 +(DBManager*)sharedInstance;
-- (void) prepareDatabase;
-- (BOOL) saveSabaPrograms:(NSArray*) programs;
+- (void) prepareDatabase; // Initialize database, like copy in document folder
+						  // and make sure that it exists.
+
+// saveSabaPrograms in database - SabaProgram Table.
+- (BOOL) saveSabaPrograms:(NSArray*) programs :(NSString*)programName;
+
+// saveWeeklyPrograms in database - DailyPrograms Table.
 - (BOOL) saveWeeklyPrograms:(NSArray*) programs;
 
-- (NSArray*) getSabaPrograms;
+// getSabaPrograms by given name - currently, we have Events/Anouncements
+// and Weekly/daily programs stored in SabaProgram table
+- (NSArray*) getSabaPrograms:(NSString*)programName;
+
+// confirm this function is being used.
 - (NSArray*) getWeeklyPrograms;
+
+// returns daily programs for a given day.
+- (NSArray*) getDailyProgramsByDay:(NSString*) day;
+
 @end

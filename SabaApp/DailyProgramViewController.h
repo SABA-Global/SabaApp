@@ -10,4 +10,5 @@
 
 @interface DailyProgramViewController : UIViewController
 @property (strong, nonatomic) NSArray *programs;
+@property (strong, nonatomic) NSString *day;
 @end

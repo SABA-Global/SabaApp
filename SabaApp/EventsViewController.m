@@ -71,7 +71,7 @@
 
 -(void) getUpcomingEvents{
 	// get the program from the local database. If records are there then no need to make a network call.
-	NSArray* programs = [[DBManager sharedInstance ] getSabaPrograms];
+	NSArray* programs = [[DBManager sharedInstance ] getSabaPrograms:@"Program"];
 	if(programs != nil && programs.count > 0){
 		self.programs = programs;
 		[self.tableView reloadData];
@@ -89,7 +89,7 @@
 			self.programs = [Program fromArray: programs];
 			[self.tableView reloadData];
 			
-			[[DBManager sharedInstance] saveSabaPrograms:self.programs];
+			[[DBManager sharedInstance] saveSabaPrograms:self.programs :@"Program"];
 		}
 	}];
 }

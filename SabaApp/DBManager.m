@@ -8,8 +8,9 @@
 
 #import "DBManager.h"
 
-// Model
+// Models
 #import "Program.h"
+#import "DailyProgram.h"
 
 static DBManager *sharedInstance = nil;
 static NSString *databasePath;
@@ -57,7 +58,8 @@ static BOOL databaseReady = NO;
 	}
 }
 
-- (BOOL) saveSabaPrograms:(NSArray*) programs{
+// Saving  - progrms are Events/Annoncements and Weekly Programs
+- (BOOL) saveSabaPrograms:(NSArray*) programs :(NSString*)programName{
 	if(databaseReady == NO){
 		NSLog(@"Error: Database is NOT ready.");
 		return NO;
@@ -68,19 +70,20 @@ static BOOL databaseReady = NO;
 	sqlite3* database = NULL;
 
 	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READWRITE , NULL);
-
+	NSInteger rowId = [self getNumberOfRowsInTable:@"SabaProgram" :database];
+	
 	if (SQLITE_OK != returnCode){
 		success = NO;
 		NSLog(@"Failed to open db connection, DB path %@", databasePath);
 	} else {
-		int count = 0;
+		
 		for (Program *program in programs) {
 		
-			NSString * query  = [NSString stringWithFormat:@"INSERT INTO SabaProgram (id, programName,lastUpdated, description,					 title, imageUrl, imageWidth, imageHeight) \
+			NSString * query  = [NSString stringWithFormat:@"INSERT INTO SabaProgram (id, programName,lastUpdated, description,					 title,						 imageUrl, imageWidth, imageHeight) \
 								 VALUES \
-								 (%d, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %lu, %lu)",
-								 count++,
-								 [[program name] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+								 (%lu, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %lu, %lu)",
+								 rowId++,
+								 programName,
 								 [program lastUpated],
 								 [[program programDescription] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
 								 [[program title] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
@@ -104,10 +107,44 @@ static BOOL databaseReady = NO;
 		return NO;
 	}
 	
-	return YES;
+	int returnCode = 0;
+	BOOL success = YES;
+	sqlite3* database = NULL;
+	
+	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READWRITE , NULL);
+	
+	if (SQLITE_OK != returnCode){
+		success = NO;
+		NSLog(@"Failed to open db connection, DB path %@", databasePath);
+	} else {
+		int count = 0;
+		for (NSArray *dailyPrograms in programs) {
+			for (DailyProgram *dailyProgram in dailyPrograms) {
+				NSString * query  = [NSString stringWithFormat:@"INSERT INTO DailyProgram (id, day, englishDate, hijriDate,	\
+									 time, program, lastUpdated) VALUES \
+									 (%d, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\")",
+									 count++,
+									 [[dailyProgram day] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+									 [dailyProgram englishDate],
+									 [[dailyProgram hijriDate] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+									 [[dailyProgram time] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+									 [[dailyProgram program] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+									 [dailyProgram lastUpated]];
+				char * errMsg;
+				returnCode = sqlite3_exec(database, [query UTF8String], NULL, NULL, &errMsg);
+				if(SQLITE_OK != returnCode)
+					NSLog(@"Failed to insert record - returnCode = %d, errorMessage = %s", returnCode, errMsg);
+			}
+		}
+	}
+	sqlite3_close(database);
+	
+	return success;
 }
 
-- (NSArray*) getSabaPrograms{
+// ----------------------------------------- getting Programs -----------------
+// These progrms are Events and Annoncements and weeklyPrograms too.
+- (NSArray*) getSabaPrograms:(NSString*) programName{
 	if(databaseReady == NO){
 		NSLog(@"Error: Database is NOT ready.");
 		return nil;
@@ -123,7 +160,7 @@ static BOOL databaseReady = NO;
 	if (SQLITE_OK != returnCode){
 		NSLog(@"Failed to open db connection, DB path %@", databasePath);
 	} else {
-		NSString  * query = @"SELECT * FROM SabaProgram";
+		NSString  * query = [NSString stringWithFormat:@"SELECT * FROM SabaProgram WHERE programName = \"%@\"", programName];
 		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
 		if(returnCode != SQLITE_OK){
 			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
@@ -137,13 +174,15 @@ static BOOL databaseReady = NO;
 											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 				program.title				= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)]
 					                           stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-				program.imageUrl			= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)]
+
+				// process further if its not "Weekly Programs"
+				if([programName isEqualToString:@"Weekly Programs"] == NO){
+					program.imageUrl			= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)]
 											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-				program.imageHeight			= sqlite3_column_int(statement, 6);
-				program.imageWidth			= sqlite3_column_int(statement, 7);
-				
-				// debug
-				//[self displayProgram:program];
+			
+					program.imageHeight			= sqlite3_column_int(statement, 6);
+					program.imageWidth			= sqlite3_column_int(statement, 7);
+				}
 				
 				// adding program in an array.
 				[programs addObject:program];
@@ -154,14 +193,125 @@ static BOOL databaseReady = NO;
 	
 	sqlite3_close(database);
 	
-	// debug
-	//[self displayPrograms:programs];
-	
 	return programs;
 }
 
+-(NSArray*) getDailyProgramsByDay:(NSString*) day{
+	
+	if(databaseReady == NO){
+		NSLog(@"Error: Database is NOT ready.");
+		return nil;
+	}
+	
+	int returnCode = 0;
+	sqlite3* database = NULL;
+	sqlite3_stmt* statement = NULL;
+	
+	NSMutableArray *dailyPrograms = [NSMutableArray array]; // contains the programs.
+	
+	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READONLY , NULL);
+	if (SQLITE_OK != returnCode){
+		NSLog(@"Failed to open db connection, DB path %@", databasePath);
+	} else {
+		NSString  * query = [NSString stringWithFormat:@"SELECT * FROM DailyProgram WHERE day = \"%@\"", day];
+		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
+		if(returnCode != SQLITE_OK){
+			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+		} else {
+			while (sqlite3_step(statement) == SQLITE_ROW) { //get each row in loop
+				DailyProgram *dailyProgram = [[DailyProgram alloc] init];
+				dailyProgram.day			= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				dailyProgram.englishDate	= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+				dailyProgram.hijriDate		= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				dailyProgram.time			= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				dailyProgram.program		= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				dailyProgram.lastUpated		= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
+				
+				// adding program in an array.
+				[dailyPrograms addObject:dailyProgram];
+				
+			}
+			sqlite3_finalize(statement);
+		}
+	}
+	
+	sqlite3_close(database);
+
+	return dailyPrograms;
+}
+
 - (NSArray*) getWeeklyPrograms{
-	return nil;
+	
+	if(databaseReady == NO){
+		NSLog(@"Error: Database is NOT ready.");
+		return nil;
+	}
+	
+	int returnCode = 0;
+	sqlite3* database = NULL;
+	sqlite3_stmt* statement = NULL;
+	
+	NSMutableArray *programs = [NSMutableArray array]; // contains weekly programs.
+	
+	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READONLY , NULL);
+	if (SQLITE_OK != returnCode){
+		NSLog(@"Failed to open db connection, DB path %@", databasePath);
+	} else {
+		NSString  * query = @"SELECT * FROM DailyProgram";
+		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
+		if(returnCode != SQLITE_OK){
+			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+		} else {
+			
+			while (sqlite3_step(statement) == SQLITE_ROW) { //get each row in loop
+				DailyProgram *program			= [[DailyProgram alloc] init];
+				program.day				= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				program.englishDate			= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+				program.hijriDate	= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				program.time				= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				program.program			= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)]
+											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+				program.lastUpated			= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
+				
+				// adding program in an array.
+				[programs addObject:program];
+			}
+			sqlite3_finalize(statement);
+		}
+	}
+	
+	sqlite3_close(database);
+		
+	return programs;
+}
+
+#pragma mark helper functions
+-(NSInteger) getNumberOfRowsInTable:(NSString*)tableName :(sqlite3*)database{
+	NSString *query = [NSString stringWithFormat:@"select count(*) from \"%@\"", tableName];
+	
+	int numberOfRows = 0;
+	sqlite3_stmt *selectStatement;
+	int returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &selectStatement, NULL);
+	if (returnCode != SQLITE_OK){
+		NSLog(@"sqlite3_prepare_v2 returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+	}
+	else{
+		if(sqlite3_step(selectStatement) == SQLITE_ROW)
+			numberOfRows = sqlite3_column_int(selectStatement, 0);
+		else
+			NSLog(@"sqlite3_step returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+	}
+	
+	sqlite3_finalize(selectStatement);
+	
+	return numberOfRows;
 }
 
 #pragma mark debug functions.
@@ -173,49 +323,4 @@ static BOOL databaseReady = NO;
 		[self displayProgram:program];
 	}
 }
-
-
-//sqlite3* db = NULL;
-//sqlite3_stmt* stmt =NULL;
-//int rc=0;
-//rc = sqlite3_open_v2(dbFilePath, &db, SQLITE_OPEN_READONLY , NULL);
-//if (SQLITE_OK != rc)
-//{
-//	sqlite3_close(db);
-//	NSLog(@"Failed to open db connection");
-//}
-//else
-//{
-//	NSString  * query = @"SELECT * from PrayerTimes";
-//	
-//	
-//	rc =sqlite3_prepare_v2(db, [query UTF8String], -1, &stmt, NULL);
-//	
-//	NSLog(@"Database returned error %d: %s", sqlite3_errcode(db), sqlite3_errmsg(db));
-//	
-//	
-//	if(rc == SQLITE_OK)
-//	{
-//		while (sqlite3_step(stmt) == SQLITE_ROW) //get each row in loop
-//		{
-//			
-//			NSString * name =[NSString stringWithUTF8String:(const char *)sqlite3_column_text(stmt, 1)];
-//			NSInteger age =  sqlite3_column_int(stmt, 2);
-//			NSInteger marks =  sqlite3_column_int(stmt, 3);
-//			
-//			
-//			
-//			NSLog(@"name: %@, age=%ld , marks =%ld",name,(long)age,(long)marks);
-//			
-//		}
-//		NSLog(@"Done");
-//		sqlite3_finalize(stmt);
-//	}
-//	else
-//	{
-//		NSLog(@"Failed to prepare statement with rc:%d",rc);
-//	}
-//	sqlite3_close(db);
-//}
-
 @end

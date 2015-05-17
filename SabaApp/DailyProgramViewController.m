@@ -13,6 +13,7 @@
 
 #import "DailyProgram.h"
 #import "DailyProgramCell.h"
+#import "DBManager.h"
 
 @interface DailyProgramViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -26,6 +27,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view from its nib.
+	
+	self.programs = [[DBManager sharedInstance] getDailyProgramsByDay:self.day];
 	
 	// tableView delegate and source
 	self.tableView.delegate = self;
@@ -44,6 +47,10 @@
 
 -(void)setPrograms:(NSArray *)programs{
 	_programs = programs;
+}
+
+-(void)setDay:(NSString *)day{
+	_day = day;
 }
 
 - (void)didReceiveMemoryWarning {

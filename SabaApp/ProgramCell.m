@@ -27,9 +27,9 @@
 	self.programImageview.layer.cornerRadius = 8.0;
 	self.programImageview.clipsToBounds = YES;
 
-	// You can even add a border
-	self.programImageview.layer.borderWidth = 1.0;
-	self.programImageview.layer.borderColor = [[UIColor yellowColor] CGColor];
+	// Add a border
+	//self.programImageview.layer.borderWidth = 1.0;
+	//self.programImageview.layer.borderColor = [[UIColor yellowColor] CGColor];
 	
 }
 

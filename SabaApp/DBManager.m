@@ -70,7 +70,7 @@ static BOOL databaseReady = NO;
 	sqlite3* database = NULL;
 
 	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READWRITE , NULL);
-	NSInteger rowId = [self getNumberOfRowsInTable:@"SabaProgram" :database];
+	long rowId = [self getNumberOfRowsInTable:@"SabaProgram" :database];
 	
 	if (SQLITE_OK != returnCode){
 		success = NO;
@@ -81,15 +81,15 @@ static BOOL databaseReady = NO;
 		
 			NSString * query  = [NSString stringWithFormat:@"INSERT INTO SabaProgram (id, programName,lastUpdated, description,					 title,						 imageUrl, imageWidth, imageHeight) \
 								 VALUES \
-								 (%lu, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %lu, %lu)",
-								 rowId++,
+								 (%ld, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %lu, %lu)",
+								 ++rowId,
 								 programName,
 								 [program lastUpated],
 								 [[program programDescription] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
 								 [[program title] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
 								 [[program imageUrl] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-								 [program imageWidth],
-								 [program imageHeight] ];
+								 (long)[program imageWidth],
+								 (long)[program imageHeight] ];
 			char * errMsg;
 			returnCode = sqlite3_exec(database, [query UTF8String], NULL, NULL, &errMsg);
 			if(SQLITE_OK != returnCode)
@@ -293,7 +293,7 @@ static BOOL databaseReady = NO;
 }
 
 #pragma mark helper functions
--(NSInteger) getNumberOfRowsInTable:(NSString*)tableName :(sqlite3*)database{
+-(int) getNumberOfRowsInTable:(NSString*)tableName :(sqlite3*)database{
 	NSString *query = [NSString stringWithFormat:@"select count(*) from \"%@\"", tableName];
 	
 	int numberOfRows = 0;

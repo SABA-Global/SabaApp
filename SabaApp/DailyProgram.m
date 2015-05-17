@@ -27,14 +27,6 @@
 
 
 @implementation DailyProgram
-//-(id)initWithArray:(NSArray * )array{
-//	self = [super init];
-//	if(self){
-//		
-//	}
-//	
-//	return self;
-//}
 
 -(id)initWithDictionary:(NSDictionary * )dictionary{
 	self = [super init];
@@ -69,15 +61,14 @@
 	return [[DailyProgram alloc] initWithDictionary:dictionary];
 }
 
-+(NSArray*) fromArray:(NSArray * )array{
-	NSMutableArray *dailyPrograms = [[NSMutableArray alloc]init];
-	for (NSDictionary* value in array) {
-		DailyProgram *dailyProgram = [[DailyProgram alloc] initWithDictionary:value];
-		[dailyPrograms addObject:dailyProgram];
-		//NSLog(@"title: %@", program.title);
-	}
-	
-	return dailyPrograms;
-}
+//+(NSArray*) fromArray:(NSArray * )array{
+//	NSMutableArray *dailyPrograms = [[NSMutableArray alloc]init];
+//	for (NSDictionary* value in array) {
+//		DailyProgram *dailyProgram = [[DailyProgram alloc] initWithDictionary:value];
+//		[dailyPrograms addObject:dailyProgram];
+//	}
+//	
+//	return dailyPrograms;
+//}
 
 @end

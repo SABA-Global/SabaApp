@@ -30,7 +30,7 @@
 // retruns an array of Programs
 +(NSArray*) fromArray:(NSArray * )array;
 
-// caller passes Programs in weekly format which is two dimesional array of DailyProgram.
+// Caller passes Programs in weekly format which is two dimesional array of DailyProgram.
 // NSArray of NSArray of DailyProgram.
 // NSArray of DailyProgram represents all programs in a day.
 

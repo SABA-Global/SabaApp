@@ -12,7 +12,4 @@
 
 +(NSArray*) fromArray:(NSArray*)programsArray;
 
-+(NSArray*) fromArray1:(NSArray*)programsArray;
-
-+(NSArray*) fromArray2:(NSArray*)programsArray;
 @end

@@ -30,6 +30,8 @@
 -(void) setProgram:(DailyProgram *)program{
 	_program = program;
 
+	NSLog(@"*********** time: %@", program.time);
+	NSLog(@"===========program: %@", program.program);
 	self.timeLabel.text = program.time;
 	self.programLabel.text = program.program;
 	

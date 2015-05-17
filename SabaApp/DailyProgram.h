@@ -23,6 +23,6 @@
 // returns DailyProgram from dictionary (JSON)
 +(DailyProgram*) fromDictionary:(NSDictionary * )dictionary;
 
-// retruns an array of DailyProgram - 
-+(NSArray*) fromArray:(NSArray * )array;
+// retruns an array of DailyProgram - Keep it for reference - we might not need it.
+//+(NSArray*) fromArray:(NSArray * )array;
 @end

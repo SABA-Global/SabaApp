@@ -45,8 +45,8 @@
 	NSLog(@"title: %@", self.title);
 	NSLog(@"programDescription: %@", self.programDescription);
 	NSLog(@"imageUrl: %@", self.imageUrl);
-	NSLog(@"imageHeight: %ld", self.imageHeight);
-	NSLog(@"imageWidth: %ld", self.imageWidth);
+	NSLog(@"imageHeight: %lu", (long)self.imageHeight);
+	NSLog(@"imageWidth: %lu", (long)self.imageWidth);
 }
 
 +(Program*) fromDictionary:(NSDictionary * )dictionary{

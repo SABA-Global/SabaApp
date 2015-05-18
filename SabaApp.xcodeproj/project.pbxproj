@@ -52,6 +52,7 @@
 		FAEE9E091AEF4F25004059B8 /* backArrowIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9E081AEF4F25004059B8 /* backArrowIcon.png */; };
 		FAEE9E0C1AEFE888004059B8 /* DailyProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E0B1AEFE888004059B8 /* DailyProgram.m */; };
 		FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9E0E1AEFE926004059B8 /* WeeklyPrograms.m */; };
+		FAF082A81B0961A7007C60F6 /* PrayerTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF082A71B0961A7007C60F6 /* PrayerTimes.m */; };
 		FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A4451AF6267F002ECA29 /* DailyProgramViewController.m */; };
 		FAF9A4481AF6267F002ECA29 /* DailyProgramViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAF9A4461AF6267F002ECA29 /* DailyProgramViewController.xib */; };
 		FAF9A44C1AF627DE002ECA29 /* DailyProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */; };
@@ -137,6 +138,8 @@
 		FAEE9E0B1AEFE888004059B8 /* DailyProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyProgram.m; sourceTree = "<group>"; };
 		FAEE9E0D1AEFE926004059B8 /* WeeklyPrograms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyPrograms.h; sourceTree = "<group>"; };
 		FAEE9E0E1AEFE926004059B8 /* WeeklyPrograms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyPrograms.m; sourceTree = "<group>"; };
+		FAF082A61B0961A7007C60F6 /* PrayerTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerTimes.h; sourceTree = "<group>"; };
+		FAF082A71B0961A7007C60F6 /* PrayerTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerTimes.m; sourceTree = "<group>"; };
 		FAF9A4441AF6267F002ECA29 /* DailyProgramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyProgramViewController.h; sourceTree = "<group>"; };
 		FAF9A4451AF6267F002ECA29 /* DailyProgramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyProgramViewController.m; sourceTree = "<group>"; };
 		FAF9A4461AF6267F002ECA29 /* DailyProgramViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DailyProgramViewController.xib; sourceTree = "<group>"; };
@@ -217,6 +220,8 @@
 				FA4C92CB1AEC459E00F439B7 /* Program.m */,
 				FAEE9E0A1AEFE888004059B8 /* DailyProgram.h */,
 				FAEE9E0B1AEFE888004059B8 /* DailyProgram.m */,
+				FAF082A61B0961A7007C60F6 /* PrayerTimes.h */,
+				FAF082A71B0961A7007C60F6 /* PrayerTimes.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -609,6 +614,7 @@
 				FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */,
 				FAF9A44C1AF627DE002ECA29 /* DailyProgramCell.m in Sources */,
 				FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */,
+				FAF082A81B0961A7007C60F6 /* PrayerTimes.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,

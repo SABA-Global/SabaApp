@@ -10,6 +10,7 @@
 
 // Models
 #import "Program.h"
+#import "PrayerTimes.h"
 #import "DailyProgram.h"
 
 static DBManager *sharedInstance = nil;
@@ -160,7 +161,7 @@ static BOOL databaseReady = NO;
 	if (SQLITE_OK != returnCode){
 		NSLog(@"Failed to open db connection, DB path %@", databasePath);
 	} else {
-		NSString  * query = [NSString stringWithFormat:@"SELECT * FROM SabaProgram WHERE programName = \"%@\"", programName];
+		NSString  *query = [NSString stringWithFormat:@"SELECT * FROM SabaProgram WHERE programName = \"%@\"", programName];
 		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
 		if(returnCode != SQLITE_OK){
 			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
@@ -213,7 +214,8 @@ static BOOL databaseReady = NO;
 	if (SQLITE_OK != returnCode){
 		NSLog(@"Failed to open db connection, DB path %@", databasePath);
 	} else {
-		NSString  * query = [NSString stringWithFormat:@"SELECT * FROM DailyProgram WHERE day = \"%@\"", day];
+		
+		NSString  *query = [NSString stringWithFormat:@"SELECT * FROM DailyProgram WHERE day = \"%@\"", day];
 		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
 		if(returnCode != SQLITE_OK){
 			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
@@ -268,17 +270,17 @@ static BOOL databaseReady = NO;
 		} else {
 			
 			while (sqlite3_step(statement) == SQLITE_ROW) { //get each row in loop
-				DailyProgram *program			= [[DailyProgram alloc] init];
-				program.day				= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)]
+				DailyProgram *program = [[DailyProgram alloc] init];
+				program.day			  = [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 1)]
 											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-				program.englishDate			= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
-				program.hijriDate	= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)]
+				program.englishDate	  = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 2)];
+				program.hijriDate	  = [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)]
 											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-				program.time				= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)]
+				program.time		  = [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)]
 											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-				program.program			= [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)]
+				program.program		  = [[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)]
 											   stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-				program.lastUpated			= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
+				program.lastUpated	  = [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
 				
 				// adding program in an array.
 				[programs addObject:program];
@@ -327,8 +329,43 @@ static BOOL databaseReady = NO;
 
 #pragma mark "Prayer Times" table access
 // Get todays time. date format should be MM-DD only. we don't care about year here..
--(NSArray*) getPrayerTimes:(NSString*) city :(NSString*) date{
+-(PrayerTimes*) getPrayerTimesByCity:(NSString*) city forDate:(NSString*) date{
+	if(databaseReady == NO){
+		NSLog(@"Error: Database is NOT ready.");
+		return nil;
+	}
 	
-	return nil;
+	int returnCode = 0;
+	sqlite3* database = NULL;
+	sqlite3_stmt* statement = NULL;
+	PrayerTimes *prayerTimes = nil;
+	
+	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READONLY , NULL);
+	if (SQLITE_OK != returnCode){
+		NSLog(@"Failed to open db connection, DB path %@", databasePath);
+	} else {
+		NSString  *query = [NSString stringWithFormat:@"SELECT * FROM PrayerTimes WHERE city = \"%@\" AND date = \"%@\" ", city, date];
+		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
+		if(returnCode != SQLITE_OK){
+			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+		} else {
+			
+			if (sqlite3_step(statement) == SQLITE_ROW) {
+				prayerTimes = [[PrayerTimes alloc] init];
+				prayerTimes.fajr		= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 3)];
+				prayerTimes.imsaak	= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 4)];
+				prayerTimes.maghrib	= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 5)];
+				prayerTimes.midnight	= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 6)];
+				prayerTimes.sunrise	= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 7)];
+				prayerTimes.sunset	= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 8)];
+				prayerTimes.zuhr		= [NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 9)];
+			}
+			sqlite3_finalize(statement);
+		}
+	}
+	
+	sqlite3_close(database);
+	
+	return prayerTimes;
 }
 @end

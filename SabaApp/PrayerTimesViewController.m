@@ -8,6 +8,11 @@
 
 #import "PrayerTimesViewController.h"
 
+#import "DBManager.h"
+
+// model
+#import "PrayerTimes.h"
+
 @interface PrayerTimesViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *englishDate;
 @property (weak, nonatomic) IBOutlet UILabel *hijriDate;
@@ -27,6 +32,7 @@
     // Do any additional setup after loading the view from its nib.
 	
 	[self setupNavigationBar];
+	[self getPrayerTimes];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,4 +50,30 @@
 	NSLog(@"Back button clicked...");
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
+-(void) getPrayerTimes{
+	NSDateComponents *components = [[NSCalendar currentCalendar]
+									components:NSCalendarUnitDay | NSCalendarUnitMonth |
+									NSCalendarUnitYear fromDate:[NSDate date]];
+	
+	NSInteger day = [components day];
+	NSInteger month = [components month];
+
+	// This date contain "monthNumber-day" format. E,g, "11-6" means december 6th.
+	// Months are zero based in database.
+	NSString *date = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
+	
+	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:@"San Jose" forDate:date];
+	
+	if( prayerTimes != nil){
+		self.fajrTime.text = prayerTimes.fajr;
+		self.imsaakTime.text = prayerTimes.imsaak;
+		self.sunriseTime.text = prayerTimes.sunrise;
+		self.zuhrTime.text = prayerTimes.zuhr;
+		self.sunsetTime.text = prayerTimes.sunset;
+		self.maghribTime.text = prayerTimes.maghrib;
+		self.midNightTime.text = prayerTimes.midnight;
+	}
+}
+
 @end

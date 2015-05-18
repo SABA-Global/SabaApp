@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-#import <Foundation/Foundation.h>
 #import <sqlite3.h>
+
+// Models
+#import "PrayerTimes.h"
 
 @interface DBManager : NSObject
 {
@@ -37,5 +39,5 @@
 - (NSArray*) getDailyProgramsByDay:(NSString*) day;
 
 // returns prayerTimes for given city and date
--(NSArray*) getPrayerTimes:(NSString*) city :(NSString*) date;
+-(PrayerTimes*) getPrayerTimesByCity:(NSString*) city forDate:(NSString*) date;
 @end

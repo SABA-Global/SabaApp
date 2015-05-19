@@ -7,14 +7,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrayerTimesViewController">
             <connections>
                 <outlet property="englishDate" destination="hIq-2d-Ulk" id="ip9-eF-WAA"/>
+                <outlet property="fajrLabel" destination="iY6-Db-o6z" id="6Px-kV-uPc"/>
                 <outlet property="fajrTime" destination="1Xf-vD-3Zz" id="Nuv-8b-uDt"/>
                 <outlet property="hijriDate" destination="F3i-bW-aUN" id="1Jg-Th-1xh"/>
+                <outlet property="imsaakLabel" destination="4Xs-jb-UW7" id="bGl-dA-mm0"/>
                 <outlet property="imsaakTime" destination="Y9g-9W-mbw" id="QqS-oL-XM0"/>
+                <outlet property="maghribLabel" destination="9hi-lj-0Br" id="w0H-6V-kJM"/>
                 <outlet property="maghribTime" destination="nwr-2K-Fin" id="ooT-By-gbg"/>
+                <outlet property="midNightLabel" destination="KM0-iV-ptt" id="dRz-bM-4fQ"/>
                 <outlet property="midNightTime" destination="Iv2-O6-Gr9" id="zoj-if-1fJ"/>
+                <outlet property="sunriseLabel" destination="dyv-Ii-ga2" id="6PD-Ke-Xhb"/>
                 <outlet property="sunriseTime" destination="bwy-Gm-t2p" id="mvR-re-PyN"/>
+                <outlet property="sunsetLabel" destination="1cg-oO-8Gq" id="aN3-xA-DSF"/>
                 <outlet property="sunsetTime" destination="0mo-Bl-hgS" id="Z8u-2T-GAg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="zuhrLabel" destination="JSb-Lu-eI7" id="xpR-hb-XQQ"/>
                 <outlet property="zuhrTime" destination="jao-rg-htm" id="tOa-tr-IHN"/>
             </connections>
         </placeholder>
@@ -35,28 +42,10 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imsaak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xs-jb-UW7">
-                    <rect key="frame" x="60" y="109" width="75" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="oTx-ai-x7g"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:45 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9g-9W-mbw">
                     <rect key="frame" x="185" y="109" width="75" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="fEi-QH-cXy"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fajr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY6-Db-o6z">
-                    <rect key="frame" x="60" y="155" width="75" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="bfe-Ig-VPA"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -71,28 +60,10 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunrise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-Ii-ga2">
-                    <rect key="frame" x="60" y="201" width="75" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="C30-uv-2NY"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:21 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwy-Gm-t2p">
                     <rect key="frame" x="187" y="201" width="75" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="Jpu-wg-hn6"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zuhr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSb-Lu-eI7">
-                    <rect key="frame" x="60" y="247" width="75" height="21"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="75" id="vBQ-nD-2rU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -156,6 +127,42 @@
                     <rect key="frame" x="60" y="293" width="75" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="75" id="v0w-W3-Xs1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Imsaak" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xs-jb-UW7">
+                    <rect key="frame" x="60" y="109" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="oTx-ai-x7g"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fajr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iY6-Db-o6z">
+                    <rect key="frame" x="60" y="155" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="bfe-Ig-VPA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunrise" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dyv-Ii-ga2">
+                    <rect key="frame" x="60" y="201" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="C30-uv-2NY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zuhr" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSb-Lu-eI7">
+                    <rect key="frame" x="60" y="247" width="75" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="75" id="vBQ-nD-2rU"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

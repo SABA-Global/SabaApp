@@ -32,6 +32,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *maghribTime;
 @property (weak, nonatomic) IBOutlet UILabel *midNightTime;
 
+// Labels
+@property (weak, nonatomic) IBOutlet UILabel *imsaakLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fajrLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sunriseLabel;
+@property (weak, nonatomic) IBOutlet UILabel *zuhrLabel;
+@property (weak, nonatomic) IBOutlet UILabel *sunsetLabel;
+@property (weak, nonatomic) IBOutlet UILabel *maghribLabel;
+@property (weak, nonatomic) IBOutlet UILabel *midNightLabel;
+
 @property (strong, nonatomic) CLGeocoder *geoCoder;
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
@@ -45,28 +54,18 @@ int locationFetchCounter;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	[self showSpinner:YES];
+	[self showPrayerTimes:NO]; // hiding the prayertimes
+	[self startLocationManager];
 	
-	locationFetchCounter = 0;
-	if ([CLLocationManager locationServicesEnabled])
-	{
-		// this creates the CCLocationManager that will find your current location
-		self.locationManager = [[CLLocationManager alloc] init];
-		self.locationManager.delegate = self;
-		self.locationManager.distanceFilter = kCLDistanceFilterNone;
-		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-		
-		// for iOS 8.0 and above
-		if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
-			[self.locationManager requestWhenInUseAuthorization];
-		
-		[self.locationManager startMonitoringSignificantLocationChanges];
-		[self.locationManager startUpdatingLocation];
-	}
 	
-	self.geoCoder = [[CLGeocoder alloc] init];
 	
+	NSString* date = [NSDateFormatter localizedStringFromDate:[NSDate date]
+								   dateStyle:NSDateFormatterShortStyle
+								   timeStyle:NSDateFormatterFullStyle];
+	
+	NSLog(@"date: %@", date);
 	[self setupNavigationBar];
+	[self showSpinner:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,12 +97,9 @@ int locationFetchCounter;
 	
 	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:city forDate:date];
 	
-	// Most likely, the city we passed in it not available in the database for prayer times.
-	if(prayerTimes == nil){
+	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
 		// go ahead and fetch the programs via network call.
 		 [[SabaClient sharedInstance] getPrayTimes:latitude :longitude :^(NSDictionary *prayerTimes, NSError *error) {
-			// [self showSpinner:NO];
-			 
 			 if (error) {
 				 NSLog(@"Error getting getPrayTimes: %@", error);
 			 } else {
@@ -114,10 +110,11 @@ int locationFetchCounter;
 				 self.zuhrTime.text		= prayerTimes[@"Dhuhr"];
 				 self.sunsetTime.text	= prayerTimes[@"Sunset"];
 				 self.maghribTime.text	= prayerTimes[@"Maghrib"];
-//				 self.midNightTime.text	= prayerTimes.midnight;
-
+				 self.midNightTime.text	= prayerTimes[@"Isha"];
+				 self.midNightLabel.text= @"Isha";
 			 }
 			 [self showSpinner:NO];
+			 [self showPrayerTimes:YES]; // show the prayertimes
 		 }];
 	} else {
 		self.fajrTime.text		= prayerTimes.fajr;
@@ -127,8 +124,31 @@ int locationFetchCounter;
 		self.sunsetTime.text	= prayerTimes.sunset;
 		self.maghribTime.text	= prayerTimes.maghrib;
 		self.midNightTime.text	= prayerTimes.midnight;
+		
 		[self showSpinner:NO];
+		[self showPrayerTimes:YES]; // show the prayertimes
 	}
+}
+
+-(void) startLocationManager{
+	locationFetchCounter = 0;
+	if ([CLLocationManager locationServicesEnabled])
+	{
+		// this creates the CCLocationManager that will find your current location
+		self.locationManager = [[CLLocationManager alloc] init];
+		self.locationManager.delegate = self;
+		self.locationManager.distanceFilter = kCLDistanceFilterNone;
+		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+		
+		// for iOS 8.0 and above
+		if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+			[self.locationManager requestWhenInUseAuthorization];
+		
+		[self.locationManager startMonitoringSignificantLocationChanges];
+		[self.locationManager startUpdatingLocation];
+	}
+	
+	self.geoCoder = [[CLGeocoder alloc] init];
 }
 
 #pragma mark CLLocationManager delegate
@@ -143,7 +163,7 @@ int locationFetchCounter;
 	// after we have current coordinates, we use this method to fetch the information data of fetched coordinate
 	[self.geoCoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error) {
 		CLPlacemark *placemark = [placemarks lastObject];
-		NSLog(@"we live in city %@", placemark.locality);
+		NSLog(@"Current city: %@", placemark.locality);
 
 		CLLocation *location = (CLLocation*)[locations lastObject];
 		NSLog(@"lattitude: %f", location.coordinate.latitude);
@@ -179,6 +199,27 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 	}
 	else
 		[SVProgressHUD dismiss];
+}
+
+-(void) showPrayerTimes:(BOOL)show{
+	
+	// All Labels
+	self.fajrLabel.hidden		= !show;
+	self.imsaakLabel.hidden		= !show;
+	self.sunriseLabel.hidden	= !show;
+	self.zuhrLabel.hidden		= !show;
+	self.sunsetLabel.hidden		= !show;
+	self.maghribLabel.hidden	= !show;
+	self.midNightLabel.hidden	= !show;
+	
+	// Values
+	self.fajrTime.hidden		= !show;
+	self.imsaakTime.hidden		= !show;
+	self.sunriseTime.hidden		= !show;
+	self.zuhrTime.hidden		= !show;
+	self.sunsetTime.hidden		= !show;
+	self.maghribTime.hidden		= !show;
+	self.midNightTime.hidden	= !show;
 }
 
 @end

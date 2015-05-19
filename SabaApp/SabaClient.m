@@ -13,12 +13,14 @@
 #import "Program.h"
 
 static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
+static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-480";
 
 //	private static String PRAY_TIME_INFO_URL = "http://praytime.info/getprayertimes.php?lat=34.024899&lon=-117.89730099999997&gmt=-480&m=11&d=31&y=2014&school=0";
 //	private static String PRAY_TIME_INFO_BASE_URL = "http://praytime.info/getprayertimes.php?school=0&gmt=-480";
 //
 
 @implementation SabaClient
+
 +(SabaClient *) sharedInstance{
 	static SabaClient *instance = nil;
 	
@@ -60,6 +62,61 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	[self sendNetworkRequest:@"General Announcements" withUrl:url completion:completion];
 }
 
+-(void) getPrayTimes:(double)latitude :(double)longitude : (void (^)(NSDictionary* prayerTimes, NSError *error))completion {
+	
+	NSDateComponents *components = [[NSCalendar currentCalendar]
+									components:NSCalendarUnitDay | NSCalendarUnitMonth |
+									NSCalendarUnitYear fromDate:[NSDate date]];
+	
+	NSString  *url = [NSString stringWithFormat:@"%@&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_INFO_BASE_URL, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
+	
+	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
+}
+
+-(void) sendNetworkRequest1:(NSURL*) url completion:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
+	
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+	operation.responseSerializer = [AFJSONResponseSerializer serializer];
+	operation.responseSerializer.acceptableContentTypes = [operation.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+	
+	[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+		
+		if(responseObject == nil){
+			return;
+		}
+		
+		completion(responseObject, nil);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		completion(nil, error);
+	}];
+	
+	// Start Operation
+	[operation start];
+}
+
+-(void) sendNetworkRequest:(NSURL*) url completion:(void (^)(NSDictionary *jsonResponse, NSError *error))completion {
+	
+	NSURLRequest *request = [NSURLRequest requestWithURL:url];
+	AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+	operation.responseSerializer = [AFJSONResponseSerializer serializer];
+	operation.responseSerializer.acceptableContentTypes = [operation.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+	
+	[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+		
+		if(responseObject == nil){
+			return;
+		}
+
+		completion(responseObject, nil);
+	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		completion(nil, error);
+	}];
+	
+	// Start Operation
+	[operation start];
+}
+
 -(void) sendNetworkRequest:(id)sender withUrl:(NSURL*) url completion:(void (^)(NSString* programName, NSArray *programs, NSError *error))completion {
 	NSURLRequest *request = [NSURLRequest requestWithURL:url];
 	
@@ -74,9 +131,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 		}
 		
 		NSLog(@"%@", sender);
-		//NSLog(@"%@", responseObject);
-		//NSArray* programs = [Program fromArray:responseObject];
-		//NSLog(@"%@", programs);
 		completion(sender, responseObject, nil);
 	} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		completion(@"name", nil, error);
@@ -88,7 +142,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 
 /// helper fuction - being used at many places. may find a good home for his function in future.
-
 -(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size{
 	string = [string stringByAppendingString:[NSString stringWithFormat:@"<style>body{font-family: '%@'; font-size:%fpx;}</style>", name, size]];
 	
@@ -98,4 +151,5 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 			documentAttributes:nil error:nil];
 	
 }
+
 @end

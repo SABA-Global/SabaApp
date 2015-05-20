@@ -66,7 +66,20 @@
 }
 
 -(void) onRefresh{
-	NSLog(@"OnRefresh.....");
+	// remove the data from database.
+	[[DBManager sharedInstance] deleteSabaPrograms:@"Weekly Programs"];
+	[[DBManager sharedInstance] deleteDailyPrograms];
+	
+	// remove all the cached programs
+	self.programs = nil;
+	self.dailyPrograms = nil;
+	
+	// refresh the data so it can show the empty tableview and spinner.
+	[self.tableView reloadData];
+	[self showSpinner:YES];
+	
+	// request for latest weekly programs.
+	[self getWeeklyPrograms];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

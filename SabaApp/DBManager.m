@@ -59,6 +59,8 @@ static BOOL databaseReady = NO;
 	}
 }
 
+#pragma mark store data in database.
+
 // Saving  - progrms are Events/Annoncements and Weekly Programs
 - (BOOL) saveSabaPrograms:(NSArray*) programs :(NSString*)programName{
 	if(databaseReady == NO){
@@ -71,7 +73,7 @@ static BOOL databaseReady = NO;
 	sqlite3* database = NULL;
 
 	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READWRITE , NULL);
-	long rowId = [self getNumberOfRowsInTable:@"SabaProgram" :database];
+	long rowId = [self getLastRowsIdInTable:@"SabaProgram" :database];
 	
 	if (SQLITE_OK != returnCode){
 		success = NO;
@@ -143,6 +145,7 @@ static BOOL databaseReady = NO;
 	return success;
 }
 
+#pragma mark retrieving from Database.
 // ----------------------------------------- getting Programs -----------------
 // These progrms are Events and Annoncements and weeklyPrograms too.
 - (NSArray*) getSabaPrograms:(NSString*) programName{
@@ -295,8 +298,8 @@ static BOOL databaseReady = NO;
 }
 
 #pragma mark helper functions
--(int) getNumberOfRowsInTable:(NSString*)tableName :(sqlite3*)database{
-	NSString *query = [NSString stringWithFormat:@"select count(*) from \"%@\"", tableName];
+-(int) getLastRowsIdInTable:(NSString*)tableName :(sqlite3*)database{
+	NSString *query = [NSString stringWithFormat:@"SELECT id FROM \"%@\" ORDER BY id DESC", tableName];
 	
 	int numberOfRows = 0;
 	sqlite3_stmt *selectStatement;
@@ -316,7 +319,65 @@ static BOOL databaseReady = NO;
 	return numberOfRows;
 }
 
+//================================= Delete ==============================
+#pragma mark delete
+
+-(void)deleteSabaPrograms:(NSString*)programName{
+	if(databaseReady == NO){
+		NSLog(@"Error: Database is NOT ready.");
+		return;
+	}
+	
+	int returnCode = 0;
+	sqlite3* database = NULL;
+	sqlite3_stmt* statement = NULL;
+	
+	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READWRITE , NULL);
+	if (SQLITE_OK != returnCode){
+		NSLog(@"Failed to open db connection, DB path %@", databasePath);
+	} else {
+		NSString  *query = [NSString stringWithFormat:@"DELETE FROM SabaProgram WHERE programName = \"%@\"", programName];
+		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
+		if(returnCode != SQLITE_OK){
+			NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+		} else if (sqlite3_step(statement) != SQLITE_DONE) {
+				NSLog(@"Delete failed for %@", programName);
+			}
+			sqlite3_finalize(statement);
+		}
+	
+	sqlite3_close(database);
+}
+
+-(void) deleteDailyPrograms{
+	if(databaseReady == NO){
+		NSLog(@"Error: Database is NOT ready.");
+		return;
+	}
+	
+	int returnCode = 0;
+	sqlite3* database = NULL;
+	sqlite3_stmt* statement = NULL;
+	
+	returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READWRITE , NULL);
+	if (SQLITE_OK != returnCode){
+		NSLog(@"Error: Failed to open db connection, DB path %@", databasePath);
+	} else {
+		NSString  *query = [NSString stringWithFormat:@"DELETE FROM DailyProgram"];
+		returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
+		if(returnCode != SQLITE_OK){
+			NSLog(@"Error: Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+		} else if (sqlite3_step(statement) != SQLITE_DONE) {
+			NSLog(@"Error: Failed to delete from DailyPrograms");
+		}
+		sqlite3_finalize(statement);
+	}
+	
+	sqlite3_close(database);
+}
+
 #pragma mark debug functions.
+
 -(void) displayProgram:(Program*)program{
 	NSLog(@"Program: %@, \n%@, \n%@, \n%@, \n%@. ", program.name, program.lastUpated, program.programDescription, program.title, program.imageUrl);
 }

@@ -85,7 +85,9 @@ int locationFetchCounter;
 }
 
 -(void) onRefresh{
-	NSLog(@"OnRefresh.....");
+	[self showSpinner:YES];
+	[self showPrayerTimes:NO];
+	[self startLocationManager];
 }
 
 -(void) getPrayerTimesForCity:(NSString*)city withLatitude:(double)latitude withLongitude:(double)longitude{
@@ -99,6 +101,8 @@ int locationFetchCounter;
 	// This date contain "monthNumber-day" format. E,g, "11-6" means December 6th.
 	// Months are zero based in database.
 	NSString *date = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
+	
+	self.navigationItem.title = city; // setting city name in title.
 	
 	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:city forDate:date];
 	

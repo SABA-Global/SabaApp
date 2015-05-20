@@ -40,4 +40,9 @@
 
 // returns prayerTimes for given city and date
 -(PrayerTimes*) getPrayerTimesByCity:(NSString*) city forDate:(NSString*) date;
+
+// delete SabaProgram
+-(void)deleteSabaPrograms:(NSString*)programName;
+-(void) deleteDailyPrograms;
+
 @end

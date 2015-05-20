@@ -63,12 +63,22 @@
 }
 
 -(void) onBack{
-	NSLog(@"Back button clicked...");
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(void) onRefresh{
-	NSLog(@"OnRefresh.....");
+	// remove the data from database.
+	[[DBManager sharedInstance] deleteSabaPrograms:@"Program"];
+	
+	// remove all the cached programs
+	self.programs = nil;
+	
+	// refresh the data so it can show the empty tableview and spinner.
+	[self.tableView reloadData];
+	[self showSpinner:YES];
+	
+	// request for latest upcoming events/programs.
+	[self getUpcomingEvents];
 }
 
 #pragma mark get Events

@@ -20,7 +20,6 @@
 // Thrd pary ibrary
 #import <SVProgressHUD.h>
 
-
 @interface PrayerTimesViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *englishDate;
 @property (weak, nonatomic) IBOutlet UILabel *hijriDate;
@@ -99,23 +98,7 @@ int locationFetchCounter;
 	
 	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
 		// go ahead and fetch the programs via network call.
-		 [[SabaClient sharedInstance] getPrayTimes:latitude :longitude :^(NSDictionary *prayerTimes, NSError *error) {
-			 if (error) {
-				 NSLog(@"Error getting getPrayTimes: %@", error);
-			 } else {
-				 NSLog(@" Prayer Times: %@", prayerTimes);
-				 self.fajrTime.text		= prayerTimes[@"Fajr"];
-				 self.imsaakTime.text	= prayerTimes[@"Imsaak"];
-				 self.sunriseTime.text	= prayerTimes[@"Sunrise"];
-				 self.zuhrTime.text		= prayerTimes[@"Dhuhr"];
-				 self.sunsetTime.text	= prayerTimes[@"Sunset"];
-				 self.maghribTime.text	= prayerTimes[@"Maghrib"];
-				 self.midNightTime.text	= prayerTimes[@"Isha"];
-				 self.midNightLabel.text= @"Isha";
-			 }
-			 [self showSpinner:NO];
-			 [self showPrayerTimes:YES]; // show the prayertimes
-		 }];
+		[self getPrayerTimeFromWebWithLatitude:latitude withLongitude:longitude];
 	} else {
 		self.fajrTime.text		= prayerTimes.fajr;
 		self.imsaakTime.text	= prayerTimes.imsaak;
@@ -128,6 +111,27 @@ int locationFetchCounter;
 		[self showSpinner:NO];
 		[self showPrayerTimes:YES]; // show the prayertimes
 	}
+}
+
+-(void) getPrayerTimeFromWebWithLatitude:(double)latitude withLongitude:(double)longitude{
+	[[SabaClient sharedInstance] getPrayTimes:latitude :longitude :^(NSDictionary *prayerTimes, NSError *error) {
+		if (error) {
+			NSLog(@"Error getting getPrayTimes: %@", error);
+		} else {
+			// from web: we don't get midnight time but get Isha time.
+			NSLog(@" Prayer Times: %@", prayerTimes);
+			self.fajrTime.text		= prayerTimes[@"Fajr"];
+			self.imsaakTime.text	= prayerTimes[@"Imsaak"];
+			self.sunriseTime.text	= prayerTimes[@"Sunrise"];
+			self.zuhrTime.text		= prayerTimes[@"Dhuhr"];
+			self.sunsetTime.text	= prayerTimes[@"Sunset"];
+			self.maghribTime.text	= prayerTimes[@"Maghrib"];
+			self.midNightTime.text	= prayerTimes[@"Isha"]; // showing Isha time in midnight label.
+			self.midNightLabel.text = @"Isha";
+		}
+		[self showSpinner:NO];
+		[self showPrayerTimes:YES]; // show the prayertimes
+	}];
 }
 
 -(void) startLocationManager{

@@ -75,11 +75,17 @@ int locationFetchCounter;
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
+
 	self.navigationItem.title = @"Prayer Times";
 }
 
 -(void) onBack{
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) onRefresh{
+	NSLog(@"OnRefresh.....");
 }
 
 -(void) getPrayerTimesForCity:(NSString*)city withLatitude:(double)latitude withLongitude:(double)longitude{

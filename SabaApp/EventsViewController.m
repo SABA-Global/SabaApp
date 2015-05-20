@@ -58,13 +58,17 @@
 	
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
-	
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
 	self.navigationItem.title = @"Events and Announcements";
 }
 
 -(void) onBack{
 	NSLog(@"Back button clicked...");
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) onRefresh{
+	NSLog(@"OnRefresh.....");
 }
 
 #pragma mark get Events

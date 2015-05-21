@@ -242,6 +242,26 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 	self.englishDate.text = date;
 }
 
+-(void) comingPrayerTime{
+//	while(true){
+//		NSString time = self.fajrTime.text ran
+//		NSString *timeWithSeconds = [NSString stringWithFormat:@"%@:00", time];
+//		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//		[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+//		[dateFormatter setDateFormat:@"HH:mm:ss"];
+//		
+//		NSDate *date = [dateFormatter dateFromString:timeWithSeconds];
+//		
+//		
+//		if ([date1 compare:date2] == NSOrderedDescending) {
+//			NSLog(@"date1 is later than date2");
+//		} else if ([date1 compare:date2] == NSOrderedAscending) {
+//			NSLog(@"date1 is earlier than date2");
+//		} else {
+//			NSLog(@"dates are the same");
+//		}
+//	}
+}
 // this function expects time in "HH:MM" format and appends ":00" to it to make it
 // like "HH:MM:SS" other wise NSDateFormatter doesn't like it. Please make sure
 // this function takes "HH:MM". No validation is added at this point.

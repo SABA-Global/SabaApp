@@ -24,6 +24,8 @@
 								   UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *programs;
+
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation EventsViewController
@@ -49,6 +51,11 @@
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
 	
 	self.tableView.tableFooterView = [[UIView alloc] init];
+	
+	// refresh Programs
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	[self.tableView addSubview:self.refreshControl];
+	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,20 +73,31 @@
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void) onRefresh{
+-(void) refresh{
+	
 	// remove the data from database.
 	[[DBManager sharedInstance] deleteSabaPrograms:@"Program"];
 	
-	// remove all the cached programs
-	self.programs = nil;
-	
-	// refresh the data so it can show the empty tableview and spinner.
-	[self.tableView reloadData];
-	[self showSpinner:YES];
+//	// remove all the cached programs
+//	self.programs = nil;
+//	
+//	// refresh the data so it can show the empty tableview and spinner.
+//	[self.tableView reloadData];
+//	[self showSpinner:YES];
 	
 	// request for latest upcoming events/programs.
 	[self getUpcomingEvents];
 }
+
+-(void) onRefresh{
+	[self showSpinner:YES];
+	[self refresh];
+}
+
+-(void) onPullToRefresh{
+	[self refresh];
+}
+
 
 #pragma mark get Events
 
@@ -96,6 +114,7 @@
 	// go ahead and fetch the programs via network call.
 	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[self showSpinner:NO];
+		[self.refreshControl endRefreshing];
 		
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);

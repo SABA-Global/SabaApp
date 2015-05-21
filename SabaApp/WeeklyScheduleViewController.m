@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *programs;
 @property (strong, nonatomic) NSArray *dailyPrograms;
+
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 @end
 
 @implementation WeeklyScheduleViewController
@@ -48,6 +50,11 @@
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
 	
 	self.tableView.tableFooterView = [[UIView alloc] init];
+	
+	// refresh Programs
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	[self.tableView addSubview:self.refreshControl];
+	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,26 +72,33 @@
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void) onRefresh{
+-(void) refresh{
 	// remove the data from database.
 	[[DBManager sharedInstance] deleteSabaPrograms:@"Weekly Programs"];
 	[[DBManager sharedInstance] deleteDailyPrograms];
 	
-	// remove all the cached programs
-	self.programs = nil;
-	self.dailyPrograms = nil;
-	
-	// refresh the data so it can show the empty tableview and spinner.
-	[self.tableView reloadData];
-	[self showSpinner:YES];
+	//	// remove all the cached programs
+	//	self.programs = nil;
+	//	self.dailyPrograms = nil;
+	//
+	//	// refresh the data so it can show the empty tableview and spinner.
+	//	[self.tableView reloadData];
 	
 	// request for latest weekly programs.
 	[self getWeeklyPrograms];
 }
 
+-(void) onRefresh{
+	[self showSpinner:YES];
+	[self refresh];
+}
+
+-(void) onPullToRefresh{
+	[self refresh];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
-//	//[self.tableView reloadData];
-//	[self.view layoutIfNeeded];
+	[self onRefresh];
 }
 
 #pragma mark get Events
@@ -99,11 +113,14 @@
 		self.programs = programs;
 		[self.tableView reloadData];
 		[self showSpinner:NO];
+		[self.refreshControl endRefreshing];
 		return;
 	}
 	
 	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[self showSpinner:NO];
+		[self.refreshControl endRefreshing];
+		
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);
 		} else {

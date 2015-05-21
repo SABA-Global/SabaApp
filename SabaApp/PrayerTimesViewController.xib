@@ -6,10 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PrayerTimesViewController">
             <connections>
-                <outlet property="englishDate" destination="hIq-2d-Ulk" id="ip9-eF-WAA"/>
+                <outlet property="englishDate" destination="hIq-2d-Ulk" id="xdZ-Mg-i7U"/>
                 <outlet property="fajrLabel" destination="iY6-Db-o6z" id="6Px-kV-uPc"/>
                 <outlet property="fajrTime" destination="1Xf-vD-3Zz" id="Nuv-8b-uDt"/>
-                <outlet property="hijriDate" destination="F3i-bW-aUN" id="1Jg-Th-1xh"/>
+                <outlet property="hijriDate" destination="F3i-bW-aUN" id="T7c-x4-RgP"/>
                 <outlet property="imsaakLabel" destination="4Xs-jb-UW7" id="bGl-dA-mm0"/>
                 <outlet property="imsaakTime" destination="Y9g-9W-mbw" id="QqS-oL-XM0"/>
                 <outlet property="maghribLabel" destination="9hi-lj-0Br" id="w0H-6V-kJM"/>
@@ -32,14 +32,13 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIq-2d-Ulk">
                     <rect key="frame" x="8" y="24" width="304" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hijri Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3i-bW-aUN">
                     <rect key="frame" x="8" y="53" width="304" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:45 PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9g-9W-mbw">

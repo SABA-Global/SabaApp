@@ -82,9 +82,9 @@ static BOOL databaseReady = NO;
 		
 		for (Program *program in programs) {
 		
-			NSString * query  = [NSString stringWithFormat:@"INSERT INTO SabaProgram (id, programName,lastUpdated, description,					 title,						 imageUrl, imageWidth, imageHeight) \
-								 VALUES \
-								 (%ld, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %lu, %lu)",
+			NSString * query  = [NSString stringWithFormat:@"INSERT INTO SabaProgram \
+								 (id, programName,lastUpdated, description, title, imageUrl, imageWidth, imageHeight) \
+								 VALUES (%ld, \"%@\", \"%@\", \"%@\", \"%@\", \"%@\", %lu, %lu)",
 								 ++rowId,
 								 programName,
 								 [program lastUpated],
@@ -297,28 +297,6 @@ static BOOL databaseReady = NO;
 	return programs;
 }
 
-#pragma mark helper functions
--(int) getLastRowsIdInTable:(NSString*)tableName :(sqlite3*)database{
-	NSString *query = [NSString stringWithFormat:@"SELECT id FROM \"%@\" ORDER BY id DESC", tableName];
-	
-	int numberOfRows = 0;
-	sqlite3_stmt *selectStatement;
-	int returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &selectStatement, NULL);
-	if (returnCode != SQLITE_OK){
-		NSLog(@"sqlite3_prepare_v2 returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
-	}
-	else{
-		if(sqlite3_step(selectStatement) == SQLITE_ROW)
-			numberOfRows = sqlite3_column_int(selectStatement, 0);
-		else
-			NSLog(@"sqlite3_step returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
-	}
-	
-	sqlite3_finalize(selectStatement);
-	
-	return numberOfRows;
-}
-
 //================================= Delete ==============================
 #pragma mark delete
 
@@ -428,5 +406,27 @@ static BOOL databaseReady = NO;
 	sqlite3_close(database);
 	
 	return prayerTimes;
+}
+
+#pragma mark helper functions
+-(int) getLastRowsIdInTable:(NSString*)tableName :(sqlite3*)database{
+	NSString *query = [NSString stringWithFormat:@"SELECT id FROM \"%@\" ORDER BY id DESC", tableName];
+	
+	int numberOfRows = 0;
+	sqlite3_stmt *selectStatement;
+	int returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &selectStatement, NULL);
+	if (returnCode != SQLITE_OK){
+		NSLog(@"sqlite3_prepare_v2 returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+	}
+	else{
+		if(sqlite3_step(selectStatement) == SQLITE_ROW)
+			numberOfRows = sqlite3_column_int(selectStatement, 0);
+		else
+			NSLog(@"sqlite3_step returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+	}
+	
+	sqlite3_finalize(selectStatement);
+	
+	return numberOfRows;
 }
 @end

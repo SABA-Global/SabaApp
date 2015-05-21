@@ -23,6 +23,8 @@
 @interface PrayerTimesViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *englishDate;
 @property (weak, nonatomic) IBOutlet UILabel *hijriDate;
+
+// time values
 @property (weak, nonatomic) IBOutlet UILabel *imsaakTime;
 @property (weak, nonatomic) IBOutlet UILabel *fajrTime;
 @property (weak, nonatomic) IBOutlet UILabel *sunriseTime;
@@ -31,7 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *maghribTime;
 @property (weak, nonatomic) IBOutlet UILabel *midNightTime;
 
-// Labels
+// prayerTime Labels
 @property (weak, nonatomic) IBOutlet UILabel *imsaakLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fajrLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sunriseLabel;
@@ -56,15 +58,9 @@ int locationFetchCounter;
 	[self showPrayerTimes:NO]; // hiding the prayertimes
 	[self startLocationManager];
 	
-	
-	
-	NSString* date = [NSDateFormatter localizedStringFromDate:[NSDate date]
-								   dateStyle:NSDateFormatterShortStyle
-								   timeStyle:NSDateFormatterFullStyle];
-	
-	NSLog(@"date: %@", date);
 	[self setupNavigationBar];
 	[self showSpinner:YES];
+	[self showDates];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,24 +83,26 @@ int locationFetchCounter;
 -(void) onRefresh{
 	[self showSpinner:YES];
 	[self showPrayerTimes:NO];
+	[self showDates];
 	[self startLocationManager];
 }
 
 -(void) getPrayerTimesForCity:(NSString*)city withLatitude:(double)latitude withLongitude:(double)longitude{
 	NSDateComponents *components = [[NSCalendar currentCalendar]
 									components:NSCalendarUnitDay | NSCalendarUnitMonth |
-									NSCalendarUnitYear fromDate:[NSDate date]];
+									NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute
+									fromDate:[NSDate date]];
 	
 	NSInteger day = [components day];
 	NSInteger month = [components month];
 
 	// This date contain "monthNumber-day" format. E,g, "11-6" means December 6th.
 	// Months are zero based in database.
-	NSString *date = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
+	NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
 	
 	self.navigationItem.title = city; // setting city name in title.
 	
-	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:city forDate:date];
+	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:city forDate:currDate];
 	
 	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
 		// go ahead and fetch the programs via network call.
@@ -130,13 +128,14 @@ int locationFetchCounter;
 		} else {
 			// from web: we don't get midnight time but get Isha time.
 			NSLog(@" Prayer Times: %@", prayerTimes);
-			self.fajrTime.text		= prayerTimes[@"Fajr"];
-			self.imsaakTime.text	= prayerTimes[@"Imsaak"];
-			self.sunriseTime.text	= prayerTimes[@"Sunrise"];
-			self.zuhrTime.text		= prayerTimes[@"Dhuhr"];
-			self.sunsetTime.text	= prayerTimes[@"Sunset"];
-			self.maghribTime.text	= prayerTimes[@"Maghrib"];
-			self.midNightTime.text	= prayerTimes[@"Isha"]; // showing Isha time in midnight label.
+			
+			self.fajrTime.text		= [self getAMPMTime:prayerTimes[@"Fajr"]];
+			self.imsaakTime.text	= [self getAMPMTime:prayerTimes[@"Imsaak"]];
+			self.sunriseTime.text	= [self getAMPMTime:prayerTimes[@"Sunrise"]];
+			self.zuhrTime.text		= [self getAMPMTime:prayerTimes[@"Dhuhr"]];
+			self.sunsetTime.text	= [self getAMPMTime:prayerTimes[@"Sunset"]];
+			self.maghribTime.text	= [self getAMPMTime:prayerTimes[@"Maghrib"]];
+			self.midNightTime.text	= [self getAMPMTime:prayerTimes[@"Isha"]]; // showing Isha time in midnight label.
 			self.midNightLabel.text = @"Isha";
 		}
 		[self showSpinner:NO];
@@ -146,8 +145,7 @@ int locationFetchCounter;
 
 -(void) startLocationManager{
 	locationFetchCounter = 0;
-	if ([CLLocationManager locationServicesEnabled])
-	{
+	if ([CLLocationManager locationServicesEnabled]){
 		// this creates the CCLocationManager that will find your current location
 		self.locationManager = [[CLLocationManager alloc] init];
 		self.locationManager.delegate = self;
@@ -236,4 +234,30 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 	self.midNightTime.hidden	= !show;
 }
 
+-(void) showDates{
+	
+	NSString* date = [NSDateFormatter localizedStringFromDate:[NSDate date]
+													dateStyle:NSDateFormatterFullStyle
+													timeStyle:NSDateFormatterNoStyle];
+	self.englishDate.text = date;
+}
+
+// this function expects time in "HH:MM" format and appends ":00" to it to make it
+// like "HH:MM:SS" other wise NSDateFormatter doesn't like it. Please make sure
+// this function takes "HH:MM". No validation is added at this point.
+
+-(NSString*) getAMPMTime:(NSString*) time{
+	
+	NSString *timeWithSeconds = [NSString stringWithFormat:@"%@:00", time];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+	[dateFormatter setDateFormat:@"HH:mm:ss"];
+	
+	NSDate *date = [dateFormatter dateFromString:timeWithSeconds];
+	NSDateFormatter *formatterAMPM = [[NSDateFormatter alloc] init];
+	[formatterAMPM setDateFormat:@"hh:mm a"];
+	NSLog(@"Current Time: %@", [formatterAMPM stringFromDate:date]);
+	
+	return [formatterAMPM stringFromDate:date];
+}
 @end

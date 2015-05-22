@@ -276,7 +276,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 	NSDate *date = [dateFormatter dateFromString:timeWithSeconds];
 	NSDateFormatter *formatterAMPM = [[NSDateFormatter alloc] init];
 	[formatterAMPM setDateFormat:@"hh:mm a"];
-	NSLog(@"Current Time: %@", [formatterAMPM stringFromDate:date]);
 	
 	return [formatterAMPM stringFromDate:date];
 }

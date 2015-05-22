@@ -34,6 +34,9 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 @interface MainViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *englishDate;
+@property (weak, nonatomic) IBOutlet UILabel *hijriDate;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 // PayPal integration stuff.
@@ -60,6 +63,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
 	[self.navigationController setNavigationBarHidden:YES];
+	[self showDates];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -104,7 +108,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 			cell.imageView.image	= [UIImage imageNamed:@"megaphone.png"];
 			break;
 		case 2:
-			cell.title.text			= @"San Jose\nPrayer Times";
+			cell.title.text			= @"Prayer Times";
 			cell.imageView.image	= [UIImage imageNamed:@"pray.png"];
 			break;
 		case 3:
@@ -285,4 +289,12 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	[UIView commitAnimations];
 }
 
+// we will add Hijri date here too, Currently, it adds english date.
+-(void) showDates{
+	
+	NSString* date = [NSDateFormatter localizedStringFromDate:[NSDate date]
+													dateStyle:NSDateFormatterFullStyle
+													timeStyle:NSDateFormatterNoStyle];
+	self.englishDate.text = date;
+}
 @end

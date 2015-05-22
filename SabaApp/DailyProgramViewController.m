@@ -45,9 +45,9 @@
 	self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
--(void)setPrograms:(NSArray *)programs{
-	_programs = programs;
-}
+//-(void)setPrograms:(NSArray *)programs{
+//	//_programs = programs;
+//}
 
 -(void)setDay:(NSString *)day{
 	_day = day;

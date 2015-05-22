@@ -13,8 +13,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG6-FR-v4H">
+                        <rect key="frame" x="92" y="7" width="213" height="25"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-0D-bN6">
-                        <rect key="frame" x="15" y="8" width="66" height="20.5"/>
+                        <rect key="frame" x="18" y="9" width="66" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="66" id="LlA-KW-Dbj"/>
                         </constraints>
@@ -22,21 +28,15 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG6-FR-v4H">
-                        <rect key="frame" x="89" y="7" width="216" height="25.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Lvg-0D-bN6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="0kB-Z4-KEw"/>
+                    <constraint firstItem="Lvg-0D-bN6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="0kB-Z4-KEw"/>
                     <constraint firstItem="tG6-FR-v4H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="2ys-1C-RJc"/>
-                    <constraint firstAttribute="bottom" secondItem="Lvg-0D-bN6" secondAttribute="bottom" constant="12" id="LAU-AP-la4"/>
+                    <constraint firstAttribute="bottom" secondItem="Lvg-0D-bN6" secondAttribute="bottom" constant="11" id="LAU-AP-la4"/>
                     <constraint firstAttribute="bottom" secondItem="tG6-FR-v4H" secondAttribute="bottom" constant="8" id="Nmg-jy-jf7"/>
                     <constraint firstAttribute="trailing" secondItem="tG6-FR-v4H" secondAttribute="trailing" constant="15" id="WWB-RW-2i2"/>
                     <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="8" id="ndn-vH-Ten"/>
-                    <constraint firstItem="Lvg-0D-bN6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="vxK-oB-Qdr"/>
+                    <constraint firstItem="Lvg-0D-bN6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="vxK-oB-Qdr"/>
                     <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="8" id="ycm-zC-zc3"/>
                 </constraints>
             </tableViewCellContentView>

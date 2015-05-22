@@ -30,8 +30,23 @@
 -(void) setProgram:(DailyProgram *)program{
 	_program = program;
 
-	NSLog(@"*********** time: %@", program.time);
-	NSLog(@"===========program: %@", program.program);
+	if( ([program.time length] == 0) && ([program.program length] ==0) ){
+		// formatting title as "Day Moth Day / Islamic Month day" e.g.
+		// "Saturday May 23 / Shaban 4"
+		NSString *title = program.day;
+		title = [title stringByAppendingString:@" "];
+		title = [title stringByAppendingString:program.englishDate];
+		title = [title stringByAppendingString:@" / "];
+		title = [title stringByAppendingString:program.hijriDate];
+		
+		// setting bold font
+		[self.programLabel setFont:[UIFont boldSystemFontOfSize:14.0]];
+		self.programLabel.text = title;
+		self.timeLabel.text = program.time;
+		
+		return;
+	}
+	
 	self.timeLabel.text = program.time;
 	self.programLabel.text = program.program;
 	

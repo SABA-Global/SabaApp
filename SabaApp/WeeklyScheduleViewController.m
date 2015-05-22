@@ -78,11 +78,11 @@
 	[[DBManager sharedInstance] deleteDailyPrograms];
 	
 	//	// remove all the cached programs
-	//	self.programs = nil;
-	//	self.dailyPrograms = nil;
-	//
-	//	// refresh the data so it can show the empty tableview and spinner.
-	//	[self.tableView reloadData];
+	self.programs = nil;
+	self.dailyPrograms = nil;
+
+	// refresh the data so it can show the empty tableview and spinner.
+	[self.tableView reloadData];
 	
 	// request for latest weekly programs.
 	[self getWeeklyPrograms];
@@ -98,7 +98,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	[self onRefresh];
+	//[self onRefresh];
 }
 
 #pragma mark get Events

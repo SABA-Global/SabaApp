@@ -25,6 +25,7 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 
 @implementation AppDelegate
 
+MainViewController *mvc = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
@@ -36,7 +37,7 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	MainViewController *mvc = [[MainViewController alloc] init];
+	mvc = [[MainViewController alloc] init];
 	
 	// very important to set the NavigationController correctly. Later on we can push another controller on it.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
@@ -68,6 +69,7 @@ NSString *kPayPalProductionClientId = @"AXd22k12t_s4V9k7K-07Dgdo60mdat9uib7Zi9id
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+		[mvc refreshMainViewController];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

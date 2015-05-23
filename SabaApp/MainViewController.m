@@ -78,6 +78,10 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+	[self showDates];
+}
+
 #pragma CollectionView
 
 // number of items in section
@@ -303,5 +307,9 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 													dateStyle:NSDateFormatterFullStyle
 													timeStyle:NSDateFormatterNoStyle];
 	self.englishDate.text = date;
+}
+
+-(void) refreshMainViewController{
+	[self showDates];
 }
 @end

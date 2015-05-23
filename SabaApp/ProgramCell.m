@@ -49,7 +49,7 @@ NSDictionary *dayToImage = nil;
 	if(imageUrl == nil && ([self.program.name isEqual: @"Weekly Programs"] == YES)){
 		NSString *day = [self getFirstWordFromString: self.program.title]; // This is the day in our case.
 		[self setImageForDay:day];
-	} else {
+	} else if([imageUrl length] != 0){
 		[self.programImageview setImageWithURLRequest:
 		 [NSURLRequest requestWithURL:[NSURL URLWithString: imageUrl]] placeholderImage:nil
 				  success:^(NSURLRequest *request , NSHTTPURLResponse *response , UIImage *image ){

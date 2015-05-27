@@ -17,7 +17,7 @@
 -(void) getCommunityAnnouncements:(void (^)(NSString* programName, NSArray *programs, NSError *error))completion;
 -(void) getGeneralAnnouncements:(void (^)(NSString* programName, NSArray *programs, NSError *error))completion;
 
--(void) getPrayTimes:(double) longitude :(double) latitude : (void (^)(NSDictionary *prayerTimes, NSError *error))completion;
+-(void) getPrayTimesWithLatitude:(double)latitude  andLongitude:(double)longitude : (void (^)(NSDictionary *prayerTimes, NSError *error))completion;
 
 -(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size;
 @end

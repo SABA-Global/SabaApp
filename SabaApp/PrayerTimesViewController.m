@@ -87,7 +87,9 @@ int locationFetchCounter;
 	[self startLocationManager];
 }
 
--(void) getPrayerTimesForCity:(NSString*)city withLatitude:(double)latitude withLongitude:(double)longitude{
+-(void) getPrayerTimesWithPlacemark:(CLPlacemark*)placemark
+						withLatitude:(double)latitude
+						withLongitude:(double)longitude{
 	NSDateComponents *components = [[NSCalendar currentCalendar]
 									components:NSCalendarUnitDay | NSCalendarUnitMonth |
 									NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute
@@ -100,9 +102,10 @@ int locationFetchCounter;
 	// Months are zero based in database.
 	NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
 	
-	self.navigationItem.title = city; // setting city name in title.
+	self.navigationItem.title = [NSString stringWithFormat:@"%@, %@", placemark.locality,
+								placemark.administrativeArea] ; // setting city name, State in title.
 	
-	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:city forDate:currDate];
+	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:placemark.locality forDate:currDate];
 	
 	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
 		// go ahead and fetch the programs via network call.
@@ -122,13 +125,11 @@ int locationFetchCounter;
 }
 
 -(void) getPrayerTimeFromWebWithLatitude:(double)latitude withLongitude:(double)longitude{
-	[[SabaClient sharedInstance] getPrayTimes:latitude :longitude :^(NSDictionary *prayerTimes, NSError *error) {
+	[[SabaClient sharedInstance] getPrayTimesWithLatitude:latitude andLongitude:longitude :^(NSDictionary *prayerTimes, NSError *error) {
 		if (error) {
 			NSLog(@"Error getting getPrayTimes: %@", error);
 		} else {
 			// from web: we don't get midnight time but get Isha time.
-			NSLog(@" Prayer Times: %@", prayerTimes);
-			
 			self.fajrTime.text		= [self getAMPMTime:prayerTimes[@"Fajr"]];
 			self.imsaakTime.text	= [self getAMPMTime:prayerTimes[@"Imsaak"]];
 			self.sunriseTime.text	= [self getAMPMTime:prayerTimes[@"Sunrise"]];
@@ -175,13 +176,9 @@ int locationFetchCounter;
 	// after we have current coordinates, we use this method to fetch the information data of fetched coordinate
 	[self.geoCoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error) {
 		CLPlacemark *placemark = [placemarks lastObject];
-		NSLog(@"Current city: %@", placemark.locality);
-
 		CLLocation *location = (CLLocation*)[locations lastObject];
-		NSLog(@"lattitude: %f", location.coordinate.latitude);
-		NSLog(@"longitude: %f", location.coordinate.longitude);
 		
-		[self getPrayerTimesForCity:placemark.locality withLatitude:location.coordinate.latitude withLongitude:location.coordinate.longitude];
+		[self getPrayerTimesWithPlacemark:placemark withLatitude:location.coordinate.latitude withLongitude:location.coordinate.longitude];
 		
 		// stopping locationManager from fetching again.
 		[self.locationManager stopUpdatingLocation];

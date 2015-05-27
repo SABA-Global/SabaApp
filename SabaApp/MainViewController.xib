@@ -124,7 +124,6 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.12156862745098039" green="0.12941176470588237" blue="0.14117647058823529" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Q5q-fd-jXh" secondAttribute="bottom" constant="-58" id="4IE-4W-tUz"/>
                 <constraint firstAttribute="trailing" secondItem="3kN-Xu-jIB" secondAttribute="trailing" constant="10" id="5ea-dR-5YP"/>

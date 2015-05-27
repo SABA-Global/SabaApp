@@ -13,7 +13,7 @@
 #import "Program.h"
 
 static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
-static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-480";
+static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-420";
 
 //	private static String PRAY_TIME_INFO_URL = "http://praytime.info/getprayertimes.php?lat=34.024899&lon=-117.89730099999997&gmt=-480&m=11&d=31&y=2014&school=0";
 //	private static String PRAY_TIME_INFO_BASE_URL = "http://praytime.info/getprayertimes.php?school=0&gmt=-480";
@@ -62,13 +62,18 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 	[self sendNetworkRequest:@"General Announcements" withUrl:url completion:completion];
 }
 
--(void) getPrayTimes:(double)latitude :(double)longitude : (void (^)(NSDictionary* prayerTimes, NSError *error))completion {
+-(void) getPrayTimesWithLatitude:(double)latitude andLongitude:(double)longitude : (void (^)(NSDictionary* prayerTimes, NSError *error))completion {
 	
 	NSDateComponents *components = [[NSCalendar currentCalendar]
 									components:NSCalendarUnitDay | NSCalendarUnitMonth |
 									NSCalendarUnitYear fromDate:[NSDate date]];
 	
-	NSString  *url = [NSString stringWithFormat:@"%@&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_INFO_BASE_URL, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
+	NSTimeZone *timeZone = [NSTimeZone defaultTimeZone];
+	double minutesFromGMT = [timeZone secondsFromGMT]/60; // it will give me minutes...
+	NSLog(@"minutesFromGMT: %f", minutesFromGMT);
+
+	
+	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_INFO_BASE_URL, minutesFromGMT, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
 	
 	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
 }

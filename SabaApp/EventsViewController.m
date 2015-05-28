@@ -37,6 +37,7 @@
 	// setting up UITableView
 	self.tableView.delegate		= self;
 	self.tableView.dataSource	= self;
+	self.tableView.separatorColor = [UIColor clearColor];
 	
 	[self showSpinner:YES];
 	

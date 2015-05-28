@@ -90,7 +90,6 @@
 	
 	// refresh the data so it can show the empty tableview and spinner.
 	[self.tableView reloadData];
-	[self showSpinner:YES];
 	
 	// request for latest upcoming events/programs.
 	[self getUpcomingEvents];
@@ -168,6 +167,7 @@
 		layer.opacity = 0;
 		layer.allowsGroupOpacity = YES;
 		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+		[SVProgressHUD setBackgroundColor:RGB(106, 172, 43)];
 	}
 	else
 		[SVProgressHUD dismiss];

@@ -210,6 +210,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 		layer.opacity = 0;
 		layer.allowsGroupOpacity = YES;
 		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+		[SVProgressHUD setBackgroundColor:RGB(106, 172, 43)];
 	}
 	else
 		[SVProgressHUD dismiss];

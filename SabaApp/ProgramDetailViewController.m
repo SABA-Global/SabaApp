@@ -9,6 +9,7 @@
 #import "ProgramDetailViewController.h"
 
 #import "SabaClient.h"
+#import "AppDelegate.h"
 
 @interface ProgramDetailViewController ()
 //http://stackoverflow.com/questions/10784207/uilabel-copywithzone-unrecognized-selector-sent-to-instance
@@ -45,7 +46,7 @@
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
 	//set bar color
-	self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
 	
 	self.navigationItem.title = @"Event Detail";
 }

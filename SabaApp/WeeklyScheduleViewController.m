@@ -16,6 +16,7 @@
 #import "WeeklyPrograms.h"
 #import "ProgramCell.h"
 #import "DBManager.h"
+#import "AppDelegate.h"
 
 #import "DailyProgramViewController.h"
 
@@ -74,8 +75,9 @@
 	
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+	
 	//set bar color
-	self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);//[UIColor darkGrayColor];
 	
 	self.navigationItem.title = @"Weekly Schedule";
 }

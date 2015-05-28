@@ -14,6 +14,7 @@
 #import "DailyProgram.h"
 #import "DailyProgramCell.h"
 #import "DBManager.h"
+#import "AppDelegate.h"
 
 @interface DailyProgramViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -65,7 +66,7 @@
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
 	//set bar color
-	self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
 	
 	self.navigationItem.title = @"Program Details";
 }

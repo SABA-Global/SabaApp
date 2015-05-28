@@ -7,6 +7,8 @@
 //
 
 #import "ContactViewController.h"
+#import "AppDelegate.h"
+
 #import <MapKit/MapKit.h>
 
 @interface ContactViewController ()
@@ -34,7 +36,7 @@
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
 	//set bar color
-	self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
 	
 	self.navigationItem.title = @"Contact and Directions";
 }

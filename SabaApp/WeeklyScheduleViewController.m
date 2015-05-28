@@ -55,6 +55,11 @@
 	self.refreshControl = [[UIRefreshControl alloc] init];
 	[self.tableView addSubview:self.refreshControl];
 	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
+	
+	UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
+	[tempImageView setFrame:self.tableView.frame];
+	
+	self.tableView.backgroundView = tempImageView;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,6 +70,12 @@
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
+	
+	// Settings bars text color to white.
+	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+	//set bar color
+	self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+	
 	self.navigationItem.title = @"Weekly Schedule";
 }
 

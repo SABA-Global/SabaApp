@@ -41,6 +41,7 @@
 		
 		// setting bold font
 		[self.programLabel setFont:[UIFont boldSystemFontOfSize:14.0]];
+		[self.programLabel setTextColor:[UIColor whiteColor]];// first row in DailyProgramViewController
 		self.programLabel.text = title;
 		self.timeLabel.text = program.time;
 		

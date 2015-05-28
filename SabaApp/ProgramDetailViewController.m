@@ -42,6 +42,11 @@
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	
+	// Settings bars text color to white.
+	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+	//set bar color
+	self.navigationController.navigationBar.barTintColor = [UIColor darkGrayColor];
+	
 	self.navigationItem.title = @"Event Detail";
 }
 

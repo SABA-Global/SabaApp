@@ -54,7 +54,6 @@ int locationFetchCounter;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 	
 	[self showPrayerTimes:NO]; // hiding the prayertimes
 	[self startLocationManager];
@@ -69,15 +68,19 @@ int locationFetchCounter;
     // Dispose of any resources that can be recreated.
 }
 
--(void) setupNavigationBar{	
+-(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
 
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-	//set bar color
-	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
+	
+	
+	// following two lines makes the navigationBar transparent.
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+	self.navigationController.navigationBar.shadowImage = [UIImage new];
+	
 	self.navigationItem.title = @"Prayer Times";
 }
 

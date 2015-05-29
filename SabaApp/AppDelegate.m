@@ -51,7 +51,10 @@ MainViewController *mvc = nil;
 	// Initialize databaseManager
 	DBManager *databaseManager = [[DBManager sharedInstance] init];
 	[databaseManager prepareDatabase];
-		
+	
+	// setting the color of status bar.
+	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+	
 	return YES;
 }
 

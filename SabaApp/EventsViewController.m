@@ -46,7 +46,6 @@
 	
 	self.tableView.estimatedRowHeight = 160.0; // very important...
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
-	//self.tableView.rowHeight = 200;
 	
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
@@ -63,15 +62,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-	
+
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
 	
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-	//set bar color
-	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
+	
+	// following two lines makes the navigationBar transparent.
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+	self.navigationController.navigationBar.shadowImage = [UIImage new];
 	
 	self.navigationItem.title = @"Events and Announcements";
 }
@@ -150,7 +151,7 @@
 	
 	// very important to set the NavigationController correctly.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
-	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	nvc.navigationBar.translucent = YES;
 	[self presentViewController:nvc animated:YES completion:nil];
 }
 

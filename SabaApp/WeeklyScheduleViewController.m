@@ -58,11 +58,21 @@
 	[self.tableView addSubview:self.refreshControl];
 	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 	
-	UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
-	[tempImageView setFrame:self.tableView.frame];
+	// setting background image
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
+	[imageView setFrame:self.tableView.frame];
 	
-	self.tableView.backgroundView = tempImageView;
+	self.tableView.backgroundView = imageView;
 }
+
+//- (void)viewDidLayoutSubviews
+//{
+//	[super viewDidLayoutSubviews];
+//
+//	CGRect navigationBarRect = self.navigationController.navigationBar.frame;
+//	float navigationBarHeight = navigationBarRect.size.height;
+//	self.tableView.contentInset = UIEdgeInsetsMake(navigationBarHeight+navigationBarRect.origin.y ,0,0,0);
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -70,15 +80,15 @@
 }
 
 -(void) setupNavigationBar{
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
-	
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-	
-	//set bar color
-	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);//[UIColor darkGrayColor];
-	
+
+	// following two lines makes the navigationBar transparent.
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+	self.navigationController.navigationBar.shadowImage = [UIImage new];
+
+	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"arrow-refresh"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onRefresh)];
 	self.navigationItem.title = @"Weekly Schedule";
 }
 
@@ -186,7 +196,7 @@
 	
 	// very important to set the NavigationController correctly.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dpvc];
-	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	nvc.navigationBar.translucent = YES; // so it does not hide details views
 	
 	[self presentViewController:nvc animated:YES completion:nil];
 }

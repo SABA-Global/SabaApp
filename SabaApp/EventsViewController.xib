@@ -16,24 +16,24 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="weeklyPrograms.png" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-JG-TgP">
-                    <rect key="frame" x="0.0" y="0.0" width="328" height="568"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oi7-vp-XIK">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="rQ4-JG-TgP" secondAttribute="bottom" id="37M-ge-dvV"/>
                 <constraint firstItem="Oi7-vp-XIK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ke-Tz-i3Q"/>
                 <constraint firstAttribute="bottom" secondItem="Oi7-vp-XIK" secondAttribute="bottom" id="8Da-MN-gfv"/>
                 <constraint firstAttribute="trailing" secondItem="Oi7-vp-XIK" secondAttribute="trailing" id="KQq-LX-5Mq"/>
-                <constraint firstAttribute="trailing" secondItem="rQ4-JG-TgP" secondAttribute="trailing" constant="-8" id="SDg-Cs-6KO"/>
-                <constraint firstItem="rQ4-JG-TgP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lbj-Oy-deB"/>
-                <constraint firstItem="rQ4-JG-TgP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="qSc-2x-QKQ"/>
-                <constraint firstItem="Oi7-vp-XIK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ylh-Gj-JrL"/>
+                <constraint firstAttribute="trailing" secondItem="rQ4-JG-TgP" secondAttribute="trailing" id="dEV-Bn-Jzb"/>
+                <constraint firstItem="rQ4-JG-TgP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rbd-Ng-mbd"/>
+                <constraint firstItem="rQ4-JG-TgP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xNM-rT-bxh"/>
+                <constraint firstItem="Oi7-vp-XIK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ylh-Gj-JrL"/>
+                <constraint firstAttribute="bottom" secondItem="rQ4-JG-TgP" secondAttribute="bottom" id="zWh-gt-BKt"/>
             </constraints>
             <point key="canvasLocation" x="330" y="229"/>
         </view>

@@ -151,7 +151,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	
 	// very important to set the NavigationController correctly.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
-	nvc.navigationBar.translucent = NO; // so it does not hide details views
+	nvc.navigationBar.translucent = YES; 
 
 	[self presentViewController:nvc animated:YES completion:nil];
 }

@@ -97,8 +97,10 @@
 	
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-	//set bar color
-	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
+	
+	// following two lines makes the navigationBar transparent.
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+	self.navigationController.navigationBar.shadowImage = [UIImage new];
 	
 	self.navigationItem.title = @"Contact and Directions";
 }

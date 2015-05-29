@@ -33,6 +33,7 @@
 	self.programTitle.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.programTitle.font.fontName fontSize:self.programTitle.font.pointSize];
 
 	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize];
+	//self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,8 +46,10 @@
 	
 	// Settings bars text color to white.
 	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-	//set bar color
-	self.navigationController.navigationBar.barTintColor = RGB(106, 172, 43);
+
+	// following two lines makes the navigationBar transparent.
+	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+	self.navigationController.navigationBar.shadowImage = [UIImage new];
 	
 	self.navigationItem.title = @"Event Detail";
 }
@@ -55,9 +58,7 @@
 	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-
 -(void) setProgram:(Program *)program{
 	_program = program;
 }
-
 @end

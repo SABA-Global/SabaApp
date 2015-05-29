@@ -16,6 +16,7 @@
 		FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92C81AEC139E00F439B7 /* SabaClient.m */; };
 		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
+		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
 		FAC191251B1532700071FB42 /* mainImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191201B1532700071FB42 /* mainImage.png */; };
 		FAC191261B1532700071FB42 /* prayers1.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191211B1532700071FB42 /* prayers1.png */; };
@@ -99,6 +100,8 @@
 		FA4C92CA1AEC459E00F439B7 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		FA4C92CB1AEC459E00F439B7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		FA98DC181B17F3A700C6BE19 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsAnnouncements.png; sourceTree = "<group>"; };
 		FAC191201B1532700071FB42 /* mainImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainImage.png; sourceTree = "<group>"; };
 		FAC191211B1532700071FB42 /* prayers1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayers1.png; sourceTree = "<group>"; };
@@ -430,6 +433,8 @@
 				FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */,
 				FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */,
 				FAEE9DF51AEDF0BE004059B8 /* ContactViewController.xib */,
+				FA98DC181B17F3A700C6BE19 /* CustomAnnotation.h */,
+				FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */,
 			);
 			name = "Contact and Directions";
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */,
 				FAF082A81B0961A7007C60F6 /* PrayerTimes.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
+				FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
 				FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */,

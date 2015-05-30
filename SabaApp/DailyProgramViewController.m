@@ -15,6 +15,7 @@
 #import "DailyProgramCell.h"
 #import "DBManager.h"
 #import "AppDelegate.h"
+#import "SabaClient.h"
 
 @interface DailyProgramViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -63,13 +64,7 @@
 -(void) setupNavigationBar{
 	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	
-	// Settings bars text color to white.
-	[self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
-	
-	// following two lines makes the navigationBar transparent.
-	[self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-	self.navigationController.navigationBar.shadowImage = [UIImage new];
-	
+	[[SabaClient sharedInstance] setupNavigationBarFor:self];
 	self.navigationItem.title = @"Program Details";
 }
 

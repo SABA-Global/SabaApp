@@ -174,4 +174,14 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 	else
 		[SVProgressHUD dismiss];
 }
+
+// helper function for setting up the NavigationBar
+-(void) setupNavigationBarFor:(UIViewController*) viewController{	
+	// Settings bars text color to white.
+	[viewController.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey:NSForegroundColorAttributeName]];
+	
+	// following two lines makes the navigationBar transparent.
+	[viewController.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+	viewController.navigationController.navigationBar.shadowImage = [UIImage new];
+}
 @end

@@ -20,4 +20,5 @@
 -(void) getPrayTimesWithLatitude:(double)latitude  andLongitude:(double)longitude : (void (^)(NSDictionary *prayerTimes, NSError *error))completion;
 
 -(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size;
+-(void) showSpinner:(bool)show;
 @end

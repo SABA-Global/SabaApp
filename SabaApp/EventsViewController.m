@@ -39,7 +39,7 @@
 	self.tableView.dataSource	= self;
 	self.tableView.separatorColor = [UIColor clearColor];
 	
-	[self showSpinner:YES];
+	[[SabaClient sharedInstance] showSpinner:YES];
 	
 	[self getUpcomingEvents];
 	[self setupNavigationBar];
@@ -97,7 +97,7 @@
 }
 
 -(void) onRefresh{
-	[self showSpinner:YES];
+	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
@@ -114,13 +114,13 @@
 	if(programs != nil && programs.count > 0){
 		self.programs = programs;
 		[self.tableView reloadData];
-		[self showSpinner:NO];
+		[[SabaClient sharedInstance] showSpinner:NO];
 		return;
 	}
 	
 	// go ahead and fetch the programs via network call.
 	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-		[self showSpinner:NO];
+		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
 		
 		if (error) {
@@ -157,20 +157,5 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.programs.count;
-}
-
-#pragma mark spinner
-
--(void) showSpinner:(bool)show{
-	if(show == YES){
-		[SVProgressHUD setRingThickness:1.0];
-		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
-		layer.opacity = 0;
-		layer.allowsGroupOpacity = YES;
-		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-		[SVProgressHUD setBackgroundColor:RGB(106, 172, 43)];
-	}
-	else
-		[SVProgressHUD dismiss];
 }
 @end

@@ -59,7 +59,7 @@ int locationFetchCounter;
 	[self startLocationManager];
 	
 	[self setupNavigationBar];
-	[self showSpinner:YES];
+	[[SabaClient sharedInstance] showSpinner:YES];
 	[self showDates];
 }
 
@@ -89,7 +89,7 @@ int locationFetchCounter;
 }
 
 -(void) onRefresh{
-	[self showSpinner:YES];
+	[[SabaClient sharedInstance] showSpinner:YES];
 	[self showPrayerTimes:NO];
 	[self showDates];
 	[self startLocationManager];
@@ -127,7 +127,7 @@ int locationFetchCounter;
 		self.maghribTime.text	= prayerTimes.maghrib;
 		self.midNightTime.text	= prayerTimes.midnight;
 		
-		[self showSpinner:NO];
+		[[SabaClient sharedInstance] showSpinner:NO];
 		[self showPrayerTimes:YES]; // show the prayertimes
 	}
 }
@@ -147,7 +147,7 @@ int locationFetchCounter;
 			self.midNightTime.text	= [self getAMPMTime:prayerTimes[@"Isha"]]; // showing Isha time in midnight label.
 			self.midNightLabel.text = @"Isha";
 		}
-		[self showSpinner:NO];
+		[[SabaClient sharedInstance] showSpinner:NO];
 		[self showPrayerTimes:YES]; // show the prayertimes
 	}];
 }
@@ -203,20 +203,6 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 		NSLog(@"Got the authorization to access the location: kCLAuthorizationStatusAuthorizedAlways");
 	else
 		NSLog(@"Error: didn't get the authorization to access the location: %d", status);
-}
-
-#pragma mark spinner
--(void) showSpinner:(bool)show{
-	if(show == YES){
-		[SVProgressHUD setRingThickness:1.0];
-		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
-		layer.opacity = 0;
-		layer.allowsGroupOpacity = YES;
-		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-		[SVProgressHUD setBackgroundColor:RGB(106, 172, 43)];
-	}
-	else
-		[SVProgressHUD dismiss];
 }
 
 -(void) showPrayerTimes:(BOOL)show{

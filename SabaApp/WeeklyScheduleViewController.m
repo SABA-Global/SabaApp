@@ -41,7 +41,8 @@
 	self.tableView.dataSource = self;
 	self.tableView.separatorColor = [UIColor clearColor];
 	
-	[self showSpinner:YES];
+	[[SabaClient sharedInstance] showSpinner:YES];
+	
 	[self getWeeklyPrograms];
 	[self setupNavigationBar];
 	
@@ -113,7 +114,7 @@
 }
 
 -(void) onRefresh{
-	[self showSpinner:YES];
+	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
@@ -136,13 +137,13 @@
 //		NSLog(@"%@", [program title]);
 		self.programs = programs;
 		[self.tableView reloadData];
-		[self showSpinner:NO];
+		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
 		return;
 	}
 	
 	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
-		[self showSpinner:NO];
+		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
 		
 		if (error) {
@@ -205,16 +206,4 @@
 	return self.programs.count;
 }
 
--(void) showSpinner:(bool)show{
-	if(show == YES){
-		[SVProgressHUD setRingThickness:1.0];
-		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
-		layer.opacity = 0;
-		layer.allowsGroupOpacity = YES;
-		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
-		[SVProgressHUD setBackgroundColor:RGB(106, 172, 43)];
-	}
-	else
-		[SVProgressHUD dismiss];
-}
 @end

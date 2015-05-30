@@ -147,7 +147,7 @@
 		FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsViewController.m; sourceTree = "<group>"; };
 		FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsViewController.xib; sourceTree = "<group>"; };
 		FAEE9DE91AEDEE15004059B8 /* PrayerTimesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrayerTimesViewController.h; sourceTree = "<group>"; };
-		FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerTimesViewController.m; sourceTree = "<group>"; };
+		FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrayerTimesViewController.m; sourceTree = "<group>"; wrapsLines = 0; };
 		FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrayerTimesViewController.xib; sourceTree = "<group>"; };
 		FAEE9DF31AEDF0BE004059B8 /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
 		FAEE9DF41AEDF0BE004059B8 /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };

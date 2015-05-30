@@ -7,10 +7,14 @@
 //
 
 #import "SabaClient.h"
-#import "UIImageView+AFNetworking.h"
-#import "AFNetworking.h"
 
 #import "Program.h"
+#import "appDelegate.h"
+
+// Third party libraries.
+#import "UIImageView+AFNetworking.h"
+#import "AFNetworking.h"
+#import "SVProgressHUD.h"
 
 static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
 static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-420";
@@ -156,6 +160,18 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 			documentAttributes:nil error:nil];
 	
 }
-
-
+// Progress spinner helper function
+-(void) showSpinner:(bool)show{
+	if(show == YES){
+		[SVProgressHUD setRingThickness:2.0];
+		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
+		layer.opacity = 0;
+		layer.allowsGroupOpacity = YES;
+		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
+		[SVProgressHUD setBackgroundColor:[UIColor clearColor]];
+		[SVProgressHUD setForegroundColor:RGB(106, 172, 43)];
+	}
+	else
+		[SVProgressHUD dismiss];
+}
 @end

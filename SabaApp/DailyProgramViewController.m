@@ -28,10 +28,12 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
 	// Do any additional setup after loading the view from its nib.
-	
 	self.programs = [[DBManager sharedInstance] getDailyProgramsByDay:self.day];
-	
+}
+
+-(void) setupTableView{
 	// tableView delegate and source
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
@@ -47,10 +49,6 @@
 	
 	self.tableView.tableFooterView = [[UIView alloc] init];
 }
-
-//-(void)setPrograms:(NSArray *)programs{
-//	//_programs = programs;
-//}
 
 -(void)setDay:(NSString *)day{
 	_day = day;

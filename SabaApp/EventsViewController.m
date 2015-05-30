@@ -34,33 +34,45 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	// setting up UITableView
-	self.tableView.delegate		= self;
-	self.tableView.dataSource	= self;
-	self.tableView.separatorColor = [UIColor clearColor];
-	
 	[[SabaClient sharedInstance] showSpinner:YES];
-	
 	[self getUpcomingEvents];
 	[self setupNavigationBar];
-	
-	self.tableView.estimatedRowHeight = 160.0; // very important...
-	self.tableView.rowHeight = UITableViewAutomaticDimension;
-	
-	// register cell for TableView
-	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
-
-	self.tableView.tableFooterView = [[UIView alloc] init];
-	
-	// refresh Programs
-	self.refreshControl = [[UIRefreshControl alloc] init];
-	[self.tableView addSubview:self.refreshControl];
-	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
+	[self setupTableView];
+	[self setupRefreshControl];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) setupTableView{
+	// tableView delegate and source
+	self.tableView.delegate = self;
+	self.tableView.dataSource = self;
+	self.tableView.separatorColor = [UIColor clearColor];
+	
+	self.tableView.estimatedRowHeight = 160.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
+	self.tableView.rowHeight = UITableViewAutomaticDimension;
+	
+	// register cell for TableView
+	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
+	
+	self.tableView.tableFooterView = [[UIView alloc] init];
+	
+	// setting background image
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
+	[imageView setFrame:self.tableView.frame];
+	
+	self.tableView.backgroundView = imageView;
+}
+
+-(void) setupRefreshControl{
+	// refresh Programs
+	self.refreshControl = [[UIRefreshControl alloc] init];
+	self.refreshControl.tintColor = RGB(106, 172, 43);
+	[self.tableView addSubview:self.refreshControl];
+	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 }
 
 -(void) setupNavigationBar{

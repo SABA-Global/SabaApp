@@ -31,6 +31,8 @@
 	
 	// Do any additional setup after loading the view from its nib.
 	self.programs = [[DBManager sharedInstance] getDailyProgramsByDay:self.day];
+	
+	[self setupTableView];
 }
 
 -(void) setupTableView{

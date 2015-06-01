@@ -127,7 +127,7 @@
 		FADD0C2F1B0EA6E900E0A456 /* Thursday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thursday.png; sourceTree = "<group>"; };
 		FADD0C301B0EA6E900E0A456 /* Tuesday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tuesday.png; sourceTree = "<group>"; };
 		FADD0C311B0EA6E900E0A456 /* Wednesday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wednesday.png; sourceTree = "<group>"; };
-		FADD455F1AE8DE180022FE96 /* SabaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SabaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FADD455F1AE8DE180022FE96 /* Saba.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saba.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADD45631AE8DE180022FE96 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADD45641AE8DE180022FE96 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FADD45661AE8DE180022FE96 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -298,7 +298,7 @@
 		FADD45601AE8DE180022FE96 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FADD455F1AE8DE180022FE96 /* SabaApp.app */,
+				FADD455F1AE8DE180022FE96 /* Saba.app */,
 				FADD45781AE8DE190022FE96 /* SabaAppTests.xctest */,
 			);
 			name = Products;
@@ -521,7 +521,7 @@
 			);
 			name = Saba;
 			productName = SabaApp;
-			productReference = FADD455F1AE8DE180022FE96 /* SabaApp.app */;
+			productReference = FADD455F1AE8DE180022FE96 /* Saba.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FADD45771AE8DE190022FE96 /* SabaAppTests */ = {

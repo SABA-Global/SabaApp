@@ -125,7 +125,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	//[self onRefresh];
+	self.navigationController.navigationBar.topItem.title = @"Weekly Programs"; // sets empty on "<" button.
 }
 
 #pragma mark get Events
@@ -202,11 +202,13 @@
 	// extracting day from title and passing to DailyProgramViewController - Try to use delegate pattern here.
 	dpvc.day = [[[self.programs[indexPath.row] title] componentsSeparatedByString:@" "] objectAtIndex:0];
 
+	
 	CATransition *transition = [CATransition animation];
 	transition.duration = 0.2;
 	transition.type = kCATransitionPush;
 	transition.subtype = kCATransitionFromRight;
 	
+	self.navigationController.navigationBar.topItem.title = @""; // sets empty on "<" button.
 	[self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
 	[self.navigationController pushViewController:dpvc animated:NO];
 }

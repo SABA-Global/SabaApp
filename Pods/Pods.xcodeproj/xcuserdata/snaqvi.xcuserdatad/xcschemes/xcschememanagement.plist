@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-PayPal-iOS-SDK.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,7 +42,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B521B908B4AD72D06D85D637</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B66D5FF983D27BE5585FE319</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFEF23FACCF7E432131AB0CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C5F0971288E7D759F8BDE319</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D98D993A8C54495ECE557DBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>

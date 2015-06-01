@@ -20,7 +20,6 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - PayPal-iOS-SDK (2.10.1)
   - sqlite3 (3.8.9.0.1):
     - sqlite3/common (= 3.8.9.0.1)
   - sqlite3/common (3.8.9.0.1)
@@ -28,13 +27,11 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - PayPal-iOS-SDK
   - sqlite3
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
-  PayPal-iOS-SDK: b7143e1e3ce51a82833c50bdac696a7a40852684
   sqlite3: 5d39c7cea3f4a8da3aac47cc34dbed52dea2cb8d
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 

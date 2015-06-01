@@ -55,6 +55,19 @@
 	_day = day;
 }
 
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	//http://stackoverflow.com/questions/26519248/how-to-set-the-full-width-of-separator-in-uitableview
+	// helps to show the full width line separators in tableView.
+	if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+		[cell setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+		[cell setLayoutMargins:UIEdgeInsetsZero];
+	}
+}
+
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
@@ -86,6 +99,19 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.programs.count;
+}
+
+-(void)viewDidLayoutSubviews
+{
+	// helps to show the full width line separators in tableView.
+	//http://stackoverflow.com/questions/26519248/how-to-set-the-full-width-of-separator-in-uitableview
+	if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+		[self.tableView setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+		[self.tableView setLayoutMargins:UIEdgeInsetsZero];
+	}
 }
 
 @end

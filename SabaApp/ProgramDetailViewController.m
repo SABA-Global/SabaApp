@@ -30,9 +30,9 @@
 	
 	[self setupNavigationBar];
 
-	self.programTitle.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.programTitle.font.fontName fontSize:self.programTitle.font.pointSize withOpacity:0.95];
+	self.programTitle.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.programTitle.font.fontName fontSize:self.programTitle.font.pointSize withOpacity:0.90];
 
-	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.75];
+	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.70];
 }
 
 - (void)didReceiveMemoryWarning {

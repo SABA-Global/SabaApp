@@ -43,6 +43,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
+	[[SabaClient sharedInstance] showSpinner:YES];
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
 	
@@ -58,6 +59,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 
 - (void)viewDidAppear:(BOOL)animated {
 	[self showDates];
+	[[SabaClient sharedInstance] showSpinner:NO];
 }
 
 #pragma CollectionView
@@ -82,11 +84,16 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	SabaCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SabaCell" forIndexPath:indexPath];
 	
-	cell.layer.borderWidth = 0.5f;
+	// This is how you change the background color. We might have better sol.
+	UIView *bgColorView = [[UIView alloc] init];
+	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.10];
+	[cell setSelectedBackgroundView:bgColorView];
+	
+	cell.layer.borderWidth = 0.50f;
 	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f
 											 green:255.0f/255.0f
 											  blue:255.0f/255.0f
-											 alpha:1.0f].CGColor; // white
+											 alpha:.5].CGColor; // white
 	switch(indexPath.row){
 		case 0:
 			cell.title.text			= @"Weekly \nSchedule";
@@ -141,11 +148,6 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	
 	[self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
 	[self.navigationController pushViewController:controller animated:NO];
-}
-
-- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-	[self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
-	[cell setSelected:YES];
 }
 
 // we will add Hijri date here too, Currently, it adds english date.

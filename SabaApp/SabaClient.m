@@ -165,9 +165,6 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 -(void) showSpinner:(bool)show{
 	if(show == YES){
 		[SVProgressHUD setRingThickness:2.0];
-		CAShapeLayer* layer = [[SVProgressHUD sharedView]backgroundRingLayer];
-		layer.opacity = 0;
-		layer.allowsGroupOpacity = YES;
 		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 		[SVProgressHUD setBackgroundColor:[UIColor clearColor]];
 		[SVProgressHUD setForegroundColor:RGB(106, 172, 43)];

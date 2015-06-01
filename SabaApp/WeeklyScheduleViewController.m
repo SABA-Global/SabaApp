@@ -184,6 +184,12 @@
 	
 	WeeklyProgramsCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"WeeklyProgramsCell" forIndexPath:indexPath];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	
+	// This is how you change the background color. We might have better sol.
+	UIView *bgColorView = [[UIView alloc] init];
+	bgColorView.backgroundColor = [UIColor grayColor];
+	[cell setSelectedBackgroundView:bgColorView];
+	
 	[cell setProgram:self.programs[indexPath.row]];	
 	return cell;
 }

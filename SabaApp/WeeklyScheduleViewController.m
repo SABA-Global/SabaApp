@@ -14,7 +14,7 @@
 #import "SabaClient.h"
 #import "DailyProgram.h"
 #import "WeeklyPrograms.h"
-#import "ProgramCell.h"
+#import "WeeklyProgramsCell.h"
 #import "DBManager.h"
 #import "AppDelegate.h"
 
@@ -43,14 +43,18 @@
 	[self setupRefreshControl];
 }
 
-//- (void)viewDidLayoutSubviews
-//{
-//	[super viewDidLayoutSubviews];
-//
-//	CGRect navigationBarRect = self.navigationController.navigationBar.frame;
-//	float navigationBarHeight = navigationBarRect.size.height;
-//	self.tableView.contentInset = UIEdgeInsetsMake(navigationBarHeight+navigationBarRect.origin.y ,0,0,0);
-//}
+-(void)viewDidLayoutSubviews
+{
+	// helps to show the full width line separators in tableView.
+	//http://stackoverflow.com/questions/26519248/how-to-set-the-full-width-of-separator-in-uitableview
+	if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+		[self.tableView setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+		[self.tableView setLayoutMargins:UIEdgeInsetsZero];
+	}
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -62,11 +66,11 @@
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
 	
-	self.tableView.estimatedRowHeight = 160.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
+	self.tableView.estimatedRowHeight = 120.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
 	
 	// register cell for TableView
-	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
+	[self.tableView registerNib:[UINib nibWithNibName:@"WeeklyProgramsCell" bundle:nil] forCellReuseIdentifier:@"WeeklyProgramsCell"];
 	
 	self.tableView.tableFooterView = [[UIView alloc] init];
 	
@@ -178,7 +182,7 @@
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	
-	ProgramCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
+	WeeklyProgramsCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"WeeklyProgramsCell" forIndexPath:indexPath];
 	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	[cell setProgram:self.programs[indexPath.row]];	
 	return cell;
@@ -191,17 +195,31 @@
 
 	// extracting day from title and passing to DailyProgramViewController - Try to use delegate pattern here.
 	dpvc.day = [[[self.programs[indexPath.row] title] componentsSeparatedByString:@" "] objectAtIndex:0];
-	//[self.navigationController pushViewController:dsvc animated:YES]; its not working properly
+
+	CATransition *transition = [CATransition animation];
+	transition.duration = 0.2;
+	transition.type = kCATransitionPush;
+	transition.subtype = kCATransitionFromRight;
 	
-	// very important to set the NavigationController correctly.
-	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:dpvc];
-	nvc.navigationBar.translucent = YES; // so it does not hide details views
-	
-	[self presentViewController:nvc animated:YES completion:nil];
+	[self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+	[self.navigationController pushViewController:dpvc animated:NO];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.programs.count;
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	//http://stackoverflow.com/questions/26519248/how-to-set-the-full-width-of-separator-in-uitableview
+	// helps to show the full width line separators in tableView.
+	if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+		[cell setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+		[cell setLayoutMargins:UIEdgeInsetsZero];
+	}
 }
 
 @end

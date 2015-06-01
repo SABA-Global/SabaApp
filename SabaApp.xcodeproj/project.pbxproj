@@ -20,6 +20,8 @@
 		FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */; };
 		FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */; };
 		FA98DC241B1B99AB00C6BE19 /* icon-1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */; };
+		FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */; };
+		FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */; };
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
 		FAC191251B1532700071FB42 /* mainImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191201B1532700071FB42 /* mainImage.png */; };
 		FAC191261B1532700071FB42 /* prayers1.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191211B1532700071FB42 /* prayers1.png */; };
@@ -107,6 +109,9 @@
 		FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-120.jpg"; sourceTree = "<group>"; };
 		FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-180.jpg"; sourceTree = "<group>"; };
 		FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-1024.jpg"; sourceTree = "<group>"; };
+		FA98DC251B1C1F5B00C6BE19 /* WeeklyProgramsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyProgramsCell.h; sourceTree = "<group>"; };
+		FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyProgramsCell.m; sourceTree = "<group>"; };
+		FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyProgramsCell.xib; sourceTree = "<group>"; };
 		FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsAnnouncements.png; sourceTree = "<group>"; };
 		FAC191201B1532700071FB42 /* mainImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainImage.png; sourceTree = "<group>"; };
 		FAC191211B1532700071FB42 /* prayers1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayers1.png; sourceTree = "<group>"; };
@@ -232,6 +237,9 @@
 				FAF9A4491AF627DE002ECA29 /* DailyProgramCell.h */,
 				FAF9A44A1AF627DE002ECA29 /* DailyProgramCell.m */,
 				FAF9A44B1AF627DE002ECA29 /* DailyProgramCell.xib */,
+				FA98DC251B1C1F5B00C6BE19 /* WeeklyProgramsCell.h */,
+				FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */,
+				FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -608,6 +616,7 @@
 				FAC191271B1532700071FB42 /* prayers2.png in Resources */,
 				FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
+				FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */,
 				FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */,
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
 				FADD0C141B0CC9FC00E0A456 /* arrow-refresh.png in Resources */,
@@ -683,6 +692,7 @@
 				FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */,
 				FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */,
 				FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */,
+				FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
 				FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */,
 				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,

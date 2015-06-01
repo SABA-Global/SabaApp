@@ -53,26 +53,7 @@
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yMl-V9-i5R" userLabel="Donations View">
                     <rect key="frame" x="0.0" y="465" width="320" height="103"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfE-jx-itH">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="Donations">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="donationBtnClicked:" destination="-1" eventType="touchUpInside" id="VQ2-b4-j1C"/>
-                            </connections>
-                        </button>
-                    </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="QfE-jx-itH" firstAttribute="top" secondItem="yMl-V9-i5R" secondAttribute="top" id="igu-3b-Whd"/>
-                        <constraint firstAttribute="bottom" secondItem="QfE-jx-itH" secondAttribute="bottom" id="mlI-F5-Ka6"/>
-                        <constraint firstAttribute="trailing" secondItem="QfE-jx-itH" secondAttribute="trailing" id="szW-Zq-q7H"/>
-                        <constraint firstItem="QfE-jx-itH" firstAttribute="leading" secondItem="yMl-V9-i5R" secondAttribute="leading" id="ujE-PI-O8D"/>
-                    </constraints>
                 </view>
             </subviews>
             <constraints>

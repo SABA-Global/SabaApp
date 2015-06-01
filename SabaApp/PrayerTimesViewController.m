@@ -191,12 +191,15 @@ int locationFetchCounter;
 }
 
 - (void)locationManager:(CLLocationManager *)manager
-didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-	if(status == kCLAuthorizationStatusAuthorizedAlways){
-		NSLog(@"Got the authorization to access the location: kCLAuthorizationStatusAuthorizedAlways");
-	} else {
+						didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+	if(status == kCLAuthorizationStatusNotDetermined ||
+	   status == kCLAuthorizationStatusRestricted ||
+	   status == kCLAuthorizationStatusDenied) {
 		NSLog(@"Error: didn't get the authorization to access the location: %d", status);
 		[[SabaClient sharedInstance] showSpinner:NO];
+	} else {
+		// kCLAuthorizationStatusAuthorizedAlways or kCLAuthorizationStatusAuthorizedWhenInUse
+		NSLog(@"Got the authorization to access the location: %d", status);
 	}
 }
 

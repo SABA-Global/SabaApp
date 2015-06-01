@@ -23,7 +23,7 @@
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>| need Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>| need Location</string>
+	<string>Prayer times are based on location.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>MainViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -39,6 +39,6 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>privacy - location usage description</key>
-	<string>| need Location</string>
+	<string>Prayer times are based on location.</string>
 </dict>
 </plist>

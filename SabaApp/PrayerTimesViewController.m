@@ -192,10 +192,12 @@ int locationFetchCounter;
 
 - (void)locationManager:(CLLocationManager *)manager
 didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-	if(status == kCLAuthorizationStatusAuthorizedAlways)
+	if(status == kCLAuthorizationStatusAuthorizedAlways){
 		NSLog(@"Got the authorization to access the location: kCLAuthorizationStatusAuthorizedAlways");
-	else
+	} else {
 		NSLog(@"Error: didn't get the authorization to access the location: %d", status);
+		[[SabaClient sharedInstance] showSpinner:NO];
+	}
 }
 
 -(void) showPrayerTimes:(BOOL)show{

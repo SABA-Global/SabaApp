@@ -157,6 +157,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 													dateStyle:NSDateFormatterFullStyle
 													timeStyle:NSDateFormatterNoStyle];
 	self.englishDate.text = date;
+	self.hijriDate.text = @"";
 }
 
 -(void) refreshMainViewController{

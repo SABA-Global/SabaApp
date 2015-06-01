@@ -227,6 +227,7 @@ didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
 													dateStyle:NSDateFormatterFullStyle
 													timeStyle:NSDateFormatterNoStyle];
 	self.englishDate.text = date;
+	self.hijriDate.text = @"";
 }
 
 -(void) comingPrayerTime{

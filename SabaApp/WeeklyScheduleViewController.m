@@ -61,7 +61,6 @@
 	// tableView delegate and source
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
-	self.tableView.separatorColor = [UIColor clearColor];
 	
 	self.tableView.estimatedRowHeight = 160.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -87,9 +86,8 @@
 }
 
 -(void) setupNavigationBar{
+	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
 	self.navigationItem.title = @"Weekly Schedule";
 }
 

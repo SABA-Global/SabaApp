@@ -69,27 +69,16 @@ int locationFetchCounter;
 }
 
 -(void) setupNavigationBar{
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-											 initWithImage:[[UIImage imageNamed:@"backArrowIcon"]
-											 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-											 style:UIBarButtonItemStylePlain
-											 target:self
-											 action:@selector(onBack)];
-	
-	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-											  initWithImage:[[UIImage imageNamed:@"arrow-refresh"]
-											  imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
-											  style:UIBarButtonItemStylePlain
-											  target:self
-											  action:@selector(onRefresh)];
-	
+	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	
-	self.navigationItem.title = @"Prayer Times";
-}
 
--(void) onBack{
-	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+	// Use standard refresh button.
+	UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc]
+											 initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+											 target:self
+											 action:@selector(onRefresh)];
+	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+	self.navigationItem.title = @"PRAYER TIMES";
 }
 
 -(void) onRefresh{

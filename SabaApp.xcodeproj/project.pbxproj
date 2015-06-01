@@ -17,6 +17,9 @@
 		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
 		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
+		FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */; };
+		FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */; };
+		FA98DC241B1B99AB00C6BE19 /* icon-1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */; };
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
 		FAC191251B1532700071FB42 /* mainImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191201B1532700071FB42 /* mainImage.png */; };
 		FAC191261B1532700071FB42 /* prayers1.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191211B1532700071FB42 /* prayers1.png */; };
@@ -101,6 +104,9 @@
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA98DC181B17F3A700C6BE19 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-120.jpg"; sourceTree = "<group>"; };
+		FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-180.jpg"; sourceTree = "<group>"; };
+		FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-1024.jpg"; sourceTree = "<group>"; };
 		FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsAnnouncements.png; sourceTree = "<group>"; };
 		FAC191201B1532700071FB42 /* mainImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainImage.png; sourceTree = "<group>"; };
 		FAC191211B1532700071FB42 /* prayers1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayers1.png; sourceTree = "<group>"; };
@@ -357,6 +363,9 @@
 		FADD458E1AE8E1040022FE96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */,
+				FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */,
+				FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */,
 				FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */,
 				FAC191201B1532700071FB42 /* mainImage.png */,
 				FAC191211B1532700071FB42 /* prayers1.png */,
@@ -488,9 +497,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FADD455E1AE8DE180022FE96 /* SabaApp */ = {
+		FADD455E1AE8DE180022FE96 /* Saba */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "SabaApp" */;
+			buildConfigurationList = FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "Saba" */;
 			buildPhases = (
 				71235F08B106F7D28FD4DAE4 /* Check Pods Manifest.lock */,
 				FADD455B1AE8DE180022FE96 /* Sources */,
@@ -502,7 +511,7 @@
 			);
 			dependencies = (
 			);
-			name = SabaApp;
+			name = Saba;
 			productName = SabaApp;
 			productReference = FADD455F1AE8DE180022FE96 /* SabaApp.app */;
 			productType = "com.apple.product-type.application";
@@ -557,7 +566,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FADD455E1AE8DE180022FE96 /* SabaApp */,
+				FADD455E1AE8DE180022FE96 /* Saba */,
 				FADD45771AE8DE190022FE96 /* SabaAppTests */,
 			);
 		};
@@ -577,6 +586,7 @@
 				FADD459C1AE8E1160022FE96 /* afternoon.jpg in Resources */,
 				FADD45A31AE8E1160022FE96 /* settings.png in Resources */,
 				FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */,
+				FA98DC241B1B99AB00C6BE19 /* icon-1024.jpg in Resources */,
 				FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */,
 				FADD0C371B0EA6E900E0A456 /* Tuesday.png in Resources */,
 				FADD0C361B0EA6E900E0A456 /* Thursday.png in Resources */,
@@ -596,6 +606,7 @@
 				FAC191281B1532700071FB42 /* weeklyPrograms.png in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
 				FAC191271B1532700071FB42 /* prayers2.png in Resources */,
+				FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
 				FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */,
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
@@ -606,6 +617,7 @@
 				FADD0C321B0EA6E900E0A456 /* Friday.png in Resources */,
 				FAC191251B1532700071FB42 /* mainImage.png in Resources */,
 				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
+				FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */,
 				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
 			);
@@ -695,7 +707,7 @@
 /* Begin PBXTargetDependency section */
 		FADD457A1AE8DE190022FE96 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FADD455E1AE8DE180022FE96 /* SabaApp */;
+			target = FADD455E1AE8DE180022FE96 /* Saba */;
 			targetProxy = FADD45791AE8DE190022FE96 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -793,6 +805,7 @@
 			baseConfigurationReference = AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabaApp/Info.plist;
@@ -808,6 +821,7 @@
 			baseConfigurationReference = 063D403729EB442D45B488BD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SabaApp/Info.plist;
@@ -864,7 +878,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "SabaApp" */ = {
+		FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "Saba" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FADD45831AE8DE190022FE96 /* Debug */,

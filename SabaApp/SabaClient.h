@@ -20,7 +20,7 @@
 -(void) getPrayTimesWithLatitude:(double)latitude  andLongitude:(double)longitude : (void (^)(NSDictionary *prayerTimes, NSError *error))completion;
 
 // helper functions, should move them to Utils, may be?
--(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size;
+-(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size withOpacity:(double)opacity;
 -(void) showSpinner:(bool)show;
 -(void) setupNavigationBarFor:(UIViewController*) viewController;
 

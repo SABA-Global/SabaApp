@@ -51,9 +51,9 @@
 	self.timeLabel.text = program.time;
 	self.programLabel.text = program.program;
 	
-	self.timeLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program time] fontName:self.timeLabel.font.fontName fontSize:self.timeLabel.font.pointSize];
+	self.timeLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program time] fontName:self.timeLabel.font.fontName fontSize:self.timeLabel.font.pointSize withOpacity:0.95];
 
-	self.programLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program program] fontName:self.programLabel.font.fontName fontSize:self.programLabel.font.pointSize];
+	self.programLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program program] fontName:self.programLabel.font.fontName fontSize:self.programLabel.font.pointSize withOpacity:0.75];
 }
 
 @end

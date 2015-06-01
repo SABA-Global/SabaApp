@@ -30,9 +30,9 @@
 	
 	[self setupNavigationBar];
 
-	self.programTitle.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.programTitle.font.fontName fontSize:self.programTitle.font.pointSize];
+	self.programTitle.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.programTitle.font.fontName fontSize:self.programTitle.font.pointSize withOpacity:0.95];
 
-	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize];
+	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.75];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -41,8 +41,6 @@
 }
 
 -(void) setupNavigationBar{
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
-	
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
 	self.navigationItem.title = @"Event Detail";
 }

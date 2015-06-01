@@ -60,9 +60,9 @@ NSDictionary *dayToImage = nil;
 				  }
 		 ];
 	}
-	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:self.title.font.pointSize];
+	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:self.title.font.pointSize withOpacity:0.98];
 
-	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize];
+	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.75];
 }
 
 -(NSString*) getFirstWordFromString:(NSString*)text{

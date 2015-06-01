@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FADD455E1AE8DE180022FE96"
-               BuildableName = "SabaApp.app"
-               BlueprintName = "SabaApp"
+               BuildableName = "Saba.app"
+               BlueprintName = "Saba"
                ReferencedContainer = "container:SabaApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FADD455E1AE8DE180022FE96"
-            BuildableName = "SabaApp.app"
-            BlueprintName = "SabaApp"
+            BuildableName = "Saba.app"
+            BlueprintName = "Saba"
             ReferencedContainer = "container:SabaApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,12 +72,13 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FADD455E1AE8DE180022FE96"
-            BuildableName = "SabaApp.app"
-            BlueprintName = "SabaApp"
+            BuildableName = "Saba.app"
+            BlueprintName = "Saba"
             ReferencedContainer = "container:SabaApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -90,12 +91,13 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FADD455E1AE8DE180022FE96"
-            BuildableName = "SabaApp.app"
-            BlueprintName = "SabaApp"
+            BuildableName = "Saba.app"
+            BlueprintName = "Saba"
             ReferencedContainer = "container:SabaApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

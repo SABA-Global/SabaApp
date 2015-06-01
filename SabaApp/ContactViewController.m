@@ -94,15 +94,8 @@
 }
 
 -(void) setupNavigationBar{
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
-	
+	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	
 	self.navigationItem.title = @"Contact and Directions";
 }
-
--(void) onBack{
-	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
-}
-
 @end

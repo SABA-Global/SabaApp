@@ -62,7 +62,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	self.collectionView.dataSource = self;
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
-	[self.navigationController setNavigationBarHidden:YES];
+	[self.navigationController setNavigationBarHidden:YES]; // shouldn't show NavigationBar on this controller.
 	[self showDates];
 }
 
@@ -149,11 +149,13 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 			break;
 	}
 	
-	// very important to set the NavigationController correctly.
-	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:controller];
-	nvc.navigationBar.translucent = YES; 
-
-	[self presentViewController:nvc animated:YES completion:nil];
+	CATransition *transition = [CATransition animation];
+	transition.duration = 0.2;
+	transition.type = kCATransitionPush;
+	transition.subtype = kCATransitionFromRight;
+	
+	[self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+	[self.navigationController pushViewController:controller animated:NO];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{

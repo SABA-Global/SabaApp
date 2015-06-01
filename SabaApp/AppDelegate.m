@@ -35,14 +35,12 @@ MainViewController *mvc = nil;
 														   PayPalEnvironmentSandbox : kPayPalClientId,
 														   PayPalEnvironmentProduction : kPayPalProductionClientId}];
 	
-	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
 	mvc = [[MainViewController alloc] init];
-	
+
 	// very important to set the NavigationController correctly. Later on we can push another controller on it.
 	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
-	nvc.navigationBar.translucent = NO; // so it does not hide details views
 	
 	self.window.rootViewController = nvc;
 	self.window.backgroundColor = [UIColor whiteColor];
@@ -55,6 +53,8 @@ MainViewController *mvc = nil;
 	// setting the color of status bar.
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 	
+	// tint color for navigation bar
+	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 	return YES;
 }
 

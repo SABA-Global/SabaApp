@@ -39,7 +39,6 @@
 	// tableView delegate and source
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
-	self.tableView.separatorColor = [UIColor clearColor];
 	
 	[self setupNavigationBar];
 	

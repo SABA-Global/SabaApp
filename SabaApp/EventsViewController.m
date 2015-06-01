@@ -22,10 +22,12 @@
 
 @interface EventsViewController ()<UITableViewDelegate,
 								   UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *hijriDate;
+@property (weak, nonatomic) IBOutlet UILabel *englishDate;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *programs;
-
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+
+@property (strong, nonatomic) NSArray *programs;
 @end
 
 @implementation EventsViewController
@@ -46,11 +48,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidLayoutSubviews
+{
+	// helps to show the full width line separators in tableView.
+	//http://stackoverflow.com/questions/26519248/how-to-set-the-full-width-of-separator-in-uitableview
+	if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
+		[self.tableView setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([self.tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+		[self.tableView setLayoutMargins:UIEdgeInsetsZero];
+	}
+}
+
 -(void) setupTableView{
 	// tableView delegate and source
 	self.tableView.delegate = self;
 	self.tableView.dataSource = self;
-	self.tableView.separatorColor = [UIColor clearColor];
 	
 	self.tableView.estimatedRowHeight = 160.0; // Very important: when we come back from detailViewController (after dismiss) - layout of this viewController messed up. If we add this line estimatedRowHeight, its hels to keep the height and UITextView doesn't vanish.
 	self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -76,14 +90,63 @@
 }
 
 -(void) setupNavigationBar{
-	self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[[UIImage imageNamed:@"backArrowIcon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	
-	self.navigationItem.title = @"Events and Announcements";
+	[self replaceTitleViewInNavigationBar];
+	[self setHeaderTitle:@"ANNOUNCEMENTS" andSubtitle:[self getEnglishDate]];
 }
 
--(void) onBack{
-	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+-(void) replaceTitleViewInNavigationBar{
+//	http://stackoverflow.com/questions/2817181/iphone-title-and-subtitle-in-navigation-bar
+	// Replace titleView
+	CGRect headerTitleSubtitleFrame = CGRectMake(0, 0, 200, 44);
+	UIView* _headerTitleSubtitleView = [[UILabel alloc] initWithFrame:headerTitleSubtitleFrame];
+	_headerTitleSubtitleView.backgroundColor = [UIColor clearColor];
+	_headerTitleSubtitleView.autoresizesSubviews = YES;
+	
+	CGRect titleFrame = CGRectMake(0, 2, 200, 24);
+	UILabel *titleView = [[UILabel alloc] initWithFrame:titleFrame];
+	titleView.backgroundColor = [UIColor clearColor];
+	[titleView setAlpha:.95f];
+	titleView.font = [UIFont boldSystemFontOfSize:16];
+	titleView.font = [UIFont boldSystemFontOfSize:16];
+	titleView.textAlignment = NSTextAlignmentCenter;
+	titleView.textColor = [UIColor whiteColor];
+	titleView.shadowColor = [UIColor darkGrayColor];
+	titleView.shadowOffset = CGSizeMake(0, -1);
+	titleView.text = @"";
+	titleView.adjustsFontSizeToFitWidth = YES;
+	[_headerTitleSubtitleView addSubview:titleView];
+	
+	CGRect englishDateRect = CGRectMake(0, 24, 200, 44-24);
+	UILabel *englishDateView = [[UILabel alloc] initWithFrame:englishDateRect];
+	englishDateView.backgroundColor = [UIColor clearColor];
+	[englishDateView setAlpha:.55f];
+	englishDateView.font = [UIFont systemFontOfSize:13];
+	englishDateView.textAlignment = NSTextAlignmentCenter;
+	englishDateView.textColor = [UIColor whiteColor];
+	englishDateView.shadowColor = [UIColor darkGrayColor];
+	englishDateView.shadowOffset = CGSizeMake(0, -1);
+	englishDateView.text = @"";
+	englishDateView.adjustsFontSizeToFitWidth = YES;
+	[_headerTitleSubtitleView addSubview:englishDateView];
+	
+	_headerTitleSubtitleView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin |
+												 UIViewAutoresizingFlexibleRightMargin |
+												 UIViewAutoresizingFlexibleTopMargin |
+												 UIViewAutoresizingFlexibleBottomMargin);
+	
+	self.navigationItem.titleView = _headerTitleSubtitleView;
+}
+
+-(void) setHeaderTitle:(NSString*)headerTitle andSubtitle:(NSString*)headerSubtitle {
+	assert(self.navigationItem.titleView != nil);
+	UIView* headerTitleSubtitleView = self.navigationItem.titleView;
+	UILabel* titleView = [headerTitleSubtitleView.subviews objectAtIndex:0];
+	UILabel* subtitleView = [headerTitleSubtitleView.subviews objectAtIndex:1];
+	assert((titleView != nil) && (subtitleView != nil) && ([titleView isKindOfClass:[UILabel class]]) && ([subtitleView isKindOfClass:[UILabel class]]));
+	titleView.text = headerTitle;
+	subtitleView.text = headerSubtitle;
 }
 
 -(void) refresh{
@@ -144,23 +207,35 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
 	ProgramCell* cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProgramCell" forIndexPath:indexPath];
 	[cell setProgram:self.programs[indexPath.row]];
-	cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 	[self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-	
-	ProgramDetailViewController* pdvc = [[ProgramDetailViewController alloc]init];
-	pdvc.program = self.programs[indexPath.row];
-	
-	// very important to set the NavigationController correctly.
-	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:pdvc];
-	nvc.navigationBar.translucent = YES;
-	[self presentViewController:nvc animated:YES completion:nil];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
 	return self.programs.count;
 }
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	//http://stackoverflow.com/questions/26519248/how-to-set-the-full-width-of-separator-in-uitableview
+	// helps to show the full width line separators in tableView.
+	if ([cell respondsToSelector:@selector(setSeparatorInset:)]) {
+		[cell setSeparatorInset:UIEdgeInsetsZero];
+	}
+	
+	if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+		[cell setLayoutMargins:UIEdgeInsetsZero];
+	}
+}
+
+-(NSString*) getEnglishDate{
+	
+	return [NSDateFormatter localizedStringFromDate:[NSDate date]
+													dateStyle:NSDateFormatterFullStyle
+											        timeStyle:NSDateFormatterNoStyle];
+}
+
 @end

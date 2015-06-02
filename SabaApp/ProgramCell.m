@@ -17,12 +17,12 @@ NSDictionary *dayToImage = nil;
 
 @interface ProgramCell()
 
-@property (weak, nonatomic) IBOutlet UITextView *title;
+@property (weak, nonatomic) IBOutlet UILabel *title;
 /*
  change programDescription type to UITextView in order to make links clickable. 
  We need to set the autolayout constraints correctly and turn off the scrollbar to make its height adjustable based on the contents.
  */
-@property (weak, nonatomic) IBOutlet UILabel *programDescription;
+@property (weak, nonatomic) IBOutlet UITextView *programDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *programImageview;
 
 @end

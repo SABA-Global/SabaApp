@@ -95,8 +95,18 @@
 	self.navigationItem.title = @"Weekly Schedule";
 }
 
--(void) onBack{
-	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		[UIView  beginAnimations:nil context:NULL];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationDuration:0.75];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+		[UIView commitAnimations];
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDelay:0.375];
+		[UIView commitAnimations];	}
 }
 
 -(void) refresh{
@@ -125,7 +135,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	self.navigationController.navigationBar.topItem.title = @"Weekly Programs"; // sets empty on "<" button.
+	self.navigationController.navigationBar.topItem.title = @"Weekly Schedule"; // sets empty on "<" button.
 }
 
 #pragma mark get Events

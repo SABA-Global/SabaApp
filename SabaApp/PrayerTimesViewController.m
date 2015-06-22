@@ -68,6 +68,13 @@ int locationFetchCounter;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		NSLog(@"Back pressed");
+	}
+}
+
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];

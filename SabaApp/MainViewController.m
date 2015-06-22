@@ -26,9 +26,6 @@
 #import "PrayerTimesViewController.h"
 #import "WeeklyScheduleViewController.h"
 
-static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=4";
-//static NSString *SABA_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-480";
-
 @interface MainViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *englishDate;
@@ -89,7 +86,7 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.10];
 	[cell setSelectedBackgroundView:bgColorView];
 	
-	cell.layer.borderWidth = 0.50f;
+	cell.layer.borderWidth = 0.2f;
 	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f
 											 green:255.0f/255.0f
 											  blue:255.0f/255.0f
@@ -142,8 +139,8 @@ static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedpro
 	}
 	
 	CATransition *transition = [CATransition animation];
-	transition.duration = 0.2;
-	transition.type = kCATransitionPush;
+	transition.duration = 0.05;
+	transition.type = kCATransitionFade;
 	transition.subtype = kCATransitionFromRight;
 	
 	[self.navigationController.view.layer addAnimation:transition forKey:kCATransition];

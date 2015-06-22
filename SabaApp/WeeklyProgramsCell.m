@@ -39,9 +39,9 @@
 	_program = program;
 	NSString *day = [self getFirstWordFromString: self.program.title]; // This is the day in our case.
 	[self setImageForDay:day];
-	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:self.title.font.pointSize withOpacity:0.75];
+	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:self.title.font.pointSize withOpacity:1.0];
 	
-	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.50];
+	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.75];
 }
 
 -(NSString*) getFirstWordFromString:(NSString*)text{

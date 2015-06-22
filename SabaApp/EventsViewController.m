@@ -92,8 +92,11 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	[self replaceTitleViewInNavigationBar];
-	[self setHeaderTitle:@"ANNOUNCEMENTS" andSubtitle:[self getEnglishDate]];
+	self.navigationItem.title = @"Announcements";
+	
+	// Following code replaces the default navigation Title with Title/SubTitle.
+	//[self replaceTitleViewInNavigationBar];
+	//[self setHeaderTitle:@"Announcements" andSubtitle:[self getEnglishDate]];
 }
 
 -(void) replaceTitleViewInNavigationBar{

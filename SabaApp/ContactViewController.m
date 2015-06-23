@@ -98,4 +98,19 @@
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
 	self.navigationItem.title = @"Contact and Directions";
 }
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		[UIView  beginAnimations:nil context:NULL];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationDuration:0.3];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+		[UIView commitAnimations];
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDelay:0.3];
+		[UIView commitAnimations];	}
+}
+
 @end

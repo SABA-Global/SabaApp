@@ -85,7 +85,7 @@
 	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.10];
 	[cell setSelectedBackgroundView:bgColorView];
 	
-	cell.layer.borderWidth = 0.2f;
+	cell.layer.borderWidth = 0.5f;
 	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f
 											 green:255.0f/255.0f
 											  blue:255.0f/255.0f
@@ -138,7 +138,7 @@
 	}
 	
 	CATransition *transition = [CATransition animation];
-	transition.duration = 0.05;
+	transition.duration = 0.25;
 	transition.type = kCATransitionFade;
 	transition.subtype = kCATransitionFromRight;
 	

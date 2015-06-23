@@ -18,10 +18,15 @@
 -(void) getGeneralAnnouncements:(void (^)(NSString* programName, NSArray *programs, NSError *error))completion;
 
 -(void) getPrayTimesWithLatitude:(double)latitude  andLongitude:(double)longitude : (void (^)(NSDictionary *prayerTimes, NSError *error))completion;
+-(void)getHijriDateFromWeb:(void (^)(NSDictionary *jsonResponse, NSError *error))completion;
 
 // helper functions, should move them to Utils, may be?
 -(NSAttributedString*) getAttributedString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size withOpacity:(double)opacity;
 -(void) showSpinner:(bool)show;
 -(void) setupNavigationBarFor:(UIViewController*) viewController;
+
+// NSUserDefaults helper functions
+-(NSString*) getCachedHijriDate;
+-(void) storeHijriDate:(NSString*) hijriDate;
 
 @end

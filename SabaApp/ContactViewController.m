@@ -81,7 +81,7 @@
 	region.span = span;
 	region.center = location;
 	
-	CustomAnnotation *customAnnotation = [[CustomAnnotation alloc] initWithTitle:@"Saba Islamic Center" Location:location];
+	CustomAnnotation *customAnnotation = [[CustomAnnotation alloc] initWithTitle:@"SABA Islamic Center" Location:location];
 	if (customAnnotation !=nil) {
 		[self.mapView removeAnnotation:customAnnotation];
 	}

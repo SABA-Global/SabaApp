@@ -84,7 +84,7 @@
 -(void) setupRefreshControl{
 	// refresh Programs
 	self.refreshControl = [[UIRefreshControl alloc] init];
-	self.refreshControl.tintColor = RGB(106, 172, 43);
+	self.refreshControl.tintColor = [UIColor whiteColor];
 	[self.tableView addSubview:self.refreshControl];
 	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 }

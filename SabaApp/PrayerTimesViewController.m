@@ -92,7 +92,7 @@ int locationFetchCounter;
 											 target:self
 											 action:@selector(onRefresh)];
 	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
-	self.navigationItem.title = @"PRAYER TIMES";
+	self.navigationItem.title = @"Loading...";
 }
 
 -(void) onRefresh{
@@ -244,7 +244,19 @@ int locationFetchCounter;
 													dateStyle:NSDateFormatterFullStyle
 													timeStyle:NSDateFormatterNoStyle];
 	self.englishDate.text = date;
-	self.hijriDate.text = @"";
+	NSString *hijriDate = [[SabaClient sharedInstance] getCachedHijriDate];
+	if(hijriDate==nil || hijriDate.length==0){
+		[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
+			if(error){
+				NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
+			} else {
+				[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
+				self.hijriDate.text = jsonResponse[@"hijridate"];
+			}
+		}];
+	} else {
+		self.hijriDate.text = hijriDate;
+	}
 }
 
 -(void) comingPrayerTime{

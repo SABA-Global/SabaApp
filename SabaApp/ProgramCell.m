@@ -32,8 +32,8 @@ NSDictionary *dayToImage = nil;
 
 - (void)awakeFromNib {
 	// round image
-	self.programImageview.layer.cornerRadius = 8.0;
-	self.programImageview.clipsToBounds = YES;
+//	self.programImageview.layer.cornerRadius = 8.0;
+//	self.programImageview.clipsToBounds = YES;
 
 	// Add a border
 	//self.programImageview.layer.borderWidth = 1.0;

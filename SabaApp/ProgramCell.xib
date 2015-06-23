@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="ProgramDescription" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-hE-58Q">
-                        <rect key="frame" x="71" y="30" width="241" height="149.5"/>
+                        <rect key="frame" x="71" y="36" width="241" height="143.5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -38,7 +38,7 @@
                     <constraint firstItem="O7Y-hE-58Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="71" id="GI5-TI-XgP"/>
                     <constraint firstItem="hQE-iL-Mpa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GOg-HC-Spi"/>
                     <constraint firstAttribute="trailing" secondItem="O7Y-hE-58Q" secondAttribute="trailing" constant="8" id="Jht-9U-cdE"/>
-                    <constraint firstItem="O7Y-hE-58Q" firstAttribute="top" secondItem="hQE-iL-Mpa" secondAttribute="bottom" constant="-35" id="NDO-rY-9ql"/>
+                    <constraint firstItem="O7Y-hE-58Q" firstAttribute="top" secondItem="hQE-iL-Mpa" secondAttribute="bottom" constant="-29" id="NDO-rY-9ql"/>
                     <constraint firstItem="yEK-1k-vc9" firstAttribute="leading" secondItem="hQE-iL-Mpa" secondAttribute="trailing" constant="15" id="Uhm-tZ-flH"/>
                     <constraint firstItem="hQE-iL-Mpa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="fH4-yq-Zcn"/>
                     <constraint firstItem="yEK-1k-vc9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="h5L-Yq-TBS"/>

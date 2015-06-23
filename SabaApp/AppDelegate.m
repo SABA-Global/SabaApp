@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "DBManager.h"
+#import	"SabaClient.h"
 #import "MainViewController.h"
 #import "WeeklyScheduleViewController.h"
 
@@ -43,6 +44,7 @@ MainViewController *mvc = nil;
 	
 	// tint color for navigation bar
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+	
 	return YES;
 }
 
@@ -62,7 +64,6 @@ MainViewController *mvc = nil;
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
 	// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-		[mvc refreshMainViewController];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
@@ -74,4 +75,17 @@ MainViewController *mvc = nil;
 	return UIInterfaceOrientationMaskPortrait;
 }
 
+-(void) getHijriDate{
+	NSString *hijriDate = [[SabaClient sharedInstance] getCachedHijriDate];
+	
+	if(hijriDate==nil || hijriDate.length==0){
+		[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
+			if(error){
+				NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
+			} else {
+				[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
+			}
+		}];
+	}
+}
 @end

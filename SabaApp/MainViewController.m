@@ -46,7 +46,6 @@
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
 	[self.navigationController setNavigationBarHidden:YES]; // shouldn't show NavigationBar on this controller.
-	[self showDates];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -154,10 +153,19 @@
 													dateStyle:NSDateFormatterFullStyle
 													timeStyle:NSDateFormatterNoStyle];
 	self.englishDate.text = date;
-	self.hijriDate.text = @"";
-}
-
--(void) refreshMainViewController{
-	[self showDates];
+	
+	NSString *hijriDate = [[SabaClient sharedInstance] getCachedHijriDate];
+	if(hijriDate==nil || hijriDate.length==0){
+		[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
+			if(error){
+				NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
+			} else {
+				[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
+				self.hijriDate.text = jsonResponse[@"hijridate"];
+			}
+		}];
+	} else {
+		self.hijriDate.text = hijriDate;
+	}
 }
 @end

@@ -44,6 +44,14 @@ MainViewController *mvc = nil;
 	
 	// tint color for navigation bar
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+
+	
+	// Following code is for Notfications and Alarms etc.
+//	//http://stackoverflow.com/questions/24100313/ask-for-user-permission-to-receive-uilocalnotifications-in-ios-8/24161903#24161903
+//	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
+//		[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
+//	}
+	
 	
 	return YES;
 }

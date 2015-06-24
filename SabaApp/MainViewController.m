@@ -46,6 +46,18 @@
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
 	[self.navigationController setNavigationBarHidden:YES]; // shouldn't show NavigationBar on this controller.
+	
+//	[self setAlarm];
+//	[self addLocalNotification:(int)2105
+//									  :06
+//									  :23
+//									  :03
+//									  :35
+//									  :00
+//									  :@"Typewriters.caf"
+//									  :@"Isha Prayer"
+//									  :@"Prayer Time"
+//							  :@"Id: 2015" ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -168,4 +180,81 @@
 		self.hijriDate.text = hijriDate;
 	}
 }
+
+//-(void) setAlarm{
+//	UILocalNotification *local = [[UILocalNotification alloc] init];
+//	
+//	// create date/time information
+//	local.fireDate = [NSDate dateWithTimeIntervalSinceNow:60]; //time in seconds
+//	local.timeZone = [NSTimeZone defaultTimeZone];
+//	
+//	// set notification details
+//	local.alertBody = @"Alarm!";
+//	local.alertAction = @"Okay!";
+//	
+//	
+//	local.soundName = [NSString stringWithFormat:@"Typewriters.caf"];
+//	
+//	// Gather any custom data you need to save with the notification
+//	NSDictionary *customInfo =
+//	[NSDictionary dictionaryWithObject:@"Prayer Time" forKey:@"Isha"];
+//	local.userInfo = customInfo;
+//	
+//	// Schedule it!
+//	[[UIApplication sharedApplication] scheduleLocalNotification:local];
+//}
+//
+//- (void)addLocalNotification:(int)year
+//							:(int)month
+//							:(int)day
+//							:(int)hours
+//							:(int)minutes
+//							:(int)seconds
+//							:(NSString*)alertSoundName
+//							:(NSString*)alertBody
+//							:(NSString*)actionButtonTitle
+//							:(NSString*)notificationID {
+//	
+//	NSCalendar *calendar = [NSCalendar autoupdatingCurrentCalendar];
+//	
+//	//set the notification date/time
+//	NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+//	[dateComps setDay:day];
+//	
+//	[dateComps setMonth:month];
+//	
+//	[dateComps setYear:year];
+//	[dateComps setHour:hours];
+//	
+//	[dateComps setMinute:minutes];
+//	[dateComps setSecond:seconds];
+//	
+//	NSDate *notificationDate = [calendar dateFromComponents:dateComps];
+//	
+//	UILocalNotification *localNotif = [[UILocalNotification alloc] init];
+//	if (localNotif == nil)
+//		return;
+//	localNotif.fireDate = notificationDate;
+//	localNotif.timeZone = [NSTimeZone defaultTimeZone];
+//	
+//	// Set notification message
+//	localNotif.alertBody = alertBody;
+//	// Title for the action button
+//	localNotif.alertAction = actionButtonTitle;
+//	
+//	localNotif.soundName = (alertSoundName == nil) ? UILocalNotificationDefaultSoundName : alertSoundName;
+//	
+//	//use custom sound name or default one - look here to find out more: http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/IPhoneOSClientImp/IPhoneOSClientImp.html%23//apple_ref/doc/uid/TP40008194-CH103-SW13
+//	
+//	localNotif.applicationIconBadgeNumber += 1; //increases the icon badge number
+//	
+//	// Custom data - we're using them to identify the notification. comes in handy, in case we want to delete a specific one later
+//	NSDictionary *infoDict = [NSDictionary dictionaryWithObject:notificationID forKey:notificationID];
+//	localNotif.userInfo = infoDict;
+//	
+//	// Schedule the notification
+//	[[UIApplication sharedApplication] scheduleLocalNotification:localNotif];
+//}
+
+
 @end

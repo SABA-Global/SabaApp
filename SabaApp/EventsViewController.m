@@ -28,6 +28,8 @@
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (strong, nonatomic) NSArray *programs;
+
+@property bool isRefreshInProgress; // keeps track that if refresh is in Progress. Another refresh should not kick in at the sametime.
 @end
 
 @implementation EventsViewController
@@ -92,6 +94,14 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
+	
+	// Use standard refresh button.
+	UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc]
+											 initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+											 target:self
+											 action:@selector(onRefresh)];
+	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+	
 	self.navigationItem.title = @"Announcements";
 	
 	// Following code replaces the default navigation Title with Title/SubTitle.
@@ -153,7 +163,6 @@
 }
 
 -(void) refresh{
-	
 	// remove the data from database.
 	[[DBManager sharedInstance] deleteSabaPrograms:@"Program"];
 	
@@ -168,11 +177,16 @@
 }
 
 -(void) onRefresh{
+	if(self.isRefreshInProgress)
+		return;
+	
+	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
+	self.isRefreshInProgress = true;
 	[self refresh];
 }
 
@@ -193,6 +207,7 @@
 	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
+		self.isRefreshInProgress = false;
 		
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);

@@ -28,6 +28,8 @@
 @property (strong, nonatomic) NSArray *dailyPrograms;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property bool isRefreshInProgress; // keeps track that if refresh is in Progress. Another refresh should not kick in at the sametime.
+
 @end
 
 @implementation WeeklyScheduleViewController
@@ -41,6 +43,7 @@
 	[self setupNavigationBar];
 	[self setupTableView];
 	[self setupRefreshControl];
+	self.isRefreshInProgress=false;
 }
 
 -(void)viewDidLayoutSubviews
@@ -92,6 +95,14 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
+	
+	// Use standard refresh button.
+	UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc]
+											 initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+											 target:self
+											 action:@selector(onRefresh)];
+	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+	
 	self.navigationItem.title = @"Weekly Schedule";
 }
 
@@ -126,11 +137,16 @@
 }
 
 -(void) onRefresh{
+	if(self.isRefreshInProgress)
+		return;
+	
+	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
+	self.isRefreshInProgress = true;
 	[self refresh];
 }
 
@@ -157,6 +173,7 @@
 	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
+		self.isRefreshInProgress=false;
 		
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);

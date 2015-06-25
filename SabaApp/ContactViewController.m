@@ -110,7 +110,8 @@
 		
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDelay:0.3];
-		[UIView commitAnimations];	}
+		[UIView commitAnimations];
+	}
 }
 
 @end

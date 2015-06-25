@@ -75,13 +75,7 @@
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"WeeklyProgramsCell" bundle:nil] forCellReuseIdentifier:@"WeeklyProgramsCell"];
 	
-	self.tableView.tableFooterView = [[UIView alloc] init];
-	
-	// setting background image
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
-	[imageView setFrame:self.tableView.frame];
-	
-	self.tableView.backgroundView = imageView;
+	self.tableView.tableFooterView = [[UIView alloc] init];	
 }
 
 -(void) setupRefreshControl{

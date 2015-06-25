@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/MainViewController.m"
-            timestampString = "456790643.692291"
+            timestampString = "456956912.070755"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "345"
-            endingLineNumber = "345">
+            startingLineNumber = "357"
+            endingLineNumber = "357">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

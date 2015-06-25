@@ -17,6 +17,7 @@
 		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
 		FA6A0B371B39751E002E8951 /* green-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B361B39751E002E8951 /* green-pin.png */; };
 		FA6A0B391B3BFC0E002E8951 /* masjid-e-nabwi.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B381B3BFC0E002E8951 /* masjid-e-nabwi.png */; };
+		FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
 		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
 		FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */; };
@@ -56,7 +57,6 @@
 		FAEDFE031B3508FC00C276BD /* Thursday.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFDFC1B3508FC00C276BD /* Thursday.png */; };
 		FAEDFE041B3508FC00C276BD /* Tuesday.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFDFD1B3508FC00C276BD /* Tuesday.png */; };
 		FAEDFE051B3508FC00C276BD /* Wednesday.png in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFDFE1B3508FC00C276BD /* Wednesday.png */; };
-		FAEDFE071B36405C00C276BD /* splash-screen.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FAEDFE061B36405C00C276BD /* splash-screen.jpg */; };
 		FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */; };
 		FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */; };
 		FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */; };
@@ -108,6 +108,7 @@
 		FA4C92CB1AEC459E00F439B7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
 		FA6A0B361B39751E002E8951 /* green-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-pin.png"; path = "SabaApp/green-pin.png"; sourceTree = "<group>"; };
 		FA6A0B381B3BFC0E002E8951 /* masjid-e-nabwi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "masjid-e-nabwi.png"; sourceTree = "<group>"; };
+		FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-spash.jpg"; sourceTree = "<group>"; };
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA98DC181B17F3A700C6BE19 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
@@ -156,7 +157,6 @@
 		FAEDFDFC1B3508FC00C276BD /* Thursday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Thursday.png; path = SabaApp/Thursday.png; sourceTree = "<group>"; };
 		FAEDFDFD1B3508FC00C276BD /* Tuesday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tuesday.png; path = SabaApp/Tuesday.png; sourceTree = "<group>"; };
 		FAEDFDFE1B3508FC00C276BD /* Wednesday.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Wednesday.png; path = SabaApp/Wednesday.png; sourceTree = "<group>"; };
-		FAEDFE061B36405C00C276BD /* splash-screen.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "splash-screen.jpg"; sourceTree = "<group>"; };
 		FAEE9DDF1AEDEDC5004059B8 /* WeeklyScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyScheduleViewController.h; sourceTree = "<group>"; };
 		FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyScheduleViewController.m; sourceTree = "<group>"; };
 		FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyScheduleViewController.xib; sourceTree = "<group>"; };
@@ -377,9 +377,9 @@
 		FADD458E1AE8E1040022FE96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */,
 				FA6A0B381B3BFC0E002E8951 /* masjid-e-nabwi.png */,
 				FA6A0B361B39751E002E8951 /* green-pin.png */,
-				FAEDFE061B36405C00C276BD /* splash-screen.jpg */,
 				FAEDFDF81B3508FC00C276BD /* Friday.png */,
 				FAEDFDF91B3508FC00C276BD /* Monday.png */,
 				FAEDFDFA1B3508FC00C276BD /* Saturday.png */,
@@ -600,7 +600,6 @@
 				FAF9A4481AF6267F002ECA29 /* DailyProgramViewController.xib in Resources */,
 				FADD45A11AE8E1160022FE96 /* night.jpg in Resources */,
 				FADD45A21AE8E1160022FE96 /* pray.png in Resources */,
-				FAEDFE071B36405C00C276BD /* splash-screen.jpg in Resources */,
 				FADD459C1AE8E1160022FE96 /* afternoon.jpg in Resources */,
 				FAEDFE001B3508FC00C276BD /* Monday.png in Resources */,
 				FADD45A31AE8E1160022FE96 /* settings.png in Resources */,
@@ -625,6 +624,7 @@
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
 				FAC191271B1532700071FB42 /* prayers2.png in Resources */,
 				FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */,
+				FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
 				FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */,
 				FAEDFE051B3508FC00C276BD /* Wednesday.png in Resources */,

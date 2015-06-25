@@ -96,7 +96,7 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	self.navigationItem.title = @"Contact and Directions";
+	self.navigationItem.title = @"Contact & Directions";
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent

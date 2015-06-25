@@ -46,18 +46,6 @@
 	
 	[self.collectionView registerNib:[UINib nibWithNibName:@"SabaCell" bundle:nil] forCellWithReuseIdentifier:@"SabaCell"];
 	[self.navigationController setNavigationBarHidden:YES]; // shouldn't show NavigationBar on this controller.
-	
-//	[self setAlarm];
-//	[self addLocalNotification:(int)2105
-//									  :06
-//									  :23
-//									  :03
-//									  :35
-//									  :00
-//									  :@"Typewriters.caf"
-//									  :@"Isha Prayer"
-//									  :@"Prayer Time"
-//							  :@"Id: 2015" ];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,10 +80,15 @@
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	SabaCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SabaCell" forIndexPath:indexPath];
 	
-	// This is how you change the background color. We might have better sol.
-	UIView *bgColorView = [[UIView alloc] init];
-	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.10];
-	[cell setSelectedBackgroundView:bgColorView];
+	// This is how you change the background color when we click on the tile. We might find a better sol.
+	UIView *bgSelectedColorView = [[UIView alloc] init];
+	bgSelectedColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.10];
+	[cell setSelectedBackgroundView:bgSelectedColorView];
+	
+//	UIView *bgColorView = [[UIView alloc] init];
+//	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0];
+//	[cell setBackgroundView:bgColorView];
+
 	
 	cell.layer.borderWidth = 0.5f;
 	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f

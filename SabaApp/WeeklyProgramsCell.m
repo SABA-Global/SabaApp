@@ -21,8 +21,8 @@
 
 - (void)awakeFromNib {
 	// round image
-	self.programImageView.layer.cornerRadius = 8.0;
-	self.programImageView.clipsToBounds = YES;
+//	self.programImageView.layer.cornerRadius = 8.0;
+//	self.programImageView.clipsToBounds = YES;
 	
 	// Add a border
 	//self.programImageview.layer.borderWidth = 1.0;

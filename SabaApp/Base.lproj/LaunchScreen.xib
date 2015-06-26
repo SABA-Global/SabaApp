@@ -24,14 +24,8 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
-        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="eventsAnnouncements.png" id="xVd-Pm-coO">
-            <rect key="frame" x="0.0" y="0.0" width="292" height="519"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="289.5" y="158"/>
-        </imageView>
     </objects>
     <resources>
-        <image name="eventsAnnouncements.png" width="640" height="1136"/>
         <image name="home-spash.jpg" width="1242" height="2208"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

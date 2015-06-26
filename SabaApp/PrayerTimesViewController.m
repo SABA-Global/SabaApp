@@ -22,6 +22,7 @@
 #import <SVProgressHUD.h>
 
 @interface PrayerTimesViewController () <CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *cityName;
 @property (weak, nonatomic) IBOutlet UILabel *englishDate;
 @property (weak, nonatomic) IBOutlet UILabel *hijriDate;
 
@@ -79,7 +80,8 @@ int locationFetchCounter;
 		
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDelay:0.3];
-		[UIView commitAnimations];	}
+		[UIView commitAnimations];
+	}
 }
 
 -(void) setupNavigationBar{
@@ -92,7 +94,7 @@ int locationFetchCounter;
 											 target:self
 											 action:@selector(onRefresh)];
 	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
-	self.navigationItem.title = @"Loading...";
+	self.navigationItem.title = @"Prayer Times";
 }
 
 -(void) onRefresh{
@@ -117,7 +119,7 @@ int locationFetchCounter;
 	// Months are zero based in database.
 	NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
 	
-	self.navigationItem.title = [NSString stringWithFormat:@"%@, %@", placemark.locality,
+	self.cityName.text = [NSString stringWithFormat:@"%@, %@", placemark.locality,
 								placemark.administrativeArea] ; // setting city name, State in title.
 	
 	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:placemark.locality forDate:currDate];

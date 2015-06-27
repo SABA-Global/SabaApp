@@ -34,7 +34,7 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="prayers1.png" translatesAutoresizingMaskIntoConstraints="NO" id="hTb-xa-J5V">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" alpha="0.75000000000000022" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                                  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3i-bW-aUN">
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.70000000000000018" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                                  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3i-bW-aUN">
                     <rect key="frame" x="8" y="120.5" width="304" height="18"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                     <color key="textColor" white="1" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>

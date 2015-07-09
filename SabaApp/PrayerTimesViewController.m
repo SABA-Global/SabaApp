@@ -146,6 +146,8 @@ int locationFetchCounter;
 		if (error) {
 			NSLog(@"Error getting getPrayTimes: %@", error);
 		} else {
+			
+			NSLog(@"PrayTime: %@", prayerTimes);
 			// from web: we don't get midnight time but get Isha time.
 			self.fajrTime.text		= [self getAMPMTime:prayerTimes[@"Fajr"]];
 			self.imsaakTime.text	= [self getAMPMTime:prayerTimes[@"Imsaak"]];
@@ -286,7 +288,6 @@ int locationFetchCounter;
 // this function takes "HH:MM". No validation is added at this point.
 
 -(NSString*) getAMPMTime:(NSString*) time{
-	
 	NSString *timeWithSeconds = [NSString stringWithFormat:@"%@:00", time];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -296,6 +297,10 @@ int locationFetchCounter;
 	NSDateFormatter *formatterAMPM = [[NSDateFormatter alloc] init];
 	[formatterAMPM setDateFormat:@"hh:mm a"];
 	
-	return [formatterAMPM stringFromDate:date];
+	NSString *returnedDate = [formatterAMPM stringFromDate:date];
+	if(returnedDate == nil) // for some cities, Imsaac value is "-----" and we ended up having a nil here.
+		return @" "; // returning @" " - a space so all the lables will get aligned.
+	
+	return returnedDate;
 }
 @end

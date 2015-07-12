@@ -15,6 +15,8 @@
 		FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */; };
 		FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92C81AEC139E00F439B7 /* SabaClient.m */; };
 		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
+		FA5DCE411B4E7B5600D90FE5 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DCE3F1B4E7B5600D90FE5 /* SplashScreenViewController.m */; };
+		FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */; };
 		FA6A0B371B39751E002E8951 /* green-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B361B39751E002E8951 /* green-pin.png */; };
 		FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
@@ -98,6 +100,9 @@
 		FA4C92C81AEC139E00F439B7 /* SabaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaClient.m; sourceTree = "<group>"; };
 		FA4C92CA1AEC459E00F439B7 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		FA4C92CB1AEC459E00F439B7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		FA5DCE3E1B4E7B5600D90FE5 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
+		FA5DCE3F1B4E7B5600D90FE5 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
+		FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		FA6A0B361B39751E002E8951 /* green-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-pin.png"; path = "SabaApp/green-pin.png"; sourceTree = "<group>"; };
 		FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-spash.jpg"; sourceTree = "<group>"; };
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -307,6 +312,9 @@
 				FADD45671AE8DE180022FE96 /* AppDelegate.m */,
 				FADD456F1AE8DE190022FE96 /* Images.xcassets */,
 				FADD45711AE8DE190022FE96 /* LaunchScreen.xib */,
+				FA5DCE3E1B4E7B5600D90FE5 /* SplashScreenViewController.h */,
+				FA5DCE3F1B4E7B5600D90FE5 /* SplashScreenViewController.m */,
+				FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */,
 				FADD45621AE8DE180022FE96 /* Supporting Files */,
 			);
 			path = SabaApp;
@@ -603,6 +611,7 @@
 				FAEDFE041B3508FC00C276BD /* Tuesday.png in Resources */,
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
 				FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */,
+				FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */,
 				FAC191251B1532700071FB42 /* mainImage.png in Resources */,
 				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
 				FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */,
@@ -673,6 +682,7 @@
 				FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */,
 				FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */,
 				FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */,
+				FA5DCE411B4E7B5600D90FE5 /* SplashScreenViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
 				FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */,
 				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,

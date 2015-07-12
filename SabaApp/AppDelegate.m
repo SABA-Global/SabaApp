@@ -12,6 +12,7 @@
 #import	"SabaClient.h"
 #import "MainViewController.h"
 #import "WeeklyScheduleViewController.h"
+#import "SplashScreenViewController.h"
 
 @interface AppDelegate ()
 
@@ -19,25 +20,32 @@
 
 @implementation AppDelegate
 
-MainViewController *mvc = nil;
+SplashScreenViewController *ssvc = nil;
+MainViewController *mainvc = nil;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	// Override point for customization after application launch.
 	
+	// Initialize databaseManager
+	DBManager *databaseManager = [[DBManager sharedInstance] init];
+	[databaseManager prepareDatabase];
+	
+	// get HijriDate.
+	[self getHijriDate];
+	
 	self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	mvc = [[MainViewController alloc] init];
-
+	ssvc = [[SplashScreenViewController alloc] init];
+	mainvc = [[MainViewController alloc] init];
+	
 	// very important to set the NavigationController correctly. Later on we can push another controller on it.
-	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mvc];
+	UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:mainvc];
+	
+	[mainvc.navigationController pushViewController:ssvc animated:NO];
 	
 	self.window.rootViewController = nvc;
 	self.window.backgroundColor = [UIColor whiteColor];
 	[self.window makeKeyAndVisible];
-	
-	// Initialize databaseManager
-	DBManager *databaseManager = [[DBManager sharedInstance] init];
-	[databaseManager prepareDatabase];
 	
 	// setting the color of status bar.
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -45,13 +53,11 @@ MainViewController *mvc = nil;
 	// tint color for navigation bar
 	[[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 
-	
 	// Following code is for Notfications and Alarms etc.
 //	//http://stackoverflow.com/questions/24100313/ask-for-user-permission-to-receive-uilocalnotifications-in-ios-8/24161903#24161903
 //	if ([UIApplication instancesRespondToSelector:@selector(registerUserNotificationSettings:)]){
 //		[application registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeAlert|UIUserNotificationTypeBadge|UIUserNotificationTypeSound categories:nil]];
 //	}
-	
 	
 	return YES;
 }
@@ -84,16 +90,13 @@ MainViewController *mvc = nil;
 }
 
 -(void) getHijriDate{
-	NSString *hijriDate = [[SabaClient sharedInstance] getCachedHijriDate];
-	
-	if(hijriDate==nil || hijriDate.length==0){
-		[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
-			if(error){
-				NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
-			} else {
-				[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
-			}
-		}];
-	}
+	[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
+		if(error){
+			NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
+		} else {
+			NSLog(@"HijriDate: %@", jsonResponse[@"hijridate"]);
+			[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
+		}
+	}];
 }
 @end

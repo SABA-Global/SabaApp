@@ -40,7 +40,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 	
-	[[SabaClient sharedInstance] showSpinner:YES];
 	self.collectionView.delegate = self;
 	self.collectionView.dataSource = self;
 	
@@ -55,7 +54,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
 	[self showDates];
-	[[SabaClient sharedInstance] showSpinner:NO];
 }
 
 #pragma CollectionView

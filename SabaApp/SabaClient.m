@@ -167,9 +167,10 @@ static NSString *HIJRI_DATE_URL = @"http://www.saba-igc.org/prayerTimes/salatDat
 -(void) showSpinner:(bool)show{
 	if(show == YES){
 		[SVProgressHUD setRingThickness:2.0];
+		[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 		[SVProgressHUD setBackgroundColor:[UIColor clearColor]];
-		[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+		//[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 	}
 	else
 		[SVProgressHUD dismiss];

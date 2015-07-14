@@ -10,7 +10,6 @@
 
 #import "ProgramDetailViewController.h"
 
-
 #import "Program.h"
 #import "SabaClient.h"
 #import "ProgramCell.h"
@@ -18,7 +17,12 @@
 #import "DBManager.h"
 
 // Third party libraries
-#import <SVProgressHUD.h>
+#import <Google/Analytics.h>
+
+NSString *const kEventsAnnuncementsView = @"Announcements View";
+NSString *const kAnnuncementsEvent		= @"Announcements";
+extern NSString *const kRefreshButton;
+extern NSString *const kPullToRefresh;
 
 @interface EventsViewController ()<UITableViewDelegate,
 								   UITableViewDataSource>
@@ -43,6 +47,13 @@
 	[self setupNavigationBar];
 	[self setupTableView];
 	[self setupRefreshControl];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kEventsAnnuncementsView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -174,12 +185,14 @@
 	if(self.isRefreshInProgress)
 		return;
 	
+	[self trackRefreshWithRefreshType:kRefreshButton];
 	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
+	[self trackRefreshWithRefreshType:kPullToRefresh];
 	self.isRefreshInProgress = true;
 	[self refresh];
 }
@@ -263,6 +276,19 @@
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDelay:0.3];
 		[UIView commitAnimations];	}
+}
+
+#pragma mark - Analytics
+
+// we might add pull to refresh later on.
+- (void)trackRefreshWithRefreshType:(NSString*) refrehType{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	
+	// Create events to track the selected image and selected name.
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kAnnuncementsEvent
+														  action:refrehType
+														   label:refrehType
+														   value:nil] build]];
 }
 
 @end

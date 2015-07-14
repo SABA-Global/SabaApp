@@ -19,7 +19,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 // Thrd pary ibrary
-#import <SVProgressHUD.h>
+#import <Google/Analytics.h>
+
+NSString *const kPrayerTimesView	= @"Prayer Times View";
+NSString *const kPrayerTimesEvent	= @"Prayer Times";
+extern NSString *const kRefreshButton;
 
 @interface PrayerTimesViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *cityName;
@@ -65,6 +69,13 @@ int locationFetchCounter;
 	[self showDates];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kPrayerTimesView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+}
+
 - (void)viewWillDisappear:(BOOL)animated {
 	[self clearTimer];
 }
@@ -103,6 +114,7 @@ int locationFetchCounter;
 }
 
 -(void) onRefresh{
+	[self trackRefreshWithRefreshType:kRefreshButton];
 	[[SabaClient sharedInstance] showSpinner:YES];
 	self.cityName.text = @"Loading...";
 	[self showPrayerTimes:NO];
@@ -391,5 +403,18 @@ int locationFetchCounter;
 		return @" "; // returning @" " - a space so all the lables will get aligned.
 	
 	return returnedDate;
+}
+
+#pragma mark - Analytics
+
+// we might add pull to refresh later on.
+- (void)trackRefreshWithRefreshType:(NSString*) refrehType{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	
+	// Create events to track the selected image and selected name.
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kPrayerTimesEvent
+														  action:refrehType
+														   label:nil
+														   value:nil] build]];
 }
 @end

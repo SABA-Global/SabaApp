@@ -11,6 +11,7 @@
 // Third party imports
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
+#import <Google/Analytics.h>
 
 // CollectionView Cell
 #import "SabaCell.h"
@@ -25,6 +26,8 @@
 #import "SettingsViewController.h"
 #import "PrayerTimesViewController.h"
 #import "WeeklyScheduleViewController.h"
+
+NSString *const kMainView	= @"Main View";
 
 @interface MainViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -50,6 +53,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kMainView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

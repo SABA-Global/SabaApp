@@ -12,6 +12,10 @@
 #import "CustomAnnotation.h"
 #import "SabaClient.h"
 
+#import <Google/Analytics.h>
+
+NSString *const kContactDirections  = @"Contact and Directions View";
+
 @interface ContactViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
@@ -22,6 +26,13 @@
     [super viewDidLoad];
 	[self setupNavigationBar];
 	[self setupMapview];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kContactDirections];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 #pragma mark Delegate Methods

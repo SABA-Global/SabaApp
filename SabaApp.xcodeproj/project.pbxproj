@@ -19,6 +19,7 @@
 		FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */; };
 		FA6A0B371B39751E002E8951 /* green-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B361B39751E002E8951 /* green-pin.png */; };
 		FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */; };
+		FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9045131B5271CD0098497E /* GoogleService-Info.plist */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
 		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
 		FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */; };
@@ -105,6 +106,7 @@
 		FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		FA6A0B361B39751E002E8951 /* green-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-pin.png"; path = "SabaApp/green-pin.png"; sourceTree = "<group>"; };
 		FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-spash.jpg"; sourceTree = "<group>"; };
+		FA9045131B5271CD0098497E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA98DC181B17F3A700C6BE19 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
@@ -326,6 +328,7 @@
 				FA4C92C31AEC0F6500F439B7 /* Database */,
 				FADD458E1AE8E1040022FE96 /* Images */,
 				FADD45631AE8DE180022FE96 /* Info.plist */,
+				FA9045131B5271CD0098497E /* GoogleService-Info.plist */,
 				FADD45641AE8DE180022FE96 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -617,6 +620,7 @@
 				FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */,
 				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
+				FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */,
 				FAEDFE011B3508FC00C276BD /* Saturday.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

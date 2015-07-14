@@ -8,14 +8,17 @@
 
 #import "DailyProgramViewController.h"
 
+
 // Third party imports
-#import <SVProgressHUD.h>
+#import <Google/Analytics.h>
 
 #import "DailyProgram.h"
 #import "DailyProgramCell.h"
 #import "DBManager.h"
 #import "AppDelegate.h"
 #import "SabaClient.h"
+
+NSString *const kDailyProgramDetails = @"Program Details View";
 
 @interface DailyProgramViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -33,6 +36,13 @@
 	self.programs = [[DBManager sharedInstance] getDailyProgramsByDay:self.day];
 	[self setupNavigationBar];
 	[self setupTableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kDailyProgramDetails];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void) setupTableView{

@@ -20,6 +20,12 @@
 
 #import "DailyProgramViewController.h"
 
+#import <Google/Analytics.h>
+
+NSString *const kWeeklySchedule		= @"Weekly Schedule";
+NSString *const kRefreshButton		= @"Refresh Clicked";
+NSString *const kPullToRefresh		= @"Pull to Refresh";
+
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
 
@@ -44,6 +50,13 @@
 	[self setupTableView];
 	[self setupRefreshControl];
 	self.isRefreshInProgress=false;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kWeeklySchedule];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void)viewDidLayoutSubviews
@@ -134,12 +147,14 @@
 	if(self.isRefreshInProgress)
 		return;
 	
+	[self trackRefreshWithRefreshType:kRefreshButton];
 	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
+	[self trackRefreshWithRefreshType:kPullToRefresh];
 	self.isRefreshInProgress = true;
 	[self refresh];
 }
@@ -249,6 +264,19 @@
 	if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
 		[cell setLayoutMargins:UIEdgeInsetsZero];
 	}
+}
+
+#pragma mark - Analytics
+
+// we might add pull to refresh later on.
+- (void)trackRefreshWithRefreshType:(NSString*) refrehType{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	
+	// Create events to track the selected image and selected name.
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kWeeklySchedule
+														  action:refrehType
+														   label:refrehType
+														   value:nil] build]];
 }
 
 @end

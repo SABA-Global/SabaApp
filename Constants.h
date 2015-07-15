@@ -12,7 +12,7 @@
 // Event Categories
 NSString *const kEventCategoryPrayerTimes		= @"Prayer Times";
 NSString *const kEventCategoryWeeklySchedule	= @"Weekly Schedule";
-NSString *const kEventCategoryAnnuncements		= @"Announcements";
+NSString *const kEventCategoryAnnouncements		= @"Announcements";
 
 // Event Labels
 NSString *const kRefreshEventLabel			= @"Refresh";

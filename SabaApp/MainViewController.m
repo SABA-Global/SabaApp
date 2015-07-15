@@ -27,7 +27,7 @@
 #import "PrayerTimesViewController.h"
 #import "WeeklyScheduleViewController.h"
 
-NSString *const kMainView	= @"Main View";
+extern NSString *const kMainView;
 
 @interface MainViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 

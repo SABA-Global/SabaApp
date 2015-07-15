@@ -18,7 +18,7 @@
 #import "AppDelegate.h"
 #import "SabaClient.h"
 
-NSString *const kDailyProgramDetails = @"Program Details View";
+extern NSString *const kDailyProgramDetailsView;
 
 @interface DailyProgramViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -41,7 +41,7 @@ NSString *const kDailyProgramDetails = @"Program Details View";
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kDailyProgramDetails];
+	[tracker set:kGAIScreenName value:kDailyProgramDetailsView];
 	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 

@@ -22,9 +22,16 @@
 
 #import <Google/Analytics.h>
 
-NSString *const kWeeklySchedule		= @"Weekly Schedule";
-NSString *const kRefreshButton		= @"Refresh Clicked";
-NSString *const kPullToRefresh		= @"Pull to Refresh";
+extern NSString *const kWeeklyScheduleView;
+extern NSString *const kEventCategoryWeeklySchedule;
+
+// Event Labels
+extern NSString *const kRefreshEventLabel;
+
+//Event Actions
+extern NSString *const kRefreshEventActionSwiped;
+extern NSString *const kRefreshEventActionClicked;
+
 
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
@@ -55,7 +62,7 @@ NSString *const kPullToRefresh		= @"Pull to Refresh";
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kWeeklySchedule];
+	[tracker set:kGAIScreenName value:kWeeklyScheduleView];
 	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
@@ -147,14 +154,14 @@ NSString *const kPullToRefresh		= @"Pull to Refresh";
 	if(self.isRefreshInProgress)
 		return;
 	
-	[self trackRefreshWithRefreshType:kRefreshButton];
+	[self trackRefreshEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
 	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
-	[self trackRefreshWithRefreshType:kPullToRefresh];
+	[self trackRefreshEventAction:kRefreshEventActionSwiped withLabel:kRefreshEventLabel];
 	self.isRefreshInProgress = true;
 	[self refresh];
 }
@@ -268,14 +275,13 @@ NSString *const kPullToRefresh		= @"Pull to Refresh";
 
 #pragma mark - Analytics
 
-// we might add pull to refresh later on.
-- (void)trackRefreshWithRefreshType:(NSString*) refrehType{
+- (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
 	
 	// Create events to track the selected image and selected name.
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kWeeklySchedule
-														  action:refrehType
-														   label:refrehType
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryWeeklySchedule
+														  action:action
+														   label:label
 														   value:nil] build]];
 }
 

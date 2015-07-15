@@ -14,7 +14,7 @@
 
 #import <Google/Analytics.h>
 
-NSString *const kContactDirections  = @"Contact and Directions View";
+extern NSString *const kContactDirectionsView;
 
 @interface ContactViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -31,7 +31,7 @@ NSString *const kContactDirections  = @"Contact and Directions View";
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kContactDirections];
+	[tracker set:kGAIScreenName value:kContactDirectionsView];
 	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 

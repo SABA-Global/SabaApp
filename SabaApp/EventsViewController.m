@@ -19,10 +19,15 @@
 // Third party libraries
 #import <Google/Analytics.h>
 
-NSString *const kEventsAnnuncementsView = @"Announcements View";
-NSString *const kAnnuncementsEvent		= @"Announcements";
-extern NSString *const kRefreshButton;
-extern NSString *const kPullToRefresh;
+extern NSString *const kAnnouncementsView;
+extern NSString *const kEventCategoryAnnuncements;
+
+// Event Labels
+extern NSString *const kRefreshEventLabel;
+
+//Event Actions
+extern NSString *const kRefreshEventActionSwiped;
+extern NSString *const kRefreshEventActionClicked;
 
 @interface EventsViewController ()<UITableViewDelegate,
 								   UITableViewDataSource>
@@ -52,7 +57,7 @@ extern NSString *const kPullToRefresh;
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kEventsAnnuncementsView];
+	[tracker set:kGAIScreenName value:kAnnouncementsView];
 	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
@@ -185,14 +190,14 @@ extern NSString *const kPullToRefresh;
 	if(self.isRefreshInProgress)
 		return;
 	
-	[self trackRefreshWithRefreshType:kRefreshButton];
+	[self trackRefreshEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
 	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
-	[self trackRefreshWithRefreshType:kPullToRefresh];
+	[self trackRefreshEventAction:kRefreshEventActionSwiped withLabel:kRefreshEventLabel];
 	self.isRefreshInProgress = true;
 	[self refresh];
 }
@@ -280,14 +285,13 @@ extern NSString *const kPullToRefresh;
 
 #pragma mark - Analytics
 
-// we might add pull to refresh later on.
-- (void)trackRefreshWithRefreshType:(NSString*) refrehType{
+- (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
 	
 	// Create events to track the selected image and selected name.
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kAnnuncementsEvent
-														  action:refrehType
-														   label:refrehType
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryAnnuncements
+														  action:action
+														   label:label
 														   value:nil] build]];
 }
 

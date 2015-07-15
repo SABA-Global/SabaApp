@@ -13,6 +13,7 @@
 #import "MainViewController.h"
 #import "WeeklyScheduleViewController.h"
 #import "SplashScreenViewController.h"
+#import "Constants.h"
 
 #import <Google/Analytics.h>
 
@@ -20,7 +21,7 @@ NSString *const kApplicationLaunched		= @"App Launched";
 
 // Dispatch interval for automatic dispatching of hits to Google Analytics.
 // Values 0.0 or less will disable periodic dispatching. The default dispatch interval is 120 secs.
-static NSTimeInterval const kCutePetsDispatchInterval = 120.0;
+static NSTimeInterval const kSabaDispatchInterval = 120.0;
 
 // Set log level to have the Google Analytics SDK report debug information only in DEBUG mode.
 #if DEBUG
@@ -101,7 +102,7 @@ MainViewController *mainvc = nil;
 	
 	// Restore the dispatch interval since dispatchWithCompletionHandler:
 	// disables automatic dispatching.
-	[GAI sharedInstance].dispatchInterval = kCutePetsDispatchInterval;
+	[GAI sharedInstance].dispatchInterval = kSabaDispatchInterval;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -151,7 +152,7 @@ MainViewController *mainvc = nil;
 	[GAI sharedInstance].trackUncaughtExceptions = YES;
 	
 	// Set the dispatch interval for automatic dispatching.
-	[GAI sharedInstance].dispatchInterval = kCutePetsDispatchInterval;
+	[GAI sharedInstance].dispatchInterval = kSabaDispatchInterval;
 	
 	// Set the appropriate log level for the default logger.
 	[GAI sharedInstance].logger.logLevel = kSabaLogLevel;

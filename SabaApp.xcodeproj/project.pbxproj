@@ -22,9 +22,6 @@
 		FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9045131B5271CD0098497E /* GoogleService-Info.plist */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
 		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
-		FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */; };
-		FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */; };
-		FA98DC241B1B99AB00C6BE19 /* icon-1024.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */; };
 		FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */; };
 		FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */; };
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
@@ -107,12 +104,10 @@
 		FA6A0B361B39751E002E8951 /* green-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-pin.png"; path = "SabaApp/green-pin.png"; sourceTree = "<group>"; };
 		FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-spash.jpg"; sourceTree = "<group>"; };
 		FA9045131B5271CD0098497E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA9045171B560C560098497E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		FA98DC181B17F3A700C6BE19 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
-		FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-120.jpg"; sourceTree = "<group>"; };
-		FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-180.jpg"; sourceTree = "<group>"; };
-		FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon-1024.jpg"; sourceTree = "<group>"; };
 		FA98DC251B1C1F5B00C6BE19 /* WeeklyProgramsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyProgramsCell.h; sourceTree = "<group>"; };
 		FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyProgramsCell.m; sourceTree = "<group>"; };
 		FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyProgramsCell.xib; sourceTree = "<group>"; };
@@ -328,6 +323,7 @@
 				FA4C92C31AEC0F6500F439B7 /* Database */,
 				FADD458E1AE8E1040022FE96 /* Images */,
 				FADD45631AE8DE180022FE96 /* Info.plist */,
+				FA9045171B560C560098497E /* Constants.h */,
 				FA9045131B5271CD0098497E /* GoogleService-Info.plist */,
 				FADD45641AE8DE180022FE96 /* main.m */,
 			);
@@ -381,9 +377,6 @@
 				FAEDFDFC1B3508FC00C276BD /* Thursday.png */,
 				FAEDFDFD1B3508FC00C276BD /* Tuesday.png */,
 				FAEDFDFE1B3508FC00C276BD /* Wednesday.png */,
-				FA98DC1F1B1B99AB00C6BE19 /* icon-120.jpg */,
-				FA98DC201B1B99AB00C6BE19 /* icon-180.jpg */,
-				FA98DC211B1B99AB00C6BE19 /* icon-1024.jpg */,
 				FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */,
 				FAC191201B1532700071FB42 /* mainImage.png */,
 				FAC191211B1532700071FB42 /* prayers1.png */,
@@ -589,7 +582,6 @@
 				FADD45A31AE8E1160022FE96 /* settings.png in Resources */,
 				FAEDFDFF1B3508FC00C276BD /* Friday.png in Resources */,
 				FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */,
-				FA98DC241B1B99AB00C6BE19 /* icon-1024.jpg in Resources */,
 				FAEE9DED1AEDEE15004059B8 /* PrayerTimesViewController.xib in Resources */,
 				FAF9A44D1AF627DE002ECA29 /* DailyProgramCell.xib in Resources */,
 				FADD45731AE8DE190022FE96 /* LaunchScreen.xib in Resources */,
@@ -605,7 +597,6 @@
 				FAC191281B1532700071FB42 /* weeklyPrograms.png in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
 				FAC191271B1532700071FB42 /* prayers2.png in Resources */,
-				FA98DC231B1B99AB00C6BE19 /* icon-180.jpg in Resources */,
 				FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
 				FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */,
@@ -617,7 +608,6 @@
 				FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */,
 				FAC191251B1532700071FB42 /* mainImage.png in Resources */,
 				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
-				FA98DC221B1B99AB00C6BE19 /* icon-120.jpg in Resources */,
 				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
 				FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */,
@@ -853,7 +843,7 @@
 				INFOPLIST_FILE = SabaAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SabaApp.app/SabaApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Saba.app/Saba";
 			};
 			name = Debug;
 		};
@@ -868,7 +858,7 @@
 				INFOPLIST_FILE = SabaAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SabaApp.app/SabaApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Saba.app/Saba";
 			};
 			name = Release;
 		};

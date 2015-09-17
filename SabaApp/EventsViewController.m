@@ -20,7 +20,7 @@
 #import <Google/Analytics.h>
 
 extern NSString *const kAnnouncementsView;
-extern NSString *const kEventCategoryAnnuncements;
+extern NSString *const kEventCategoryAnnouncements;
 
 // Event Labels
 extern NSString *const kRefreshEventLabel;
@@ -289,7 +289,7 @@ extern NSString *const kRefreshEventActionClicked;
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
 	
 	// Create events to track the selected image and selected name.
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryAnnuncements
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryAnnouncements
 														  action:action
 														   label:label
 														   value:nil] build]];

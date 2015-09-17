@@ -27,8 +27,15 @@
 	
 	annotationView.enabled = YES;
 	annotationView.canShowCallout = YES;
-	annotationView.image = [UIImage imageNamed:@"backArrowIcon"]; // use saba icon here...
-//	annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+	annotationView.image = [UIImage imageNamed:@"green-pin"];
+	
+	[annotationView.layer setShadowColor:[UIColor blackColor].CGColor];
+	[annotationView.layer setShadowOpacity:1.0f];
+	[annotationView.layer setShadowRadius:5.0f];
+	[annotationView.layer setShadowOffset:CGSizeMake(0, 0)];
+//	[annotationView setBackgroundColor:[UIColor whiteColor]];
+//	UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"saba_image"]]; // use saba icon
+//	annotationView.leftCalloutAccessoryView = iconView;
 	
 //	// Add an image to the left callout.
 //	UIImageView *iconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pizza_slice_32.png"]]; // use saba icon here... or anyother prayers icon

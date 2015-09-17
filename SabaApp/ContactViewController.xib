@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -18,19 +18,19 @@
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="weeklyPrograms.png" translatesAutoresizingMaskIntoConstraints="NO" id="r65-gX-ZWF">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General Inquiries" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCe-kD-gNv">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iOS Support" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCe-kD-gNv">
                     <rect key="frame" x="8" y="94" width="304" height="18"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Imam and Resident Aalim (Dr. Nabi Raza Abidi)" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6V-36-q9C">
-                    <rect key="frame" x="8" y="134" width="304" height="45"/>
+                    <rect key="frame" x="8" y="138" width="304" height="41"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                     <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website Support" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-wR-era">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General Inquiries" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3R-wR-era">
                     <rect key="frame" x="8" y="251" width="304" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="JJC-ta-5jJ"/>
@@ -48,6 +48,7 @@
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzI-dI-fxC">
                     <rect key="frame" x="8" y="318" width="304" height="83"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="83" id="ssU-aS-eRe"/>
                     </constraints>
@@ -67,13 +68,14 @@ San Jose, CA 95134 
                     <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                 </textView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xza-zz-W2R">
-                    <rect key="frame" x="8" y="108" width="304" height="29"/>
+                    <rect key="frame" x="8" y="108" width="304" height="33"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="29" id="kcy-Cb-XDA"/>
+                        <constraint firstAttribute="height" constant="33" id="kcy-Cb-XDA"/>
                     </constraints>
                     <attributedString key="attributedText">
-                        <fragment content="saba@saba-igc.org">
+                        <fragment content="app@saba-igc.org">
                             <attributes>
                                 <color key="NSColor" red="0.56470588239999997" green="0.82745098039999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <font key="NSFont" size="14" name="HelveticaNeue"/>
@@ -90,9 +92,10 @@ San Jose, CA 95134 
                     <color key="textColor" white="1" alpha="0.75" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="webmaster@saba-igc.org" translatesAutoresizingMaskIntoConstraints="NO" id="emG-SP-zYZ">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="saba@saba-igc.org" translatesAutoresizingMaskIntoConstraints="NO" id="emG-SP-zYZ">
                     <rect key="frame" x="8" y="268" width="304" height="27"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="textColor" red="0.56470588239999997" green="0.82745098039999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -103,10 +106,11 @@ San Jose, CA 95134 
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </mapView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0o-Pd-Ry1">
-                    <rect key="frame" x="8" y="175" width="304" height="27"/>
+                    <rect key="frame" x="8" y="172" width="304" height="26"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="27" id="CLr-1U-J4j"/>
+                        <constraint firstAttribute="height" constant="26" id="CLr-1U-J4j"/>
                     </constraints>
                     <attributedString key="attributedText">
                         <fragment content="aalim@saba-igc.org">
@@ -123,6 +127,7 @@ San Jose, CA 95134 
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9k6-3n-ucK">
                     <rect key="frame" x="8" y="219" width="304" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="BdI-rM-3rO"/>
                     </constraints>
@@ -163,8 +168,8 @@ San Jose, CA 95134 
                 <constraint firstItem="Xza-zz-W2R" firstAttribute="trailing" secondItem="K2c-WZ-uWs" secondAttribute="trailing" id="bEP-Ca-N7G"/>
                 <constraint firstItem="Xza-zz-W2R" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="bT9-nW-abl"/>
                 <constraint firstItem="a6V-36-q9C" firstAttribute="top" secondItem="Xza-zz-W2R" secondAttribute="bottom" constant="-3" id="cRd-6y-dQg"/>
-                <constraint firstItem="B0o-Pd-Ry1" firstAttribute="top" secondItem="a6V-36-q9C" secondAttribute="bottom" constant="-4" id="d9G-pl-RzV"/>
-                <constraint firstItem="JfR-Ph-ReH" firstAttribute="top" secondItem="B0o-Pd-Ry1" secondAttribute="bottom" constant="1" id="ddR-So-yLD"/>
+                <constraint firstItem="B0o-Pd-Ry1" firstAttribute="top" secondItem="a6V-36-q9C" secondAttribute="bottom" constant="-7" id="d9G-pl-RzV"/>
+                <constraint firstItem="JfR-Ph-ReH" firstAttribute="top" secondItem="B0o-Pd-Ry1" secondAttribute="bottom" constant="5" id="ddR-So-yLD"/>
                 <constraint firstItem="Xza-zz-W2R" firstAttribute="leading" secondItem="hzI-dI-fxC" secondAttribute="leading" id="e3a-PB-BLK"/>
                 <constraint firstItem="K2c-WZ-uWs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="gbL-jM-cQc"/>
                 <constraint firstItem="K2c-WZ-uWs" firstAttribute="top" secondItem="hzI-dI-fxC" secondAttribute="bottom" constant="12" id="h4A-F3-xLN"/>
@@ -178,7 +183,7 @@ San Jose, CA 95134 
                 <constraint firstItem="r65-gX-ZWF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="q6L-Zc-mJb"/>
                 <constraint firstItem="Xza-zz-W2R" firstAttribute="top" secondItem="fCe-kD-gNv" secondAttribute="bottom" constant="-4" id="qlr-ey-0hd"/>
                 <constraint firstAttribute="trailing" secondItem="r65-gX-ZWF" secondAttribute="trailing" id="ri3-CU-N15"/>
-                <constraint firstItem="9k6-3n-ucK" firstAttribute="top" secondItem="B0o-Pd-Ry1" secondAttribute="bottom" constant="17" id="s5e-Ug-CDv"/>
+                <constraint firstItem="9k6-3n-ucK" firstAttribute="top" secondItem="B0o-Pd-Ry1" secondAttribute="bottom" constant="21" id="s5e-Ug-CDv"/>
                 <constraint firstItem="Xza-zz-W2R" firstAttribute="leading" secondItem="vk1-Un-9fW" secondAttribute="leading" id="tM3-8z-751"/>
                 <constraint firstItem="JfR-Ph-ReH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="uzu-xC-REb"/>
                 <constraint firstItem="t3R-wR-era" firstAttribute="trailing" secondItem="K2c-WZ-uWs" secondAttribute="trailing" id="xOJ-kj-UJA"/>

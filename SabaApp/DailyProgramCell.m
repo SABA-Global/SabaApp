@@ -41,7 +41,7 @@
 		
 		// setting bold font
 		[self.programLabel setFont:[UIFont boldSystemFontOfSize:15.0]];
-		[self.programLabel setAlpha:.75];
+		[self.programLabel setAlpha:1.0];
 		[self.programLabel setTextColor:[UIColor whiteColor]];// first row in DailyProgramViewController
 		self.programLabel.text = title;
 		self.timeLabel.text = program.time;
@@ -52,9 +52,9 @@
 	self.timeLabel.text = program.time;
 	self.programLabel.text = program.program;
 	
-	self.timeLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program time] fontName:self.timeLabel.font.fontName fontSize:self.timeLabel.font.pointSize withOpacity:0.70];
+	self.timeLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program time] fontName:self.timeLabel.font.fontName fontSize:self.timeLabel.font.pointSize withOpacity:0.50];
 
-	self.programLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program program] fontName:self.programLabel.font.fontName fontSize:self.programLabel.font.pointSize withOpacity:0.50];
+	self.programLabel.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program program] fontName:self.programLabel.font.fontName fontSize:self.programLabel.font.pointSize withOpacity:1.0];
 }
 
 @end

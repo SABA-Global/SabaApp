@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -18,14 +18,14 @@
                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <imageView alpha="0.74999999999999978" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="ptG-3K-KFx">
-                        <rect key="frame" x="64" y="47" width="40" height="41"/>
+                        <rect key="frame" x="64" y="40" width="50" height="54"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </imageView>
                     <label alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Schedule" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHM-ab-8V3">
-                        <rect key="frame" x="18" y="87" width="131.5" height="50"/>
+                        <rect key="frame" x="8" y="99" width="151" height="52"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="50" id="h6Q-Xl-2Yr"/>
+                            <constraint firstAttribute="height" constant="52" id="h6Q-Xl-2Yr"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -39,17 +39,17 @@
             <constraints>
                 <constraint firstItem="dHM-ab-8V3" firstAttribute="top" secondItem="ptG-3K-KFx" secondAttribute="bottom" constant="14" id="5g9-Tn-rgH"/>
                 <constraint firstItem="dHM-ab-8V3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ffd-12-CTK"/>
-                <constraint firstItem="ptG-3K-KFx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="47" id="OFC-PM-SVN"/>
+                <constraint firstItem="ptG-3K-KFx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" constant="40" id="OFC-PM-SVN"/>
                 <constraint firstAttribute="bottom" secondItem="DnZ-sT-Ugh" secondAttribute="bottom" id="Qww-ck-T8E"/>
                 <constraint firstAttribute="trailing" secondItem="DnZ-sT-Ugh" secondAttribute="trailing" id="Yft-Xa-iVE"/>
-                <constraint firstItem="dHM-ab-8V3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ptG-3K-KFx" secondAttribute="bottom" constant="-1" id="Z05-k7-fAn"/>
-                <constraint firstAttribute="trailing" secondItem="dHM-ab-8V3" secondAttribute="trailing" constant="19.5" id="cpH-CK-cti"/>
+                <constraint firstItem="dHM-ab-8V3" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ptG-3K-KFx" secondAttribute="bottom" constant="5" id="Z05-k7-fAn"/>
+                <constraint firstAttribute="trailing" secondItem="dHM-ab-8V3" secondAttribute="trailing" constant="10" id="cpH-CK-cti"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dHM-ab-8V3" secondAttribute="trailing" id="doA-LL-DXM"/>
-                <constraint firstItem="dHM-ab-8V3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="18" id="iCc-Qi-boI"/>
+                <constraint firstItem="dHM-ab-8V3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="iCc-Qi-boI"/>
                 <constraint firstItem="DnZ-sT-Ugh" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lfd-gN-uqS"/>
                 <constraint firstItem="DnZ-sT-Ugh" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="qQw-Iv-X9V"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dHM-ab-8V3" secondAttribute="bottom" constant="32" id="rLB-3K-Nc7"/>
-                <constraint firstAttribute="trailing" secondItem="ptG-3K-KFx" secondAttribute="trailing" constant="65" id="vD1-ex-hLS"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dHM-ab-8V3" secondAttribute="bottom" constant="18" id="rLB-3K-Nc7"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ptG-3K-KFx" secondAttribute="trailing" constant="55" id="vD1-ex-hLS"/>
                 <constraint firstItem="ptG-3K-KFx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="64" id="yZQ-0y-fB5"/>
             </constraints>
             <size key="customSize" width="168" height="192"/>
@@ -62,7 +62,7 @@
                 <outlet property="imageView" destination="ptG-3K-KFx" id="e3D-5S-VfA"/>
                 <outlet property="title" destination="dHM-ab-8V3" id="cmw-LV-I5B"/>
             </connections>
-            <point key="canvasLocation" x="175.5" y="161.5"/>
+            <point key="canvasLocation" x="266.5" y="135.5"/>
         </collectionViewCell>
     </objects>
     <resources>

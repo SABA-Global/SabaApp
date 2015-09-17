@@ -20,6 +20,19 @@
 
 #import "DailyProgramViewController.h"
 
+#import <Google/Analytics.h>
+
+extern NSString *const kWeeklyScheduleView;
+extern NSString *const kEventCategoryWeeklySchedule;
+
+// Event Labels
+extern NSString *const kRefreshEventLabel;
+
+//Event Actions
+extern NSString *const kRefreshEventActionSwiped;
+extern NSString *const kRefreshEventActionClicked;
+
+
 @interface WeeklyScheduleViewController ()<UITableViewDelegate,
 											UITableViewDataSource>
 
@@ -28,6 +41,8 @@
 @property (strong, nonatomic) NSArray *dailyPrograms;
 
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property bool isRefreshInProgress; // keeps track that if refresh is in Progress. Another refresh should not kick in at the sametime.
+
 @end
 
 @implementation WeeklyScheduleViewController
@@ -41,6 +56,14 @@
 	[self setupNavigationBar];
 	[self setupTableView];
 	[self setupRefreshControl];
+	self.isRefreshInProgress=false;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kWeeklyScheduleView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void)viewDidLayoutSubviews
@@ -72,19 +95,13 @@
 	// register cell for TableView
 	[self.tableView registerNib:[UINib nibWithNibName:@"WeeklyProgramsCell" bundle:nil] forCellReuseIdentifier:@"WeeklyProgramsCell"];
 	
-	self.tableView.tableFooterView = [[UIView alloc] init];
-	
-	// setting background image
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
-	[imageView setFrame:self.tableView.frame];
-	
-	self.tableView.backgroundView = imageView;
+	self.tableView.tableFooterView = [[UIView alloc] init];	
 }
 
 -(void) setupRefreshControl{
 	// refresh Programs
 	self.refreshControl = [[UIRefreshControl alloc] init];
-	self.refreshControl.tintColor = RGB(106, 172, 43);
+	self.refreshControl.tintColor = [UIColor whiteColor];
 	[self.tableView addSubview:self.refreshControl];
 	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 }
@@ -92,11 +109,29 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
+	
+	// Use standard refresh button.
+	UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc]
+											 initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+											 target:self
+											 action:@selector(onRefresh)];
+	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+	
 	self.navigationItem.title = @"Weekly Schedule";
 }
 
--(void) onBack{
-	[self.navigationController dismissViewControllerAnimated:YES completion:nil];
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		[UIView  beginAnimations:nil context:NULL];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationDuration:0.3];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+		[UIView commitAnimations];
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDelay:0.3];
+		[UIView commitAnimations];	}
 }
 
 -(void) refresh{
@@ -116,16 +151,23 @@
 }
 
 -(void) onRefresh{
+	if(self.isRefreshInProgress)
+		return;
+	
+	[self trackRefreshEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
+	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
+	[self trackRefreshEventAction:kRefreshEventActionSwiped withLabel:kRefreshEventLabel];
+	self.isRefreshInProgress = true;
 	[self refresh];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-	self.navigationController.navigationBar.topItem.title = @"Weekly Programs"; // sets empty on "<" button.
+	self.navigationController.navigationBar.topItem.title = @"Weekly Schedule"; // sets empty on "<" button.
 }
 
 #pragma mark get Events
@@ -147,6 +189,7 @@
 	[[SabaClient sharedInstance] getWeeklyPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
+		self.isRefreshInProgress=false;
 		
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);
@@ -228,6 +271,18 @@
 	if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
 		[cell setLayoutMargins:UIEdgeInsetsZero];
 	}
+}
+
+#pragma mark - Analytics
+
+- (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	
+	// Create events to track the selected image and selected name.
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryWeeklySchedule
+														  action:action
+														   label:label
+														   value:nil] build]];
 }
 
 @end

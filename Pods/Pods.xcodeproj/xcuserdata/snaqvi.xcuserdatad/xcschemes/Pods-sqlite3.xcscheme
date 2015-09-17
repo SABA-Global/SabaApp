@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B521B908B4AD72D06D85D637"
+               BlueprintIdentifier = "17F2E8B3FDC51B5CA11D2B2D"
                BuildableName = "libPods-sqlite3.a"
                BlueprintName = "Pods-sqlite3"
                ReferencedContainer = "container:Pods.xcodeproj">

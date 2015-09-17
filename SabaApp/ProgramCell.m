@@ -17,8 +17,12 @@ NSDictionary *dayToImage = nil;
 
 @interface ProgramCell()
 
-@property (weak, nonatomic) IBOutlet UITextView *title;
-@property (weak, nonatomic) IBOutlet UILabel *programDescription;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+/*
+ change programDescription type to UITextView in order to make links clickable. 
+ We need to set the autolayout constraints correctly and turn off the scrollbar to make its height adjustable based on the contents.
+ */
+@property (weak, nonatomic) IBOutlet UITextView *programDescription;
 @property (weak, nonatomic) IBOutlet UIImageView *programImageview;
 
 @end
@@ -28,8 +32,8 @@ NSDictionary *dayToImage = nil;
 
 - (void)awakeFromNib {
 	// round image
-	self.programImageview.layer.cornerRadius = 8.0;
-	self.programImageview.clipsToBounds = YES;
+//	self.programImageview.layer.cornerRadius = 8.0;
+//	self.programImageview.clipsToBounds = YES;
 
 	// Add a border
 	//self.programImageview.layer.borderWidth = 1.0;
@@ -59,9 +63,9 @@ NSDictionary *dayToImage = nil;
 				  }
 		 ];
 	}
-	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:self.title.font.pointSize withOpacity:0.75];
+	self.title.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program title] fontName:self.title.font.fontName fontSize:self.title.font.pointSize withOpacity:1.0];
 
-	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:0.50];
+	self.programDescription.attributedText = [[SabaClient sharedInstance] getAttributedString:[self.program programDescription] fontName:self.programDescription.font.fontName fontSize:self.programDescription.font.pointSize withOpacity:.75];
 }
 
 -(NSString*) getFirstWordFromString:(NSString*)text{

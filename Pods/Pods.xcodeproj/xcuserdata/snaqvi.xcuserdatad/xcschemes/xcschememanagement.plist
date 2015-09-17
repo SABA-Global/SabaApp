@@ -9,6 +9,31 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Google.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GoogleAnalytics.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GoogleNetworkingUtilities.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GoogleSymbolUtilities.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-GoogleUtilities.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SVProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,47 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2F4313D3BF73EAEA08414788</key>
+		<key>121BAA6A6B73317CE05B55ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>874CB2832041242EE955078C</key>
+		<key>17F2E8B3FDC51B5CA11D2B2D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8850CDCC27307FF426B966BA</key>
+		<key>1BC0F98834D7791F364CEBAD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B521B908B4AD72D06D85D637</key>
+		<key>2BB72B6FFAB7192940522111</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B66D5FF983D27BE5585FE319</key>
+		<key>2F9E3EF634034FC9FF5CB369</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BFEF23FACCF7E432131AB0CE</key>
+		<key>45A53E593F89BBC9D978652E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5F0971288E7D759F8BDE319</key>
+		<key>B43D5F9CB1E95D524C23DD6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D98D993A8C54495ECE557DBA</key>
+		<key>B51594C4FDA4794C830B8311</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F99D1E224EB523E0E55C8666</key>
+		<key>BF81DA39E3E38DE6A8F96447</key>
 		<dict>
 			<key>primary</key>
 			<true/>

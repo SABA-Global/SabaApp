@@ -9,5 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface MainViewController : UIViewController
--(void) refreshMainViewController;
 @end

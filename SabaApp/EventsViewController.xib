@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="weeklyPrograms.png" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-JG-TgP">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="eventsAnnouncements.png" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-0o-ls1">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Oi7-vp-XIK">
@@ -27,20 +27,20 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="3cn-0o-ls1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="4Yb-06-O8V"/>
                 <constraint firstItem="Oi7-vp-XIK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5ke-Tz-i3Q"/>
                 <constraint firstAttribute="bottom" secondItem="Oi7-vp-XIK" secondAttribute="bottom" id="8Da-MN-gfv"/>
+                <constraint firstAttribute="bottom" secondItem="3cn-0o-ls1" secondAttribute="bottom" id="Co2-rk-OVp"/>
                 <constraint firstAttribute="trailing" secondItem="Oi7-vp-XIK" secondAttribute="trailing" id="KQq-LX-5Mq"/>
-                <constraint firstAttribute="trailing" secondItem="rQ4-JG-TgP" secondAttribute="trailing" id="dEV-Bn-Jzb"/>
-                <constraint firstItem="rQ4-JG-TgP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rbd-Ng-mbd"/>
-                <constraint firstItem="rQ4-JG-TgP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="xNM-rT-bxh"/>
+                <constraint firstItem="3cn-0o-ls1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LJk-NQ-aOK"/>
+                <constraint firstAttribute="trailing" secondItem="3cn-0o-ls1" secondAttribute="trailing" id="cvk-Ry-BYs"/>
                 <constraint firstItem="Oi7-vp-XIK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="ylh-Gj-JrL"/>
-                <constraint firstAttribute="bottom" secondItem="rQ4-JG-TgP" secondAttribute="bottom" id="zWh-gt-BKt"/>
             </constraints>
             <point key="canvasLocation" x="330" y="229"/>
         </view>
     </objects>
     <resources>
-        <image name="weeklyPrograms.png" width="640" height="1136"/>
+        <image name="eventsAnnouncements.png" width="640" height="1136"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

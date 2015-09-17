@@ -17,11 +17,9 @@
 #import "SVProgressHUD.h"
 
 static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
-static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0&gmt=-420";
+static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0";
 
-//	private static String PRAY_TIME_INFO_URL = "http://praytime.info/getprayertimes.php?lat=34.024899&lon=-117.89730099999997&gmt=-480&m=11&d=31&y=2014&school=0";
-//	private static String PRAY_TIME_INFO_BASE_URL = "http://praytime.info/getprayertimes.php?school=0&gmt=-480";
-//
+static NSString *HIJRI_DATE_URL = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 
 @implementation SabaClient
 
@@ -80,6 +78,10 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_INFO_BASE_URL, minutesFromGMT, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
 	
 	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
+}
+
+-(void)getHijriDateFromWeb:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
+	[self sendNetworkRequest1:[NSURL URLWithString:HIJRI_DATE_URL] completion:completion];
 }
 
 -(void) sendNetworkRequest1:(NSURL*) url completion:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
@@ -165,9 +167,10 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 -(void) showSpinner:(bool)show{
 	if(show == YES){
 		[SVProgressHUD setRingThickness:2.0];
+		[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 		[SVProgressHUD setBackgroundColor:[UIColor clearColor]];
-		[SVProgressHUD setForegroundColor:RGB(106, 172, 43)];
+		//[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
 	}
 	else
 		[SVProgressHUD dismiss];
@@ -182,4 +185,47 @@ static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes
 	[viewController.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 	viewController.navigationController.navigationBar.shadowImage = [UIImage new];
 }
+
+#pragma mark NSUserDefaults helper functions.
+// NSUserDefaults helper functions
+-(void) storePreferencesKey:(NSString*) key withValue:(NSString*) value {
+	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setObject:value forKey:key];
+	[defaults synchronize];
+}
+
+-(NSString*) getCachedPreferencesWithKey:(NSString*) key{
+	NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+	return [defaults stringForKey:key];
+}
+
+-(NSString*) getCachedHijriDate{
+	NSString* englishDate = [NSDateFormatter localizedStringFromDate:[NSDate date]
+														   dateStyle:NSDateFormatterFullStyle
+														   timeStyle:NSDateFormatterNoStyle];
+	
+	if( (englishDate != nil) && [englishDate isEqualToString:[self getCachedEnglishDate]]){
+		return [self getCachedPreferencesWithKey:@"hijriDate"];
+	}
+	
+	return @"";
+}
+
+-(void) storeHijriDate:(NSString*) hijriDate{
+	[self storeEnglishDate];
+	[self storePreferencesKey:@"hijriDate"  withValue:hijriDate];
+}
+
+-(NSString*) getCachedEnglishDate{
+	return [self getCachedPreferencesWithKey:@"englishDate"];
+}
+
+-(void) storeEnglishDate{
+	NSString* englishDate = [NSDateFormatter localizedStringFromDate:[NSDate date]
+														   dateStyle:NSDateFormatterFullStyle
+														   timeStyle:NSDateFormatterNoStyle];
+	
+	[self storePreferencesKey:@"englishDate" withValue:englishDate];
+}
+
 @end

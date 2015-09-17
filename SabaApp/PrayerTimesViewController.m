@@ -19,9 +19,22 @@
 #import <CoreLocation/CoreLocation.h>
 
 // Thrd pary ibrary
-#import <SVProgressHUD.h>
+#import <Google/Analytics.h>
+
+extern NSString *const kPrayerTimesView;
+extern NSString *const kEventCategoryPrayerTimes;
+
+// Event Labels
+extern NSString *const kRefreshEventLabel;
+
+//Event Actions
+extern NSString *const kRefreshEventActionSwiped;
+extern NSString *const kRefreshEventActionClicked;
+
+
 
 @interface PrayerTimesViewController () <CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *cityName;
 @property (weak, nonatomic) IBOutlet UILabel *englishDate;
 @property (weak, nonatomic) IBOutlet UILabel *hijriDate;
 
@@ -45,6 +58,7 @@
 
 @property (strong, nonatomic) CLGeocoder *geoCoder;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -55,17 +69,43 @@ int locationFetchCounter;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	[[SabaClient sharedInstance] showSpinner:YES];
 	[self showPrayerTimes:NO]; // hiding the prayertimes
 	[self startLocationManager];
 	
 	[self setupNavigationBar];
-	[[SabaClient sharedInstance] showSpinner:YES];
 	[self showDates];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kPrayerTimesView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+	[self clearTimer];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		[UIView  beginAnimations:nil context:NULL];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationDuration:0.3];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+		[UIView commitAnimations];
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDelay:0.3];
+		[UIView commitAnimations];
+	}
 }
 
 -(void) setupNavigationBar{
@@ -78,11 +118,14 @@ int locationFetchCounter;
 											 target:self
 											 action:@selector(onRefresh)];
 	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
-	self.navigationItem.title = @"PRAYER TIMES";
+	self.navigationItem.title = @"Prayer Times";
 }
 
 -(void) onRefresh{
+	[self trackRefreshEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
+	
 	[[SabaClient sharedInstance] showSpinner:YES];
+	self.cityName.text = @"Loading...";
 	[self showPrayerTimes:NO];
 	[self showDates];
 	[self startLocationManager];
@@ -103,7 +146,7 @@ int locationFetchCounter;
 	// Months are zero based in database.
 	NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
 	
-	self.navigationItem.title = [NSString stringWithFormat:@"%@, %@", placemark.locality,
+	self.cityName.text = [NSString stringWithFormat:@"%@, %@", placemark.locality,
 								placemark.administrativeArea] ; // setting city name, State in title.
 	
 	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:placemark.locality forDate:currDate];
@@ -130,6 +173,8 @@ int locationFetchCounter;
 		if (error) {
 			NSLog(@"Error getting getPrayTimes: %@", error);
 		} else {
+			
+			NSLog(@"PrayTime: %@", prayerTimes);
 			// from web: we don't get midnight time but get Isha time.
 			self.fajrTime.text		= [self getAMPMTime:prayerTimes[@"Fajr"]];
 			self.imsaakTime.text	= [self getAMPMTime:prayerTimes[@"Imsaak"]];
@@ -147,39 +192,93 @@ int locationFetchCounter;
 
 -(void) startLocationManager{
 	locationFetchCounter = 0;
+	
 	if ([CLLocationManager locationServicesEnabled]){
 		// this creates the CCLocationManager that will find your current location
 		self.locationManager = [[CLLocationManager alloc] init];
+		self.geoCoder = [[CLGeocoder alloc] init];
+		
 		self.locationManager.delegate = self;
 		self.locationManager.distanceFilter = kCLDistanceFilterNone;
 		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-		
+
 		// for iOS 8.0 and above
 		if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])
 			[self.locationManager requestWhenInUseAuthorization];
 		
 		[self.locationManager startMonitoringSignificantLocationChanges];
 		[self.locationManager startUpdatingLocation];
+		
+		[self clearTimer];
+		self.timer = [NSTimer scheduledTimerWithTimeInterval:30 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
 	}
+}
+
+-(void) onTimer{
+	[[SabaClient sharedInstance] showSpinner:NO];
+	self.cityName.text = @" ";
+	[self showAlert:@"Turn Off Airplane Mode or Use Wi-Fi to Access Data" withMessage:@""];
 	
-	self.geoCoder = [[CLGeocoder alloc] init];
+	[self clearTimer];
+}
+
+-(void) clearTimer{
+	if(self.timer){
+		[self.timer invalidate];
+		self.timer = nil;
+	}
+}
+
+-(void)showAlert:(NSString*)title withMessage:(NSString*)message{
+	UIAlertView *alert = [[UIAlertView alloc]
+						  initWithTitle:title
+						  message:message
+						  delegate:self  // set self if you want the Okay button callback
+						  cancelButtonTitle:@"Cancel"
+						  otherButtonTitles:@"Settings", nil];
+	
+	[alert show];
+}
+
+// OK button callback
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:
+	(NSInteger)buttonIndex {
+	
+	if (buttonIndex != 0) {
+		[self launchSettings];
+	}
+}
+
+- (void)launchSettings
+{
+	if ([UIApplicationOpenSettingsURLString length] > 0) {
+		NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+		[[UIApplication sharedApplication] openURL:url];
+	}
 }
 
 #pragma mark CLLocationManager delegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+	
 	// this delegate method is constantly invoked every some miliseconds.
 	// we only need to receive the first response, so we skip the others.
-	if (locationFetchCounter > 0)
+	if (locationFetchCounter > 0){
+	// stopping locationManager from fetching again.
+		[self.locationManager stopUpdatingLocation];
 		return;
+	}
 	
 	locationFetchCounter++;
-	
+	CLLocation *lastlocation = (CLLocation*)[locations lastObject];
+
 	// after we have current coordinates, we use this method to fetch the information data of fetched coordinate
-	[self.geoCoder reverseGeocodeLocation:[locations lastObject] completionHandler:^(NSArray *placemarks, NSError *error) {
+	[self.geoCoder reverseGeocodeLocation:lastlocation completionHandler:^(NSArray *placemarks, NSError *error) {
 		CLPlacemark *placemark = [placemarks lastObject];
-		CLLocation *location = (CLLocation*)[locations lastObject];
 		
-		[self getPrayerTimesWithPlacemark:placemark withLatitude:location.coordinate.latitude withLongitude:location.coordinate.longitude];
+		if(placemark != nil){
+			[self clearTimer];
+			[self getPrayerTimesWithPlacemark:placemark withLatitude:lastlocation.coordinate.latitude withLongitude:lastlocation.coordinate.longitude];
+		}
 		
 		// stopping locationManager from fetching again.
 		[self.locationManager stopUpdatingLocation];
@@ -187,19 +286,48 @@ int locationFetchCounter;
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-	NSLog(@"Error: Failed to fetch current location : %@", error);
+	
+	[[SabaClient sharedInstance] showSpinner:NO];
+	self.cityName.text = @" ";
+
+	switch(error.code){
+		case kCLErrorLocationUnknown:
+			[self showAlert:@"Turn Off Airplane Mode or Use Wi-Fi to Access Data" withMessage:@""];
+			
+			[self clearTimer]; // cancel the timer here.... we already showed an Alert here...
+			// stopping locationManager from fetching again.
+			[self.locationManager stopUpdatingLocation];
+			break;
+			
+		case kCLErrorNetwork:
+			[self showAlert:@"Make sure you are conected to internet." withMessage:@""];
+			[self clearTimer]; // cancel the timer here.... we already showed an Alert here...
+			
+			break;
+			
+		default:
+			NSLog(@"Error: didFailWithError: %@", error);
+	}
 }
 
 - (void)locationManager:(CLLocationManager *)manager
 						didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
-	if(status == kCLAuthorizationStatusNotDetermined ||
-	   status == kCLAuthorizationStatusRestricted ||
-	   status == kCLAuthorizationStatusDenied) {
-		NSLog(@"Error: didn't get the authorization to access the location: %d", status);
-		[[SabaClient sharedInstance] showSpinner:NO];
-	} else {
-		// kCLAuthorizationStatusAuthorizedAlways or kCLAuthorizationStatusAuthorizedWhenInUse
-		NSLog(@"Got the authorization to access the location: %d", status);
+	
+	switch(status){
+		case kCLAuthorizationStatusDenied:
+			NSLog(@"Error: didn't get the authorization to access the location: %d", status);
+			[self showAlert:@"Allow \"Saba\" to access your location to get Prayer Times" withMessage:@""];
+			[self clearTimer]; // cancel the timer here.... we already showed an Alert here...
+			break;
+			
+		case kCLAuthorizationStatusNotDetermined:
+		case kCLAuthorizationStatusRestricted:
+			break;
+			
+		case kCLAuthorizationStatusAuthorizedAlways:
+		case kCLAuthorizationStatusAuthorizedWhenInUse:
+			NSLog(@"Got the authorization to access the location: %d", status);
+			break;
 	}
 }
 
@@ -230,7 +358,19 @@ int locationFetchCounter;
 													dateStyle:NSDateFormatterFullStyle
 													timeStyle:NSDateFormatterNoStyle];
 	self.englishDate.text = date;
-	self.hijriDate.text = @"";
+	NSString *hijriDate = [[SabaClient sharedInstance] getCachedHijriDate];
+	if(hijriDate==nil || hijriDate.length==0){
+		[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
+			if(error){
+				NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
+			} else {
+				[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
+				self.hijriDate.text = jsonResponse[@"hijridate"];
+			}
+		}];
+	} else {
+		self.hijriDate.text = hijriDate;
+	}
 }
 
 -(void) comingPrayerTime{
@@ -258,7 +398,6 @@ int locationFetchCounter;
 // this function takes "HH:MM". No validation is added at this point.
 
 -(NSString*) getAMPMTime:(NSString*) time{
-	
 	NSString *timeWithSeconds = [NSString stringWithFormat:@"%@:00", time];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
@@ -268,6 +407,24 @@ int locationFetchCounter;
 	NSDateFormatter *formatterAMPM = [[NSDateFormatter alloc] init];
 	[formatterAMPM setDateFormat:@"hh:mm a"];
 	
-	return [formatterAMPM stringFromDate:date];
+	NSString *returnedDate = [formatterAMPM stringFromDate:date];
+	if(returnedDate == nil) // for some cities, Imsaac value is "-----" and we ended up having a nil here.
+		return @" "; // returning @" " - a space so all the lables will get aligned.
+	
+	return returnedDate;
 }
+
+#pragma mark - Analytics
+
+// we might add swipe to refresh later on.
+- (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	
+	// Create events to track the selected image and selected name.
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryPrayerTimes
+														  action:action
+														   label:label
+														   value:nil] build]];
+}
+
 @end

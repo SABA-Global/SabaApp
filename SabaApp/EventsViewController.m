@@ -10,7 +10,6 @@
 
 #import "ProgramDetailViewController.h"
 
-
 #import "Program.h"
 #import "SabaClient.h"
 #import "ProgramCell.h"
@@ -18,7 +17,17 @@
 #import "DBManager.h"
 
 // Third party libraries
-#import <SVProgressHUD.h>
+#import <Google/Analytics.h>
+
+extern NSString *const kAnnouncementsView;
+extern NSString *const kEventCategoryAnnouncements;
+
+// Event Labels
+extern NSString *const kRefreshEventLabel;
+
+//Event Actions
+extern NSString *const kRefreshEventActionSwiped;
+extern NSString *const kRefreshEventActionClicked;
 
 @interface EventsViewController ()<UITableViewDelegate,
 								   UITableViewDataSource>
@@ -28,6 +37,8 @@
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @property (strong, nonatomic) NSArray *programs;
+
+@property bool isRefreshInProgress; // keeps track that if refresh is in Progress. Another refresh should not kick in at the sametime.
 @end
 
 @implementation EventsViewController
@@ -41,6 +52,13 @@
 	[self setupNavigationBar];
 	[self setupTableView];
 	[self setupRefreshControl];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kAnnouncementsView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,18 +91,12 @@
 	[self.tableView registerNib:[UINib nibWithNibName:@"ProgramCell" bundle:nil] forCellReuseIdentifier:@"ProgramCell"];
 	
 	self.tableView.tableFooterView = [[UIView alloc] init];
-	
-	// setting background image
-	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"weeklyPrograms.png"]];
-	[imageView setFrame:self.tableView.frame];
-	
-	self.tableView.backgroundView = imageView;
 }
 
 -(void) setupRefreshControl{
 	// refresh Programs
 	self.refreshControl = [[UIRefreshControl alloc] init];
-	self.refreshControl.tintColor = RGB(106, 172, 43);
+	self.refreshControl.tintColor = [UIColor whiteColor];
 	[self.tableView addSubview:self.refreshControl];
 	[self.refreshControl addTarget:self action:@selector(onPullToRefresh) forControlEvents:UIControlEventValueChanged];
 }
@@ -92,8 +104,19 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	[self replaceTitleViewInNavigationBar];
-	[self setHeaderTitle:@"ANNOUNCEMENTS" andSubtitle:[self getEnglishDate]];
+	
+	// Use standard refresh button.
+	UIBarButtonItem *refreshBarButtonItem = [[UIBarButtonItem alloc]
+											 initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+											 target:self
+											 action:@selector(onRefresh)];
+	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
+	
+	self.navigationItem.title = @"Announcements";
+	
+	// Following code replaces the default navigation Title with Title/SubTitle.
+	//[self replaceTitleViewInNavigationBar];
+	//[self setHeaderTitle:@"Announcements" andSubtitle:[self getEnglishDate]];
 }
 
 -(void) replaceTitleViewInNavigationBar{
@@ -150,7 +173,6 @@
 }
 
 -(void) refresh{
-	
 	// remove the data from database.
 	[[DBManager sharedInstance] deleteSabaPrograms:@"Program"];
 	
@@ -165,11 +187,18 @@
 }
 
 -(void) onRefresh{
+	if(self.isRefreshInProgress)
+		return;
+	
+	[self trackRefreshEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
+	self.isRefreshInProgress = true;
 	[[SabaClient sharedInstance] showSpinner:YES];
 	[self refresh];
 }
 
 -(void) onPullToRefresh{
+	[self trackRefreshEventAction:kRefreshEventActionSwiped withLabel:kRefreshEventLabel];
+	self.isRefreshInProgress = true;
 	[self refresh];
 }
 
@@ -190,6 +219,7 @@
 	[[SabaClient sharedInstance] getUpcomingPrograms:^(NSString* programName, NSArray *programs, NSError *error) {
 		[[SabaClient sharedInstance] showSpinner:NO];
 		[self.refreshControl endRefreshing];
+		self.isRefreshInProgress = false;
 		
 		if (error) {
 			NSLog(@"Error getting WeeklyPrograms: %@", error);
@@ -237,6 +267,32 @@
 	return [NSDateFormatter localizedStringFromDate:[NSDate date]
 													dateStyle:NSDateFormatterFullStyle
 											        timeStyle:NSDateFormatterNoStyle];
+}
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		[UIView  beginAnimations:nil context:NULL];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationDuration:0.3];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+		[UIView commitAnimations];
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDelay:0.3];
+		[UIView commitAnimations];	}
+}
+
+#pragma mark - Analytics
+
+- (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	
+	// Create events to track the selected image and selected name.
+	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryAnnouncements
+														  action:action
+														   label:label
+														   value:nil] build]];
 }
 
 @end

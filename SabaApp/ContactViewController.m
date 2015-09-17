@@ -12,6 +12,10 @@
 #import "CustomAnnotation.h"
 #import "SabaClient.h"
 
+#import <Google/Analytics.h>
+
+extern NSString *const kContactDirectionsView;
+
 @interface ContactViewController ()<MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @end
@@ -22,6 +26,13 @@
     [super viewDidLoad];
 	[self setupNavigationBar];
 	[self setupMapview];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+	//Provide a name for the screen and execute tracking.
+	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+	[tracker set:kGAIScreenName value:kContactDirectionsView];
+	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 #pragma mark Delegate Methods
@@ -81,7 +92,7 @@
 	region.span = span;
 	region.center = location;
 	
-	CustomAnnotation *customAnnotation = [[CustomAnnotation alloc] initWithTitle:@"Saba Islamic Center" Location:location];
+	CustomAnnotation *customAnnotation = [[CustomAnnotation alloc] initWithTitle:@"SABA Islamic Center" Location:location];
 	if (customAnnotation !=nil) {
 		[self.mapView removeAnnotation:customAnnotation];
 	}
@@ -96,6 +107,22 @@
 -(void) setupNavigationBar{
 	[self.navigationController setNavigationBarHidden:NO];
 	[[SabaClient sharedInstance] setupNavigationBarFor:self];
-	self.navigationItem.title = @"Contact and Directions";
+	self.navigationItem.title = @"Contact & Directions";
 }
+
+- (void)willMoveToParentViewController:(UIViewController *)parent
+{
+	if (![parent isEqual:self.parentViewController]) {
+		[UIView  beginAnimations:nil context:NULL];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		[UIView setAnimationDuration:0.3];
+		[UIView setAnimationTransition:UIViewAnimationTransitionCurlUp forView:self.navigationController.view cache:NO];
+		[UIView commitAnimations];
+		
+		[UIView beginAnimations:nil context:NULL];
+		[UIView setAnimationDelay:0.3];
+		[UIView commitAnimations];
+	}
+}
+
 @end

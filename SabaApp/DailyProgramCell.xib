@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG6-FR-v4H">
-                        <rect key="frame" x="100" y="7" width="205" height="25"/>
+                        <rect key="frame" x="100" y="7" width="204" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -35,7 +34,7 @@
                     <constraint firstItem="tG6-FR-v4H" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="2ys-1C-RJc"/>
                     <constraint firstAttribute="bottom" secondItem="Lvg-0D-bN6" secondAttribute="bottom" constant="11" id="LAU-AP-la4"/>
                     <constraint firstAttribute="bottom" secondItem="tG6-FR-v4H" secondAttribute="bottom" constant="8" id="Nmg-jy-jf7"/>
-                    <constraint firstAttribute="trailing" secondItem="tG6-FR-v4H" secondAttribute="trailing" constant="15" id="WWB-RW-2i2"/>
+                    <constraint firstAttribute="trailing" secondItem="tG6-FR-v4H" secondAttribute="trailing" constant="16" id="WWB-RW-2i2"/>
                     <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="3" id="ndn-vH-Ten"/>
                     <constraint firstItem="Lvg-0D-bN6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="vxK-oB-Qdr"/>
                     <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="3" id="ycm-zC-zc3"/>
@@ -49,4 +48,9 @@
             <point key="canvasLocation" x="303" y="191.5"/>
         </tableViewCell>
     </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

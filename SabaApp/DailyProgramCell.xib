@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,19 +11,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="41"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="40.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG6-FR-v4H">
-                        <rect key="frame" x="92" y="7" width="213" height="25"/>
+                        <rect key="frame" x="100" y="7" width="205" height="25"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lvg-0D-bN6">
-                        <rect key="frame" x="18" y="9" width="66" height="20"/>
+                        <rect key="frame" x="18" y="9" width="79" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="66" id="LlA-KW-Dbj"/>
+                            <constraint firstAttribute="width" constant="79" id="LlA-KW-Dbj"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,9 +36,9 @@
                     <constraint firstAttribute="bottom" secondItem="Lvg-0D-bN6" secondAttribute="bottom" constant="11" id="LAU-AP-la4"/>
                     <constraint firstAttribute="bottom" secondItem="tG6-FR-v4H" secondAttribute="bottom" constant="8" id="Nmg-jy-jf7"/>
                     <constraint firstAttribute="trailing" secondItem="tG6-FR-v4H" secondAttribute="trailing" constant="15" id="WWB-RW-2i2"/>
-                    <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="8" id="ndn-vH-Ten"/>
+                    <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="3" id="ndn-vH-Ten"/>
                     <constraint firstItem="Lvg-0D-bN6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="vxK-oB-Qdr"/>
-                    <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="8" id="ycm-zC-zc3"/>
+                    <constraint firstItem="tG6-FR-v4H" firstAttribute="leading" secondItem="Lvg-0D-bN6" secondAttribute="trailing" constant="3" id="ycm-zC-zc3"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -48,9 +49,4 @@
             <point key="canvasLocation" x="303" y="191.5"/>
         </tableViewCell>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

@@ -38,5 +38,9 @@
 	<false/>
 	<key>privacy - location usage description</key>
 	<string>Prayer times are based on location.</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key><true/>
+	</dict>
 </dict>
 </plist>

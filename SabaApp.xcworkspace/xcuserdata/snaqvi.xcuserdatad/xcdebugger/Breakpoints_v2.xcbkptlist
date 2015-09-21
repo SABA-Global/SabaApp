@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "458627411.278254"
+            filePath = "SabaApp/ProgramCell.m"
+            timestampString = "464513527.792653"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-viewWillAppear:"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-setProgram:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

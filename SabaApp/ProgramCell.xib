@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="190"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="189.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hQE-iL-Mpa">
@@ -26,7 +27,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="ProgramDescription" translatesAutoresizingMaskIntoConstraints="NO" id="O7Y-hE-58Q">
-                        <rect key="frame" x="71" y="36" width="241" height="144"/>
+                        <rect key="frame" x="71" y="64" width="241" height="116"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -39,7 +40,7 @@
                     <constraint firstItem="O7Y-hE-58Q" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="71" id="GI5-TI-XgP"/>
                     <constraint firstItem="hQE-iL-Mpa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GOg-HC-Spi"/>
                     <constraint firstAttribute="trailing" secondItem="O7Y-hE-58Q" secondAttribute="trailing" constant="8" id="Jht-9U-cdE"/>
-                    <constraint firstItem="O7Y-hE-58Q" firstAttribute="top" secondItem="hQE-iL-Mpa" secondAttribute="bottom" constant="-29" id="NDO-rY-9ql"/>
+                    <constraint firstItem="O7Y-hE-58Q" firstAttribute="top" secondItem="hQE-iL-Mpa" secondAttribute="bottom" constant="-1" id="NDO-rY-9ql"/>
                     <constraint firstItem="yEK-1k-vc9" firstAttribute="leading" secondItem="hQE-iL-Mpa" secondAttribute="trailing" constant="15" id="Uhm-tZ-flH"/>
                     <constraint firstItem="hQE-iL-Mpa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="fH4-yq-Zcn"/>
                     <constraint firstItem="yEK-1k-vc9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="h5L-Yq-TBS"/>
@@ -55,9 +56,4 @@
             <point key="canvasLocation" x="317" y="369"/>
         </tableViewCell>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

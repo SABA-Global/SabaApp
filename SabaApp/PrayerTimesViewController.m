@@ -146,11 +146,9 @@ int locationFetchCounter;
 	// Months are zero based in database.
 	NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
 	
-	self.cityName.text = [NSString stringWithFormat:@"%@, %@", placemark.locality,
-								placemark.administrativeArea] ; // setting city name, State in title.
-	
 	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:placemark.locality forDate:currDate];
-	
+    [self setCityNameWithPlacemark:placemark];
+    
 	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
 		// go ahead and fetch the programs via network call.
 		[self getPrayerTimeFromWebWithLatitude:latitude withLongitude:longitude];
@@ -188,6 +186,30 @@ int locationFetchCounter;
 		[[SabaClient sharedInstance] showSpinner:NO];
 		[self showPrayerTimes:YES]; // show the prayertimes
 	}];
+}
+
+// This function sets the cityname, state in the label.
+-(void) setCityNameWithPlacemark:(CLPlacemark *)placemark{
+    //    self.cityName.text = [NSString stringWithFormat:@"%@, %@", placemark.locality!=nil?placemark.locality:placemark.administrativeArea,
+    //								placemark.administrativeArea] ; // setting city name, State in title.
+    
+    NSMutableString *cityName = [[NSMutableString alloc] init];
+    BOOL bAddComma = NO;
+    
+    self.cityName.text = @"";
+    if(placemark.locality != nil){
+        [cityName appendString:placemark.locality];
+        bAddComma = YES;
+    }
+    
+    if(placemark.administrativeArea != nil){
+        if(bAddComma)
+            [cityName appendString:@", "];
+        
+        [cityName appendString:placemark.administrativeArea];
+    }
+    
+    self.cityName.text  = cityName;
 }
 
 -(void) startLocationManager{

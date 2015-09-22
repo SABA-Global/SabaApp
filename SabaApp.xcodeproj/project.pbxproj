@@ -28,7 +28,6 @@
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
 		FAC191251B1532700071FB42 /* mainImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191201B1532700071FB42 /* mainImage.png */; };
 		FAC191261B1532700071FB42 /* prayers1.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191211B1532700071FB42 /* prayers1.png */; };
-		FAC191271B1532700071FB42 /* prayers2.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191221B1532700071FB42 /* prayers2.png */; };
 		FAC191281B1532700071FB42 /* weeklyPrograms.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191231B1532700071FB42 /* weeklyPrograms.png */; };
 		FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD19DAD1AFC784900308F4F /* DBManager.m */; };
 		FADD45651AE8DE180022FE96 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FADD45641AE8DE180022FE96 /* main.m */; };
@@ -116,7 +115,6 @@
 		FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsAnnouncements.png; sourceTree = "<group>"; };
 		FAC191201B1532700071FB42 /* mainImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainImage.png; sourceTree = "<group>"; };
 		FAC191211B1532700071FB42 /* prayers1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayers1.png; sourceTree = "<group>"; };
-		FAC191221B1532700071FB42 /* prayers2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayers2.png; sourceTree = "<group>"; };
 		FAC191231B1532700071FB42 /* weeklyPrograms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weeklyPrograms.png; sourceTree = "<group>"; };
 		FAD19DAC1AFC784900308F4F /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		FAD19DAD1AFC784900308F4F /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
@@ -383,7 +381,6 @@
 				FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */,
 				FAC191201B1532700071FB42 /* mainImage.png */,
 				FAC191211B1532700071FB42 /* prayers1.png */,
-				FAC191221B1532700071FB42 /* prayers2.png */,
 				FAC191231B1532700071FB42 /* weeklyPrograms.png */,
 				FADD45901AE8E1160022FE96 /* calendar.png */,
 				FADD45911AE8E1160022FE96 /* dollar.png */,
@@ -599,7 +596,6 @@
 				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
 				FAC191281B1532700071FB42 /* weeklyPrograms.png in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
-				FAC191271B1532700071FB42 /* prayers2.png in Resources */,
 				FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
 				FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */,

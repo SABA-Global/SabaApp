@@ -19,12 +19,12 @@
 		FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */; };
 		FA6A0B371B39751E002E8951 /* green-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B361B39751E002E8951 /* green-pin.png */; };
 		FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */; };
-		FA6B0E501BB00B6600F0A0DA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6B0E4F1BB00B6600F0A0DA /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9045131B5271CD0098497E /* GoogleService-Info.plist */; };
 		FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA98DC161B16B09E00C6BE19 /* MapKit.framework */; };
 		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
 		FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */; };
 		FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */; };
+		FAB9E3C71BB12C2D00FD803A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB9E3C61BB12C2D00FD803A /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
 		FAC191251B1532700071FB42 /* mainImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191201B1532700071FB42 /* mainImage.png */; };
 		FAC191261B1532700071FB42 /* prayers1.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191211B1532700071FB42 /* prayers1.png */; };
@@ -104,7 +104,6 @@
 		FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
 		FA6A0B361B39751E002E8951 /* green-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-pin.png"; path = "SabaApp/green-pin.png"; sourceTree = "<group>"; };
 		FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-spash.jpg"; sourceTree = "<group>"; };
-		FA6B0E4F1BB00B6600F0A0DA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FA9045131B5271CD0098497E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA9045171B560C560098497E /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 		FA98DC161B16B09E00C6BE19 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -113,6 +112,7 @@
 		FA98DC251B1C1F5B00C6BE19 /* WeeklyProgramsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeeklyProgramsCell.h; sourceTree = "<group>"; };
 		FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeeklyProgramsCell.m; sourceTree = "<group>"; };
 		FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeeklyProgramsCell.xib; sourceTree = "<group>"; };
+		FAB9E3C61BB12C2D00FD803A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eventsAnnouncements.png; sourceTree = "<group>"; };
 		FAC191201B1532700071FB42 /* mainImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mainImage.png; sourceTree = "<group>"; };
 		FAC191211B1532700071FB42 /* prayers1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prayers1.png; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		FADD45561AE8DE180022FE96 = {
 			isa = PBXGroup;
 			children = (
-				FA6B0E4F1BB00B6600F0A0DA /* Default-568h@2x.png */,
+				FAB9E3C61BB12C2D00FD803A /* Default-568h@2x.png */,
 				FA1EB65E1B0515E300617B1B /* Saba.db */,
 				FADD45611AE8DE180022FE96 /* SabaApp */,
 				FADD457B1AE8DE190022FE96 /* SabaAppTests */,
@@ -612,7 +612,7 @@
 				FAC191251B1532700071FB42 /* mainImage.png in Resources */,
 				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
 				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
-				FA6B0E501BB00B6600F0A0DA /* Default-568h@2x.png in Resources */,
+				FAB9E3C71BB12C2D00FD803A /* Default-568h@2x.png in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
 				FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */,
 				FAEDFE011B3508FC00C276BD /* Saturday.png in Resources */,

@@ -16,10 +16,17 @@ NSString *const kEventCategoryAnnouncements		= @"Announcements";
 
 // Event Labels
 NSString *const kRefreshEventLabel			= @"Refresh";
+NSString *const kLocationTimer              = @"LocationTimer";
 
 //Event Actions
 NSString *const kRefreshEventActionSwiped	= @"Swiped";
 NSString *const kRefreshEventActionClicked	= @"Clicked";
+
+
+//Errors
+NSString *const kErrorLocationRetrievalTimeout  = @"ErrorLocationRetrievalTimeout";
+NSString *const kErrorLocationUnknown           = @"ErrorLocationUnknown";
+NSString *const kErrorNoNetwork                 = @"ErrorNoNetwork";
 
 // Following are View/Screen constance
 NSString *const kMainView					= @"Main View";

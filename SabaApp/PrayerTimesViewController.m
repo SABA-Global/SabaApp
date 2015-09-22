@@ -31,7 +31,12 @@ extern NSString *const kRefreshEventLabel;
 extern NSString *const kRefreshEventActionSwiped;
 extern NSString *const kRefreshEventActionClicked;
 
+// Errors
+extern NSString *const kErrorNoNetwork;
+extern NSString *const kErrorLocationUnknown;
 
+extern NSString *const kErrorLocationRetrievalTimeout;
+extern NSString *const kLocationTimer;
 
 @interface PrayerTimesViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *cityName;
@@ -122,7 +127,7 @@ int locationFetchCounter;
 }
 
 -(void) onRefresh{
-	[self trackRefreshEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
+	[self trackEventAction:kRefreshEventActionClicked withLabel:kRefreshEventLabel];
 	
 	[[SabaClient sharedInstance] showSpinner:YES];
 	self.cityName.text = @"Loading...";
@@ -242,6 +247,7 @@ int locationFetchCounter;
 	[self showAlert:@"Turn Off Airplane Mode or Use Wi-Fi to Access Data" withMessage:@""];
 	
 	[self clearTimer];
+    [self trackEventAction:kErrorLocationRetrievalTimeout withLabel:kLocationTimer];
 }
 
 -(void) clearTimer{
@@ -319,12 +325,14 @@ int locationFetchCounter;
 			[self clearTimer]; // cancel the timer here.... we already showed an Alert here...
 			// stopping locationManager from fetching again.
 			[self.locationManager stopUpdatingLocation];
+            [self trackEventAction:kErrorLocationUnknown withLabel:kErrorLocationUnknown];
+            
 			break;
 			
 		case kCLErrorNetwork:
 			[self showAlert:@"Make sure you are conected to internet." withMessage:@""];
 			[self clearTimer]; // cancel the timer here.... we already showed an Alert here...
-			
+			[self trackEventAction:kErrorNoNetwork withLabel:kErrorNoNetwork];
 			break;
 			
 		default:
@@ -439,7 +447,7 @@ int locationFetchCounter;
 #pragma mark - Analytics
 
 // we might add swipe to refresh later on.
-- (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
+- (void)trackEventAction:(NSString*) action withLabel:(NSString*) label{
 	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
 	
 	// Create events to track the selected image and selected name.

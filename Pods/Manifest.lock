@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.5.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - CKViewPager (2.0.6)
   - Google/Analytics (1.0.7):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
@@ -40,12 +41,14 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - CKViewPager
   - Google/Analytics
   - sqlite3
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: e1d86c2a96bb5d2e7408da36149806706ee122fe
+  CKViewPager: 388b0c2d1771ef81f498a7a4a4c48ab3e14fcce1
   Google: 875f5a8ade86dd02e36586e4a54814843938c7f6
   GoogleAnalytics: ef2e0b800ef3c1e62688cdfc959e0d3132bc246c
   GoogleNetworkingUtilities: 292992ab31b7b4ba32809a0e8b40e324cdfb2c0c
@@ -54,4 +57,4 @@ SPEC CHECKSUMS:
   sqlite3: 5d39c7cea3f4a8da3aac47cc34dbed52dea2cb8d
   SVProgressHUD: 748080e4f36e603f6c02aec292664239df5279c1
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.39.0

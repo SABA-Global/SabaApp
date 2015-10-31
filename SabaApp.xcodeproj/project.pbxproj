@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6472047E3D71CC4F4B5DC5F4 /* libPods.a */; };
+		FA1788EC1BE0A59500E9BEED /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EA1BE0A59500E9BEED /* HostViewController.m */; settings = {ASSET_TAGS = (); }; };
+		FA1788ED1BE0A59500E9BEED /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1788EB1BE0A59500E9BEED /* HostViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		FA1788F01BE0A6A100E9BEED /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EF1BE0A6A100E9BEED /* ContentViewController.m */; settings = {ASSET_TAGS = (); }; };
 		FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */; };
 		FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */; };
 		FA1EB65F1B0515E300617B1B /* Saba.db in Resources */ = {isa = PBXBuildFile; fileRef = FA1EB65E1B0515E300617B1B /* Saba.db */; };
@@ -74,6 +77,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		FA5232CA1BD9D19E001CE64F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FADD45571AE8DE180022FE96 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA5232B01BD9D19E001CE64F;
+			remoteInfo = WebViewTest;
+		};
 		FADD45791AE8DE190022FE96 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FADD45571AE8DE180022FE96 /* Project object */;
@@ -87,6 +97,11 @@
 		063D403729EB442D45B488BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6472047E3D71CC4F4B5DC5F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FA1788E91BE0A59500E9BEED /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		FA1788EA1BE0A59500E9BEED /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
+		FA1788EB1BE0A59500E9BEED /* HostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostViewController.xib; sourceTree = "<group>"; };
+		FA1788EE1BE0A6A100E9BEED /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		FA1788EF1BE0A6A100E9BEED /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		FA192D491AF1AF7B00D6EE85 /* ProgramCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramCell.h; sourceTree = "<group>"; };
 		FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
 		FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramCell.xib; sourceTree = "<group>"; };
@@ -98,6 +113,8 @@
 		FA4C92C81AEC139E00F439B7 /* SabaClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaClient.m; sourceTree = "<group>"; };
 		FA4C92CA1AEC459E00F439B7 /* Program.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Program.h; sourceTree = "<group>"; };
 		FA4C92CB1AEC459E00F439B7 /* Program.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Program.m; sourceTree = "<group>"; };
+		FA5232B11BD9D19E001CE64F /* WebViewTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5232C91BD9D19E001CE64F /* WebViewTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebViewTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5DCE3E1B4E7B5600D90FE5 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		FA5DCE3F1B4E7B5600D90FE5 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
@@ -180,6 +197,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FA5232AE1BD9D19E001CE64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5232C61BD9D19E001CE64F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADD455C1AE8DE180022FE96 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -215,6 +246,20 @@
 				6472047E3D71CC4F4B5DC5F4 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA1788E51BDEE80200E9BEED /* ICViewPager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ICViewPager;
+			sourceTree = "<group>";
+		};
+		FA1A873B1BCC470700A892E3 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 		FA4C92BB1AE9AD0A00F439B7 /* Cells */ = {
@@ -293,6 +338,8 @@
 			children = (
 				FADD455F1AE8DE180022FE96 /* Saba.app */,
 				FADD45781AE8DE190022FE96 /* SabaAppTests.xctest */,
+				FA5232B11BD9D19E001CE64F /* WebViewTest.app */,
+				FA5232C91BD9D19E001CE64F /* WebViewTestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -351,6 +398,8 @@
 		FADD45881AE8DE8F0022FE96 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA1788E51BDEE80200E9BEED /* ICViewPager */,
+				FAFE6F041BD238B500875031 /* LiveStream */,
 				FAF9A4531AF73C69002ECA29 /* ProgramDetail */,
 				FAF9A4431AF62649002ECA29 /* DailySchedule */,
 				FAEE9DFD1AEE20A5004059B8 /* Donations */,
@@ -403,9 +452,13 @@
 		FAEE9DF81AEE1F53004059B8 /* WeeklySchedule */ = {
 			isa = PBXGroup;
 			children = (
+				FA1A873B1BCC470700A892E3 /* New Group */,
 				FAEE9DDF1AEDEDC5004059B8 /* WeeklyScheduleViewController.h */,
 				FAEE9DE01AEDEDC5004059B8 /* WeeklyScheduleViewController.m */,
 				FAEE9DE11AEDEDC5004059B8 /* WeeklyScheduleViewController.xib */,
+				FA1788E91BE0A59500E9BEED /* HostViewController.h */,
+				FA1788EA1BE0A59500E9BEED /* HostViewController.m */,
+				FA1788EB1BE0A59500E9BEED /* HostViewController.xib */,
 			);
 			name = WeeklySchedule;
 			sourceTree = "<group>";
@@ -413,6 +466,8 @@
 		FAEE9DF91AEE1F74004059B8 /* Events and Announcements */ = {
 			isa = PBXGroup;
 			children = (
+				FA1788EE1BE0A6A100E9BEED /* ContentViewController.h */,
+				FA1788EF1BE0A6A100E9BEED /* ContentViewController.m */,
 				FAEE9DE41AEDEDDE004059B8 /* EventsViewController.h */,
 				FAEE9DE51AEDEDDE004059B8 /* EventsViewController.m */,
 				FAEE9DE61AEDEDDE004059B8 /* EventsViewController.xib */,
@@ -491,9 +546,51 @@
 			name = ProgramDetail;
 			sourceTree = "<group>";
 		};
+		FAFE6F041BD238B500875031 /* LiveStream */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = LiveStream;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		FA5232B01BD9D19E001CE64F /* WebViewTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA5232D01BD9D19E001CE64F /* Build configuration list for PBXNativeTarget "WebViewTest" */;
+			buildPhases = (
+				FA5232AD1BD9D19E001CE64F /* Sources */,
+				FA5232AE1BD9D19E001CE64F /* Frameworks */,
+				FA5232AF1BD9D19E001CE64F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WebViewTest;
+			productName = WebViewTest;
+			productReference = FA5232B11BD9D19E001CE64F /* WebViewTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA5232C81BD9D19E001CE64F /* WebViewTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA5232D31BD9D19E001CE64F /* Build configuration list for PBXNativeTarget "WebViewTestUITests" */;
+			buildPhases = (
+				FA5232C51BD9D19E001CE64F /* Sources */,
+				FA5232C61BD9D19E001CE64F /* Frameworks */,
+				FA5232C71BD9D19E001CE64F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA5232CB1BD9D19E001CE64F /* PBXTargetDependency */,
+			);
+			name = WebViewTestUITests;
+			productName = WebViewTestUITests;
+			productReference = FA5232C91BD9D19E001CE64F /* WebViewTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		FADD455E1AE8DE180022FE96 /* Saba */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "Saba" */;
@@ -503,6 +600,7 @@
 				FADD455C1AE8DE180022FE96 /* Frameworks */,
 				FADD455D1AE8DE180022FE96 /* Resources */,
 				C091D0D8B9FE26B0DB0F9C87 /* Copy Pods Resources */,
+				EB7BA7E6A2F8661FBD0BC1E8 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -540,6 +638,13 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Naqvi;
 				TargetAttributes = {
+					FA5232B01BD9D19E001CE64F = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					FA5232C81BD9D19E001CE64F = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = FA5232B01BD9D19E001CE64F;
+					};
 					FADD455E1AE8DE180022FE96 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = 5384HRFCUE;
@@ -565,11 +670,27 @@
 			targets = (
 				FADD455E1AE8DE180022FE96 /* Saba */,
 				FADD45771AE8DE190022FE96 /* SabaAppTests */,
+				FA5232B01BD9D19E001CE64F /* WebViewTest */,
+				FA5232C81BD9D19E001CE64F /* WebViewTestUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FA5232AF1BD9D19E001CE64F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5232C71BD9D19E001CE64F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADD455D1AE8DE180022FE96 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -599,6 +720,7 @@
 				FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
 				FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */,
+				FA1788ED1BE0A59500E9BEED /* HostViewController.xib in Resources */,
 				FAEDFE051B3508FC00C276BD /* Wednesday.png in Resources */,
 				FADD45701AE8DE190022FE96 /* Images.xcassets in Resources */,
 				FAEDFE041B3508FC00C276BD /* Tuesday.png in Resources */,
@@ -655,9 +777,38 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EB7BA7E6A2F8661FBD0BC1E8 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FA5232AD1BD9D19E001CE64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5232C51BD9D19E001CE64F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FADD455B1AE8DE180022FE96 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -669,12 +820,14 @@
 				FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */,
 				FAF082A81B0961A7007C60F6 /* PrayerTimes.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
+				FA1788F01BE0A6A100E9BEED /* ContentViewController.m in Sources */,
 				FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
 				FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */,
 				FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */,
 				FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */,
+				FA1788EC1BE0A59500E9BEED /* HostViewController.m in Sources */,
 				FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */,
 				FA5DCE411B4E7B5600D90FE5 /* SplashScreenViewController.m in Sources */,
 				FAEE9DF61AEDF0BE004059B8 /* ContactViewController.m in Sources */,
@@ -699,6 +852,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		FA5232CB1BD9D19E001CE64F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA5232B01BD9D19E001CE64F /* WebViewTest */;
+			targetProxy = FA5232CA1BD9D19E001CE64F /* PBXContainerItemProxy */;
+		};
 		FADD457A1AE8DE190022FE96 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FADD455E1AE8DE180022FE96 /* Saba */;
@@ -718,6 +876,68 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		FA5232D11BD9D19E001CE64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = WebViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Syed.deleteMe.WebViewTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA5232D21BD9D19E001CE64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = WebViewTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Syed.deleteMe.WebViewTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA5232D41BD9D19E001CE64F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = WebViewTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Syed.deleteMe.WebViewTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WebViewTest;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FA5232D51BD9D19E001CE64F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = WebViewTestUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Syed.deleteMe.WebViewTestUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = WebViewTest;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
 		FADD45801AE8DE190022FE96 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -872,6 +1092,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FA5232D01BD9D19E001CE64F /* Build configuration list for PBXNativeTarget "WebViewTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA5232D11BD9D19E001CE64F /* Debug */,
+				FA5232D21BD9D19E001CE64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA5232D31BD9D19E001CE64F /* Build configuration list for PBXNativeTarget "WebViewTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA5232D41BD9D19E001CE64F /* Debug */,
+				FA5232D51BD9D19E001CE64F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FADD455A1AE8DE180022FE96 /* Build configuration list for PBXProject "SabaApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

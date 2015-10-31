@@ -34,15 +34,15 @@ extern NSString *const kDailyProgramDetailsView;
 	
 	// Do any additional setup after loading the view from its nib.
 	self.programs = [[DBManager sharedInstance] getDailyProgramsByDay:self.day];
-	[self setupNavigationBar];
+	//[self setupNavigationBar];
 	[self setupTableView];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-	//Provide a name for the screen and execute tracking.
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kDailyProgramDetailsView];
-	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//	//Provide a name for the screen and execute tracking.
+//	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//	[tracker set:kGAIScreenName value:kDailyProgramDetailsView];
+//	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void) setupTableView{

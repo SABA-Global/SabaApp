@@ -26,6 +26,7 @@
 #import "SettingsViewController.h"
 #import "PrayerTimesViewController.h"
 #import "WeeklyScheduleViewController.h"
+#import "HostViewController.h"
 
 extern NSString *const kMainView;
 
@@ -127,13 +128,19 @@ extern NSString *const kMainView;
 	return cell;
 }
 
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 	[self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
 	
 	UIViewController *controller = nil;
 	switch(indexPath.row){
 		case 0:
-			controller = [[WeeklyScheduleViewController alloc]init];
+			//controller = [[LiveStreamViewController alloc]init];
+            //controller = [[WeeklyScheduleViewController alloc]init];
+            //controller = [[TabBasedWeeklyScheduleViewController alloc]init];
+            
+            controller = [[HostViewController alloc]init];
 			break;
 		case 1:
 			controller = [[EventsViewController alloc]init];

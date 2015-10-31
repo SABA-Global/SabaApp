@@ -9,9 +9,24 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WebViewTest.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>FA5232B01BD9D19E001CE64F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA5232C81BD9D19E001CE64F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>FADD455E1AE8DE180022FE96</key>
 		<dict>
 			<key>primary</key>

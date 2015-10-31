@@ -200,6 +200,42 @@ static BOOL databaseReady = NO;
 	return programs;
 }
 
+-(NSArray*) getUniqueDays{
+    
+    if(databaseReady == NO){
+        NSLog(@"Error: Database is NOT ready.");
+        return nil;
+    }
+    
+    int returnCode = 0;
+    sqlite3* database = NULL;
+    sqlite3_stmt* statement = NULL;
+    
+    NSMutableArray *days = [NSMutableArray array];
+    
+    returnCode = sqlite3_open_v2([databasePath UTF8String], &database, SQLITE_OPEN_READONLY , NULL);
+    if (SQLITE_OK != returnCode){
+        NSLog(@"Failed to open db connection, DB path %@", databasePath);
+    } else {
+        
+        NSString  *query = [NSString stringWithFormat:@"SELECT DISTINCT day FROM DailyProgram"];
+        returnCode = sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, NULL);
+        if(returnCode != SQLITE_OK){
+            NSLog(@"Database returned error %d: %s", sqlite3_errcode(database), sqlite3_errmsg(database));
+        } else {
+            while (sqlite3_step(statement) == SQLITE_ROW) { //get each row in loop
+                [days addObject:[NSString stringWithUTF8String:(const char *)sqlite3_column_text(statement, 0)]];
+            }
+            sqlite3_finalize(statement);
+        }
+    }
+    
+    sqlite3_close(database);
+    
+    return days;
+}
+
+
 -(NSArray*) getDailyProgramsByDay:(NSString*) day{
 	
 	if(databaseReady == NO){
@@ -248,6 +284,7 @@ static BOOL databaseReady = NO;
 
 	return dailyPrograms;
 }
+
 
 - (NSArray*) getWeeklyPrograms{
 	

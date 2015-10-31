@@ -143,45 +143,6 @@ extern NSString *const kRefreshEventActionClicked;
     return dailyProgramVC;
 }
 
-#pragma mark - ViewPagerDelegate
-- (CGFloat)viewPager:(ViewPagerController *)viewPager valueForOption:(ViewPagerOption)option withDefault:(CGFloat)value {
-
-switch (option) {
-        case ViewPagerOptionStartFromSecondTab:
-            return 0.0;
-        case ViewPagerOptionCenterCurrentTab:
-            return 1.0;
-        case ViewPagerOptionTabLocation:
-            return 0.0;
-        case ViewPagerOptionTabHeight:
-            return 49.0;
-        case ViewPagerOptionTabOffset:
-            return 36.0;
-        case ViewPagerOptionTabWidth:
-            //return UIInterfaceOrientationIsLandscape(self.interfaceOrientation) ? 128.0 : 96.0;
-            return value;
-        case ViewPagerOptionFixFormerTabsPositions:
-            return 1.0;
-        case ViewPagerOptionFixLatterTabsPositions:
-            return 1.0;
-        default:
-            return value;
-    }
-}
-- (UIColor *)viewPager:(ViewPagerController *)viewPager colorForComponent:(ViewPagerComponent)component withDefault:(UIColor *)color {
-    
-    switch (component) {
-        case ViewPagerIndicator:
-            return [[UIColor redColor] colorWithAlphaComponent:0.64];
-        case ViewPagerTabsView:
-            return [[UIColor lightGrayColor] colorWithAlphaComponent:0.32];
-        case ViewPagerContent:
-            return [[UIColor darkGrayColor] colorWithAlphaComponent:0.32];
-        default:
-            return color;
-    }
-}
-
 -(void) getWeeklyPrograms{
     
     // get the program from the local database. If records are there then no need to make a network call.

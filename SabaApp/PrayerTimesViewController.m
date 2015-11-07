@@ -34,7 +34,8 @@ extern NSString *const kRefreshEventActionClicked;
 // Errors
 extern NSString *const kErrorNoNetwork;
 extern NSString *const kErrorLocationUnknown;
-
+extern NSString *const kPrayerTimesGetError;
+extern NSString *const kErrorHijriDate;
 extern NSString *const kErrorLocationRetrievalTimeout;
 extern NSString *const kLocationTimer;
 
@@ -175,6 +176,7 @@ int locationFetchCounter;
 	[[SabaClient sharedInstance] getPrayTimesWithLatitude:latitude andLongitude:longitude :^(NSDictionary *prayerTimes, NSError *error) {
 		if (error) {
 			NSLog(@"Error getting getPrayTimes: %@", error);
+            [self trackEventAction:kPrayerTimesGetError withLabel:error.localizedDescription];
 		} else {
 			
 			NSLog(@"PrayTime: %@", prayerTimes);
@@ -187,9 +189,10 @@ int locationFetchCounter;
 			self.maghribTime.text	= [self getAMPMTime:prayerTimes[@"Maghrib"]];
 			self.midNightTime.text	= [self getAMPMTime:prayerTimes[@"Isha"]]; // showing Isha time in midnight label.
 			self.midNightLabel.text = @"Isha";
+            [self showPrayerTimes:YES]; // show the prayertimes
 		}
 		[[SabaClient sharedInstance] showSpinner:NO];
-		[self showPrayerTimes:YES]; // show the prayertimes
+		
 	}];
 }
 
@@ -393,6 +396,7 @@ int locationFetchCounter;
 		[[SabaClient sharedInstance] getHijriDateFromWeb:^(NSDictionary *jsonResponse, NSError *error) {
 			if(error){
 				NSLog(@"Error getting HijriDate: %@", error.localizedDescription);
+                [self trackEventAction:kErrorHijriDate withLabel:error.localizedDescription];
 			} else {
 				[[SabaClient sharedInstance] storeHijriDate:jsonResponse[@"hijridate"]];
 				self.hijriDate.text = jsonResponse[@"hijridate"];

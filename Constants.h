@@ -17,6 +17,7 @@ NSString *const kEventCategoryAnnouncements		= @"Announcements";
 // Event Labels
 NSString *const kRefreshEventLabel			= @"Refresh";
 NSString *const kLocationTimer              = @"LocationTimer";
+NSString *const kPrayerTimesRequestLabel    = @"PrayerTimesRequst";
 
 //Event Actions
 NSString *const kRefreshEventActionSwiped	= @"Swiped";
@@ -24,9 +25,11 @@ NSString *const kRefreshEventActionClicked	= @"Clicked";
 
 
 //Errors
+NSString *const kPrayerTimesGetError            = @"FailedToGetPrayerTimesFromWeb";
 NSString *const kErrorLocationRetrievalTimeout  = @"ErrorLocationRetrievalTimeout";
 NSString *const kErrorLocationUnknown           = @"ErrorLocationUnknown";
 NSString *const kErrorNoNetwork                 = @"ErrorNoNetwork";
+NSString *const kErrorHijriDate                 = @"ErrorGettingHijriDate";
 
 // Following are View/Screen constance
 NSString *const kMainView					= @"Main View";

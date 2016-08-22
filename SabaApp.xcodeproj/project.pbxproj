@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6472047E3D71CC4F4B5DC5F4 /* libPods.a */; };
-		FA1788EC1BE0A59500E9BEED /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EA1BE0A59500E9BEED /* HostViewController.m */; settings = {ASSET_TAGS = (); }; };
-		FA1788ED1BE0A59500E9BEED /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1788EB1BE0A59500E9BEED /* HostViewController.xib */; settings = {ASSET_TAGS = (); }; };
-		FA1788F01BE0A6A100E9BEED /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EF1BE0A6A100E9BEED /* ContentViewController.m */; settings = {ASSET_TAGS = (); }; };
+		68C07F322D0F2201559A2059 /* libPods-Saba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D0DD2F345217093D23F9F1 /* libPods-Saba.a */; };
+		FA1788EC1BE0A59500E9BEED /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EA1BE0A59500E9BEED /* HostViewController.m */; };
+		FA1788ED1BE0A59500E9BEED /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1788EB1BE0A59500E9BEED /* HostViewController.xib */; };
+		FA1788F01BE0A6A100E9BEED /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EF1BE0A6A100E9BEED /* ContentViewController.m */; };
 		FA192D4C1AF1AF7B00D6EE85 /* ProgramCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */; };
 		FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */; };
 		FA1EB65F1B0515E300617B1B /* Saba.db in Resources */ = {isa = PBXBuildFile; fileRef = FA1EB65E1B0515E300617B1B /* Saba.db */; };
+		FA26E74D1BF1A6C4008B1EB0 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA26E74B1BF1A6C4008B1EB0 /* EventKit.framework */; };
+		FA26E74E1BF1A6C4008B1EB0 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA26E74C1BF1A6C4008B1EB0 /* EventKitUI.framework */; };
+		FA2AA1811BF09411007189D8 /* CalendarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2AA1801BF09411007189D8 /* CalendarHelper.m */; };
+		FA399A651D138FF6007D86F6 /* livestream.png in Resources */ = {isa = PBXBuildFile; fileRef = FA399A641D138FF6007D86F6 /* livestream.png */; };
+		FA399A691D18D5D8007D86F6 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA399A681D18D5D8007D86F6 /* libsqlite3.dylib */; };
+		FA399A6B1D18D5F9007D86F6 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FA399A6A1D18D5F9007D86F6 /* libz.1.dylib */; };
 		FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */; };
 		FA4C92C01AE9AD6700F439B7 /* SabaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */; };
 		FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92C81AEC139E00F439B7 /* SabaClient.m */; };
 		FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4C92CB1AEC459E00F439B7 /* Program.m */; };
 		FA5DCE411B4E7B5600D90FE5 /* SplashScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DCE3F1B4E7B5600D90FE5 /* SplashScreenViewController.m */; };
 		FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */; };
+		FA6401C11D0BF62F00181869 /* LiveStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6401BF1D0BF62F00181869 /* LiveStreamViewController.m */; };
+		FA6401C21D0BF62F00181869 /* LiveStreamViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6401C01D0BF62F00181869 /* LiveStreamViewController.xib */; };
+		FA6401C61D0BFF0B00181869 /* LiveStreamListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6401C41D0BFF0B00181869 /* LiveStreamListViewController.m */; };
+		FA6401C71D0BFF0B00181869 /* LiveStreamListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6401C51D0BFF0B00181869 /* LiveStreamListViewController.xib */; };
+		FA6401CB1D0C018700181869 /* LiveStreamOptionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6401C91D0C018700181869 /* LiveStreamOptionViewCell.m */; };
+		FA6401CC1D0C018700181869 /* LiveStreamOptionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA6401CA1D0C018700181869 /* LiveStreamOptionViewCell.xib */; };
 		FA6A0B371B39751E002E8951 /* green-pin.png in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B361B39751E002E8951 /* green-pin.png */; };
 		FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */; };
 		FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9045131B5271CD0098497E /* GoogleService-Info.plist */; };
@@ -27,7 +39,7 @@
 		FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC191B17F3A700C6BE19 /* CustomAnnotation.m */; };
 		FA98DC281B1C1F5C00C6BE19 /* WeeklyProgramsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */; };
 		FA98DC291B1C1F5C00C6BE19 /* WeeklyProgramsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */; };
-		FAB9E3C71BB12C2D00FD803A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB9E3C61BB12C2D00FD803A /* Default-568h@2x.png */; settings = {ASSET_TAGS = (); }; };
+		FAB9E3C71BB12C2D00FD803A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FAB9E3C61BB12C2D00FD803A /* Default-568h@2x.png */; };
 		FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC1911F1B1532700071FB42 /* eventsAnnouncements.png */; };
 		FAC191251B1532700071FB42 /* mainImage.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191201B1532700071FB42 /* mainImage.png */; };
 		FAC191261B1532700071FB42 /* prayers1.png in Resources */ = {isa = PBXBuildFile; fileRef = FAC191211B1532700071FB42 /* prayers1.png */; };
@@ -94,9 +106,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		063D403729EB442D45B488BD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		6472047E3D71CC4F4B5DC5F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		0F25B50B0270594ACB2CFDA6 /* Pods-Saba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saba/Pods-Saba.debug.xcconfig"; sourceTree = "<group>"; };
+		25ED69DD879C035FA118804C /* Pods-Saba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saba/Pods-Saba.release.xcconfig"; sourceTree = "<group>"; };
+		68D0DD2F345217093D23F9F1 /* libPods-Saba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Saba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1788E91BE0A59500E9BEED /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		FA1788EA1BE0A59500E9BEED /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		FA1788EB1BE0A59500E9BEED /* HostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +118,14 @@
 		FA192D4A1AF1AF7B00D6EE85 /* ProgramCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramCell.m; sourceTree = "<group>"; };
 		FA192D4B1AF1AF7B00D6EE85 /* ProgramCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgramCell.xib; sourceTree = "<group>"; };
 		FA1EB65E1B0515E300617B1B /* Saba.db */ = {isa = PBXFileReference; lastKnownFileType = file; name = Saba.db; path = SabaApp/Saba.db; sourceTree = "<group>"; };
+		FA26E74B1BF1A6C4008B1EB0 /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		FA26E74C1BF1A6C4008B1EB0 /* EventKitUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKitUI.framework; path = System/Library/Frameworks/EventKitUI.framework; sourceTree = SDKROOT; };
+		FA2AA1801BF09411007189D8 /* CalendarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarHelper.m; sourceTree = "<group>"; };
+		FA2AA1821BF0942B007189D8 /* CalendarHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarHelper.h; sourceTree = "<group>"; };
+		FA399A641D138FF6007D86F6 /* livestream.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = livestream.png; sourceTree = "<group>"; };
+		FA399A661D18D3AC007D86F6 /* libsqlite3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsqlite3.a; path = "Pods/../build/Debug-iphoneos/sqlite3/libsqlite3.a"; sourceTree = "<group>"; };
+		FA399A681D18D5D8007D86F6 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = ../../../../usr/lib/libsqlite3.dylib; sourceTree = "<group>"; };
+		FA399A6A1D18D5F9007D86F6 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		FA4C92BC1AE9AD6700F439B7 /* SabaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SabaCell.h; sourceTree = "<group>"; };
 		FA4C92BD1AE9AD6700F439B7 /* SabaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SabaCell.m; sourceTree = "<group>"; };
 		FA4C92BE1AE9AD6700F439B7 /* SabaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SabaCell.xib; sourceTree = "<group>"; };
@@ -118,6 +138,15 @@
 		FA5DCE3E1B4E7B5600D90FE5 /* SplashScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashScreenViewController.h; sourceTree = "<group>"; };
 		FA5DCE3F1B4E7B5600D90FE5 /* SplashScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashScreenViewController.m; sourceTree = "<group>"; };
 		FA5DCE401B4E7B5600D90FE5 /* SplashScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashScreenViewController.xib; sourceTree = "<group>"; };
+		FA6401BE1D0BF62F00181869 /* LiveStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreamViewController.h; sourceTree = "<group>"; };
+		FA6401BF1D0BF62F00181869 /* LiveStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveStreamViewController.m; sourceTree = "<group>"; };
+		FA6401C01D0BF62F00181869 /* LiveStreamViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveStreamViewController.xib; sourceTree = "<group>"; };
+		FA6401C31D0BFF0B00181869 /* LiveStreamListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreamListViewController.h; sourceTree = "<group>"; };
+		FA6401C41D0BFF0B00181869 /* LiveStreamListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveStreamListViewController.m; sourceTree = "<group>"; };
+		FA6401C51D0BFF0B00181869 /* LiveStreamListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveStreamListViewController.xib; sourceTree = "<group>"; };
+		FA6401C81D0C018700181869 /* LiveStreamOptionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveStreamOptionViewCell.h; sourceTree = "<group>"; };
+		FA6401C91D0C018700181869 /* LiveStreamOptionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveStreamOptionViewCell.m; sourceTree = "<group>"; };
+		FA6401CA1D0C018700181869 /* LiveStreamOptionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiveStreamOptionViewCell.xib; sourceTree = "<group>"; };
 		FA6A0B361B39751E002E8951 /* green-pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "green-pin.png"; path = "SabaApp/green-pin.png"; sourceTree = "<group>"; };
 		FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "home-spash.jpg"; sourceTree = "<group>"; };
 		FA9045131B5271CD0098497E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -215,8 +244,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA399A6B1D18D5F9007D86F6 /* libz.1.dylib in Frameworks */,
+				FA399A691D18D5D8007D86F6 /* libsqlite3.dylib in Frameworks */,
+				FA26E74D1BF1A6C4008B1EB0 /* EventKit.framework in Frameworks */,
+				FA26E74E1BF1A6C4008B1EB0 /* EventKitUI.framework in Frameworks */,
 				FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */,
-				40249B726AD9F56E4FC5BC04 /* libPods.a in Frameworks */,
+				68C07F322D0F2201559A2059 /* libPods-Saba.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,22 +263,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12A780B06161277FE9F4F949 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */,
-				063D403729EB442D45B488BD /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		62606E792295D5246B69CECD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA399A6A1D18D5F9007D86F6 /* libz.1.dylib */,
+				FA399A681D18D5D8007D86F6 /* libsqlite3.dylib */,
+				FA399A661D18D3AC007D86F6 /* libsqlite3.a */,
+				FA26E74B1BF1A6C4008B1EB0 /* EventKit.framework */,
+				FA26E74C1BF1A6C4008B1EB0 /* EventKitUI.framework */,
 				FA98DC161B16B09E00C6BE19 /* MapKit.framework */,
-				6472047E3D71CC4F4B5DC5F4 /* libPods.a */,
+				68D0DD2F345217093D23F9F1 /* libPods-Saba.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9EF914B92F7462867CBDA85B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0F25B50B0270594ACB2CFDA6 /* Pods-Saba.debug.xcconfig */,
+				25ED69DD879C035FA118804C /* Pods-Saba.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		FA1788E51BDEE80200E9BEED /* ICViewPager */ = {
@@ -260,6 +298,15 @@
 			children = (
 			);
 			name = "New Group";
+			sourceTree = "<group>";
+		};
+		FA2AA17F1BF0939C007189D8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FA2AA1801BF09411007189D8 /* CalendarHelper.m */,
+				FA2AA1821BF0942B007189D8 /* CalendarHelper.h */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		FA4C92BB1AE9AD0A00F439B7 /* Cells */ = {
@@ -277,6 +324,9 @@
 				FA98DC251B1C1F5B00C6BE19 /* WeeklyProgramsCell.h */,
 				FA98DC261B1C1F5B00C6BE19 /* WeeklyProgramsCell.m */,
 				FA98DC271B1C1F5B00C6BE19 /* WeeklyProgramsCell.xib */,
+				FA6401C81D0C018700181869 /* LiveStreamOptionViewCell.h */,
+				FA6401C91D0C018700181869 /* LiveStreamOptionViewCell.m */,
+				FA6401CA1D0C018700181869 /* LiveStreamOptionViewCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -328,8 +378,8 @@
 				FADD45611AE8DE180022FE96 /* SabaApp */,
 				FADD457B1AE8DE190022FE96 /* SabaAppTests */,
 				FADD45601AE8DE180022FE96 /* Products */,
-				12A780B06161277FE9F4F949 /* Pods */,
 				62606E792295D5246B69CECD /* Frameworks */,
+				9EF914B92F7462867CBDA85B /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -347,6 +397,7 @@
 		FADD45611AE8DE180022FE96 /* SabaApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA2AA17F1BF0939C007189D8 /* Helpers */,
 				FAD19DAB1AFC781700308F4F /* Database */,
 				FAEE9DD91AEC9F3C004059B8 /* Views */,
 				FA4C92C21AEC0E6700F439B7 /* Models */,
@@ -418,6 +469,7 @@
 		FADD458E1AE8E1040022FE96 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA399A641D138FF6007D86F6 /* livestream.png */,
 				FA6A0B3A1B3C93C1002E8951 /* home-spash.jpg */,
 				FA6A0B361B39751E002E8951 /* green-pin.png */,
 				FAEDFDF81B3508FC00C276BD /* Friday.png */,
@@ -549,6 +601,12 @@
 		FAFE6F041BD238B500875031 /* LiveStream */ = {
 			isa = PBXGroup;
 			children = (
+				FA6401BE1D0BF62F00181869 /* LiveStreamViewController.h */,
+				FA6401BF1D0BF62F00181869 /* LiveStreamViewController.m */,
+				FA6401C01D0BF62F00181869 /* LiveStreamViewController.xib */,
+				FA6401C31D0BFF0B00181869 /* LiveStreamListViewController.h */,
+				FA6401C41D0BFF0B00181869 /* LiveStreamListViewController.m */,
+				FA6401C51D0BFF0B00181869 /* LiveStreamListViewController.xib */,
 			);
 			name = LiveStream;
 			sourceTree = "<group>";
@@ -595,12 +653,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "Saba" */;
 			buildPhases = (
-				71235F08B106F7D28FD4DAE4 /* Check Pods Manifest.lock */,
+				33F49B3FB3154EB5981C5296 /* [CP] Check Pods Manifest.lock */,
 				FADD455B1AE8DE180022FE96 /* Sources */,
 				FADD455C1AE8DE180022FE96 /* Frameworks */,
 				FADD455D1AE8DE180022FE96 /* Resources */,
-				C091D0D8B9FE26B0DB0F9C87 /* Copy Pods Resources */,
-				EB7BA7E6A2F8661FBD0BC1E8 /* Embed Pods Frameworks */,
+				EDE98AC1C4FD0FF9F606405C /* [CP] Embed Pods Frameworks */,
+				FCCF264787391D63609536EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -699,6 +757,7 @@
 				FAEE9DE81AEDEDDE004059B8 /* EventsViewController.xib in Resources */,
 				FAF9A4481AF6267F002ECA29 /* DailyProgramViewController.xib in Resources */,
 				FADD45A21AE8E1160022FE96 /* pray.png in Resources */,
+				FA399A651D138FF6007D86F6 /* livestream.png in Resources */,
 				FAEDFE001B3508FC00C276BD /* Monday.png in Resources */,
 				FADD45A31AE8E1160022FE96 /* settings.png in Resources */,
 				FAEDFDFF1B3508FC00C276BD /* Friday.png in Resources */,
@@ -710,12 +769,14 @@
 				FAEE9E021AEE20C1004059B8 /* SettingsViewController.xib in Resources */,
 				FAC191261B1532700071FB42 /* prayers1.png in Resources */,
 				FAEE9DF71AEDF0BE004059B8 /* ContactViewController.xib in Resources */,
+				FA6401CC1D0C018700181869 /* LiveStreamOptionViewCell.xib in Resources */,
 				FAEDFE031B3508FC00C276BD /* Thursday.png in Resources */,
 				FA1EB65F1B0515E300617B1B /* Saba.db in Resources */,
 				FADD458D1AE8DED60022FE96 /* MainViewController.xib in Resources */,
 				FA6A0B371B39751E002E8951 /* green-pin.png in Resources */,
 				FADD45A01AE8E1160022FE96 /* megaphone.png in Resources */,
 				FAC191281B1532700071FB42 /* weeklyPrograms.png in Resources */,
+				FA6401C71D0BFF0B00181869 /* LiveStreamListViewController.xib in Resources */,
 				FADD459F1AE8E1160022FE96 /* location.png in Resources */,
 				FA6A0B3B1B3C93C1002E8951 /* home-spash.jpg in Resources */,
 				FAF9A4581AF73C9E002ECA29 /* ProgramDetailViewController.xib in Resources */,
@@ -727,6 +788,7 @@
 				FADD459E1AE8E1160022FE96 /* dollar.png in Resources */,
 				FAC191241B1532700071FB42 /* eventsAnnouncements.png in Resources */,
 				FA5DCE421B4E7B5600D90FE5 /* SplashScreenViewController.xib in Resources */,
+				FA6401C21D0BF62F00181869 /* LiveStreamViewController.xib in Resources */,
 				FAC191251B1532700071FB42 /* mainImage.png in Resources */,
 				FAEE9E071AEE20DB004059B8 /* DonationViewController.xib in Resources */,
 				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
@@ -747,14 +809,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		71235F08B106F7D28FD4DAE4 /* Check Pods Manifest.lock */ = {
+		33F49B3FB3154EB5981C5296 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -762,34 +824,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		C091D0D8B9FE26B0DB0F9C87 /* Copy Pods Resources */ = {
+		EDE98AC1C4FD0FF9F606405C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saba/Pods-Saba-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB7BA7E6A2F8661FBD0BC1E8 /* Embed Pods Frameworks */ = {
+		FCCF264787391D63609536EA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saba/Pods-Saba-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -813,17 +875,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6401CB1D0C018700181869 /* LiveStreamOptionViewCell.m in Sources */,
 				FA4C92CC1AEC459E00F439B7 /* Program.m in Sources */,
 				FA4C92BF1AE9AD6700F439B7 /* SabaCell.m in Sources */,
 				FAEE9E061AEE20DB004059B8 /* DonationViewController.m in Sources */,
 				FAF9A44C1AF627DE002ECA29 /* DailyProgramCell.m in Sources */,
 				FAEE9E0F1AEFE926004059B8 /* WeeklyPrograms.m in Sources */,
+				FA6401C11D0BF62F00181869 /* LiveStreamViewController.m in Sources */,
 				FAF082A81B0961A7007C60F6 /* PrayerTimes.m in Sources */,
 				FADD45681AE8DE180022FE96 /* AppDelegate.m in Sources */,
 				FA1788F01BE0A6A100E9BEED /* ContentViewController.m in Sources */,
 				FA98DC1A1B17F3A700C6BE19 /* CustomAnnotation.m in Sources */,
 				FA4C92C91AEC139E00F439B7 /* SabaClient.m in Sources */,
 				FAEE9DE21AEDEDC5004059B8 /* WeeklyScheduleViewController.m in Sources */,
+				FA6401C61D0BFF0B00181869 /* LiveStreamListViewController.m in Sources */,
+				FA2AA1811BF09411007189D8 /* CalendarHelper.m in Sources */,
 				FAD19DAE1AFC784900308F4F /* DBManager.m in Sources */,
 				FAF9A4571AF73C9E002ECA29 /* ProgramDetailViewController.m in Sources */,
 				FAF9A4471AF6267F002ECA29 /* DailyProgramViewController.m in Sources */,
@@ -1017,7 +1083,7 @@
 		};
 		FADD45831AE8DE190022FE96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC3F67798D45D760C6C33728 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 0F25B50B0270594ACB2CFDA6 /* Pods-Saba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
@@ -1027,6 +1093,10 @@
 				INFOPLIST_FILE = SabaApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/sqlite3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.naqvi.syed.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1036,7 +1106,7 @@
 		};
 		FADD45841AE8DE190022FE96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 063D403729EB442D45B488BD /* Pods.release.xcconfig */;
+			baseConfigurationReference = 25ED69DD879C035FA118804C /* Pods-Saba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
@@ -1046,6 +1116,10 @@
 				INFOPLIST_FILE = SabaApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/sqlite3",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.naqvi.syed.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

@@ -27,6 +27,12 @@
 #import "PrayerTimesViewController.h"
 #import "WeeklyScheduleViewController.h"
 #import "HostViewController.h"
+//#import "LiveStreamViewController.h"
+#import "LiveStreamListViewController.h"
+
+
+
+#import <EventKit/EventKit.h>
 
 extern NSString *const kMainView;
 
@@ -79,7 +85,7 @@ extern NSString *const kMainView;
   sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
 	CGSize size;
 	
-	size.height = self.collectionView.frame.size.height/2-2;
+	size.height = self.collectionView.frame.size.height/2;
 	size.width = self.collectionView.frame.size.width/2-1;
 	
 	return size;
@@ -90,19 +96,19 @@ extern NSString *const kMainView;
 	
 	// This is how you change the background color when we click on the tile. We might find a better sol.
 	UIView *bgSelectedColorView = [[UIView alloc] init];
-	bgSelectedColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.10];
+	bgSelectedColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.15];
 	[cell setSelectedBackgroundView:bgSelectedColorView];
 	
 //	UIView *bgColorView = [[UIView alloc] init];
-//	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:0];
+//	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.05];
 //	[cell setBackgroundView:bgColorView];
 
 	
-	cell.layer.borderWidth = 0.5f;
-	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f
-											 green:255.0f/255.0f
-											  blue:255.0f/255.0f
-											 alpha:.5].CGColor; // white
+//	cell.layer.borderWidth = 0.5f;
+//	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f
+//											 green:255.0f/255.0f
+//											  blue:255.0f/255.0f
+//											 alpha:.5].CGColor; // white
 	switch(indexPath.row){
 		case 0:
 			cell.title.text			= @"Weekly \nSchedule";
@@ -136,8 +142,8 @@ extern NSString *const kMainView;
 	UIViewController *controller = nil;
 	switch(indexPath.row){
 		case 0:
-			//controller = [[LiveStreamViewController alloc]init];
-            //controller = [[WeeklyScheduleViewController alloc]init];
+//			controller = [[LiveStreamViewController alloc]init];
+          //  controller = [[WeeklyScheduleViewController alloc]init];
             //controller = [[TabBasedWeeklyScheduleViewController alloc]init];
             
             controller = [[HostViewController alloc]init];
@@ -186,6 +192,17 @@ extern NSString *const kMainView;
 	} else {
 		self.hijriDate.text = hijriDate;
 	}
+}
+- (IBAction)showLiveStreamOPtions:(id)sender {
+    LiveStreamListViewController *controller = [[LiveStreamListViewController alloc]init];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.25;
+    transition.type = kCATransitionFade;
+    transition.subtype = kCATransitionFromRight;
+    
+    [self.navigationController.view.layer addAnimation:transition forKey:kCATransition];
+    [self.navigationController pushViewController:controller animated:NO];
 }
 
 //-(void) setAlarm{

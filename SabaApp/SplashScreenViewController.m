@@ -70,20 +70,20 @@
 // It's not being used currently.
 -(void) showSpinner:(bool)show{
 	if(show == YES){
-		[SVProgressHUD setRingThickness:0.5];
-
-		// calculating bottom of the screen.
-		CGRect screenRect = [[UIScreen mainScreen] bounds];
-		UIOffset offset;
-		offset.vertical		= screenRect.size.height/2 - 20.0;
-		[SVProgressHUD setOffsetFromCenter:offset];
-		[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
-		[SVProgressHUD setBackgroundColor:[UIColor clearColor]];
+//		[SVProgressHUD setRingThickness:0.5];
+//
+//		// calculating bottom of the screen.
+//		CGRect screenRect = [[UIScreen mainScreen] bounds];
+//		UIOffset offset;
+//		offset.vertical		= screenRect.size.height/2 - 20.0;
+//		[SVProgressHUD setOffsetFromCenter:offset];
+//		[SVProgressHUD setForegroundColor:[UIColor whiteColor]];
+//		[SVProgressHUD setBackgroundColor:[UIColor clearColor]];
 		[SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
 	}
 	else{
-		UIOffset offset;
-		[SVProgressHUD setOffsetFromCenter:offset];
+//		UIOffset offset;
+//		[SVProgressHUD setOffsetFromCenter:offset];
 				[SVProgressHUD dismiss];
 	}
 }

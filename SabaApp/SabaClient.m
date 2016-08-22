@@ -16,10 +16,10 @@
 #import "AFNetworking.h"
 #import "SVProgressHUD.h"
 
-static NSString *SABA_BASE_URL = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
-static NSString *PRAY_TIME_INFO_BASE_URL = @"http://praytime.info/getprayertimes.php?school=0";
-
-static NSString *HIJRI_DATE_URL = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
+static NSString *SABA_BASE_URL              = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
+static NSString *PRAY_TIME_INFO_BASE_URL    = @"http://praytime.info/getprayertimes.php?school=0";
+static NSString *HIJRI_DATE_URL             = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
+static NSString *LIVE_STREAM_FEED_URL       = @"http://www.saba-igc.org/liveStream/liveStreamLinkApp.php";
 
 @implementation SabaClient
 
@@ -62,6 +62,13 @@ static NSString *HIJRI_DATE_URL = @"http://www.saba-igc.org/prayerTimes/salatDat
 	// sheet # 6 is General Announcements
 	NSURL *url = [NSURL URLWithString:[SABA_BASE_URL stringByAppendingString:@"6"]];
 	[self sendNetworkRequest:@"General Announcements" withUrl:url completion:completion];
+}
+
+// LiveStreamFeeds - sends a URL and gets back a JSON which is a dictionary. (It might get an array - will update this accordingly.)
+-(void) getLiveStreamFeeds:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
+    NSURL *url = [NSURL URLWithString:[LIVE_STREAM_FEED_URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [self sendNetworkRequest:url completion:completion];
 }
 
 -(void) getPrayTimesWithLatitude:(double)latitude andLongitude:(double)longitude : (void (^)(NSDictionary* prayerTimes, NSError *error))completion {

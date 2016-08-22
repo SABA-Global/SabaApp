@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
@@ -19,39 +20,55 @@
             <subviews>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" verticalCompressionResistancePriority="748" image="mainImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Q5q-fd-jXh">
                     <rect key="frame" x="-21" y="-58" width="362" height="684"/>
+                    <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="SABA ISLAMIC CENTER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vU-dZ-gGF">
-                    <rect key="frame" x="10" y="34" width="300" height="21"/>
+                    <rect key="frame" x="10" y="34" width="300" height="20.5"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" verticalCompressionResistancePriority="749" text="Thursday, April 23, 2015" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kN-Xu-jIB">
-                    <rect key="frame" x="10" y="57" width="300" height="17"/>
+                    <rect key="frame" x="10" y="56" width="300" height="17"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="                                         " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kou-lO-34W">
-                    <rect key="frame" x="10" y="77" width="300" height="17"/>
+                    <rect key="frame" x="10" y="76" width="300" height="17"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gTB-NY-s6S">
-                    <rect key="frame" x="0.0" y="107" width="320" height="358"/>
+                    <rect key="frame" x="0.0" y="106" width="320" height="358.5"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="aAk-Da-hgP">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="1" id="aAk-Da-hgP">
                         <size key="itemSize" width="185" height="230"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="1" maxX="1" maxY="1"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eav-VE-EBz">
+                    <rect key="frame" x="0.0" y="473" width="320" height="87"/>
+                    <animations/>
+                    <state key="normal" title="Live Stream">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="showLiveStreamOPtions:" destination="-1" eventType="touchUpInside" id="Y8U-e4-HZb"/>
+                    </connections>
+                </button>
             </subviews>
+            <animations/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Q5q-fd-jXh" secondAttribute="bottom" constant="-58" id="4IE-4W-tUz"/>
                 <constraint firstAttribute="trailing" secondItem="3kN-Xu-jIB" secondAttribute="trailing" constant="10" id="5ea-dR-5YP"/>
@@ -59,27 +76,26 @@
                 <constraint firstAttribute="trailing" secondItem="kou-lO-34W" secondAttribute="trailing" constant="10" id="D0O-On-tEM"/>
                 <constraint firstItem="kou-lO-34W" firstAttribute="top" secondItem="3kN-Xu-jIB" secondAttribute="bottom" constant="3" id="ETl-Dq-giz"/>
                 <constraint firstItem="kou-lO-34W" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Fgd-Vn-Lmu"/>
+                <constraint firstAttribute="bottom" secondItem="Eav-VE-EBz" secondAttribute="bottom" constant="8" id="HKM-E7-dLG"/>
                 <constraint firstItem="4vU-dZ-gGF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="Oef-Eu-r63"/>
                 <constraint firstAttribute="trailing" secondItem="gTB-NY-s6S" secondAttribute="trailing" id="Q20-kF-PI4"/>
                 <constraint firstItem="3kN-Xu-jIB" firstAttribute="top" secondItem="4vU-dZ-gGF" secondAttribute="bottom" constant="2" id="TLW-cN-TRN"/>
                 <constraint firstItem="Q5q-fd-jXh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-21" id="Tgs-SJ-oRV"/>
+                <constraint firstAttribute="trailing" secondItem="Eav-VE-EBz" secondAttribute="trailing" id="Tor-fQ-yab"/>
+                <constraint firstItem="Eav-VE-EBz" firstAttribute="top" secondItem="gTB-NY-s6S" secondAttribute="bottom" constant="8" id="Ydt-Nw-Iwv"/>
                 <constraint firstItem="gTB-NY-s6S" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yzy-JQ-Iri"/>
                 <constraint firstItem="Q5q-fd-jXh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-58" id="cJa-oh-BN7"/>
                 <constraint firstAttribute="trailing" secondItem="Q5q-fd-jXh" secondAttribute="trailing" constant="-21" id="f33-ap-5fQ"/>
                 <constraint firstItem="4vU-dZ-gGF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="34" id="pGc-Sj-SbG"/>
                 <constraint firstItem="gTB-NY-s6S" firstAttribute="top" secondItem="kou-lO-34W" secondAttribute="bottom" constant="13" id="pS4-YU-Ph4"/>
                 <constraint firstItem="3kN-Xu-jIB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="pmF-rn-5LH"/>
+                <constraint firstItem="Eav-VE-EBz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yNg-og-tWq"/>
                 <constraint firstAttribute="trailing" secondItem="4vU-dZ-gGF" secondAttribute="trailing" constant="10" id="zXM-rF-JGF"/>
             </constraints>
-            <point key="canvasLocation" x="746" y="417"/>
+            <point key="canvasLocation" x="512" y="386"/>
         </view>
     </objects>
     <resources>
         <image name="mainImage.png" width="640" height="1136"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

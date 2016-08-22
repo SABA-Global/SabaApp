@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LiveStreamListViewController">
+            <connections>
+                <outlet property="collectionView" destination="7yW-v8-jCn" id="Iuw-Rc-9vR"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="eventsAnnouncements.png" translatesAutoresizingMaskIntoConstraints="NO" id="jh0-t3-jmR">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <animations/>
+                </imageView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7yW-v8-jCn">
+                    <rect key="frame" x="0.0" y="100" width="320" height="432"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="XTD-ZM-uro">
+                        <size key="itemSize" width="160" height="152"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jh0-t3-jmR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ecj-z2-4YT"/>
+                <constraint firstItem="7yW-v8-jCn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="IHh-lq-NkE"/>
+                <constraint firstAttribute="bottom" secondItem="jh0-t3-jmR" secondAttribute="bottom" id="KBl-B3-gN0"/>
+                <constraint firstAttribute="trailing" secondItem="jh0-t3-jmR" secondAttribute="trailing" id="KCI-av-1j1"/>
+                <constraint firstAttribute="bottom" secondItem="7yW-v8-jCn" secondAttribute="bottom" constant="36" id="SeO-pV-IbR"/>
+                <constraint firstItem="7yW-v8-jCn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WFl-dP-ev2"/>
+                <constraint firstAttribute="trailing" secondItem="7yW-v8-jCn" secondAttribute="trailing" id="WFv-Ud-nK5"/>
+                <constraint firstItem="jh0-t3-jmR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gdc-BF-rj6"/>
+            </constraints>
+            <point key="canvasLocation" x="343" y="566"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="eventsAnnouncements.png" width="640" height="1136"/>
+    </resources>
+</document>

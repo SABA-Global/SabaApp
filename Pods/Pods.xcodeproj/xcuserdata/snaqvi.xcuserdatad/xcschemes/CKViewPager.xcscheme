@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '414FB73C93DB354BC245B7F0'
+               BlueprintIdentifier = '7EFA3111DA404AF15E32401D6272D5CF'
                BlueprintName = 'CKViewPager'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libCKViewPager.a'>

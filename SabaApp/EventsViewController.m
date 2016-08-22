@@ -24,10 +24,14 @@ extern NSString *const kEventCategoryAnnouncements;
 
 // Event Labels
 extern NSString *const kRefreshEventLabel;
+extern NSString *const kAnnouncementsLabel;
 
 //Event Actions
 extern NSString *const kRefreshEventActionSwiped;
 extern NSString *const kRefreshEventActionClicked;
+
+extern NSString *const kErrorAnnouncements;
+
 
 @interface EventsViewController ()<UITableViewDelegate,
 								   UITableViewDataSource>
@@ -222,6 +226,7 @@ extern NSString *const kRefreshEventActionClicked;
 		self.isRefreshInProgress = false;
 		
 		if (error) {
+            [self trackRefreshEventAction:kErrorAnnouncements withLabel:kAnnouncementsLabel];
 			NSLog(@"Error getting WeeklyPrograms: %@", error);
 		} else {
 			self.programs = [Program fromArray: programs];

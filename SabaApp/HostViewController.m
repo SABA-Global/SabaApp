@@ -13,6 +13,8 @@
 #import "DBManager.h"
 #import "Program.h"
 #import "WeeklyPrograms.h"
+#import "CalendarHelper.h"
+#import <EventKit/EventKit.h>
 
 #import <Google/Analytics.h>
 
@@ -36,6 +38,12 @@ extern NSString *const kRefreshEventActionClicked;
 @property (nonatomic, strong) NSString *today;
 @property (nonatomic) BOOL isTodayAvailable;
 @property (nonatomic) long todayIndex;
+
+
+@property (nonatomic) bool isAccessToEventStoreGranted;
+// The database with calendar events and reminders
+@property (strong, nonatomic) EKEventStore *eventStore;
+
 @end
 
 @implementation HostViewController
@@ -66,6 +74,9 @@ extern NSString *const kRefreshEventActionClicked;
     
     [[SabaClient sharedInstance] showSpinner:YES];
     [self getWeeklyPrograms];
+    
+    //Create the Event Store
+    self.eventStore = [[EKEventStore alloc]init];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -187,6 +198,7 @@ extern NSString *const kRefreshEventActionClicked;
 }
 
 -(void) onRefresh{
+    
     if(self.isRefreshInProgress)
         return;
     
@@ -195,6 +207,7 @@ extern NSString *const kRefreshEventActionClicked;
     [[SabaClient sharedInstance] showSpinner:YES];
     [self refresh];
 }
+
 #pragma mark - Analytics
 
 - (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
@@ -205,6 +218,169 @@ extern NSString *const kRefreshEventActionClicked;
                                                           action:action
                                                            label:label
                                                            value:nil] build]];
+}
+
+// Debug code - ignore it...
+////Check if iOS6 or later is installed on user's device *******************
+//if([self.eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)]) {
+//    
+//    //Request the access to the Calendar
+//    [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted,NSError* error){
+//        
+//        //Access not granted-------------
+//        if(!granted){
+//            NSString *message = @"Hey! I Can't access your Calendar... check your privacy settings to let me in!";
+//            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Warning"
+//                                                               message:message
+//                                                              delegate:self
+//                                                     cancelButtonTitle:@"Ok"
+//                                                     otherButtonTitles:nil,nil];
+//            //Show an alert message!
+//            //UIKit needs every change to be done in the main queue
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [alertView show];
+//            }
+//                           );
+//            
+//            //Access granted------------------
+//        }else{
+//            
+//        }
+//    }];
+//}
+
+////Device prior to iOS 6.0  *********************************************
+//else{
+//    NSLog(@"Prior to iOS 6");
+//}
+
+-(void)askPermissionForCalendarAccess {
+    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    /* iOS 6 requires the user grant your application access to the Event Stores */
+    if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
+    {
+        /* iOS Settings > Privacy > Calendars > MY APP > ENABLE | DISABLE */
+        [eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error) {
+            
+            if (granted) {
+                
+                NSLog(@"granted");
+                //This method checks to make sure the calendar I want exists, then move on from there...
+                
+            } else {
+                
+                //put error popup code here.
+                NSLog(@"denied");
+                ;
+            }
+        }];
+    }
+}
+
+
+
+// 1
+- (EKEventStore *)eventStore {
+    if (!_eventStore) {
+        _eventStore = [[EKEventStore alloc] init];
+    }
+    return _eventStore;
+}
+
+
+- (void)updateAuthorizationStatusToAccessEventStore {
+    // 2
+    EKAuthorizationStatus authorizationStatus = [EKEventStore authorizationStatusForEntityType:EKEntityTypeReminder];
+    
+    switch (authorizationStatus) {
+            // 3
+        case EKAuthorizationStatusDenied:
+        case EKAuthorizationStatusRestricted: {
+            self.isAccessToEventStoreGranted = NO;
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Access Denied"
+                                                                message:@"This app doesn't have access to your Reminders." delegate:nil
+                                                      cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
+            [alertView show];
+            break;
+        }
+            
+            // 4
+        case EKAuthorizationStatusAuthorized:
+            self.isAccessToEventStoreGranted = YES;
+            break;
+            
+            // 5
+        case EKAuthorizationStatusNotDetermined: {
+            __weak HostViewController *weakSelf = self;
+            [self.eventStore requestAccessToEntityType:EKEntityTypeReminder
+                                            completion:^(BOOL granted, NSError *error) {
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    weakSelf.isAccessToEventStoreGranted = granted;
+                                                });
+                                            }];
+            break;
+        }
+    }
+}
+
+#pragma mark -
+#pragma mark Access Calendar
+
+// Check the authorization status of our application for Calendar
+-(void)checkEventStoreAccessForCalendar
+{
+    EKAuthorizationStatus status = [EKEventStore authorizationStatusForEntityType:EKEntityTypeEvent];
+    
+    switch (status)
+    {
+            // Update our UI if the user has granted access to their Calendar
+        case EKAuthorizationStatusAuthorized: [self accessGrantedForCalendar];
+            break;
+            // Prompt the user for access to Calendar if there is no definitive answer
+        case EKAuthorizationStatusNotDetermined: [self requestCalendarAccess];
+            break;
+            // Display a message if the user has denied or restricted access to Calendar
+        case EKAuthorizationStatusDenied:
+        case EKAuthorizationStatusRestricted:
+        {
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Privacy Warning" message:@"Permission was not granted for Calendar"
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
+                                                                    style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+
+// Prompt the user for access to their Calendar
+-(void)requestCalendarAccess
+{
+    [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError *error)
+     {
+         if (granted)
+         {
+             HostViewController * __weak weakSelf = self;
+             // Let's ensure that our code will be executed from the main queue
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // The user has granted access to their Calendar; let's populate our UI with all events occuring in the next 24 hours.
+                 [weakSelf accessGrantedForCalendar];
+             });
+         }
+     }];
+}
+
+
+// This method is called when the user has granted permission to Calendar
+-(void)accessGrantedForCalendar
+{
+    NSLog(@"YAYEEEEEEEEEEEEEEEEE");
 }
 
 @end

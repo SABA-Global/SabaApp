@@ -19,6 +19,7 @@
 -(void) getLiveStreamFeeds:(void (^)(NSDictionary *jsonResponse, NSError *error))completion;
 
 -(void) getPrayTimesWithLatitude:(double)latitude  andLongitude:(double)longitude : (void (^)(NSDictionary *prayerTimes, NSError *error))completion;
+-(void) getPrayerTimeFromSaba:(void (^)(NSDictionary *prayerTimes, NSError *error))completion;
 -(void) getHijriDateFromWeb:(void (^)(NSDictionary *jsonResponse, NSError *error))completion;
 
 // helper functions, should move them to Utils, may be?

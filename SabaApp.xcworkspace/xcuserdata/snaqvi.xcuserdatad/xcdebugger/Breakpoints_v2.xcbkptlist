@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "468494607.026406"
+            timestampString = "496560626.885081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "332"
-            endingLineNumber = "332"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
             landmarkName = "-locationManager:didFailWithError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "468494607.026406"
+            timestampString = "496560626.885081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "338"
-            endingLineNumber = "338"
+            startingLineNumber = "371"
+            endingLineNumber = "371"
             landmarkName = "-locationManager:didFailWithError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "468494607.026406"
+            timestampString = "496560626.885081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "328"
-            endingLineNumber = "328"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
             landmarkName = "-locationManager:didFailWithError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "468494607.026406"
+            timestampString = "496560626.885081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "369"
+            endingLineNumber = "369"
             landmarkName = "-locationManager:didFailWithError:"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "468494607.026406"
+            timestampString = "496560626.885081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "-onTimer"
             landmarkType = "5">
          </BreakpointContent>
@@ -506,11 +506,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "468494607.026406"
+            timestampString = "496560626.885081"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "-showAlert:withMessage:"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,28 +568,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/SabaClient.m"
-            timestampString = "487418502.688289"
+            timestampString = "496559922.731661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "-getHijriDateFromWeb:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SabaApp/PrayerTimesViewController.m"
-            timestampString = "487418826.797873"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "-getPrayerTimesWithPlacemark:withLatitude:withLongitude:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -600,11 +584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SabaApp/SabaClient.m"
-            timestampString = "487419379.766093"
+            timestampString = "496559922.731661"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "107"
-            endingLineNumber = "107"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-sendNetworkRequest1:completion:"
             landmarkType = "5">
          </BreakpointContent>
@@ -702,6 +686,38 @@
             startingLineNumber = "54"
             endingLineNumber = "54"
             landmarkName = "-viewWillAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SabaApp/PrayerTimesViewController.m"
+            timestampString = "496560490.73626"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-getPrayerTimesWithPlacemark:withLatitude:withLongitude:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SabaApp/PrayerTimesViewController.m"
+            timestampString = "496560508.732477"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "-getPrayerTimeFromSaba"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

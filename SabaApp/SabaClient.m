@@ -20,6 +20,7 @@ static NSString *SABA_BASE_URL              = @"http://www.saba-igc.org/mobileap
 static NSString *PRAY_TIME_INFO_BASE_URL    = @"http://praytime.info/getprayertimes.php?school=0";
 static NSString *HIJRI_DATE_URL             = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 static NSString *LIVE_STREAM_FEED_URL       = @"http://www.saba-igc.org/liveStream/liveStreamLinkApp.php";
+static NSString *PRAY_TIM$E_FROM_SABA      = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 
 @implementation SabaClient
 
@@ -85,6 +86,12 @@ static NSString *LIVE_STREAM_FEED_URL       = @"http://www.saba-igc.org/liveStre
 	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_INFO_BASE_URL, minutesFromGMT, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
 	
 	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
+}
+
+-(void) getPrayerTimeFromSaba:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
+    NSURL *url = [NSURL URLWithString:[PRAY_TIM$E_FROM_SABA stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    
+    [self sendNetworkRequest:url completion:completion];
 }
 
 -(void)getHijriDateFromWeb:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{

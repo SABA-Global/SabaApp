@@ -140,36 +140,45 @@ int locationFetchCounter;
 -(void) getPrayerTimesWithPlacemark:(CLPlacemark*)placemark
 						withLatitude:(double)latitude
 						withLongitude:(double)longitude{
-	NSDateComponents *components = [[NSCalendar currentCalendar]
-									components:NSCalendarUnitDay | NSCalendarUnitMonth |
-									NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute
-									fromDate:[NSDate date]];
-	
-	NSInteger day = [components day];
-	NSInteger month = [components month];
 
-	// This date contain "monthNumber-day" format. E,g, "11-6" means December 6th.
-	// Months are zero based in database.
-	NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
-	
-	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:placemark.locality forDate:currDate];
     [self setCityNameWithPlacemark:placemark];
+    if([placemark.locality  isEqual: @"San Jose"]){
+        // call Salat Service on Saba Service
+        [self getPrayerTimeFromSaba];
+    } else {
+        // Getting prayerTimes from Web.
+        [self getPrayerTimeFromWebWithLatitude:latitude withLongitude:longitude];
+    }
+ 
     
-	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
-		// go ahead and fetch the programs via network call.
-		[self getPrayerTimeFromWebWithLatitude:latitude withLongitude:longitude];
-	} else {
-		self.fajrTime.text		= prayerTimes.fajr;
-		self.imsaakTime.text	= prayerTimes.imsaak;
-		self.sunriseTime.text	= prayerTimes.sunrise;
-		self.zuhrTime.text		= prayerTimes.zuhr;
-		self.sunsetTime.text	= prayerTimes.sunset;
-		self.maghribTime.text	= prayerTimes.maghrib;
-		self.midNightTime.text	= prayerTimes.midnight;
-		
-		[[SabaClient sharedInstance] showSpinner:NO];
-		[self showPrayerTimes:YES]; // show the prayertimes
-	}
+    // We have stored prayer times for 10 cities of bay area in SQLite Database. These times sometimes are invalid for Daylight savings. Following code is not being used.
+    //Just keeing it here.
+//    NSDateComponents *components = [[NSCalendar currentCalendar]
+//                                    components:NSCalendarUnitDay | NSCalendarUnitMonth |
+//                                    NSCalendarUnitYear| NSCalendarUnitHour| NSCalendarUnitMinute
+//                                    fromDate:[NSDate date]];
+//    NSInteger day = [components day];
+//    NSInteger month = [components month];
+//    
+//    // This date contain "monthNumber-day" format. E,g, "11-6" means December 6th.
+//    // Months are zero based in database.
+//    NSString *currDate = [NSString stringWithFormat:@"%ld-%ld", (long)month-1, (long)day];
+//	PrayerTimes* prayerTimes = [[DBManager sharedInstance] getPrayerTimesByCity:placemark.locality forDate:currDate];
+// 	if(prayerTimes == nil){ // Most likely, the city we passed in it not available in the database for prayer times.
+//		// go ahead and fetch the programs via network call.
+//		[self getPrayerTimeFromWebWithLatitude:latitude withLongitude:longitude];
+//	} else {
+//		self.fajrTime.text		= prayerTimes.fajr;
+//		self.imsaakTime.text	= prayerTimes.imsaak;
+//		self.sunriseTime.text	= prayerTimes.sunrise;
+//		self.zuhrTime.text		= prayerTimes.zuhr;
+//		self.sunsetTime.text	= prayerTimes.sunset;
+//		self.maghribTime.text	= prayerTimes.maghrib;
+//		self.midNightTime.text	= prayerTimes.midnight;
+//		
+//		[[SabaClient sharedInstance] showSpinner:NO];
+//		[self showPrayerTimes:YES]; // show the prayertimes
+//	}
 }
 
 -(void) getPrayerTimeFromWebWithLatitude:(double)latitude withLongitude:(double)longitude{
@@ -196,6 +205,30 @@ int locationFetchCounter;
 	}];
 }
 
+-(void) getPrayerTimeFromSaba{
+    [[SabaClient sharedInstance] getPrayerTimeFromSaba:^(NSDictionary *prayerTimes, NSError *error) {
+        if (error) {
+            NSLog(@"Error getting getPrayTimes: %@", error);
+            [self trackEventAction:kPrayerTimesGetError withLabel:error.localizedDescription];
+        } else {
+            
+            NSLog(@"PrayTime: %@", prayerTimes);
+            // from web: we don't get midnight time but get Isha time.
+            self.fajrTime.text		= prayerTimes[@"fajar"];
+            self.imsaakTime.text	= prayerTimes[@"imsak"];
+            self.sunriseTime.text	= prayerTimes[@"sunrise"];
+            self.zuhrTime.text		= prayerTimes[@"zuhur"];
+            self.sunsetTime.text	= prayerTimes[@"sunset"];
+            self.maghribTime.text	= prayerTimes[@"maghrib"];
+            self.midNightTime.text	= prayerTimes[@"midnight"];
+            self.midNightLabel.text = @"Midnight";
+            [self showPrayerTimes:YES]; // show the prayertimes
+        }
+        [[SabaClient sharedInstance] showSpinner:NO];
+        
+    }];
+
+}
 // This function sets the cityname, state in the label.
 -(void) setCityNameWithPlacemark:(CLPlacemark *)placemark{
     //    self.cityName.text = [NSString stringWithFormat:@"%@, %@", placemark.locality!=nil?placemark.locality:placemark.administrativeArea,

@@ -142,7 +142,14 @@ int locationFetchCounter;
 						withLongitude:(double)longitude{
 
     [self setCityNameWithPlacemark:placemark];
-    if([placemark.locality  isEqual: @"San Jose"]){
+    if([placemark.locality  isEqual: @"San Jose"] || [placemark.locality  isEqual: @"Milpitas"] ||
+       [placemark.locality  isEqual: @"Sunnyvale"] || [placemark.locality  isEqual: @"Gilroy"] ||
+       [placemark.locality  isEqual: @"Morgan Hill"] || [placemark.locality  isEqual: @"Mountain View"] ||
+       [placemark.locality  isEqual: @"Fremont"] || [placemark.locality  isEqual: @"Santa Clara"] ||
+       [placemark.locality  isEqual: @"Campbell"] || [placemark.locality  isEqual: @"Los Gatos"] ||
+       [placemark.locality  isEqual: @"Cupertino"] || [placemark.locality  isEqual: @"Saratoga"] ||
+       [placemark.locality  isEqual: @"Alum Rock"] || [placemark.locality  isEqual: @"Evergreen"] ||
+       [placemark.locality  isEqual: @"Newark"]){
         // call Salat Service on Saba Service
         [self getPrayerTimeFromSaba];
     } else {

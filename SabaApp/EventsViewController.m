@@ -17,7 +17,8 @@
 #import "DBManager.h"
 
 // Third party libraries
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 extern NSString *const kAnnouncementsView;
 extern NSString *const kEventCategoryAnnouncements;
@@ -60,9 +61,9 @@ extern NSString *const kErrorAnnouncements;
 
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kAnnouncementsView];
-	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kAnnouncementsView];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -291,13 +292,13 @@ extern NSString *const kErrorAnnouncements;
 #pragma mark - Analytics
 
 - (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Create events to track the selected image and selected name.
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryAnnouncements
-														  action:action
-														   label:label
-														   value:nil] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    
+//    // Create events to track the selected image and selected name.
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryAnnouncements
+//                                                          action:action
+//                                                           label:label
+//                                                           value:nil] build]];
 }
 
 @end

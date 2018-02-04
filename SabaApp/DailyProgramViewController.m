@@ -10,7 +10,8 @@
 
 
 // Third party imports
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 #import "DailyProgram.h"
 #import "DailyProgramCell.h"

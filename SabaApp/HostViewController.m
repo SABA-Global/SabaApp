@@ -16,7 +16,8 @@
 #import "CalendarHelper.h"
 #import <EventKit/EventKit.h>
 
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 extern NSString *const kWeeklyScheduleView;
 extern NSString *const kEventCategoryWeeklySchedule;
@@ -211,13 +212,13 @@ extern NSString *const kRefreshEventActionClicked;
 #pragma mark - Analytics
 
 - (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    
-    // Create events to track the selected image and selected name.
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryWeeklySchedule
-                                                          action:action
-                                                           label:label
-                                                           value:nil] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    
+//    // Create events to track the selected image and selected name.
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryWeeklySchedule
+//                                                          action:action
+//                                                           label:label
+//                                                           value:nil] build]];
 }
 
 // Debug code - ignore it...

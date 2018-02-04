@@ -19,7 +19,8 @@
 #import <CoreLocation/CoreLocation.h>
 
 // Thrd pary ibrary
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 extern NSString *const kPrayerTimesView;
 extern NSString *const kEventCategoryPrayerTimes;
@@ -85,9 +86,9 @@ int locationFetchCounter;
 
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kPrayerTimesView];
-	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kPrayerTimesView];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -227,8 +228,8 @@ int locationFetchCounter;
             self.zuhrTime.text		= prayerTimes[@"zuhur"];
             self.sunsetTime.text	= prayerTimes[@"sunset"];
             self.maghribTime.text	= prayerTimes[@"maghrib"];
-            self.midNightTime.text	= prayerTimes[@"midnight"];
-            self.midNightLabel.text = @"Midnight";
+            self.midNightTime.text  = prayerTimes[@"isha"]; // showing Isha time in midnight label. Saba also getting time from web.
+            self.midNightLabel.text = @"Isha";
             [self showPrayerTimes:YES]; // show the prayertimes
         }
         [[SabaClient sharedInstance] showSpinner:NO];
@@ -492,13 +493,13 @@ int locationFetchCounter;
 
 // we might add swipe to refresh later on.
 - (void)trackEventAction:(NSString*) action withLabel:(NSString*) label{
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Create events to track the selected image and selected name.
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryPrayerTimes
-														  action:action
-														   label:label
-														   value:nil] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    
+//    // Create events to track the selected image and selected name.
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryPrayerTimes
+//                                                          action:action
+//                                                           label:label
+//                                                           value:nil] build]];
 }
 
 @end

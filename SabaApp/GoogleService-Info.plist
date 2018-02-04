@@ -2,11 +2,39 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>TRACKING_ID</key>
-	<string>UA-65121409-5</string>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>90863506863-p21ot16rb0ficsrb2nf0rqs2vr703tmr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.90863506863-p21ot16rb0ficsrb2nf0rqs2vr703tmr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAwmZDw5oc6aIRSbSerrlxfQDwYs6M-Xzw</string>
+	<key>GCM_SENDER_ID</key>
+	<string>90863506863</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.naqvi.syed.Saba</string>
+	<key>PROJECT_ID</key>
+	<string>saba-analytics</string>
+	<key>STORAGE_BUCKET</key>
+	<string>saba-analytics.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:90863506863:ios:1a86d833a0674b45</string>
+	<key>DATABASE_URL</key>
+	<string>https://saba-analytics.firebaseio.com</string>
 </dict>
 </plist>

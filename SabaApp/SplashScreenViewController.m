@@ -14,7 +14,8 @@
 #import "WeeklyPrograms.h"
 #import "MainViewController.h"
 
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 #import <SVProgressHUD.h>
 
 @interface SplashScreenViewController ()

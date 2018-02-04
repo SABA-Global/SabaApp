@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeeklyScheduleViewController">
@@ -13,30 +17,27 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleAspectFill" image="weeklyPrograms.png" translatesAutoresizingMaskIntoConstraints="NO" id="zyn-3N-lXD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                    <animations/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="01E-2M-AV4">
-                    <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <color key="separatorColor" red="1" green="1" blue="1" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                    <rect key="frame" x="0.0" y="44" width="375" height="768"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" red="1" green="0.99997437000274658" blue="0.99999129772186279" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                     <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </tableView>
             </subviews>
-            <animations/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="zyn-3N-lXD" secondAttribute="bottom" id="21b-Qs-r5e"/>
                 <constraint firstItem="01E-2M-AV4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9R0-f9-kxy"/>
                 <constraint firstAttribute="trailing" secondItem="zyn-3N-lXD" secondAttribute="trailing" id="CXE-nM-iHg"/>
                 <constraint firstAttribute="bottom" secondItem="01E-2M-AV4" secondAttribute="bottom" id="GAL-sH-ULE"/>
                 <constraint firstItem="zyn-3N-lXD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IU0-3L-JwV"/>
-                <constraint firstItem="01E-2M-AV4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="M6n-4h-93w"/>
+                <constraint firstItem="01E-2M-AV4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="44" id="M6n-4h-93w"/>
                 <constraint firstAttribute="trailing" secondItem="01E-2M-AV4" secondAttribute="trailing" id="eRr-ug-NvT"/>
                 <constraint firstItem="zyn-3N-lXD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="lBl-d9-qDI"/>
             </constraints>

@@ -20,7 +20,8 @@
 
 #import "DailyProgramViewController.h"
 
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 extern NSString *const kWeeklyScheduleView;
 extern NSString *const kEventCategoryWeeklySchedule;
@@ -61,9 +62,9 @@ extern NSString *const kRefreshEventActionClicked;
 
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kWeeklyScheduleView];
-	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kWeeklyScheduleView];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 -(void)viewDidLayoutSubviews
@@ -118,6 +119,8 @@ extern NSString *const kRefreshEventActionClicked;
 	self.navigationItem.rightBarButtonItem = refreshBarButtonItem;
 	
 	self.navigationItem.title = @"Weekly Schedule";
+    self.navigationController.navigationBar.backgroundColor = [UIColor redColor];
+    
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent
@@ -276,13 +279,13 @@ extern NSString *const kRefreshEventActionClicked;
 #pragma mark - Analytics
 
 - (void)trackRefreshEventAction:(NSString*) action withLabel:(NSString*) label{
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	
-	// Create events to track the selected image and selected name.
-	[tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryWeeklySchedule
-														  action:action
-														   label:label
-														   value:nil] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    
+//    // Create events to track the selected image and selected name.
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryWeeklySchedule
+//                                                          action:action
+//                                                           label:label
+//                                                           value:nil] build]];
 }
 
 @end

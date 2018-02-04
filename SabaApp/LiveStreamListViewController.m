@@ -12,7 +12,8 @@
 #import "SabaClient.h"
 
 // Third party libraries
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 // Category
 extern NSString *const kEventCategoryLiveStreamFeeds;
@@ -51,9 +52,9 @@ extern NSString *const kLiveStreamListView;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kLiveStreamListView];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kLiveStreamListView];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 #pragma LiveStreamFeed Request.
@@ -141,13 +142,13 @@ extern NSString *const kLiveStreamListView;
 #pragma mark - Analytics
 
 - (void) sendTrackLiveStreamViewEventAction:(NSString*) action withLabel:(NSString*) label{
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    
-    // Create events to track the selected image and selected name.
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryLiveStreamFeeds
-                                                          action:action
-                                                           label:label
-                                                           value:nil] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//
+//    // Create events to track the selected image and selected name.
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryLiveStreamFeeds
+//                                                          action:action
+//                                                           label:label
+//                                                           value:nil] build]];
 }
 
 - (void)didReceiveMemoryWarning {

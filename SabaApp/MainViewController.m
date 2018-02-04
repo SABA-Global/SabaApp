@@ -11,7 +11,9 @@
 // Third party imports
 #import "AFNetworking.h"
 #import "UIImageView+AFNetworking.h"
-#import <Google/Analytics.h>
+
+@import Firebase;
+//#import <Google/Analytics.h>
 
 // CollectionView Cell
 #import "SabaCell.h"
@@ -63,9 +65,9 @@ extern NSString *const kMainView;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kMainView];
-	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kMainView];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -91,19 +93,31 @@ extern NSString *const kMainView;
 	return size;
 }
 
+//https://stackoverflow.com/questions/15337876/uitableviewcell-custom-selectedbackgroundview-issue
 -(UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
 	SabaCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SabaCell" forIndexPath:indexPath];
 	
 	// This is how you change the background color when we click on the tile. We might find a better sol.
-	UIView *bgSelectedColorView = [[UIView alloc] init];
-	bgSelectedColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.15];
-	[cell setSelectedBackgroundView:bgSelectedColorView];
-	
+//    UIView *bgSelectedColorView = [[UIView alloc] init];
+//    bgSelectedColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.05];
+//    [cell setSelectedBackgroundView:bgSelectedColorView];
+    
+    // Set selected background view
+    UIView *bgSelectedColorView = [[UIView alloc] init];
+    bgSelectedColorView.layer.backgroundColor = [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:.1]CGColor];
+    //bgSelectedColorView.layer.borderWidth = 1.0f;
+    [cell setSelectedBackgroundView:bgSelectedColorView];
+
+    // this code displays the border lines around the cell.
+//    UIView *bgColorView = [[UIView alloc] init];
+//    bgColorView.layer.borderColor = [[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:.2]CGColor];
+//    bgColorView.layer.borderWidth = 1.0f;
+//    [cell setBackgroundView:bgColorView];
+    
 //	UIView *bgColorView = [[UIView alloc] init];
 //	bgColorView.backgroundColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:.05];
 //	[cell setBackgroundView:bgColorView];
 
-	
 //	cell.layer.borderWidth = 0.5f;
 //	cell.layer.borderColor = [UIColor colorWithRed:255.0f/255.0f
 //											 green:255.0f/255.0f

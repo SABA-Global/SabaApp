@@ -10,7 +10,7 @@
 #import "SabaClient.h"
 
 // Third party libraries
-#import <Google/Analytics.h>
+//#import <Google/Analytics.h>
 
 // Category
 extern NSString *const kEventCategoryLiveStreamView;
@@ -47,12 +47,12 @@ extern NSString *const kLiveStreamMajlisPaused;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
     NSString *screenName = @"LiveStream Majlis in ";
     screenName =[screenName stringByAppendingString:self.hallName];
     
-    [tracker set:kGAIScreenName value:screenName];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    [tracker set:kGAIScreenName value:screenName];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)playerView:(YTPlayerView *)playerView didChangeToState:(YTPlayerState)state {
@@ -131,20 +131,20 @@ extern NSString *const kLiveStreamMajlisPaused;
 #pragma mark - Analytics
 
 -(void) sendTrackScreenLaunchEvent{
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:kLiveStreamView];
-    [tracker set:kGAITitle value:self.hallName];
-    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kLiveStreamView];
+//    [tracker set:kGAITitle value:self.hallName];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 - (void)trackEventAction:(NSString*) action withLabel:(NSString*) label{
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    
-    // Create events to track the selected image and selected name.
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryLiveStreamView
-                                                          action:action
-                                                           label:label
-                                                           value:nil] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    
+//    // Create events to track the selected image and selected name.
+//    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:kEventCategoryLiveStreamView
+//                                                          action:action
+//                                                           label:label
+//                                                           value:nil] build]];
 }
 
 @end

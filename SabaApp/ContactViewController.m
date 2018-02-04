@@ -12,7 +12,8 @@
 #import "CustomAnnotation.h"
 #import "SabaClient.h"
 
-#import <Google/Analytics.h>
+@import Firebase;
+//#import <Google/Analytics.h>
 
 extern NSString *const kContactDirectionsView;
 
@@ -30,9 +31,9 @@ extern NSString *const kContactDirectionsView;
 
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
-	id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-	[tracker set:kGAIScreenName value:kContactDirectionsView];
-	[tracker send:[[GAIDictionaryBuilder createScreenView] build]];
+//    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+//    [tracker set:kGAIScreenName value:kContactDirectionsView];
+//    [tracker send:[[GAIDictionaryBuilder createScreenView] build]];
 }
 
 #pragma mark Delegate Methods

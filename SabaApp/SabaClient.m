@@ -20,7 +20,7 @@ static NSString *SABA_BASE_URL              = @"http://www.saba-igc.org/mobileap
 //static NSString *PRAY_TIME_INFO_BASE_URL    = @"http://praytime.info/getprayertimes.php?school=0";
 static NSString *HIJRI_DATE_URL             = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 static NSString *LIVE_STREAM_FEED_URL       = @"http://www.saba-igc.org/liveStream/liveStreamLinkApp.php";
-static NSString *PRAY_TIME_FROM_SABA_URL    = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
+static NSString *PRAY_TIME_FROM_SABA_URL    = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php?";
 
 @implementation SabaClient
 
@@ -74,15 +74,11 @@ static NSString *PRAY_TIME_FROM_SABA_URL    = @"http://www.saba-igc.org/prayerTi
 
 -(void) getPrayTimesWithLatitude:(double)latitude andLongitude:(double)longitude : (void (^)(NSDictionary* prayerTimes, NSError *error))completion {
 	
-	NSDateComponents *components = [[NSCalendar currentCalendar]
-									components:NSCalendarUnitDay | NSCalendarUnitMonth |
-									NSCalendarUnitYear fromDate:[NSDate date]];
-	
 	NSTimeZone *timeZone = [NSTimeZone defaultTimeZone];
 	double hoursFromGMT = [timeZone secondsFromGMT]/(60*60); // it will give me hours...
 	NSLog(@"minutesFromGMT: %f", hoursFromGMT);
-
-	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_FROM_SABA_URL, hoursFromGMT, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
+    
+	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&log=%f", PRAY_TIME_FROM_SABA_URL, hoursFromGMT, latitude, longitude];
 	
 	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
 }

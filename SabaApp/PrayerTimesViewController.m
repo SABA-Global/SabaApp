@@ -250,8 +250,7 @@ int locationFetchCounter;
     self.zuhrTime.text        = prayerTimes[@"zuhur"];
     self.sunsetTime.text    = prayerTimes[@"sunset"];
     self.maghribTime.text    = prayerTimes[@"maghrib"];
-    self.midNightTime.text  = prayerTimes[@"isha"]; // showing Isha time in midnight label. Saba also getting time from web.
-    self.midNightLabel.text = @"Isha";
+    self.midNightTime.text  = prayerTimes[@"midnight"]; // showing Isha time in midnight label. Saba also getting time from web.
     [self showPrayerTimes:YES]; // show the prayertimes
 }
 

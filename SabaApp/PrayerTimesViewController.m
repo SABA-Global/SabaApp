@@ -18,6 +18,10 @@
 #import <MapKit/MapKit.h>  
 #import <CoreLocation/CoreLocation.h>
 
+#import <JavaScriptCore/JavaScriptCore.h>
+
+#import "PrayTime.h"
+
 // Thrd pary ibrary
 @import Firebase;
 //#import <Google/Analytics.h>
@@ -84,6 +88,33 @@ int locationFetchCounter;
 	[self showDates];
 }
 
+// This function is not used at this time. Will be used when we calculate the prayer times
+// locally. Lets not remove it.
+- (NSString *)loadJsFromFile
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"PrayTimes" ofType:@"js"];
+    NSString *jsScript = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+    JSContext *context = [[JSContext alloc] init];
+    [context evaluateScript: jsScript];
+    JSValue *function = context[@"getDailyPrayTimes"];
+    
+    //lon:-121.893028
+    //NSString* lat = @"37.335480";
+    JSValue* result = [function callWithArguments:nil];
+    NSDictionary* dic = [result toDictionary]; // this disctionary returns the paryers times.
+    
+    return jsScript;
+}
+
+- (void)runJavaScript
+{
+    JSContext *context = [[JSContext alloc] init];
+    //[context evaluateScript: self.javascriptText.text];
+    JSValue *function = context[@"PrayTime"];
+    JSValue* result = [function callWithArguments:nil];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
 	//Provide a name for the screen and execute tracking.
 //    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
@@ -142,20 +173,28 @@ int locationFetchCounter;
 						withLatitude:(double)latitude
 						withLongitude:(double)longitude{
 
+    // After having the detailed discussion with Saba board, speciay Muzaafar bhai. We should display San Jose times
+    // for following Cities.
+    
     [self setCityNameWithPlacemark:placemark];
-    if([placemark.locality  isEqual: @"San Jose"] || [placemark.locality  isEqual: @"Milpitas"] ||
-       [placemark.locality  isEqual: @"Sunnyvale"] || [placemark.locality  isEqual: @"Gilroy"] ||
+    if([placemark.locality  isEqual: @"San Jose"]    || [placemark.locality  isEqual: @"Milpitas"]      ||
+       [placemark.locality  isEqual: @"Sunnyvale"]   || [placemark.locality  isEqual: @"Gilroy"]        ||
        [placemark.locality  isEqual: @"Morgan Hill"] || [placemark.locality  isEqual: @"Mountain View"] ||
-       [placemark.locality  isEqual: @"Fremont"] || [placemark.locality  isEqual: @"Santa Clara"] ||
-       [placemark.locality  isEqual: @"Campbell"] || [placemark.locality  isEqual: @"Los Gatos"] ||
-       [placemark.locality  isEqual: @"Cupertino"] || [placemark.locality  isEqual: @"Saratoga"] ||
-       [placemark.locality  isEqual: @"Alum Rock"] || [placemark.locality  isEqual: @"Evergreen"] ||
+       [placemark.locality  isEqual: @"Fremont"]     || [placemark.locality  isEqual: @"Santa Clara"]   ||
+       [placemark.locality  isEqual: @"Campbell"]    || [placemark.locality  isEqual: @"Los Gatos"]     ||
+       [placemark.locality  isEqual: @"Cupertino"]   || [placemark.locality  isEqual: @"Saratoga"]      ||
+       [placemark.locality  isEqual: @"Alum Rock"]   || [placemark.locality  isEqual: @"Evergreen"]     ||
        [placemark.locality  isEqual: @"Newark"]){
-        // call Salat Service on Saba Service
-        [self getPrayerTimeFromSaba];
+        // call Salat Service on Saba Service for San Jose times.
+        
+        // San Jose, CA -  lat and lon
+        double sanJoseLatitude  = 37.335480;
+        double sanJoseLongitude = -121.893028;
+        
+        [self getPrayerTimeFromSabaWithLatitude:sanJoseLatitude withLongitude:sanJoseLongitude];
     } else {
-        // Getting prayerTimes from Web.
-        [self getPrayerTimeFromWebWithLatitude:latitude withLongitude:longitude];
+        // Getting prayerTimes from Saba for specific lat and lon.
+        [self getPrayerTimeFromSabaWithLatitude:latitude withLongitude:longitude];
     }
  
     
@@ -189,54 +228,33 @@ int locationFetchCounter;
 //	}
 }
 
--(void) getPrayerTimeFromWebWithLatitude:(double)latitude withLongitude:(double)longitude{
+-(void) getPrayerTimeFromSabaWithLatitude:(double)latitude withLongitude:(double)longitude{
 	[[SabaClient sharedInstance] getPrayTimesWithLatitude:latitude andLongitude:longitude :^(NSDictionary *prayerTimes, NSError *error) {
 		if (error) {
 			NSLog(@"Error getting getPrayTimes: %@", error);
             [self trackEventAction:kPrayerTimesGetError withLabel:error.localizedDescription];
 		} else {
-			
-			NSLog(@"PrayTime: %@", prayerTimes);
-			// from web: we don't get midnight time but get Isha time.
-			self.fajrTime.text		= [self getAMPMTime:prayerTimes[@"Fajr"]];
-			self.imsaakTime.text	= [self getAMPMTime:prayerTimes[@"Imsaak"]];
-			self.sunriseTime.text	= [self getAMPMTime:prayerTimes[@"Sunrise"]];
-			self.zuhrTime.text		= [self getAMPMTime:prayerTimes[@"Dhuhr"]];
-			self.sunsetTime.text	= [self getAMPMTime:prayerTimes[@"Sunset"]];
-			self.maghribTime.text	= [self getAMPMTime:prayerTimes[@"Maghrib"]];
-			self.midNightTime.text	= [self getAMPMTime:prayerTimes[@"Isha"]]; // showing Isha time in midnight label.
-			self.midNightLabel.text = @"Isha";
+			[self updatePrayerTimesOnUI:prayerTimes];
             [self showPrayerTimes:YES]; // show the prayertimes
 		}
 		[[SabaClient sharedInstance] showSpinner:NO];
-		
 	}];
 }
 
--(void) getPrayerTimeFromSaba{
-    [[SabaClient sharedInstance] getPrayerTimeFromSaba:^(NSDictionary *prayerTimes, NSError *error) {
-        if (error) {
-            NSLog(@"Error getting getPrayTimes: %@", error);
-            [self trackEventAction:kPrayerTimesGetError withLabel:error.localizedDescription];
-        } else {
-            
-            NSLog(@"PrayTime: %@", prayerTimes);
-            // from web: we don't get midnight time but get Isha time.
-            self.fajrTime.text		= prayerTimes[@"fajar"];
-            self.imsaakTime.text	= prayerTimes[@"imsak"];
-            self.sunriseTime.text	= prayerTimes[@"sunrise"];
-            self.zuhrTime.text		= prayerTimes[@"zuhur"];
-            self.sunsetTime.text	= prayerTimes[@"sunset"];
-            self.maghribTime.text	= prayerTimes[@"maghrib"];
-            self.midNightTime.text  = prayerTimes[@"isha"]; // showing Isha time in midnight label. Saba also getting time from web.
-            self.midNightLabel.text = @"Isha";
-            [self showPrayerTimes:YES]; // show the prayertimes
-        }
-        [[SabaClient sharedInstance] showSpinner:NO];
-        
-    }];
-
+-(void) updatePrayerTimesOnUI:(NSDictionary*)prayerTimes{
+    NSLog(@"PrayTime: %@", prayerTimes);
+    // from Saba: We get ISHA time as mid night time.
+    self.fajrTime.text        = prayerTimes[@"fajar"];
+    self.imsaakTime.text    = prayerTimes[@"imsak"];
+    self.sunriseTime.text    = prayerTimes[@"sunrise"];
+    self.zuhrTime.text        = prayerTimes[@"zuhur"];
+    self.sunsetTime.text    = prayerTimes[@"sunset"];
+    self.maghribTime.text    = prayerTimes[@"maghrib"];
+    self.midNightTime.text  = prayerTimes[@"isha"]; // showing Isha time in midnight label. Saba also getting time from web.
+    self.midNightLabel.text = @"Isha";
+    [self showPrayerTimes:YES]; // show the prayertimes
 }
+
 // This function sets the cityname, state in the label.
 -(void) setCityNameWithPlacemark:(CLPlacemark *)placemark{
     //    self.cityName.text = [NSString stringWithFormat:@"%@, %@", placemark.locality!=nil?placemark.locality:placemark.administrativeArea,

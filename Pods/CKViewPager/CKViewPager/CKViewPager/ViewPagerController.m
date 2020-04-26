@@ -18,13 +18,13 @@ static const CGFloat kTabOffset = 56.0f;
 static const CGFloat kTabWidth = 128.0;
 static const CGFloat kIndicatorHeight = 5.0;
 static const BOOL kStartFromSecondTab = NO;
-static const BOOL kCenterCurrentTab = YES;
+static const BOOL kCenterCurrentTab = NO;
 static const BOOL kFixFormerTabsPositions = NO;
 static const BOOL kFixLatterTabsPositions = NO;
 
-#define kIndicatorColor [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:0.50]
-#define kTabsViewBackgroundColor [UIColor colorWithRed:31.0/255.0 green:44.0/255.0 blue:49.0/255.0 alpha:1.0]
-#define kContentViewBackgroundColor [UIColor colorWithRed:31.0/255.0 green:44.0/255.0 blue:49.0/255.0 alpha:1.0]
+#define kIndicatorColor [UIColor colorWithRed:178.0/255.0 green:203.0/255.0 blue:57.0/255.0 alpha:0.75]
+#define kTabsViewBackgroundColor [UIColor colorWithRed:234.0/255.0 green:234.0/255.0 blue:234.0/255.0 alpha:.75]
+#define kContentViewBackgroundColor [UIColor colorWithRed:248.0/255.0 green:248.0/255.0 blue:248.0/255.0 alpha:0.75]
 #define kDividerColor [UIColor grayColor]
 
 #pragma mark - UIColor+Equality

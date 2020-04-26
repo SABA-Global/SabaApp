@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		68C07F322D0F2201559A2059 /* libPods-Saba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68D0DD2F345217093D23F9F1 /* libPods-Saba.a */; };
+		D6F0FDD11B3BAD8EAFDFCF0D /* libPods-Saba.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B06114B3DF5C00DEDCD8E250 /* libPods-Saba.a */; };
+		E8F548A62454280500179486 /* PrayTime.m in Sources */ = {isa = PBXBuildFile; fileRef = E8F548A52454280500179486 /* PrayTime.m */; };
+		E8F548A924546F4C00179486 /* PrayTimes.js in Resources */ = {isa = PBXBuildFile; fileRef = E8F548A824546F4B00179486 /* PrayTimes.js */; };
 		FA1788EC1BE0A59500E9BEED /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EA1BE0A59500E9BEED /* HostViewController.m */; };
 		FA1788ED1BE0A59500E9BEED /* HostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA1788EB1BE0A59500E9BEED /* HostViewController.xib */; };
 		FA1788F01BE0A6A100E9BEED /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA1788EF1BE0A6A100E9BEED /* ContentViewController.m */; };
@@ -106,9 +108,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F25B50B0270594ACB2CFDA6 /* Pods-Saba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saba.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Saba/Pods-Saba.debug.xcconfig"; sourceTree = "<group>"; };
-		25ED69DD879C035FA118804C /* Pods-Saba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saba.release.xcconfig"; path = "Pods/Target Support Files/Pods-Saba/Pods-Saba.release.xcconfig"; sourceTree = "<group>"; };
-		68D0DD2F345217093D23F9F1 /* libPods-Saba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Saba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A135A27CDEEEFDA76E529128 /* Pods-Saba.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saba.release.xcconfig"; path = "Target Support Files/Pods-Saba/Pods-Saba.release.xcconfig"; sourceTree = "<group>"; };
+		A9FC39289092F08E0E49A8DE /* Pods-Saba.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Saba.debug.xcconfig"; path = "Target Support Files/Pods-Saba/Pods-Saba.debug.xcconfig"; sourceTree = "<group>"; };
+		B06114B3DF5C00DEDCD8E250 /* libPods-Saba.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Saba.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8F548A52454280500179486 /* PrayTime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrayTime.m; sourceTree = "<group>"; };
+		E8F548A72454282A00179486 /* PrayTime.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrayTime.h; sourceTree = "<group>"; };
+		E8F548A824546F4B00179486 /* PrayTimes.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = PrayTimes.js; path = SabaApp/PrayTimes.js; sourceTree = "<group>"; };
 		FA1788E91BE0A59500E9BEED /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		FA1788EA1BE0A59500E9BEED /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		FA1788EB1BE0A59500E9BEED /* HostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HostViewController.xib; sourceTree = "<group>"; };
@@ -249,7 +254,7 @@
 				FA26E74D1BF1A6C4008B1EB0 /* EventKit.framework in Frameworks */,
 				FA26E74E1BF1A6C4008B1EB0 /* EventKitUI.framework in Frameworks */,
 				FA98DC171B16B09E00C6BE19 /* MapKit.framework in Frameworks */,
-				68C07F322D0F2201559A2059 /* libPods-Saba.a in Frameworks */,
+				D6F0FDD11B3BAD8EAFDFCF0D /* libPods-Saba.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,18 +277,18 @@
 				FA26E74B1BF1A6C4008B1EB0 /* EventKit.framework */,
 				FA26E74C1BF1A6C4008B1EB0 /* EventKitUI.framework */,
 				FA98DC161B16B09E00C6BE19 /* MapKit.framework */,
-				68D0DD2F345217093D23F9F1 /* libPods-Saba.a */,
+				B06114B3DF5C00DEDCD8E250 /* libPods-Saba.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		9EF914B92F7462867CBDA85B /* Pods */ = {
+		B693BA2B67B82E3A3D2BB360 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0F25B50B0270594ACB2CFDA6 /* Pods-Saba.debug.xcconfig */,
-				25ED69DD879C035FA118804C /* Pods-Saba.release.xcconfig */,
+				A9FC39289092F08E0E49A8DE /* Pods-Saba.debug.xcconfig */,
+				A135A27CDEEEFDA76E529128 /* Pods-Saba.release.xcconfig */,
 			);
-			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		FA1788E51BDEE80200E9BEED /* ICViewPager */ = {
@@ -373,13 +378,14 @@
 		FADD45561AE8DE180022FE96 = {
 			isa = PBXGroup;
 			children = (
+				E8F548A824546F4B00179486 /* PrayTimes.js */,
 				FAB9E3C61BB12C2D00FD803A /* Default-568h@2x.png */,
 				FA1EB65E1B0515E300617B1B /* Saba.db */,
 				FADD45611AE8DE180022FE96 /* SabaApp */,
 				FADD457B1AE8DE190022FE96 /* SabaAppTests */,
 				FADD45601AE8DE180022FE96 /* Products */,
 				62606E792295D5246B69CECD /* Frameworks */,
-				9EF914B92F7462867CBDA85B /* Pods */,
+				B693BA2B67B82E3A3D2BB360 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -533,6 +539,8 @@
 				FAEE9DE91AEDEE15004059B8 /* PrayerTimesViewController.h */,
 				FAEE9DEA1AEDEE15004059B8 /* PrayerTimesViewController.m */,
 				FAEE9DEB1AEDEE15004059B8 /* PrayerTimesViewController.xib */,
+				E8F548A52454280500179486 /* PrayTime.m */,
+				E8F548A72454282A00179486 /* PrayTime.h */,
 			);
 			name = PrayerTimes;
 			sourceTree = "<group>";
@@ -653,12 +661,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FADD45821AE8DE190022FE96 /* Build configuration list for PBXNativeTarget "Saba" */;
 			buildPhases = (
-				33F49B3FB3154EB5981C5296 /* [CP] Check Pods Manifest.lock */,
+				5552859716DE562138975A99 /* [CP] Check Pods Manifest.lock */,
 				FADD455B1AE8DE180022FE96 /* Sources */,
 				FADD455C1AE8DE180022FE96 /* Frameworks */,
 				FADD455D1AE8DE180022FE96 /* Resources */,
-				EDE98AC1C4FD0FF9F606405C /* [CP] Embed Pods Frameworks */,
-				FCCF264787391D63609536EA /* [CP] Copy Pods Resources */,
+				CA9429F69631060BA1E3CCAA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -794,6 +801,7 @@
 				FA192D4D1AF1AF7B00D6EE85 /* ProgramCell.xib in Resources */,
 				FAB9E3C71BB12C2D00FD803A /* Default-568h@2x.png in Resources */,
 				FAEE9DE31AEDEDC5004059B8 /* WeeklyScheduleViewController.xib in Resources */,
+				E8F548A924546F4C00179486 /* PrayTimes.js in Resources */,
 				FA9045141B5271CD0098497E /* GoogleService-Info.plist in Resources */,
 				FAEDFE011B3508FC00C276BD /* Saturday.png in Resources */,
 			);
@@ -809,7 +817,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33F49B3FB3154EB5981C5296 /* [CP] Check Pods Manifest.lock */ = {
+		5552859716DE562138975A99 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -827,38 +835,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EDE98AC1C4FD0FF9F606405C /* [CP] Embed Pods Frameworks */ = {
+		CA9429F69631060BA1E3CCAA /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saba/Pods-Saba-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FCCF264787391D63609536EA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Saba/Pods-Saba-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Saba/Pods-Saba-resources.sh",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 				"${PODS_ROOT}/youtube-ios-player-helper/youtube-ios-player-helper/Assets.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Assets.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Saba/Pods-Saba-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Saba/Pods-Saba-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -908,6 +902,7 @@
 				FAEE9DE71AEDEDDE004059B8 /* EventsViewController.m in Sources */,
 				FAEE9DEC1AEDEE15004059B8 /* PrayerTimesViewController.m in Sources */,
 				FAEE9E0C1AEFE888004059B8 /* DailyProgram.m in Sources */,
+				E8F548A62454280500179486 /* PrayTime.m in Sources */,
 				FAEE9E011AEE20C1004059B8 /* SettingsViewController.m in Sources */,
 				FADD458C1AE8DED60022FE96 /* MainViewController.m in Sources */,
 				FADD45651AE8DE180022FE96 /* main.m in Sources */,
@@ -1090,7 +1085,7 @@
 		};
 		FADD45831AE8DE190022FE96 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F25B50B0270594ACB2CFDA6 /* Pods-Saba.debug.xcconfig */;
+			baseConfigurationReference = A9FC39289092F08E0E49A8DE /* Pods-Saba.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
@@ -1113,7 +1108,7 @@
 		};
 		FADD45841AE8DE190022FE96 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25ED69DD879C035FA118804C /* Pods-Saba.release.xcconfig */;
+			baseConfigurationReference = A135A27CDEEEFDA76E529128 /* Pods-Saba.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";

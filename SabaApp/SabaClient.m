@@ -9,7 +9,7 @@
 #import "SabaClient.h"
 
 #import "Program.h"
-#import "appDelegate.h"
+#import "AppDelegate.h"
 
 // Third party libraries.
 #import "UIImageView+AFNetworking.h"
@@ -17,10 +17,10 @@
 #import "SVProgressHUD.h"
 
 static NSString *SABA_BASE_URL              = @"http://www.saba-igc.org/mobileapp/datafeedproxy.php?sheetName=weekly&sheetId=";
-static NSString *PRAY_TIME_INFO_BASE_URL    = @"http://praytime.info/getprayertimes.php?school=0";
+//static NSString *PRAY_TIME_INFO_BASE_URL    = @"http://praytime.info/getprayertimes.php?school=0";
 static NSString *HIJRI_DATE_URL             = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 static NSString *LIVE_STREAM_FEED_URL       = @"http://www.saba-igc.org/liveStream/liveStreamLinkApp.php";
-static NSString *PRAY_TIM$E_FROM_SABA      = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
+static NSString *PRAY_TIME_FROM_SABA_URL    = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 
 @implementation SabaClient
 
@@ -79,17 +79,16 @@ static NSString *PRAY_TIM$E_FROM_SABA      = @"http://www.saba-igc.org/prayerTim
 									NSCalendarUnitYear fromDate:[NSDate date]];
 	
 	NSTimeZone *timeZone = [NSTimeZone defaultTimeZone];
-	double minutesFromGMT = [timeZone secondsFromGMT]/60; // it will give me minutes...
-	NSLog(@"minutesFromGMT: %f", minutesFromGMT);
+	double hoursFromGMT = [timeZone secondsFromGMT]/(60*60); // it will give me hours...
+	NSLog(@"minutesFromGMT: %f", hoursFromGMT);
 
-	
-	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_INFO_BASE_URL, minutesFromGMT, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
+	NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&lon=%f&m=%ld&d=%ld&y=%ld", PRAY_TIME_FROM_SABA_URL, hoursFromGMT, latitude, longitude, (long)[components month], (long)[components day], (long)[components year]];
 	
 	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
 }
 
 -(void) getPrayerTimeFromSaba:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
-    NSURL *url = [NSURL URLWithString:[PRAY_TIM$E_FROM_SABA stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSURL *url = [NSURL URLWithString:[PRAY_TIME_FROM_SABA_URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     
     [self sendNetworkRequest:url completion:completion];
 }

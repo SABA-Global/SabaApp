@@ -70,6 +70,8 @@ extern NSString *const kRefreshEventActionClicked;
     self.arrayDays = [[DBManager sharedInstance] getUniqueDays];
     
     self.isTodayAvailable = [self isTodayAvailableInSchedule];
+    
+    self.tabsViewBackgroundColor = [UIColor clearColor];
     [self setupNavigationBar];
     [self loadContent];
     

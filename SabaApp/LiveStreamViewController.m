@@ -35,8 +35,10 @@ extern NSString *const kLiveStreamMajlisPaused;
     // Do any additional setup after loading the view from its nib.
     
     self.playerView.delegate = self;
+   // self.background = [UIColor clearColor];
     [self.playerView loadWithVideoId:self.videoId];
     self.navigationItem.title = self.hallName;
+    self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
 }
 
 -(void) setupNavigationBar{

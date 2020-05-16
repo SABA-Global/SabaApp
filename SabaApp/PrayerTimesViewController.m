@@ -197,7 +197,6 @@ int locationFetchCounter;
         [self getPrayerTimeFromSabaWithLatitude:latitude withLongitude:longitude];
     }
  
-    
     // We have stored prayer times for 10 cities of bay area in SQLite Database. These times sometimes are invalid for Daylight savings. Following code is not being used.
     //Just keeing it here.
 //    NSDateComponents *components = [[NSCalendar currentCalendar]
@@ -233,12 +232,30 @@ int locationFetchCounter;
 		if (error) {
 			NSLog(@"Error getting getPrayTimes: %@", error);
             [self trackEventAction:kPrayerTimesGetError withLabel:error.localizedDescription];
+            
+            // We are not able to fetch the prayer times from Saba's url, lets try via IP.
+            // This is a fallback mechanism for those areas where saba's url is not accessible.
+            // (work-around)
+            [self getPrayerTimeFromSabaViaIPWithLatitude:latitude withLongitude:longitude];
 		} else {
 			[self updatePrayerTimesOnUI:prayerTimes];
             [self showPrayerTimes:YES]; // show the prayertimes
 		}
 		[[SabaClient sharedInstance] showSpinner:NO];
 	}];
+}
+
+-(void) getPrayerTimeFromSabaViaIPWithLatitude:(double)latitude withLongitude:(double)longitude{
+    [[SabaClient sharedInstance] getPrayTimesViaIPWithLatitude:latitude andLongitude:longitude :^(NSDictionary *prayerTimes, NSError *error) {
+        if (error) {
+            NSLog(@"Error getting getPrayTimes: %@", error);
+            [self trackEventAction:kPrayerTimesGetError withLabel:error.localizedDescription];
+        } else {
+            [self updatePrayerTimesOnUI:prayerTimes];
+            [self showPrayerTimes:YES]; // show the prayertimes
+        }
+        [[SabaClient sharedInstance] showSpinner:NO];
+    }];
 }
 
 -(void) updatePrayerTimesOnUI:(NSDictionary*)prayerTimes{

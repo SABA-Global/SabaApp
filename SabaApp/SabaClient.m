@@ -21,6 +21,7 @@ static NSString *SABA_BASE_URL              = @"http://www.saba-igc.org/mobileap
 static NSString *HIJRI_DATE_URL             = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php";
 static NSString *LIVE_STREAM_FEED_URL       = @"http://www.saba-igc.org/liveStream/liveStreamLinkApp.php";
 static NSString *PRAY_TIME_FROM_SABA_URL    = @"http://www.saba-igc.org/prayerTimes/salatDataService/salatDataService.php?";
+static NSString *PRAY_TIME_FROM_SABA_URL_IP    = @"http://50.87.86.31/prayerTimes/salatDataService/salatDataService.php?";
 
 @implementation SabaClient
 
@@ -83,11 +84,22 @@ static NSString *PRAY_TIME_FROM_SABA_URL    = @"http://www.saba-igc.org/prayerTi
 	[self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
 }
 
--(void) getPrayerTimeFromSaba:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
-    NSURL *url = [NSURL URLWithString:[PRAY_TIME_FROM_SABA_URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+-(void) getPrayTimesViaIPWithLatitude:(double)latitude andLongitude:(double)longitude : (void (^)(NSDictionary* prayerTimes, NSError *error))completion {
     
-    [self sendNetworkRequest:url completion:completion];
+    NSTimeZone *timeZone = [NSTimeZone defaultTimeZone];
+    double hoursFromGMT = [timeZone secondsFromGMT]/(60*60); // it will give me hours...
+    NSLog(@"minutesFromGMT: %f", hoursFromGMT);
+    
+    NSString  *url = [NSString stringWithFormat:@"%@&gmt=%f&lat=%f&log=%f", PRAY_TIME_FROM_SABA_URL_IP, hoursFromGMT, latitude, longitude];
+    
+    [self sendNetworkRequest1:[NSURL URLWithString:url] completion:completion];
 }
+
+//-(void) getPrayerTimeFromSaba:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
+//    NSURL *url = [NSURL URLWithString:[PRAY_TIME_FROM_SABA_URL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+//
+//    [self sendNetworkRequest:url completion:completion];
+//}
 
 -(void)getHijriDateFromWeb:(void (^)(NSDictionary *jsonResponse, NSError *error))completion{
 	[self sendNetworkRequest1:[NSURL URLWithString:HIJRI_DATE_URL] completion:completion];
